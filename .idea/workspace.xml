@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9ecf9c1-339d-4ccd-838b-1a5e39be2100" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/ForgeEventSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/ModUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/block/MiniModelBlock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/client/ClientForgeEventSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/client/ClientModEventSubscriber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/client/render/tileentity/MiniModelTileEntityRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/config/ClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/config/ConfigHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/config/ConfigHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/config/ServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/config/TerracraftiaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/init/ModBlocks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/init/ModItemGroups.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/init/ModItems.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/init/ModTileEntityTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/tileentity/MiniModelTileEntity.java" afterDir="false" />
-    </list>
+    <list default="true" id="e9ecf9c1-339d-4ccd-838b-1a5e39be2100" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -61,14 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/block/MiniModelBlock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-170">
+            <state relative-caret-position="34">
               <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-              <folding>
-                <element signature="e#631#632#0" expanded="true" />
-                <element signature="e#664#665#0" expanded="true" />
-                <element signature="e#738#739#0" expanded="true" />
-                <element signature="e#765#766#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -76,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="136">
               <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -89,7 +66,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/pack.mcmeta">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -144,7 +121,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="634" />
     <option name="width" value="974" />
     <option name="height" value="916" />
@@ -157,8 +134,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -203,6 +178,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -267,9 +244,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="916" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="916" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21079692" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21336761" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -303,13 +281,7 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.toml" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/examplemod/ExampleMod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/examplemod/ExampleMod.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/mods.toml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -478,22 +450,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/meme.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/block/MiniModelBlock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
+        <state relative-caret-position="34">
           <caret line="2" column="40" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-          <folding>
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#738#739#0" expanded="true" />
-            <element signature="e#765#766#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/github/n_slash_a/terracraftia/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="136">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -501,13 +470,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/meme.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/pack.mcmeta">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
