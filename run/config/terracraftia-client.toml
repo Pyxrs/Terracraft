@@ -1,0 +1,14 @@
+
+[general]
+	#An example boolean in the client config
+	clientBoolean = true
+	#An example list of Strings in the client config
+	clientStringList = []
+	#An example enum DyeColor in the client config
+	clientEnumDyeColor = "WHITE"
+	#If the model should be rendered translucent
+	modelTranslucency = true
+	#The scale to render the model at
+	#Range: 1.0E-4 ~ 100.0
+	modelScale = 0.0625
+

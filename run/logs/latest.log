@@ -1,0 +1,55 @@
+[01Aug2019 09:29:13.926] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20190719.225934, --fml.mcVersion, 1.14.4, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 28.0.11, --version, MOD_DEV, --assetIndex, 1.14, --assetsDir, C:\Users\suryc\.gradle\caches\forge_gradle\assets, --username, Dev, --accessToken, ❄❄❄❄❄❄❄❄, --userProperties, {}]
+[01Aug2019 09:29:13.961] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 3.0.2+57+a2bc918 starting: java version 1.8.0_221 by Oracle Corporation
+[01Aug2019 09:29:15.090] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[01Aug2019 09:29:16.133] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\suryc\.gradle\caches\forge_gradle\assets, --assetIndex, 1.14, --username, Dev, --accessToken, ❄❄❄❄❄❄❄❄, --userProperties, {}]
+[01Aug2019 09:29:20.428] [Client thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[01Aug2019 09:29:21.220] [Client thread/INFO] [net.minecraftforge.fml.ModLoader/CORE]: Loading Network data for FML net version: FML2
+[01Aug2019 09:29:34.456] [Client thread/INFO] [net.minecraft.client.Minecraft/]: LWJGL Version: 3.2.2 build 10
+[01Aug2019 09:29:37.960] [modloading-worker-2/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 28.0.11, for MC 1.14.4 with MCP 20190719.225934
+[01Aug2019 09:29:37.960] [modloading-worker-2/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v28.0.11 Initialized
+[01Aug2019 09:29:40.153] [Client thread/INFO] [com.example.examplemod.ExampleMod/]: HELLO from Register Block
+[01Aug2019 09:29:44.368] [Client thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
+[01Aug2019 09:29:44.837] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
+[01Aug2019 09:29:44.866] [Server-Worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file C:\Users\suryc\OneDrive\Desktop\MinecraftModding_and_PluginDev\workspace\Terracraftia\run\config\terracraftia-client.toml is not correct. Correcting
+[01Aug2019 09:29:44.914] [Server-Worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general was corrected from null to SimpleCommentedConfig:{}
+[01Aug2019 09:29:44.914] [Server-Worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.clientBoolean was corrected from null to true
+[01Aug2019 09:29:44.915] [Server-Worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.clientStringList was corrected from null to []
+[01Aug2019 09:29:44.915] [Server-Worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.clientEnumDyeColor was corrected from null to white
+[01Aug2019 09:29:44.915] [Server-Worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.modelTranslucency was corrected from null to true
+[01Aug2019 09:29:44.915] [Server-Worker-2/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.modelScale was corrected from null to 0.0625
+[01Aug2019 09:29:45.141] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
+[01Aug2019 09:29:45.450] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[01Aug2019 09:29:46.654] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: BETA_OUTDATED Current: 28.0.11 Target: 28.0.29
+[01Aug2019 09:29:46.654] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [terracraftia] Starting version check at http://myurl.me/
+[01Aug2019 09:29:47.237] [Forge Version Check/WARN] [net.minecraftforge.fml.VersionChecker/]: Failed to process update information
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $
+	at com.google.gson.Gson.fromJson(Gson.java:899) ~[gson-2.8.0.jar:?]
+	at com.google.gson.Gson.fromJson(Gson.java:852) ~[gson-2.8.0.jar:?]
+	at com.google.gson.Gson.fromJson(Gson.java:801) ~[gson-2.8.0.jar:?]
+	at com.google.gson.Gson.fromJson(Gson.java:773) ~[gson-2.8.0.jar:?]
+	at net.minecraftforge.fml.VersionChecker$1.process(VersionChecker.java:214) ~[?:?]
+	at java.lang.Iterable.forEach(Iterable.java:75) [?:1.8.0_221]
+	at net.minecraftforge.fml.VersionChecker$1.run(VersionChecker.java:157) [?:?]
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385) ~[gson-2.8.0.jar:?]
+	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:183) ~[gson-2.8.0.jar:?]
+	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145) ~[gson-2.8.0.jar:?]
+	at com.google.gson.Gson.fromJson(Gson.java:887) ~[gson-2.8.0.jar:?]
+	... 6 more
+[01Aug2019 09:29:51.907] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: terracraftia:blockstates/example_ore.json: java.io.FileNotFoundException: terracraftia:blockstates/example_ore.json
+[01Aug2019 09:29:51.907] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: 'terracraftia:blockstates/example_ore.json' missing model for variant: 'terracraftia:example_ore#'
+[01Aug2019 09:29:51.908] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: terracraftia:blockstates/example_block.json: java.io.FileNotFoundException: terracraftia:blockstates/example_block.json
+[01Aug2019 09:29:51.908] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: 'terracraftia:blockstates/example_block.json' missing model for variant: 'terracraftia:example_block#'
+[01Aug2019 09:29:51.908] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: terracraftia:blockstates/mini_model.json: java.io.FileNotFoundException: terracraftia:blockstates/mini_model.json
+[01Aug2019 09:29:51.908] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: 'terracraftia:blockstates/mini_model.json' missing model for variant: 'terracraftia:mini_model#'
+[01Aug2019 09:29:54.048] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Unable to load model: 'terracraftia:example_item#inventory' referenced from: terracraftia:example_item#inventory: java.io.FileNotFoundException: terracraftia:models/item/example_item.json
+[01Aug2019 09:29:54.048] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Unable to load model: 'terracraftia:example_ore#inventory' referenced from: terracraftia:example_ore#inventory: java.io.FileNotFoundException: terracraftia:models/item/example_ore.json
+[01Aug2019 09:29:54.048] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Unable to load model: 'terracraftia:example_block#inventory' referenced from: terracraftia:example_block#inventory: java.io.FileNotFoundException: terracraftia:models/item/example_block.json
+[01Aug2019 09:29:54.048] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Unable to load model: 'terracraftia:mini_model#inventory' referenced from: terracraftia:mini_model#inventory: java.io.FileNotFoundException: terracraftia:models/item/mini_model.json
+[01Aug2019 09:29:58.944] [Client thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
+[01Aug2019 09:29:58.946] [Client thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
+[01Aug2019 09:29:59.184] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512 textures-atlas
+[01Aug2019 09:29:59.867] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/particle-atlas
+[01Aug2019 09:29:59.869] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/painting-atlas
+[01Aug2019 09:29:59.869] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128 textures/mob_effect-atlas
+[01Aug2019 09:30:16.454] [Client thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
