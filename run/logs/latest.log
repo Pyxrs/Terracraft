@@ -1,19 +1,19 @@
-[01Aug2019 10:46:46.305] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20190719.225934, --fml.mcVersion, 1.14.4, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 28.0.11, --version, MOD_DEV, --assetIndex, 1.14, --assetsDir, C:\Users\suryc\.gradle\caches\forge_gradle\assets, --username, Dev, --accessToken, ❄❄❄❄❄❄❄❄, --userProperties, {}]
-[01Aug2019 10:46:46.317] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 3.0.2+57+a2bc918 starting: java version 1.8.0_221 by Oracle Corporation
-[01Aug2019 10:46:47.785] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
-[01Aug2019 10:46:48.878] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\suryc\.gradle\caches\forge_gradle\assets, --assetIndex, 1.14, --username, Dev, --accessToken, ❄❄❄❄❄❄❄❄, --userProperties, {}]
-[01Aug2019 10:46:54.665] [Client thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[01Aug2019 10:46:55.737] [Client thread/INFO] [net.minecraftforge.fml.ModLoader/CORE]: Loading Network data for FML net version: FML2
-[01Aug2019 10:47:10.915] [Client thread/INFO] [net.minecraft.client.Minecraft/]: LWJGL Version: 3.2.2 build 10
-[01Aug2019 10:47:13.996] [modloading-worker-2/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 28.0.11, for MC 1.14.4 with MCP 20190719.225934
-[01Aug2019 10:47:13.996] [modloading-worker-2/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v28.0.11 Initialized
-[01Aug2019 10:47:21.271] [Client thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
-[01Aug2019 10:47:23.077] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
-[01Aug2019 10:47:23.577] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
-[01Aug2019 10:47:23.600] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
-[01Aug2019 10:47:23.915] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: BETA_OUTDATED Current: 28.0.11 Target: 28.0.29
-[01Aug2019 10:47:23.915] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [terracraftia] Starting version check at http://myurl.me/
-[01Aug2019 10:47:24.175] [Forge Version Check/WARN] [net.minecraftforge.fml.VersionChecker/]: Failed to process update information
+[04Aug2019 18:05:33.336] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20190719.225934, --fml.mcVersion, 1.14.4, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 28.0.11, --version, MOD_DEV, --assetIndex, 1.14, --assetsDir, C:\Users\suryc\.gradle\caches\forge_gradle\assets, --username, Dev, --accessToken, ❄❄❄❄❄❄❄❄, --userProperties, {}]
+[04Aug2019 18:05:33.461] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 3.0.2+57+a2bc918 starting: java version 1.8.0_221 by Oracle Corporation
+[04Aug2019 18:05:34.842] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[04Aug2019 18:05:36.113] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\suryc\.gradle\caches\forge_gradle\assets, --assetIndex, 1.14, --username, Dev, --accessToken, ❄❄❄❄❄❄❄❄, --userProperties, {}]
+[04Aug2019 18:05:40.784] [Client thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[04Aug2019 18:05:41.499] [Client thread/INFO] [net.minecraftforge.fml.ModLoader/CORE]: Loading Network data for FML net version: FML2
+[04Aug2019 18:06:05.727] [Client thread/INFO] [net.minecraft.client.Minecraft/]: LWJGL Version: 3.2.2 build 10
+[04Aug2019 18:06:09.867] [modloading-worker-2/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 28.0.11, for MC 1.14.4 with MCP 20190719.225934
+[04Aug2019 18:06:09.869] [modloading-worker-2/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v28.0.11 Initialized
+[04Aug2019 18:06:17.750] [Client thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
+[04Aug2019 18:06:28.874] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
+[04Aug2019 18:06:36.939] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[04Aug2019 18:06:37.142] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
+[04Aug2019 18:06:37.460] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: BETA_OUTDATED Current: 28.0.11 Target: 28.0.40
+[04Aug2019 18:06:37.460] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [terracraftia] Starting version check at http://myurl.me/
+[04Aug2019 18:06:38.177] [Forge Version Check/WARN] [net.minecraftforge.fml.VersionChecker/]: Failed to process update information
 com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 1 column 1 path $
 	at com.google.gson.Gson.fromJson(Gson.java:899) ~[gson-2.8.0.jar:?]
 	at com.google.gson.Gson.fromJson(Gson.java:852) ~[gson-2.8.0.jar:?]
@@ -28,21 +28,244 @@ Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING
 	at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145) ~[gson-2.8.0.jar:?]
 	at com.google.gson.Gson.fromJson(Gson.java:887) ~[gson-2.8.0.jar:?]
 	... 6 more
-[01Aug2019 10:47:29.866] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: terracraftia:blockstates/example_ore.json: java.io.FileNotFoundException: terracraftia:blockstates/example_ore.json
-[01Aug2019 10:47:29.867] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: 'terracraftia:blockstates/example_ore.json' missing model for variant: 'terracraftia:example_ore#'
-[01Aug2019 10:47:29.869] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: terracraftia:blockstates/example_block.json: java.io.FileNotFoundException: terracraftia:blockstates/example_block.json
-[01Aug2019 10:47:29.870] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: 'terracraftia:blockstates/example_block.json' missing model for variant: 'terracraftia:example_block#'
-[01Aug2019 10:47:29.872] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: terracraftia:blockstates/mini_model.json: java.io.FileNotFoundException: terracraftia:blockstates/mini_model.json
-[01Aug2019 10:47:29.872] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Exception loading blockstate definition: 'terracraftia:blockstates/mini_model.json' missing model for variant: 'terracraftia:mini_model#'
-[01Aug2019 10:47:32.238] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Unable to load model: 'terracraftia:example_item#inventory' referenced from: terracraftia:example_item#inventory: java.io.FileNotFoundException: terracraftia:models/item/example_item.json
-[01Aug2019 10:47:32.240] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Unable to load model: 'terracraftia:example_ore#inventory' referenced from: terracraftia:example_ore#inventory: java.io.FileNotFoundException: terracraftia:models/item/example_ore.json
-[01Aug2019 10:47:32.242] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Unable to load model: 'terracraftia:example_block#inventory' referenced from: terracraftia:example_block#inventory: java.io.FileNotFoundException: terracraftia:models/item/example_block.json
-[01Aug2019 10:47:32.243] [Server-Worker-2/WARN] [net.minecraft.client.renderer.model.ModelBakery/]: Unable to load model: 'terracraftia:mini_model#inventory' referenced from: terracraftia:mini_model#inventory: java.io.FileNotFoundException: terracraftia:models/item/mini_model.json
-[01Aug2019 10:47:36.785] [Client thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
-[01Aug2019 10:47:36.786] [Client thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
-[01Aug2019 10:47:37.065] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512 textures-atlas
-[01Aug2019 10:47:38.195] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/particle-atlas
-[01Aug2019 10:47:38.197] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/painting-atlas
-[01Aug2019 10:47:38.197] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128 textures/mob_effect-atlas
-[01Aug2019 10:48:39.625] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Saved screenshot as 2019-08-01_10.48.39.png
-[01Aug2019 10:48:59.566] [Client thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[04Aug2019 18:06:55.276] [Client thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
+[04Aug2019 18:06:55.279] [Client thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
+[04Aug2019 18:06:55.551] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512 textures-atlas
+[04Aug2019 18:06:56.776] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/particle-atlas
+[04Aug2019 18:06:56.793] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/painting-atlas
+[04Aug2019 18:06:56.800] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128 textures/mob_effect-atlas
+[04Aug2019 18:07:35.795] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[04Aug2019 18:07:35.796] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[04Aug2019 18:07:35.796] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[04Aug2019 18:07:35.797] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[04Aug2019 18:07:35.798] [Client thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[04Aug2019 18:07:36.037] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Starting integrated minecraft server version 1.14.4
+[04Aug2019 18:07:36.037] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Generating keypair
+[04Aug2019 18:07:36.146] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file .\saves\New World\serverconfig\forge-server.toml is not correct. Correcting
+[04Aug2019 18:07:36.154] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server was corrected from null to SimpleCommentedConfig:{}
+[04Aug2019 18:07:36.154] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.removeErroringEntities was corrected from null to false
+[04Aug2019 18:07:36.155] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.removeErroringTileEntities was corrected from null to false
+[04Aug2019 18:07:36.155] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.fullBoundingBoxLadders was corrected from null to false
+[04Aug2019 18:07:36.155] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.zombieBaseSummonChance was corrected from null to 0.1
+[04Aug2019 18:07:36.155] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.zombieBabyChance was corrected from null to 0.05
+[04Aug2019 18:07:36.155] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.logCascadingWorldGeneration was corrected from null to true
+[04Aug2019 18:07:36.155] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.fixVanillaCascading was corrected from null to false
+[04Aug2019 18:07:36.155] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.dimensionUnloadQueueDelay was corrected from null to 0
+[04Aug2019 18:07:36.155] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.clumpingThreshold was corrected from null to 64
+[04Aug2019 18:07:36.162] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
+[04Aug2019 18:07:36.170] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
+[04Aug2019 18:07:36.185] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
+[04Aug2019 18:07:36.199] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
+[04Aug2019 18:07:36.202] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file .\saves\New World\serverconfig\terracraftia-server.toml is not correct. Correcting
+[04Aug2019 18:07:36.208] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general was corrected from null to SimpleCommentedConfig:{}
+[04Aug2019 18:07:36.208] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.serverBoolean was corrected from null to true
+[04Aug2019 18:07:36.208] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.serverStringList was corrected from null to []
+[04Aug2019 18:07:36.208] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key general.serverEnumDyeColor was corrected from null to white
+[04Aug2019 18:07:36.312] [Server thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this SERVER instance
+[04Aug2019 18:07:36.757] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Found new data pack vanilla, loading it automatically
+[04Aug2019 18:07:36.758] [Server thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, main, forge-1.14.4-28.0.11_mapped_snapshot_20190719-1.14.3-recomp.jar
+[04Aug2019 18:07:40.442] [Server thread/INFO] [net.minecraft.item.crafting.RecipeManager/]: Loaded 6 recipes
+[04Aug2019 18:07:43.597] [Server thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 811 advancements
+[04Aug2019 18:07:48.211] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[04Aug2019 18:07:48.340] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[04Aug2019 18:07:48.732] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[04Aug2019 18:07:49.230] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[04Aug2019 18:07:49.813] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 1%
+[04Aug2019 18:07:50.219] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 1%
+[04Aug2019 18:07:50.725] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 4%
+[04Aug2019 18:07:51.247] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 4%
+[04Aug2019 18:07:51.723] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 9%
+[04Aug2019 18:07:52.263] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 9%
+[04Aug2019 18:07:52.734] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 15%
+[04Aug2019 18:07:53.255] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 16%
+[04Aug2019 18:07:53.831] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 16%
+[04Aug2019 18:07:54.238] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[04Aug2019 18:07:54.766] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[04Aug2019 18:07:56.240] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[04Aug2019 18:07:56.240] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[04Aug2019 18:07:56.240] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[04Aug2019 18:07:56.744] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 32%
+[04Aug2019 18:07:57.231] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 34%
+[04Aug2019 18:07:57.770] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 34%
+[04Aug2019 18:07:58.481] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 40%
+[04Aug2019 18:07:58.733] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 44%
+[04Aug2019 18:07:59.264] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 48%
+[04Aug2019 18:07:59.748] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 52%
+[04Aug2019 18:08:00.849] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 55%
+[04Aug2019 18:08:00.849] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 55%
+[04Aug2019 18:08:01.748] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 64%
+[04Aug2019 18:08:01.748] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 64%
+[04Aug2019 18:08:03.181] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 71%
+[04Aug2019 18:08:03.214] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 71%
+[04Aug2019 18:08:03.514] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 79%
+[04Aug2019 18:08:03.782] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 83%
+[04Aug2019 18:08:04.248] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 87%
+[04Aug2019 18:08:05.582] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 88%
+[04Aug2019 18:08:05.582] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 88%
+[04Aug2019 18:08:05.615] [Client thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Time elapsed: 17400 ms
+[04Aug2019 18:08:05.964] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[04Aug2019 18:08:05.965] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[04Aug2019 18:08:09.956] [Netty Local Client IO #0/INFO] [net.minecraftforge.fml.network.NetworkHooks/]: Connected to a modded server.
+[04Aug2019 18:08:10.240] [Server thread/INFO] [net.minecraft.server.management.PlayerList/]: Dev[local:E:f0b5b12b] logged in with entity id 318 at (-161.5, 72.0, -53.5)
+[04Aug2019 18:08:10.327] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[04Aug2019 18:08:15.038] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:08:20.017] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 0 advancements
+[04Aug2019 18:08:20.293] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:08:22.310] [pool-3-thread-1/WARN] [com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService/]: Couldn't look up profile properties for com.mojang.authlib.GameProfile@1ca2a1be[id=380df991-f603-344c-a090-369bad2a924a,name=Dev,properties={},legacy=false]
+com.mojang.authlib.exceptions.AuthenticationException: The client has sent too many requests within a certain amount of time
+	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.makeRequest(YggdrasilAuthenticationService.java:79) ~[authlib-1.5.25.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillGameProfile(YggdrasilMinecraftSessionService.java:180) ~[authlib-1.5.25.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:60) ~[authlib-1.5.25.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService$1.load(YggdrasilMinecraftSessionService.java:57) ~[authlib-1.5.25.jar:?]
+	at com.google.common.cache.LocalCache$LoadingValueReference.loadFuture(LocalCache.java:3527) ~[guava-25.1-jre.jar:?]
+	at com.google.common.cache.LocalCache$Segment.loadSync(LocalCache.java:2276) ~[guava-25.1-jre.jar:?]
+	at com.google.common.cache.LocalCache$Segment.lockedGetOrLoad(LocalCache.java:2154) ~[guava-25.1-jre.jar:?]
+	at com.google.common.cache.LocalCache$Segment.get(LocalCache.java:2044) ~[guava-25.1-jre.jar:?]
+	at com.google.common.cache.LocalCache.get(LocalCache.java:3951) ~[guava-25.1-jre.jar:?]
+	at com.google.common.cache.LocalCache.getOrLoad(LocalCache.java:3973) ~[guava-25.1-jre.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.get(LocalCache.java:4957) ~[guava-25.1-jre.jar:?]
+	at com.google.common.cache.LocalCache$LocalLoadingCache.getUnchecked(LocalCache.java:4963) ~[guava-25.1-jre.jar:?]
+	at com.mojang.authlib.yggdrasil.YggdrasilMinecraftSessionService.fillProfileProperties(YggdrasilMinecraftSessionService.java:170) ~[authlib-1.5.25.jar:?]
+	at net.minecraft.client.Minecraft.getProfileProperties(Minecraft.java:1948) ~[?:?]
+	at net.minecraft.client.resources.SkinManager.lambda$loadProfileTextures$1(SkinManager.java:111) ~[?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [?:1.8.0_221]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_221]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_221]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_221]
+[04Aug2019 18:08:27.885] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 13638ms or 272 ticks behind
+[04Aug2019 18:08:39.107] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:08:39.340] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:08:44.698] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:08:44.768] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:09:24.667] [Client thread/WARN] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Unable to play empty soundEvent: minecraft:entity.salmon.ambient
+[04Aug2019 18:09:39.807] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] [Debug]: Chunk borders: shown
+[04Aug2019 18:10:06.871] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 12174ms or 243 ticks behind
+[04Aug2019 18:10:29.071] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] [Debug]: Chunk borders: hidden
+[04Aug2019 18:10:40.352] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] [Debug]: Key bindings:
+[04Aug2019 18:10:40.352] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + A = Reload chunks
+[04Aug2019 18:10:40.352] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + B = Show hitboxes
+[04Aug2019 18:10:40.352] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + C = Copy location as /tp command, hold F3 + C to crash the game
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + D = Clear chat
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + F = Cycle render distance (Shift to invert)
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + G = Show chunk boundaries
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + H = Advanced tooltips
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + I = Copy entity or block data to clipboard
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + N = Cycle creative <-> spectator
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + P = Pause on lost focus
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + Q = Show this list
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + T = Reload resource packs
+[04Aug2019 18:10:40.353] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] F3 + Esc = Pause without pause menu (if pausing is possible)
+[04Aug2019 18:10:51.969] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] [Debug]: Advanced tooltips: shown
+[04Aug2019 18:11:09.198] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:11:10.074] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:11:21.484] [Client thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: forge-1.14.4-28.0.11_mapped_snapshot_20190719-1.14.3-recomp.jar, main, Default
+[04Aug2019 18:11:21.522] [Thread-1/FATAL] [net.minecraftforge.common.ForgeConfig/CORE]: Forge config just got changed on the file system!
+[04Aug2019 18:11:26.564] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 17317ms or 346 ticks behind
+[04Aug2019 18:11:33.896] [Client thread/WARN] [net.minecraft.client.GameSettings/]: Skipping bad option: lastServer:
+[04Aug2019 18:11:34.242] [Client thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
+[04Aug2019 18:11:34.243] [Client thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
+[04Aug2019 18:11:34.420] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512 textures-atlas
+[04Aug2019 18:11:34.768] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/particle-atlas
+[04Aug2019 18:11:34.769] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256 textures/painting-atlas
+[04Aug2019 18:11:34.769] [Client thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128 textures/mob_effect-atlas
+[04Aug2019 18:12:01.709] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:12:01.809] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:12:07.488] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 5741ms or 114 ticks behind
+[04Aug2019 18:12:07.498] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Changing view distance to 6, from 10
+[04Aug2019 18:12:07.499] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 7 advancements
+[04Aug2019 18:12:10.654] [Client thread/WARN] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Unable to play empty soundEvent: minecraft:entity.salmon.ambient
+[04Aug2019 18:13:17.228] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[04Aug2019 18:13:17.239] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Spectator Mode
+[04Aug2019 18:13:25.456] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[04Aug2019 18:13:25.472] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
+[04Aug2019 18:13:37.939] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[04Aug2019 18:13:37.956] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Spectator Mode
+[04Aug2019 18:13:43.873] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[04Aug2019 18:13:43.890] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
+[04Aug2019 18:13:54.658] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 21 advancements
+[04Aug2019 18:14:10.298] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:14:10.353] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:14:14.231] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 3885ms or 77 ticks behind
+[04Aug2019 18:14:33.507] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 24 advancements
+[04Aug2019 18:14:34.658] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[04Aug2019 18:14:34.674] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Spectator Mode
+[04Aug2019 18:14:40.607] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[04Aug2019 18:14:40.608] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
+[04Aug2019 18:14:45.257] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 27 advancements
+[04Aug2019 18:16:03.399] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev has made the advancement [Stone Age]
+[04Aug2019 18:16:03.411] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Dev has made the advancement [Stone Age]
+[04Aug2019 18:16:03.411] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 42 advancements
+[04Aug2019 18:18:19.863] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gamerule randomTickSpeed is now set to: 0]
+[04Aug2019 18:18:19.879] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Gamerule randomTickSpeed is now set to: 0
+[04Aug2019 18:18:26.113] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 54 advancements
+[04Aug2019 18:18:41.763] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gamerule randomTickSpeed is now set to: 3]
+[04Aug2019 18:18:41.779] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Gamerule randomTickSpeed is now set to: 3
+[04Aug2019 18:19:14.463] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 55 advancements
+[04Aug2019 18:19:37.614] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 2267ms or 45 ticks behind
+[04Aug2019 18:19:57.265] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set the time to 1000]
+[04Aug2019 18:19:57.281] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set the time to 1000
+[04Aug2019 18:20:01.232] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gamerule doDaylightCycle is now set to: false]
+[04Aug2019 18:20:01.248] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Gamerule doDaylightCycle is now set to: false
+[04Aug2019 18:20:05.715] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gamerule doWeatherCycle is now set to: false]
+[04Aug2019 18:20:05.715] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Gamerule doWeatherCycle is now set to: false
+[04Aug2019 18:20:58.266] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 56 advancements
+[04Aug2019 18:21:46.405] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[04Aug2019 18:21:46.417] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Spectator Mode
+[04Aug2019 18:21:48.718] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[04Aug2019 18:21:48.734] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
+[04Aug2019 18:22:12.968] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[04Aug2019 18:22:12.984] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Spectator Mode
+[04Aug2019 18:22:19.998] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:22:20.059] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:22:22.308] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 2260ms or 45 ticks behind
+[04Aug2019 18:23:58.821] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[04Aug2019 18:23:58.837] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
+[04Aug2019 18:24:03.205] [Client thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 57 advancements
+[04Aug2019 18:24:43.901] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:24:43.961] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:25:07.824] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[04Aug2019 18:25:07.841] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Spectator Mode
+[04Aug2019 18:25:26.591] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Saved screenshot as 2019-08-04_18.25.26.png
+[04Aug2019 18:25:29.675] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[04Aug2019 18:25:29.692] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
+[04Aug2019 18:25:31.392] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[04Aug2019 18:25:31.408] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Spectator Mode
+[04Aug2019 18:25:32.392] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[04Aug2019 18:25:32.408] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
+[04Aug2019 18:26:01.876] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set the time to 18000]
+[04Aug2019 18:26:01.893] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set the time to 18000
+[04Aug2019 18:26:05.551] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:26:05.613] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:26:07.704] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 2103ms or 42 ticks behind
+[04Aug2019 18:26:09.202] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:26:09.320] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:26:16.210] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set the time to 6000]
+[04Aug2019 18:26:16.226] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set the time to 6000
+[04Aug2019 18:26:50.202] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:26:50.259] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:26:58.852] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:26:58.910] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:27:04.953] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:27:05.016] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:27:14.346] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Spectator Mode]
+[04Aug2019 18:27:14.362] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Spectator Mode
+[04Aug2019 18:27:31.146] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Saved screenshot as 2019-08-04_18.27.30.png
+[04Aug2019 18:27:33.830] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[04Aug2019 18:27:33.846] [Client thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
+[04Aug2019 18:27:36.603] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:27:36.670] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:27:46.105] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:27:46.164] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:27:57.455] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[04Aug2019 18:27:57.510] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:27:58.731] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Dev lost connection: Disconnected
+[04Aug2019 18:27:58.731] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
+[04Aug2019 18:27:58.828] [Server thread/INFO] [net.minecraft.network.play.ServerPlayNetHandler/]: Stopping singleplayer server as player logged out
+[04Aug2019 18:27:58.842] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[04Aug2019 18:27:58.843] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[04Aug2019 18:27:58.843] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[04Aug2019 18:27:58.843] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'New World'/minecraft:overworld
+[04Aug2019 18:27:59.957] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (New World): All chunks are saved
+[04Aug2019 18:28:00.005] [Server thread/INFO] [net.minecraft.world.server.ChunkManager/]: ThreadedAnvilChunkStorage (New World): All chunks are saved
+[04Aug2019 18:28:00.865] [Client thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!

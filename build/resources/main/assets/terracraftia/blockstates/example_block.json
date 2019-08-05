@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "terracraftia:block/example_block"
+    }
+  }
+}
