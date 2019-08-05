@@ -1,9 +1,0 @@
-
-[general]
-	#An example boolean in the server config
-	serverBoolean = true
-	#An example list of Strings in the server config
-	serverStringList = []
-	#An example enum DyeColor in the server config
-	serverEnumDyeColor = "WHITE"
-

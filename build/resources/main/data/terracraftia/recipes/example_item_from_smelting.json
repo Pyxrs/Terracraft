@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "terracraftia:example_ore"
-  },
-  "result": "terracraftia:example_item",
-  "experience": 0.7,
-  "cookingtime": 200
-}
