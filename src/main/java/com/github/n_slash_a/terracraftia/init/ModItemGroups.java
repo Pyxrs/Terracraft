@@ -12,7 +12,7 @@ import java.util.function.Supplier;
  */
 public final class ModItemGroups {
 
-    public static final ItemGroup MOD_ITEM_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(ModItems.EXAMPLE_ITEM));
+    public static final ItemGroup MOD_ITEM_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(ModItems.ACORN));
 
     public static final class ModItemGroup extends ItemGroup {
 

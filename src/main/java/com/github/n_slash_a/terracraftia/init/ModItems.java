@@ -12,5 +12,6 @@ import net.minecraftforge.registries.ObjectHolder;
 public final class ModItems {
 
     public static final Item EXAMPLE_ITEM = ModUtil._null();
+    public static final Item ACORN = ModUtil._null();
 
 }
