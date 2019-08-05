@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "terracraftia:example_block"
+    }
+  ],
+  "result": {
+    "item": "terracraftia:example_item",
+    "count": 9
+  }
+}
