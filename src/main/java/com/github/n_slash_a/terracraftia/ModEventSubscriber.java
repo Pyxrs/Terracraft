@@ -64,7 +64,7 @@ public final class ModEventSubscriber {
         final IForgeRegistry<Item> registry = event.getRegistry();
         registry.registerAll(
                 // This is a very simple Item. It has no special properties except for being on our creative tab.
-                setup(new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)), "example_item")
+                setup(new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)), "acorn")
         );
 
         // We need to go over the entire registry so that we include any potential Registry Overrides
