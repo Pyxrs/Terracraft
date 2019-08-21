@@ -1,5 +1,5 @@
 -------------------------------
-** Welcome to Terracraft!
+Welcome to Terracraft!
 -------------------------------
 
 Terracraft is a mod that inserts features into Minecraft directly from Terraria!
