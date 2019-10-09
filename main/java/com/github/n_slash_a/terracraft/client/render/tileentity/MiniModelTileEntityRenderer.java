@@ -1,8 +1,8 @@
-package com.github.n_slash_a.terracraftia.client.render.tileentity;
+package com.github.n_slash_a.terracraft.client.render.tileentity;
 
 import com.mojang.blaze3d.platform.GlStateManager;
-import com.github.n_slash_a.terracraftia.config.TerracraftiaConfig;
-import com.github.n_slash_a.terracraftia.tileentity.MiniModelTileEntity;
+import com.github.n_slash_a.terracraft.config.TerracraftiaConfig;
+import com.github.n_slash_a.terracraft.tileentity.MiniModelTileEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.RegionRenderCacheBuilder;

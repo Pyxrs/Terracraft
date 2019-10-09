@@ -1,4 +1,4 @@
-package com.github.n_slash_a.terracraftia;
+package com.github.n_slash_a.terracraft;
 
 import javax.annotation.Nonnull;
 

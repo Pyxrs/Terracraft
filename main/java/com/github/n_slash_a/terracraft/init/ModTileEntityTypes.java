@@ -1,7 +1,7 @@
-package com.github.n_slash_a.terracraftia.init;
+package com.github.n_slash_a.terracraft.init;
 
-import com.github.n_slash_a.terracraftia.Main;
-import com.github.n_slash_a.terracraftia.ModUtil;
+import com.github.n_slash_a.terracraft.Main;
+import com.github.n_slash_a.terracraft.ModUtil;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.registries.ObjectHolder;
 

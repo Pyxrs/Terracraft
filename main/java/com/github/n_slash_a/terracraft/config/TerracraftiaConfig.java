@@ -1,4 +1,4 @@
-package com.github.n_slash_a.terracraftia.config;
+package com.github.n_slash_a.terracraft.config;
 
 import net.minecraft.item.DyeColor;
 

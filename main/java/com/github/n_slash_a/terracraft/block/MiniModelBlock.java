@@ -1,6 +1,6 @@
-package com.github.n_slash_a.terracraftia.block;
+package com.github.n_slash_a.terracraft.block;
 
-import com.github.n_slash_a.terracraftia.init.ModTileEntityTypes;
+import com.github.n_slash_a.terracraft.init.ModTileEntityTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.tileentity.TileEntity;

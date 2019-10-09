@@ -1,6 +1,6 @@
-package com.github.n_slash_a.terracraftia.tileentity;
+package com.github.n_slash_a.terracraft.tileentity;
 
-import com.github.n_slash_a.terracraftia.init.ModTileEntityTypes;
+import com.github.n_slash_a.terracraft.init.ModTileEntityTypes;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.math.AxisAlignedBB;

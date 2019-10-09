@@ -1,6 +1,6 @@
-package com.github.n_slash_a.terracraftia.client;
+package com.github.n_slash_a.terracraft.client;
 
-import com.github.n_slash_a.terracraftia.Main;
+import com.github.n_slash_a.terracraft.Main;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 

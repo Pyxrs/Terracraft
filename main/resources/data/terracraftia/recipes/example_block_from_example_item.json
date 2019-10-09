@@ -7,10 +7,10 @@
   ],
   "key": {
     "#": {
-      "item": "terracraftia:example_item"
+      "item": "terracraft:example_item"
     }
   },
   "result": {
-    "item": "terracraftia:example_block"
+    "item": "terracraft:example_block"
   }
 }

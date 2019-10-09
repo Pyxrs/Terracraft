@@ -2,11 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "terracraftia:example_block"
+      "item": "terracraft:example_block"
     }
   ],
   "result": {
-    "item": "terracraftia:example_item",
+    "item": "terracraft:example_item",
     "count": 9
   }
 }
