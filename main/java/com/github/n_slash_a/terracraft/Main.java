@@ -1,11 +1,9 @@
 package com.github.n_slash_a.terracraft;
 
 import com.github.n_slash_a.terracraft.config.ConfigHolder;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 /**
  * @author N_slash_A
