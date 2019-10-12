@@ -6,14 +6,17 @@ import com.github.n_slash_a.terracraft.config.ConfigHolder;
 import com.github.n_slash_a.terracraft.init.ModBlocks;
 import com.github.n_slash_a.terracraft.init.ModItemGroups;
 import com.github.n_slash_a.terracraft.tileentity.MiniModelTileEntity;
-import com.sun.org.apache.xpath.internal.operations.Mod;
+import javafx.scene.paint.Material;
+import jdk.nashorn.internal.ir.Block;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 /**
  * Subscribe to events from the MOD EventBus that should be handled on both PHYSICAL sides in this class
  *
  * @author N_slash_A
  */
-@Mod.EventBusSubscriber(modid = Main.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = Main.MODID, bus = EventBusSubscriber.Bus.MOD)
 public final class ModEventSubscriber {
 
     private static final Logger LOGGER = LogManager.getLogger(Main.MODID + " Mod Event Subscriber");
