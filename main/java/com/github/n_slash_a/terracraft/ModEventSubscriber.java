@@ -1,15 +1,31 @@
 package com.github.n_slash_a.terracraft;
 
+import com.google.common.base.Preconditions;
 import com.github.n_slash_a.terracraft.block.MiniModelBlock;
 import com.github.n_slash_a.terracraft.config.ConfigHelper;
 import com.github.n_slash_a.terracraft.config.ConfigHolder;
 import com.github.n_slash_a.terracraft.init.ModBlocks;
 import com.github.n_slash_a.terracraft.init.ModItemGroups;
 import com.github.n_slash_a.terracraft.tileentity.MiniModelTileEntity;
-import javafx.scene.paint.Material;
-import jdk.nashorn.internal.ir.Block;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.annotation.Nonnull;
 
 /**
  * Subscribe to events from the MOD EventBus that should be handled on both PHYSICAL sides in this class
