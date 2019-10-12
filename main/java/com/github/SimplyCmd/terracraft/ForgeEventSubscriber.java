@@ -1,4 +1,4 @@
-package com.github.n_slash_a.terracraft;
+package com.github.SimplyCmd.terracraft;
 
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 

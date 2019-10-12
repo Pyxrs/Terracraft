@@ -1,7 +1,7 @@
-package com.github.n_slash_a.terracraft.init;
+package com.github.SimplyCmd.terracraft.init;
 
-import com.github.n_slash_a.terracraft.Main;
-import com.github.n_slash_a.terracraft.ModUtil;
+import com.github.SimplyCmd.terracraft.Main;
+import com.github.SimplyCmd.terracraft.ModUtil;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.ObjectHolder;
 

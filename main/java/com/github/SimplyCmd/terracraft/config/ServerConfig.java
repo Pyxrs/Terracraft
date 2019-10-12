@@ -1,6 +1,6 @@
-package com.github.n_slash_a.terracraft.config;
+package com.github.SimplyCmd.terracraft.config;
 
-import com.github.n_slash_a.terracraft.Main;
+import com.github.SimplyCmd.terracraft.Main;
 import net.minecraft.item.DyeColor;
 import net.minecraftforge.common.ForgeConfigSpec;
 

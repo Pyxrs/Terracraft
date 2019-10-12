@@ -1,12 +1,11 @@
-package com.github.n_slash_a.terracraft.client;
+package com.github.SimplyCmd.terracraft.client;
 
-import com.github.n_slash_a.terracraft.Main;
-import com.github.n_slash_a.terracraft.client.render.tileentity.MiniModelTileEntityRenderer;
-import com.github.n_slash_a.terracraft.tileentity.MiniModelTileEntity;
+import com.github.SimplyCmd.terracraft.Main;
+import com.github.SimplyCmd.terracraft.client.render.tileentity.MiniModelTileEntityRenderer;
+import com.github.SimplyCmd.terracraft.tileentity.MiniModelTileEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import org.apache.logging.log4j.LogManager;

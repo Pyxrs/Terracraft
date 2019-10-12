@@ -1,6 +1,6 @@
-package com.github.n_slash_a.terracraft;
+package com.github.SimplyCmd.terracraft;
 
-import com.github.n_slash_a.terracraft.config.ConfigHolder;
+import com.github.SimplyCmd.terracraft.config.ConfigHolder;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;

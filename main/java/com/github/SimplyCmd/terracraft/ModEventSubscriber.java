@@ -1,12 +1,12 @@
-package com.github.n_slash_a.terracraft;
+package com.github.SimplyCmd.terracraft;
 
 import com.google.common.base.Preconditions;
-import com.github.n_slash_a.terracraft.block.MiniModelBlock;
-import com.github.n_slash_a.terracraft.config.ConfigHelper;
-import com.github.n_slash_a.terracraft.config.ConfigHolder;
-import com.github.n_slash_a.terracraft.init.ModBlocks;
-import com.github.n_slash_a.terracraft.init.ModItemGroups;
-import com.github.n_slash_a.terracraft.tileentity.MiniModelTileEntity;
+import com.github.SimplyCmd.terracraft.block.MiniModelBlock;
+import com.github.SimplyCmd.terracraft.config.ConfigHelper;
+import com.github.SimplyCmd.terracraft.config.ConfigHolder;
+import com.github.SimplyCmd.terracraft.init.ModBlocks;
+import com.github.SimplyCmd.terracraft.init.ModItemGroups;
+import com.github.SimplyCmd.terracraft.tileentity.MiniModelTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

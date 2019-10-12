@@ -1,6 +1,6 @@
-package com.github.n_slash_a.terracraft.init;
+package com.github.SimplyCmd.terracraft.init;
 
-import com.github.n_slash_a.terracraft.Main;
+import com.github.SimplyCmd.terracraft.Main;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 
