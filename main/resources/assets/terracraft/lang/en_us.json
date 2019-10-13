@@ -1,8 +1,5 @@
 {
-  "block.terracraftia.example_ore": "Example Ore",
-  "block.terracraftia.example_block": "Example Block",
-  "block.terracraftia.mini_model": "Mini Model",
-  "item.terracraftia.example_item": "Example Item",
-  "item.terracraftia.example_item": "Acorn",
-  "itemGroup.terracraftia": "Example Mod"
+  "item.terracraft.testing_dust": "Testing Dust",
+
+  "block.terracraft.testing_block": "Testing Block"
 }

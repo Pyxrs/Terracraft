@@ -18,13 +18,14 @@ version="${version}" #mandatory
  # A display name for the mod
 displayName="Terracraft" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
-updateJSONURL="http://myurl.me/" #optional
+updateJSONURL="https://github.com/SimplyCmd/Terracraft/blob/master/main/resources/update.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="https://www.curseforge.com/minecraft/mc-mods/terracraft" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="terracraft_logo.png" #optional
 # A text field displayed in the mod UI
 credits='''
+
 Main Developer: Simply Cmd
 Playtester: LilIcy
 '''

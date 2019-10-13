@@ -1,10 +1,11 @@
 {
-  "homepage": "https://www.curseforge.com/minecraft/mc-mods/terracraftia",
+  "homepage": "https://www.curseforge.com/minecraft/mc-mods/terracraftrewrite/files",
   "promos": {
-    "1.14.4-latest": "0.1.0",
-    "1.14.4-recommended": "0.1.0"
+    "1.14.4-latest": "0.2.0",
+    "1.14.4-recommended": "0.2.0"
   },
   "1.14.4": {
-    "0.1.0": "- Added all the \"A\" features"
+    "0.1.0": "- Added all the \"A\" features",
+    "0.2.0": "- Added all the \"A\" features"
   }
 }
