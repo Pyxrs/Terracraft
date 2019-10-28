@@ -1,6 +1,6 @@
 
 ## Welcome to Terracraft!
-![LOGO](https://drive.google.com/uc?export=view&id=1Q6FpD-tddta4ApQQ4PsdWMo9MxQlosiP?raw=true)
+![LOGO](https://github.com/SimplyCmd/Terracraft/blob/master/main/resources/terracraft_logo.png)
 
 #### Terracraft is a mod that inserts features into Minecraft directly from Terraria!
 
