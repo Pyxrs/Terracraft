@@ -32,4 +32,4 @@ None yet... Expect more soon!
 
 ### Discord Server
 
-<iframe src="https://discordapp.com/widget?id=592042940147302421&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+[Join Here!](https://discord.gg/Yb6z22c)  
