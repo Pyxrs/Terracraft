@@ -6,9 +6,9 @@
 
 ### Versions
 
-| Build     | MCVersion | FGVersion |
+<!--| Build     | MCVersion | FGVersion |
 | ---       | ---       | ---       |
-| 0.1.0     | 1.14.4    | 28.1.72   |
+| 0.1.0     | 1.14.4    | 28.1.72   |-->
 
 ### Curseforge
 
