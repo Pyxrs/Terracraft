@@ -4,9 +4,9 @@
 
 #### Terracraft is a mod that inserts features into Minecraft directly from Terraria!
 
-### Versions
+<!--### Versions
 
-<!--| Build     | MCVersion | FGVersion |
+| Build     | MCVersion | FGVersion |
 | ---       | ---       | ---       |
 | 0.1.0     | 1.14.4    | 28.1.72   |-->
 
