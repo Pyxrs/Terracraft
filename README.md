@@ -12,19 +12,19 @@
 
 ### Curseforge
 
-[Curseforge Page](https://www.curseforge.com/minecraft/mc-mods/terracraftrewrite)  
+[https://www.curseforge.com/minecraft/mc-mods/terracraftrewrite](https://www.curseforge.com/minecraft/mc-mods/terracraftrewrite)  
 
 ### Roadmap
 
-[The Roadmap](https://trello.com/b/HQ1gOyXJ/terracraft)  
+[https://trello.com/b/HQ1gOyXJ/terracraft](https://trello.com/b/HQ1gOyXJ/terracraft)  
 
 ### Wiki
 
-[The Wiki](https://github.com/hypercubemc-github/Modern-Minecraft-Decompiler/wiki)
+[https://terraria.gamepedia.com](https://terraria.gamepedia.com)
 
 ### Issue Tracker
 
-[Issue Tracker](https://github.com/SimplyCmd/Terracraft/issues)  
+[https://github.com/SimplyCmd/Terracraft/issues](https://github.com/SimplyCmd/Terracraft/issues)  
 
 ### Images
 
@@ -32,4 +32,4 @@ None yet... Expect more soon!
 
 ### Discord Server
 
-[Join Here!](https://discord.gg/Yb6z22c)  
+[https://discord.gg/Yb6z22c](https://discord.gg/Yb6z22c)  
