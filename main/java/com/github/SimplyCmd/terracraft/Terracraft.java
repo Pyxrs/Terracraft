@@ -2,7 +2,13 @@ package com.github.SimplyCmd.terracraft;
 
 import static com.github.SimplyCmd.terracraft.Terracraft.MOD_ID;
 
+import com.github.SimplyCmd.terracraft.lists.ItemList;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -36,4 +42,19 @@ public class Terracraft {
     private void clientRegistries(final FMLClientSetupEvent event) {
         logger.info("clientRegistries method registered");
     }
+
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        @SubscribeEvent //run on launch
+        public static void registerItems(final RegistryEvent.Register<Item> event) {
+            ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust"));
+
+            logger.info("Items registered")
+        }
+
+        private static ResourceLocation location(String name) {
+            return new ResourceLocation(MOD_ID, name);
+        }
+    }
 }
+//at 10:30

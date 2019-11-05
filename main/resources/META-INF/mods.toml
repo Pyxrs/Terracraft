@@ -12,7 +12,7 @@ issueTrackerURL="https://github.com/N-slash-A/Terracraft/issues" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
-modId="terracraftia" #mandatory
+modId="terracraft" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 version="${version}" #mandatory
  # A display name for the mod
@@ -26,18 +26,20 @@ logoFile="terracraft_logo.png" #optional
 # A text field displayed in the mod UI
 credits='''
 
-Main Developer: Simply Cmd
-Playtester: LilIcy
+    Main Developer: Simply Cmd
+    Playtester: LilIcy
 '''
 # A text field displayed in the mod UI
 authors="SimplyCmd" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-This is a long form description of the mod. You can write whatever you want here
+CHEERS TO ONE THOUSAND DOWNLOADS!
+----------------------------------------------------------
+This mod adds items, blocks, and more from Terraria directly into Minecraft.
 
-Have some lorem ipsum.
+I plan to have Terracraft boast over 20% of all Terraria features, which is more than 1000 additions!
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mollis lacinia magna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sagittis luctus odio eu tempus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque volutpat ligula eget lacus auctor sagittis. In hac habitasse platea dictumst. Nunc gravida elit vitae sem vehicula efficitur. Donec mattis ipsum et arcu lobortis, eleifend sagittis sem rutrum. Cras pharetra quam eget posuere fermentum. Sed id tincidunt justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+All of these additions will use Terraria textures that are modified to feel more vanilla.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.examplemod]] #optional
