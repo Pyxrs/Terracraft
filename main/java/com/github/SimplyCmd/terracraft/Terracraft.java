@@ -2,7 +2,12 @@ package com.github.SimplyCmd.terracraft;
 
 import static com.github.SimplyCmd.terracraft.Terracraft.MOD_ID;
 
+import com.github.SimplyCmd.terracraft.lists.BlockList;
 import com.github.SimplyCmd.terracraft.lists.ItemList;
+import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.material.Material;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
@@ -47,14 +52,24 @@ public class Terracraft {
     public static class RegistryEvents {
         @SubscribeEvent //run on launch
         public static void registerItems(final RegistryEvent.Register<Item> event) {
-            ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust"));
+            event.getRegistry().registerAll(
+                    ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust")), //Add a comma at the end of this line and Copy-Paste it below to add another and then go to ItemList
 
-            logger.info("Items registered")
+                    ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.angel_statue.getRegistryName())
+            );
+            logger.info("Items registered");
+        }
+
+        @SubscribeEvent //run on launch
+        public static void registerBlocks(final RegistryEvent.Register<Block> event) {
+            event.getRegistry().registerAll(
+                    BlockList.angel_statue = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 30.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("angel_statue")) //lightValue = how much it glows, Sound = breaking sound
+            );
+            logger.info("Blocks registered");
         }
 
         private static ResourceLocation location(String name) {
-            return new ResourceLocation(MOD_ID, name);
+            return new ResourceLocation(MOD_ID, "testing_dust");
         }
     }
 }
-//at 10:30
