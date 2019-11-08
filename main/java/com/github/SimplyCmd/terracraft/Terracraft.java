@@ -34,6 +34,8 @@ public class Terracraft {
     public static Terracraft instance;
     private static final Logger logger = LogManager.getLogger(MOD_ID);
 
+    public static final ItemGroup MELEE = new MeleeItemGroup();
+
     public Terracraft() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientRegistries);
@@ -53,8 +55,7 @@ public class Terracraft {
         @SubscribeEvent //run on launch
         public static void registerItems(final RegistryEvent.Register<Item> event) {
             event.getRegistry().registerAll(
-                    ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust")), //Add a comma at the end of this line and Copy-Paste it below to add another and then go to ItemList
-
+                    ItemList.testing_dust = new Item(new Item.Properties().group(MELEE)).setRegistryName(location("testing_dust")), //Add a comma at the end of this line and Copy-Paste it below to add another and then go to ItemList
                     ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.angel_statue.getRegistryName())
             );
             logger.info("Items registered");

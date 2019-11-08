@@ -1,5 +1,7 @@
 {
   "item.terracraft.testing_dust": "Testing Dust",
 
-  "block.terracraft.angel_statue": "Angel Statue"
+  "block.terracraft.angel_statue": "Angel Statue",
+
+  "itemGroup.MELEE": "Melee Weapons"
 }
