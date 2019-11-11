@@ -2,11 +2,14 @@ package com.github.SimplyCmd.terracraft;
 
 import static com.github.SimplyCmd.terracraft.Terracraft.MOD_ID;
 
+import com.github.SimplyCmd.terracraft.items.CustomAxeItem;
 import com.github.SimplyCmd.terracraft.lists.BlockList;
 import com.github.SimplyCmd.terracraft.lists.ItemList;
+import com.github.SimplyCmd.terracraft.lists.ToolMaterialList;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -55,7 +58,8 @@ public class Terracraft {
         @SubscribeEvent //run on launch
         public static void registerItems(final RegistryEvent.Register<Item> event) {
             event.getRegistry().registerAll(
-                    ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust")), //Add a comma at the end of this line and Copy-Paste it below to add another and then go to ItemList
+                    ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust")),
+                    ItemList.iron_hammer = new CustomAxeItem(ToolMaterialList.iron_hammer_mat, -1.0f, 6.0f, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(location("iron_hammer")),
                     ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(MELEE)).setRegistryName(BlockList.angel_statue.getRegistryName())
             );
             logger.info("Items registered");
@@ -74,3 +78,5 @@ public class Terracraft {
         }
     }
 }
+
+//at 13:30

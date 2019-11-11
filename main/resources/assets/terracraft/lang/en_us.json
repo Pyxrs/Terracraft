@@ -1,6 +1,10 @@
 {
   "item.terracraft.testing_dust": "Testing Dust",
 
+  "item.terracraft.iron_broadsword": "Iron Broadsword",
+  "item.terracraft.iron_shortsword": "Iron Shortsword",
+  "item.terracraft.iron_hammer": "Iron Hammer",
+
   "block.terracraft.angel_statue": "Angel Statue",
 
   "itemGroup.MELEE": "Melee Weapons"
