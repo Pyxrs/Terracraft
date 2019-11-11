@@ -55,8 +55,8 @@ public class Terracraft {
         @SubscribeEvent //run on launch
         public static void registerItems(final RegistryEvent.Register<Item> event) {
             event.getRegistry().registerAll(
-                    ItemList.testing_dust = new Item(new Item.Properties().group(MELEE)).setRegistryName(location("testing_dust")), //Add a comma at the end of this line and Copy-Paste it below to add another and then go to ItemList
-                    ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.angel_statue.getRegistryName())
+                    ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust")), //Add a comma at the end of this line and Copy-Paste it below to add another and then go to ItemList
+                    ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(MELEE)).setRegistryName(BlockList.angel_statue.getRegistryName())
             );
             logger.info("Items registered");
         }

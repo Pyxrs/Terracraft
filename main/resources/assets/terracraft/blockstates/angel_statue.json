@@ -1,7 +1,5 @@
 {
   "variants": {
-    "": [
-      { "model": "terracraft:block/angel_statue" }
-    ]
+    "": { "model": "terracraft:block/angel_statue" }
   }
 }

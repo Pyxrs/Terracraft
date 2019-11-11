@@ -2,12 +2,12 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "testing_block",
+      "name": "angel_statue",
       "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "terracraft:testing_block"
+          "name": "terracraft:angel_statue"
         }
       ],
       "conditions": [
