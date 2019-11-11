@@ -74,7 +74,7 @@ public class Terracraft {
         }
 
         private static ResourceLocation location(String name) {
-            return new ResourceLocation(MOD_ID, "testing_dust");
+            return new ResourceLocation(MOD_ID, name);
         }
     }
 }
