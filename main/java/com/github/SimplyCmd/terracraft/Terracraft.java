@@ -60,7 +60,7 @@ public class Terracraft {
                     ItemList.iron_shortsword = new SwordItem(ToolMaterialList.iron_shortsword_mat, 1, 6.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_shortsword")),
                     ItemList.iron_broadsword = new SwordItem(ToolMaterialList.iron_broadsword_mat, 1,1.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_broadsword")),
 
-                    ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(MELEE)).setRegistryName(BlockList.angel_statue.getRegistryName())
+                    ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.angel_statue.getRegistryName())
             );
             logger.info("Items registered");
         }
@@ -79,4 +79,4 @@ public class Terracraft {
     }
 }
 
-//at 13:30
+//at 14:15
