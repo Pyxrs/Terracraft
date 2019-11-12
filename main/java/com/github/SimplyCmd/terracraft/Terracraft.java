@@ -57,8 +57,8 @@ public class Terracraft {
                     ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust")),
 
                     ItemList.iron_hammer = new AxeItem(ToolMaterialList.iron_hammer_mat, -1.0f, 6.0f, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(location("iron_hammer")),
-                    ItemList.iron_shortsword = new SwordItem(ToolMaterialList.iron_shortsword_mat, 1, 6.0f, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(location("iron_hammer")),
-                    ItemList.iron_broadsword = new SwordItem(ToolMaterialList.iron_broadsword_mat, 1,1.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_hammer")),
+                    ItemList.iron_shortsword = new SwordItem(ToolMaterialList.iron_shortsword_mat, 1, 6.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_shortsword")),
+                    ItemList.iron_broadsword = new SwordItem(ToolMaterialList.iron_broadsword_mat, 1,1.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_broadsword")),
 
                     ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(MELEE)).setRegistryName(BlockList.angel_statue.getRegistryName())
             );
