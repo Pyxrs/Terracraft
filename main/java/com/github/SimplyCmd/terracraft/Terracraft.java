@@ -2,12 +2,14 @@ package com.github.SimplyCmd.terracraft;
 
 import static com.github.SimplyCmd.terracraft.Terracraft.MOD_ID;
 
+import com.github.SimplyCmd.terracraft.lists.ArmorMaterialList;
 import com.github.SimplyCmd.terracraft.lists.BlockList;
 import com.github.SimplyCmd.terracraft.lists.ItemList;
 import com.github.SimplyCmd.terracraft.lists.ToolMaterialList;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -60,6 +62,11 @@ public class Terracraft {
                     ItemList.iron_shortsword = new SwordItem(ToolMaterialList.iron_shortsword_mat, 1, 6.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_shortsword")),
                     ItemList.iron_broadsword = new SwordItem(ToolMaterialList.iron_broadsword_mat, 1,1.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_broadsword")),
 
+                    ItemList.mining_helmet = new ArmorItem(ArmorMaterialList.mining_mat, EquipmentSlotType.HEAD, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(location("mining_helmet")),
+                    ItemList.mining_shirt = new ArmorItem(ArmorMaterialList.mining_mat, EquipmentSlotType.CHEST, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(location("mining_shirt")),
+                    ItemList.mining_pants = new ArmorItem(ArmorMaterialList.mining_mat, EquipmentSlotType.LEGS, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(location("mining_pants")),
+                    ItemList.mining_boots = new ArmorItem(ArmorMaterialList.mining_mat, EquipmentSlotType.FEET, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(location("mining_boots")),
+
                     ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.angel_statue.getRegistryName())
             );
             logger.info("Items registered");
@@ -79,4 +86,4 @@ public class Terracraft {
     }
 }
 
-//at 14:15
+//at 0:00 9/17
