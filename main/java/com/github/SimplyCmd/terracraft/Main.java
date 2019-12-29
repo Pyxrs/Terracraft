@@ -1,11 +1,8 @@
 package com.github.SimplyCmd.terracraft;
 
-import static com.github.SimplyCmd.terracraft.Terracraft.MOD_ID;
+import static com.github.SimplyCmd.terracraft.Main.MOD_ID;
 
-import com.github.SimplyCmd.terracraft.lists.ArmorMaterialList;
-import com.github.SimplyCmd.terracraft.lists.BlockList;
-import com.github.SimplyCmd.terracraft.lists.ItemList;
-import com.github.SimplyCmd.terracraft.lists.ToolMaterialList;
+import com.github.SimplyCmd.terracraft.lists.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -27,17 +24,17 @@ import org.apache.logging.log4j.Logger;
  * The main class of the mod, this is the class that looks like a mod to forge.
  */
 @Mod(MOD_ID)
-public class Terracraft {
+public class Main {
     /**
      * The modid of this mod, this has to match the modid in the mods.toml and has to be in the format defined in {@link net.minecraftforge.fml.loading.moddiscovery.ModInfo}
      */
     public static final String MOD_ID = "terracraft";
-    public static Terracraft instance;
+    public static Main instance;
     private static final Logger logger = LogManager.getLogger(MOD_ID);
 
     public static final ItemGroup MELEE = new MeleeItemGroup();
 
-    public Terracraft() {
+    public Main() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientRegistries);
 
@@ -57,15 +54,12 @@ public class Terracraft {
         public static void registerItems(final RegistryEvent.Register<Item> event) {
             event.getRegistry().registerAll(
                     ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust")),
+                    ItemList.copper_ore = new Item(new Item.Properties()).setRegistryName(location("copper_ore")),
+                    ItemList.silver_ore = new Item(new Item.Properties()).setRegistryName(location("silver_ore")),
 
                     ItemList.iron_hammer = new AxeItem(ToolMaterialList.iron_hammer_mat, -1.0f, 6.0f, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(location("iron_hammer")),
                     ItemList.iron_shortsword = new SwordItem(ToolMaterialList.iron_shortsword_mat, 1, 6.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_shortsword")),
                     ItemList.iron_broadsword = new SwordItem(ToolMaterialList.iron_broadsword_mat, 1,1.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_broadsword")),
-
-                    ItemList.mining_helmet = new ArmorItem(ArmorMaterialList.mining_mat, EquipmentSlotType.HEAD, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(location("mining_helmet")),
-                    ItemList.mining_shirt = new ArmorItem(ArmorMaterialList.mining_mat, EquipmentSlotType.CHEST, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(location("mining_shirt")),
-                    ItemList.mining_pants = new ArmorItem(ArmorMaterialList.mining_mat, EquipmentSlotType.LEGS, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(location("mining_pants")),
-                    ItemList.mining_boots = new ArmorItem(ArmorMaterialList.mining_mat, EquipmentSlotType.FEET, new Item.Properties().group(ItemGroup.COMBAT)).setRegistryName(location("mining_boots")),
 
                     ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.angel_statue.getRegistryName())
             );
@@ -87,3 +81,4 @@ public class Terracraft {
 }
 
 //at 0:00 9/17
+//

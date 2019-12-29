@@ -9,10 +9,8 @@ public class ItemList {
     public static Item iron_shortsword;
     public static Item iron_hammer;
 
-    public static Item mining_helmet;
-    public static Item mining_shirt;
-    public static Item mining_pants;
-    public static Item mining_boots;
-
     public static Item angel_statue;
+
+    public static Item copper_ore;
+    public static Item silver_ore;
 }

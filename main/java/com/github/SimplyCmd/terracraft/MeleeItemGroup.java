@@ -13,6 +13,6 @@ public class MeleeItemGroup extends ItemGroup {
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(Item.BLOCK_TO_ITEM.get(BlockList.angel_statue));
+        return new ItemStack(Item.BLOCK_TO_ITEM.get(ItemList.iron_shortsword));
     }
 }
