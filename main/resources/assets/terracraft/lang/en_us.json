@@ -11,6 +11,8 @@
   "item.terracraft.mining_boots": "Mining Boots",
 
   "block.terracraft.angel_statue": "Angel Statue",
+  "block.terracraft.copper_ore": "Copper Ore",
+  "block.terracraft.silver_ore": "Silver Ore",
 
-  "itemGroup.MELEE": "Melee Weapons"
+  "itemGroup.TERRACRAFT": "Terracraft Content"
 }

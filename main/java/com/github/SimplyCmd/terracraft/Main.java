@@ -6,7 +6,6 @@ import com.github.SimplyCmd.terracraft.lists.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -32,7 +31,7 @@ public class Main {
     public static Main instance;
     private static final Logger logger = LogManager.getLogger(MOD_ID);
 
-    public static final ItemGroup MELEE = new MeleeItemGroup();
+    public static final ItemGroup TERRACRAFT = new TerracraftItemGroup();
 
     public Main() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -54,22 +53,25 @@ public class Main {
         public static void registerItems(final RegistryEvent.Register<Item> event) {
             event.getRegistry().registerAll(
                     ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust")),
-                    ItemList.copper_ore = new Item(new Item.Properties()).setRegistryName(location("copper_ore")),
-                    ItemList.silver_ore = new Item(new Item.Properties()).setRegistryName(location("silver_ore")),
+                    ItemList.copper_bar = new Item(new Item.Properties().group(TERRACRAFT)).setRegistryName(location("copper_bar")),
 
-                    ItemList.iron_hammer = new AxeItem(ToolMaterialList.iron_hammer_mat, -1.0f, 6.0f, new Item.Properties().group(ItemGroup.TOOLS)).setRegistryName(location("iron_hammer")),
-                    ItemList.iron_shortsword = new SwordItem(ToolMaterialList.iron_shortsword_mat, 1, 6.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_shortsword")),
-                    ItemList.iron_broadsword = new SwordItem(ToolMaterialList.iron_broadsword_mat, 1,1.0f, new Item.Properties().group(MELEE)).setRegistryName(location("iron_broadsword")),
+                    ItemList.iron_hammer = new AxeItem(ToolMaterialList.iron_hammer_mat, -1.0f, 6.0f, new Item.Properties().group(TERRACRAFT)).setRegistryName(location("iron_hammer")),
+                    ItemList.iron_shortsword = new SwordItem(ToolMaterialList.iron_shortsword_mat, 1, 6.0f, new Item.Properties().group(TERRACRAFT)).setRegistryName(location("iron_shortsword")),
+                    ItemList.iron_broadsword = new SwordItem(ToolMaterialList.iron_broadsword_mat, 1,1.0f, new Item.Properties().group(TERRACRAFT)).setRegistryName(location("iron_broadsword")),
 
-                    ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(ItemGroup.DECORATIONS)).setRegistryName(BlockList.angel_statue.getRegistryName())
-            );
+                    ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(TERRACRAFT)).setRegistryName(BlockList.angel_statue.getRegistryName()),
+                    ItemList.copper_ore = new BlockItem(BlockList.copper_ore, new Item.Properties().group(TERRACRAFT)).setRegistryName(BlockList.copper_ore.getRegistryName()),
+                    ItemList.silver_ore = new BlockItem(BlockList.silver_ore, new Item.Properties().group(TERRACRAFT)).setRegistryName(BlockList.silver_ore.getRegistryName())
+                    );
             logger.info("Items registered");
         }
 
         @SubscribeEvent //run on launch
         public static void registerBlocks(final RegistryEvent.Register<Block> event) {
             event.getRegistry().registerAll(
-                    BlockList.angel_statue = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 30.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("angel_statue")) //lightValue = how much it glows, Sound = breaking sound
+                    BlockList.angel_statue = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 30.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("angel_statue")), //lightValue = how much it glows, Sound = breaking sound
+                    BlockList.copper_ore = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 30.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("copper_ore")), //lightValue = how much it glows, Sound = breaking sound
+                    BlockList.silver_ore = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 30.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("silver_ore")) //lightValue = how much it glows, Sound = breaking sound
             );
             logger.info("Blocks registered");
         }
@@ -79,6 +81,3 @@ public class Main {
         }
     }
 }
-
-//at 0:00 9/17
-//
