@@ -55,9 +55,9 @@ public class Main {
                     ItemList.testing_dust = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("testing_dust")),
                     ItemList.copper_bar = new Item(new Item.Properties().group(TERRACRAFT)).setRegistryName(location("copper_bar")),
 
-                    ItemList.iron_hammer = new AxeItem(ToolMaterialList.iron_hammer_mat, -1.0f, 6.0f, new Item.Properties().group(TERRACRAFT)).setRegistryName(location("iron_hammer")),
-                    ItemList.iron_shortsword = new SwordItem(ToolMaterialList.iron_shortsword_mat, 1, 6.0f, new Item.Properties().group(TERRACRAFT)).setRegistryName(location("iron_shortsword")),
-                    ItemList.iron_broadsword = new SwordItem(ToolMaterialList.iron_broadsword_mat, 1,1.0f, new Item.Properties().group(TERRACRAFT)).setRegistryName(location("iron_broadsword")),
+                    ItemList.iron_hammer = new AxeItem(ToolMaterialList.iron_hammer_mat, -7, -3.5f, new Item.Properties().group(TERRACRAFT)).setRegistryName(location("iron_hammer")),
+                    ItemList.iron_shortsword = new SwordItem(ToolMaterialList.iron_shortsword_mat, -6, -2.0f, new Item.Properties().group(TERRACRAFT)).setRegistryName(location("iron_shortsword")),
+                    ItemList.iron_broadsword = new SwordItem(ToolMaterialList.iron_broadsword_mat, -4,-3.0f, new Item.Properties().group(TERRACRAFT)).setRegistryName(location("iron_broadsword")),
 
                     ItemList.angel_statue = new BlockItem(BlockList.angel_statue, new Item.Properties().group(TERRACRAFT)).setRegistryName(BlockList.angel_statue.getRegistryName()),
                     ItemList.copper_ore = new BlockItem(BlockList.copper_ore, new Item.Properties().group(TERRACRAFT)).setRegistryName(BlockList.copper_ore.getRegistryName()),
@@ -69,9 +69,9 @@ public class Main {
         @SubscribeEvent //run on launch
         public static void registerBlocks(final RegistryEvent.Register<Block> event) {
             event.getRegistry().registerAll(
-                    BlockList.angel_statue = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 30.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("angel_statue")), //lightValue = how much it glows, Sound = breaking sound
-                    BlockList.copper_ore = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 30.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("copper_ore")), //lightValue = how much it glows, Sound = breaking sound
-                    BlockList.silver_ore = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(1.5f, 30.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("silver_ore")) //lightValue = how much it glows, Sound = breaking sound
+                    BlockList.angel_statue = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2f, 30.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("angel_statue")), //lightValue = how much it glows, Sound = breaking sound
+                    BlockList.copper_ore = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3f, 15.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("copper_ore")), //lightValue = how much it glows, Sound = breaking sound
+                    BlockList.silver_ore = new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3f, 15.0f).lightValue(0).sound(SoundType.STONE)).setRegistryName(location("silver_ore")) //lightValue = how much it glows, Sound = breaking sound
             );
             logger.info("Blocks registered");
         }

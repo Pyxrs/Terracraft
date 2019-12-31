@@ -6,12 +6,12 @@ import net.minecraft.item.ItemStack;
 
 public class TerracraftItemGroup extends ItemGroup {
     public TerracraftItemGroup() {
-        super("terracraft");
+        super("TERRACRAFT");
     }
 
     @Override
     public ItemStack createIcon() {
-        return new ItemStack(ItemList.copper_bar);
+        return new ItemStack(ItemList.angel_statue);
         //return new ItemStack(Item.BLOCK_TO_ITEM.get(ItemList.BLOCK)); for block icon
     }
 }
