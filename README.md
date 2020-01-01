@@ -12,7 +12,7 @@
 
 ### Curseforge
 
-[https://www.curseforge.com/minecraft/mc-mods/terracraftrewrite](https://www.curseforge.com/minecraft/mc-mods/terracraftrewrite)  
+[https://www.curseforge.com/minecraft/mc-mods/terra-craft](https://www.curseforge.com/minecraft/mc-mods/terra-craft)  
 
 ### Roadmap
 
