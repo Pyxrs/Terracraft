@@ -4,15 +4,15 @@
 
 #### Terracraft is a mod that inserts features into Minecraft directly from Terraria!
 
-<!--### Versions
+### Versions
 
 | Build     | MCVersion | FGVersion |
 | ---       | ---       | ---       |
-| 0.1.0     | 1.15.1    | 30.0.18   |-->
+| 0.1.0     | 1.15.1    | 30.0.18   |
 
 ### Curseforge
 
-[https://www.curseforge.com/minecraft/mc-mods/terracraftrewrite](https://www.curseforge.com/minecraft/mc-mods/terracraftrewrite)  
+[https://www.curseforge.com/minecraft/mc-mods/terra-craft](https://www.curseforge.com/minecraft/mc-mods/terra-craft)  
 
 ### Roadmap
 
