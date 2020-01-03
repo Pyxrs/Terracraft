@@ -6,9 +6,9 @@
 # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="[30,)" #mandatory (26 is current forge version)
+loaderVersion="[30,)" #mandatory (28 is current forge version)
 # A URL to refer people to when problems occur with this mod
-issueTrackerURL="https://github.com/N-slash-A/Terracraft/issues" #optional
+issueTrackerURL="https://github.com/SimplyCmd/Terracraft/issues" #optional
 # A list of mods - how many allowed here is determined by the individual mod loader
 [[mods]] #mandatory
 # The modid of the mod
@@ -18,7 +18,7 @@ version="${version}" #mandatory
  # A display name for the mod
 displayName="Terracraft" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
-#updateJSONURL="" #optional
+updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="https://www.curseforge.com/minecraft/mc-mods/terracraft" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
@@ -26,9 +26,11 @@ logoFile="terracraft_logo.png" #optional
 # A text field displayed in the mod UI
 credits='''
 
-    Main Developer: Simply Cmd
-    Playtester: LilIcy
-'''
+            Main Developer: Simply Cmd
+            Playtester: LilIcy
+
+            Thanks to Cadiboo for teaching me how to make mods without the crutch of MCreator!
+        ''' #optional
 # A text field displayed in the mod UI
 authors="SimplyCmd" #optional
 # The description text for the mod (multi line!) (#mandatory)
@@ -42,7 +44,7 @@ I plan to have Terracraft boast over 20% of all Terraria features, which is more
 All of these additions will use Terraria textures that are modified to feel more vanilla.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.examplemod]] #optional
+[[dependencies.terracraft]] #optional
     # the modid of the dependency
     modId="forge" #mandatory
     # Does this dependency have to exist - if not, ordering below must be specified
@@ -54,7 +56,7 @@ All of these additions will use Terraria textures that are modified to feel more
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
 # Here's another dependency
-[[dependencies.examplemod]]
+[[dependencies.terracraft]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.15.1]"
