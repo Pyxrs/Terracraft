@@ -5,6 +5,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.ObjectHolder;
 
 @ObjectHolder(Main.MODID)
-public class ModItems {
+public final class ModItems {
     public static final Item TESTING_DUST = null;
 }

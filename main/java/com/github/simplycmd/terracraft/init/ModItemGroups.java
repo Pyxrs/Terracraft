@@ -3,14 +3,13 @@ package com.github.simplycmd.terracraft.init;
 import com.github.simplycmd.terracraft.Main;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 
 import javax.annotation.Nonnull;
 import java.util.function.Supplier;
 
 public final class ModItemGroups {
 
-    public static final ItemGroup MOD_ITEM_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(Items.BIRCH_PLANKS));
+    public static final ItemGroup MOD_ITEM_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(ModItems.TESTING_DUST));
 
     public static final class ModItemGroup extends ItemGroup {
 
@@ -27,7 +26,5 @@ public final class ModItemGroups {
         public ItemStack createIcon() {
             return iconSupplier.get();
         }
-
     }
-
 }
