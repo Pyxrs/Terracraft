@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 
 public final class ModItemGroups {
 
-    public static final ItemGroup MOD_ITEM_GROUP = new ModItemGroup(Main.MODID, () -> new ItemStack(ModItems.TESTING_DUST));
+    public static final ItemGroup TERRACRAFT = new ModItemGroup(Main.MODID, () -> new ItemStack(ModItems.TESTING_DUST));
 
     public static final class ModItemGroup extends ItemGroup {
 

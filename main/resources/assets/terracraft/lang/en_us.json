@@ -1,4 +1,7 @@
 {
   "item.terracraft.testing_dust": "Testing Dust",
+
+  "block.terracraft.testing_block": "Testing Block",
+
   "itemGroup.terracraft": "Terracraft Content"
 }

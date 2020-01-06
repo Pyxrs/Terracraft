@@ -2,6 +2,8 @@ package com.github.simplycmd.terracraft;
 
 import com.github.simplycmd.terracraft.init.ModItemGroups;
 import com.google.common.base.Preconditions;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -21,12 +23,29 @@ public class ModEventSubscriber {
     private static final Logger LOGGER = LogManager.getLogger(Main.MODID + " Mod Event Subscriber");
 
     @SubscribeEvent
+    public static void onRegisterBlocks(final RegistryEvent.Register<Block> event) {
+        event.getRegistry().registerAll(
+                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)), "testing_block") //The rock material means you need a pic to break
+        );
+        LOGGER.debug("Registered Blocks");
+    }
+
+    @SubscribeEvent
     public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
         final IForgeRegistry<Item> registry = event.getRegistry();
         registry.registerAll(
-                setup(new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)), "testing_dust")
+                // This is a very simple Item. It has no special properties except for being on our creative tab.
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "testing_dust")
         );
 
+        //Automatically registers blockitems for blocks
+        ForgeRegistries.BLOCKS.getValues().stream()
+                .filter(block -> block.getRegistryName().getNamespace().equals(Main.MODID))
+                .forEach(block -> {
+                    final Item.Properties properties = new Item.Properties().group(ModItemGroups.TERRACRAFT);
+                    final BlockItem blockItem = new BlockItem(block, properties);
+                    registry.register(setup(blockItem, block.getRegistryName()));
+                });
         LOGGER.debug("Registered Items");
     }
 
