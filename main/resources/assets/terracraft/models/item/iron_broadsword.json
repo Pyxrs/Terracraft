@@ -1,0 +1,28 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "terracraft:item/iron_broadsword"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ -80, 280, -40 ],
+      "translation": [ -1, 5, 2.5 ],
+      "scale": [ 1.1, 1.1, 1.1 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ -80, -280, 40 ],
+      "translation": [ -1, 5, 2.5 ],
+      "scale": [ 1.1, 1.1, 1.1 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 25 ],
+      "translation": [ 1.13, 2, 1.13],
+      "scale": [ 0.8, 0.8, 0.8 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, -25 ],
+      "translation": [ 1.13, 2, 1.13],
+      "scale": [ 0.8, 0.8, 0.8 ]
+    }
+  }
+}

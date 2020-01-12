@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -25,7 +26,10 @@ public class ModEventSubscriber {
     @SubscribeEvent
     public static void onRegisterBlocks(final RegistryEvent.Register<Block> event) {
         event.getRegistry().registerAll(
-                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0F, 3.0F)), "testing_block") //The rock material means you need a pic to break
+                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 30.0f)), "testing_block"), //The rock material means you need a pic to break
+                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 30.0f)), "angel_statue"),
+                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 15.0f)), "copper_ore"),
+                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 15.0f)), "silver_ore")
         );
         LOGGER.debug("Registered Blocks");
     }
@@ -35,7 +39,12 @@ public class ModEventSubscriber {
         final IForgeRegistry<Item> registry = event.getRegistry();
         registry.registerAll(
                 // This is a very simple Item. It has no special properties except for being on our creative tab.
-                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "testing_dust")
+                setup(new Item(new Item.Properties().group(ItemGroup.MISC)), "testing_dust"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "copper_bar")
+
+                /*setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_hammer"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_shortsword"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_broadsword")*/
         );
 
         //Automatically registers blockitems for blocks

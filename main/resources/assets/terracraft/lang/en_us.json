@@ -1,7 +1,15 @@
 {
   "item.terracraft.testing_dust": "Testing Dust",
+  "item.terracraft.copper_bar": "Copper Bar",
+
+  "item.terracraft.iron_broadsword": "Iron Broadsword",
+  "item.terracraft.iron_shortsword": "Iron Shortsword",
+  "item.terracraft.iron_hammer": "Iron Hammer",
 
   "block.terracraft.testing_block": "Testing Block",
+  "block.terracraft.angel_statue": "Angel Statue",
+  "block.terracraft.copper_ore": "Copper Ore",
+  "block.terracraft.silver_ore": "Silver Ore",
 
   "itemGroup.terracraft": "Terracraft Content"
 }
