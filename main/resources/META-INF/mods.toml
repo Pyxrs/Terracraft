@@ -26,7 +26,7 @@ logoFile="terracraft_logo.png" #optional
 # A text field displayed in the mod UI
 credits='''
 
-            Main Developer: Simply Cmd
+            Main Developer: SimplyCmd
             Playtester: LilIcy
 
             Thanks to Cadiboo for teaching me how to make mods without the crutch of MCreator!

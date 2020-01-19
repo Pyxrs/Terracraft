@@ -26,7 +26,7 @@ public class ModEventSubscriber {
     @SubscribeEvent
     public static void onRegisterBlocks(final RegistryEvent.Register<Block> event) {
         event.getRegistry().registerAll(
-                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 30.0f)), "testing_block"), //The rock material means you need a pic to break
+                //setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 30.0f)), "testing_block"), //The rock material means you need a pic to break
                 setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 30.0f)), "angel_statue"),
                 setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 15.0f)), "copper_ore"),
                 setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 15.0f)), "silver_ore")
@@ -40,7 +40,12 @@ public class ModEventSubscriber {
         registry.registerAll(
                 // This is a very simple Item. It has no special properties except for being on our creative tab.
                 setup(new Item(new Item.Properties().group(ItemGroup.MISC)), "testing_dust"),
-                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "copper_bar")
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "copper_bar"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "copper_watch"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "silver_watch"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "gold_watch"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "depth_meter"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "gold_bar")
 
                 /*setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_hammer"),
                 setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_shortsword"),
