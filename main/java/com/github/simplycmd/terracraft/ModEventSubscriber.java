@@ -29,7 +29,13 @@ public class ModEventSubscriber {
                 //setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 30.0f)), "testing_block"), //The rock material means you need a pic to break
                 setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(2.0f, 30.0f)), "angel_statue"),
                 setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 15.0f)), "copper_ore"),
-                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 15.0f)), "silver_ore")
+                setup(new Block(Block.Properties.create(Material.ROCK).hardnessAndResistance(3.0f, 15.0f)), "silver_ore"),
+                setup(new Block(Block.Properties.create(Material.SAND).hardnessAndResistance(1.0f, 1.0f)), "testing_block"),
+                setup(new Block(Block.Properties.create(Material.GLASS).hardnessAndResistance(0.3f, 1.5f)), "bottle"),
+                setup(new Block(Block.Properties.create(Material.GLASS).hardnessAndResistance(0.3f, 1.5f)), "lesser_healing_potion"),
+                setup(new Block(Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5f, 12.5f)), "wooden_table")
+
+                //IMPORTANT TODO: TEXTURE BLOCKS and make bottle/healingpotion/table models!
         );
         LOGGER.debug("Registered Blocks");
     }
@@ -41,15 +47,24 @@ public class ModEventSubscriber {
                 // This is a very simple Item. It has no special properties except for being on our creative tab.
                 setup(new Item(new Item.Properties().group(ItemGroup.MISC)), "testing_dust"),
                 setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "copper_bar"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "silver_bar"),
                 setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "copper_watch"),
                 setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "silver_watch"),
                 setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "gold_watch"),
                 setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "depth_meter"),
-                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "gold_bar")
-
-                /*setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_hammer"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "gel"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "acorn"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "life_crystal"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "goggles"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "lens"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "wooden_bow"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "flaming_arrow"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "shuriken"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "suspicious_looking_eye"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "demon_bow"),
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_hammer"),
                 setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_shortsword"),
-                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_broadsword")*/
+                setup(new Item(new Item.Properties().group(ModItemGroups.TERRACRAFT)), "iron_broadsword")
         );
 
         //Automatically registers blockitems for blocks
