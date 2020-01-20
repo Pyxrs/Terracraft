@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "terracraft:item/bottle"
+    "layer0": "minecraft:item/glass_bottle"
   }
 }

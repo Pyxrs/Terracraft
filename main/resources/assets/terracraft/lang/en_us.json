@@ -1,6 +1,21 @@
 {
   "item.terracraft.testing_dust": "Testing Dust",
   "item.terracraft.copper_bar": "Copper Bar",
+  "item.terracraft.acorn": "Acorn",
+  "item.terracraft.copper_watch": "Copper Watch",
+  "item.terracraft.gold_watch": "Gold Watch",
+  "item.terracraft.silver_watch": "Silver Watch",
+  "item.terracraft.demon_bow": "Demon Bow",
+  "item.terracraft.depth_meter": "Depth Meter",
+  "item.terracraft.flaming_arrow": "Flaming Arrow",
+  "item.terracraft.gel": "Gel",
+  "item.terracraft.goggles": "Goggles",
+  "item.terracraft.lens": "Lens",
+  "item.terracraft.life_crystal": "Life Crystal",
+  "item.terracraft.shuriken": "Shuriken",
+  "item.terracraft.silver_bar": "Silver Bar",
+  "item.terracraft.suspicious_looking_eye": "Suspicious Looking Eye",
+  "item.terracraft.wooden_bow": "Wooden Bow",
 
   "item.terracraft.iron_broadsword": "Iron Broadsword",
   "item.terracraft.iron_shortsword": "Iron Shortsword",
@@ -10,6 +25,9 @@
   "block.terracraft.angel_statue": "Angel Statue",
   "block.terracraft.copper_ore": "Copper Ore",
   "block.terracraft.silver_ore": "Silver Ore",
+  "block.terracraft.lesser_healing_potion": "Lesser Healing Potion",
+  "block.terracraft.wooden_table": "Wooden Table",
+  "block.terracraft.bottle": "Bottle (Terracraft)",
 
   "itemGroup.terracraft": "Terracraft Content"
 }
