@@ -9,7 +9,7 @@
 | Build     | MCVersion | FGVersion |
 | ---       | ---       | ---       |
 | 0.1.0     | 1.15.1    | 30.0.18   |
-| 0.2.0 [Unfinished]     | 1.15.1    | 30.0.29   |
+| 0.2.0 [Unfinished]     | 1.15.1    | 30.0.42   |
 
 ### Curseforge
 
@@ -29,7 +29,7 @@
 
 ### Images
 
-None yet... Expect more soon!
+![image](https://i.imgur.com/Z9HJA37.png)
 
 ### Discord Server
 
