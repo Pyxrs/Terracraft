@@ -9,7 +9,7 @@
 | Build     | MCVersion | FGVersion |
 | ---       | ---       | ---       |
 | 0.1.0     | 1.15.1    | 30.0.18   |
-| 0.2.0 [Unfinished]     | 1.15.1    | 30.0.42   |
+| 0.2.0 [Unfinished]     | 1.15.2    | 31.1.30   |
 
 ### Curseforge
 
