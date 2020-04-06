@@ -4003,7 +4003,7 @@ public class ModEventSubscriber {
                 setup(new Item(new Item.Properties()),"mythical_robe"),
                 setup(new Item(new Item.Properties()),"mythical_lion_mask"),
                 setup(new Item(new Item.Properties()),"firecracker"),
-                setup(new Item(new Item.Properties()),"TestingDust")
+                setup(new Item(new Item.Properties()),"testing_dust")
         );
     }
 
