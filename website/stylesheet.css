@@ -1,4 +1,4 @@
-@font-face { font-family: opensans; src: url('Resources/OpenSans-Regular.ttf');}
+@font-face { font-family: opensans; src: url('./OpenSans-Regular.ttf');}
 
 #download{
     height: 300px;
@@ -7,11 +7,28 @@
 }
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-	background-color: #222222;
+	font-family: opensans;
+	color: white;
+	font-size:20px;
+	/* The image used */
+	background-image: url("background.png");
+
+	/* Full height */
+	height: 100%;
+
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+body, html {
+	height: 100%;
 }
 
 .button {
