@@ -1,17 +1,9 @@
 @font-face { font-family: opensans; src: url('Resources/OpenSans-Regular.ttf');}
 
-html {
-  scroll-behavior: smooth;
-}
- 
- a {
-  text-decoration: none;
-  color: white;
-}
- 
- #down {
-  margin-top: 100%;
-  padding-bottom: 25%;
+#download{
+    height: 300px;
+    width: 300px;
+    background: green; 
 }
 
 body {
@@ -30,11 +22,6 @@ body {
 	outline-style:none;
 	border:none;
 	cursor:pointer;
-
-	position:fixed;
-	width:50%;
-	bottom : 10%;
-	left : 25%;
 
 	/* Disable text selection: https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting */
 	-webkit-touch-callout: none; /* iOS Safari */
