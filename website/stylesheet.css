@@ -1,4 +1,4 @@
-@font-face { font-family: opensans; src: url('./OpenSans-Regular.ttf');}
+@font-face { font-family: opensans; src: url('Resources/OpenSans-Regular.ttf');}
 
 #download{
     height: 300px;
