@@ -14,8 +14,7 @@ public class Main {
 
     // This runs on mod startup
     public Main() {
-        LOGGER.info("Hello! This is Terracraft. Just to let you know, I am setting up a few things right now." +
-                " In a bit of time, you should be able to start playing Minecraft. But, for now, you're stuck with me." +
-                " Ok ima go now BYEEEEEEEEEE! :D");
+        LOGGER.info("Hello! This is Terracraft. Hold on, I'm setting up a few things right now." +
+                " In just a sec, you will get to start playing Minecraft!");
     }
 }
