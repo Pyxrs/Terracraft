@@ -2,35 +2,4 @@
 ## Welcome to Terracraft!
 ![Terracraft](https://github.com/SimplyCmd/Terracraft/blob/master/main/resources/terracraft_logo.png?raw=true)
 
-#### Terracraft is a mod that inserts features into Minecraft directly from Terraria!
-
-### Versions
-
-| Build     | MCVersion | FGVersion |
-| ---       | ---       | ---       |
-| 0.1.0     | 1.15.1    | 30.0.18   |
-| 0.2.0 [Unfinished]     | 1.15.2    | 31.1.30   |
-
-### Curseforge
-
-[https://www.curseforge.com/minecraft/mc-mods/terra-craft](https://www.curseforge.com/minecraft/mc-mods/terra-craft)  
-
-### Roadmap
-
-[https://trello.com/b/HQ1gOyXJ/terracraft](https://trello.com/b/HQ1gOyXJ/terracraft)  
-
-### Wiki
-
-[https://terraria.gamepedia.com](https://terraria.gamepedia.com)
-
-### Issue Tracker
-
-[https://github.com/SimplyCmd/Terracraft/issues](https://github.com/SimplyCmd/Terracraft/issues)  
-
-### Images
-
-![image](https://i.imgur.com/Z9HJA37.png)
-
-### Discord Server
-
-[https://discord.gg/Yb6z22c](https://discord.gg/Yb6z22c)  
+#### To see information about the mod, please visit https://simplycmd.github.io/Terracraft/
