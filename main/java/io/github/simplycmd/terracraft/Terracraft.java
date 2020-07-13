@@ -17,17 +17,20 @@ public class Terracraft implements ModInitializer {
     public static final String MOD_ID = "terracraft";
     public static final String MOD_NAME = "Terracraft";
 
+    private static int currentItem = 0;
+
     //New item instances
-    public static final Item Gel = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
 
     @Override
     public void onInitialize() {
         log(Level.INFO, "Initializing Items");
-        Registry.register(Registry.ITEM, new Identifier("terracraft", "gel"), Gel);
+        while (currentItem < Content.allitems.length) {
+            Registry.register(Registry.ITEM, new Identifier("terracraft", Content.allitems[currentItem]), new Item(new Item.Settings().group(ItemGroup.MISC)));
+            currentItem++;
+        }
     }
 
     public static void log(Level level, String message){
         LOGGER.log(level, "["+MOD_NAME+"] " + message);
     }
-
 }
