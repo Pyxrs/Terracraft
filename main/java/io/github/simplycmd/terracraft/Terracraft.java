@@ -1,14 +1,24 @@
 package io.github.simplycmd.terracraft;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import io.github.simplycmd.terracraft.ToolsArmor.ModArmor;
+import io.github.simplycmd.terracraft.ToolsArmor.ModAxe;
+import io.github.simplycmd.terracraft.ToolsArmor.ModHoe;
+import io.github.simplycmd.terracraft.ToolsArmor.ModPickaxe;
+import io.github.simplycmd.terracraft.ToolsArmor.ModShovel;
+import io.github.simplycmd.terracraft.ToolsArmor.ModSword;
 
 public class Terracraft implements ModInitializer {
 
@@ -17,50 +27,104 @@ public class Terracraft implements ModInitializer {
     public static final String MOD_ID = "terracraft";
     public static final String MOD_NAME = "Terracraft";
 
-    private static int currentItem;
-    private static int stackSize;
-
-    //New item instances
-
     @Override
     public void onInitialize() {
         log(Level.INFO, "Initializing Items");
-        register(Registry.ITEM, Content.accessories, ItemGroup.COMBAT, false);
-        register(Registry.ITEM, Content.ammunition, ItemGroup.COMBAT, true);
-        register(Registry.ITEM, Content.armor, ItemGroup.COMBAT, false);
-        register(Registry.ITEM, Content.bars, ItemGroup.MATERIALS, true);
-        register(Registry.ITEM, Content.blocks, ItemGroup.BUILDING_BLOCKS, true);
-        register(Registry.ITEM, Content.coins, ItemGroup.MISC, true);
-        register(Registry.ITEM, Content.crafting_stations, ItemGroup.DECORATIONS, true);
-        register(Registry.ITEM, Content.dyes, ItemGroup.MATERIALS, false);
-        register(Registry.ITEM, Content.furniture, ItemGroup.DECORATIONS, true);
-        register(Registry.ITEM, Content.gems, ItemGroup.MATERIALS, true);
-        register(Registry.ITEM, Content.minions, ItemGroup.TOOLS, false);
-        register(Registry.ITEM, Content.miscellaneous, ItemGroup.MISC, true);
-        register(Registry.ITEM, Content.mounts, ItemGroup.TRANSPORTATION, false);
-        register(Registry.ITEM, Content.ores, ItemGroup.MATERIALS, true);
-        register(Registry.ITEM, Content.paint, ItemGroup.MISC, true);
-        register(Registry.ITEM, Content.pets, ItemGroup.MISC, false);
-        register(Registry.ITEM, Content.potions, ItemGroup.BREWING, true);
-        register(Registry.ITEM, Content.statues, ItemGroup.DECORATIONS, true);
-        register(Registry.ITEM, Content.tools, ItemGroup.TOOLS, false);
-        register(Registry.ITEM, Content.vanity_items, ItemGroup.MISC, false);
-        register(Registry.ITEM, Content.walls, ItemGroup.DECORATIONS, true);
-        register(Registry.ITEM, Content.weapons, ItemGroup.COMBAT, false);
-        register(Registry.ITEM, Content.wings, ItemGroup.MISC, false);
-        register(Registry.ITEM, Content.wire, ItemGroup.REDSTONE, true);
+        //Tools
+    
+        //Weapons
+
+        //Ammunition
+        registerItem("musket_ball", ItemGroup.COMBAT, 64);
+        registerItem("silver_bullet", ItemGroup.COMBAT, 64);
+        registerItem("tungsten_bullet", ItemGroup.COMBAT, 64);
+        registerItem("meteor_shot", ItemGroup.COMBAT, 64);
+
+        registerItem("wooden_arrow", ItemGroup.COMBAT, 64);
+        registerItem("flaming_arrow", ItemGroup.COMBAT, 64);
+        registerItem("frostburn_arrow", ItemGroup.COMBAT, 64);
+        registerItem("bone_arrow", ItemGroup.COMBAT, 64);
+        registerItem("heart_arrow", ItemGroup.COMBAT, 64);
+        registerItem("unholy_arrow", ItemGroup.COMBAT, 64);
+        registerItem("jesters_arrow", ItemGroup.COMBAT, 64);
+        registerItem("hellfire_arrow", ItemGroup.COMBAT, 64);
+
+        registerItem("poison_dart", ItemGroup.COMBAT, 64);
+        //Armor
+
+        //Furniture
+
+        //Crafting Stations
+
+        //Coins
+        registerItem("copper_coin", ItemGroup.MISC, 64);
+        registerItem("silver_coin", ItemGroup.MISC, 64);
+        registerItem("gold_coin", ItemGroup.MISC, 64);
+        registerItem("platinum_coin", ItemGroup.MISC, 64);
+        //Ores
+
+        //Bars
+
+        //Accessories
+
+        //Blocks
+
+        //Walls
+                
+        //Paint
+
+        //Gems
+
+        //Vanity Items
+
+        //Dyes
+
+        //Potions
+
+        //Statues
+
+        //Wire
+
+        //Pets
+
+        //Mounts
+
+        //Minions
+
+        //Wings
+
+        //Miscellaneous
+    }
+
+    public static void registerArmor(String name, ItemGroup group, ArmorMaterial material, EquipmentSlot slot) {
+        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModArmor(material, slot, (new Item.Settings()).group(group)));
+    }
+
+    public static void registerAxe(String name, ItemGroup group, ToolMaterial material, float damage, float speed) {
+        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModAxe(material, damage, speed, (new Item.Settings()).group(group)));
+    }
+
+    public static void registerHoe(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
+        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModHoe(material, damage, speed, (new Item.Settings()).group(group)));
+    }
+
+    public static void registerPickaxe(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
+        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModPickaxe(material, damage, speed, (new Item.Settings()).group(group)));
+    }
+
+    public static void registerShovel(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
+        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModShovel(material, damage, speed, (new Item.Settings()).group(group)));
+    }
+
+    public static void registerSword(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
+        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModSword(material, damage, speed, (new Item.Settings()).group(group)));
+    }
+
+    public static void registerItem(String name, ItemGroup group, int stack) {
+        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new Item(new Item.Settings().group(group).maxCount(stack)));
     }
 
     public static void log(Level level, String message){
         LOGGER.log(level, "["+MOD_NAME+"] " + message);
-    }
-
-    public static void register(Registry<Item> type, String[] category, ItemGroup tab, Boolean stack){
-        currentItem = 0;
-        if (stack == true) {stackSize = 64;} else {stackSize = 1;}
-        while (currentItem < category.length) {
-            Registry.register(type, new Identifier("terracraft", category[currentItem]), new Item(new Item.Settings().group(tab).maxCount(stackSize)));
-            currentItem++;
-        }
     }
 }
