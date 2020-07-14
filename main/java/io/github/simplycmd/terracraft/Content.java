@@ -1,7 +1,5 @@
 package io.github.simplycmd.terracraft;
 
-import java.util.stream.Stream;
-
 public class Content {
 	public static String[] tools = {
 
@@ -22,7 +20,7 @@ public class Content {
 
 	};
 	public static String[] coins = {
-
+            "copper_coin", "silver_coin", "gold_coin", "platinum_coin"
 	};
 	public static String[] ores = {
 
@@ -76,5 +74,5 @@ public class Content {
 
 	};
 
-	public static String[] allitems = Stream.of(tools, weapons, ammunition, armor, furniture, crafting_stations, coins, ores, bars, accessories, blocks, walls, paint, gems, vanity_items, dyes, potions, statues, wire, pets, mounts, minions, wings, miscellaneous).flatMap(Stream::of).toArray(String[]::new);
+	//public static String[] allitems = Stream.of(tools, weapons, ammunition, armor, furniture, crafting_stations, coins, ores, bars, accessories, blocks, walls, paint, gems, vanity_items, dyes, potions, statues, wire, pets, mounts, minions, wings, miscellaneous).flatMap(Stream::of).toArray(String[]::new);
 }
