@@ -48,8 +48,14 @@ public class Terracraft implements ModInitializer {
         registerItem("unholy_arrow", ItemGroup.COMBAT, 64);
         registerItem("jesters_arrow", ItemGroup.COMBAT, 64);
         registerItem("hellfire_arrow", ItemGroup.COMBAT, 64);
+        registerItem("spectral_arrow", ItemGroup.COMBAT, 64);
 
         registerItem("poison_dart", ItemGroup.COMBAT, 64);
+
+        registerItem("flare", ItemGroup.COMBAT, 64);
+        registerItem("blue_flare", ItemGroup.COMBAT, 64);
+
+        registerItem("seed", ItemGroup.COMBAT, 64);
         //Armor
 
         //Furniture
@@ -97,31 +103,31 @@ public class Terracraft implements ModInitializer {
     }
 
     public static void registerArmor(String name, ItemGroup group, ArmorMaterial material, EquipmentSlot slot) {
-        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModArmor(material, slot, (new Item.Settings()).group(group)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModArmor(material, slot, (new Item.Settings()).group(group)));
     }
 
     public static void registerAxe(String name, ItemGroup group, ToolMaterial material, float damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModAxe(material, damage, speed, (new Item.Settings()).group(group)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModAxe(material, damage, speed, (new Item.Settings()).group(group)));
     }
 
     public static void registerHoe(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModHoe(material, damage, speed, (new Item.Settings()).group(group)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModHoe(material, damage, speed, (new Item.Settings()).group(group)));
     }
 
     public static void registerPickaxe(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModPickaxe(material, damage, speed, (new Item.Settings()).group(group)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModPickaxe(material, damage, speed, (new Item.Settings()).group(group)));
     }
 
     public static void registerShovel(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModShovel(material, damage, speed, (new Item.Settings()).group(group)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModShovel(material, damage, speed, (new Item.Settings()).group(group)));
     }
 
     public static void registerSword(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new ModSword(material, damage, speed, (new Item.Settings()).group(group)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModSword(material, damage, speed, (new Item.Settings()).group(group)));
     }
 
     public static void registerItem(String name, ItemGroup group, int stack) {
-        Registry.register(Registry.ITEM, new Identifier("terracraft", name), new Item(new Item.Settings().group(group).maxCount(stack)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new Item(new Item.Settings().group(group).maxCount(stack)));
     }
 
     public static void log(Level level, String message){
