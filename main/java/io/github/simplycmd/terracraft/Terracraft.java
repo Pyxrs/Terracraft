@@ -1,136 +1,175 @@
 package io.github.simplycmd.terracraft;
 
-import net.fabricmc.api.ModInitializer;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import io.github.simplycmd.terracraft.ToolsArmor.ModArmor;
-import io.github.simplycmd.terracraft.ToolsArmor.ModAxe;
-import io.github.simplycmd.terracraft.ToolsArmor.ModHoe;
-import io.github.simplycmd.terracraft.ToolsArmor.ModPickaxe;
-import io.github.simplycmd.terracraft.ToolsArmor.ModShovel;
-import io.github.simplycmd.terracraft.ToolsArmor.ModSword;
+import io.github.UUIDs;
+import io.github.simplycmd.terracraft.armor.ArmorMaterials;
+import io.github.simplycmd.terracraft.armor.ModArmor;
+import io.github.simplycmd.terracraft.items.WoodenArmor;
+import io.github.simplycmd.terracraft.tools.ModAxe;
+import io.github.simplycmd.terracraft.tools.ModHoe;
+import io.github.simplycmd.terracraft.tools.ModPickaxe;
+import io.github.simplycmd.terracraft.tools.ModShovel;
+import io.github.simplycmd.terracraft.tools.ModSword;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.server.ServerTickCallback;
+import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.network.MessageType;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 
-public class Terracraft implements ModInitializer {
+public class Terracraft extends Registers implements ModInitializer {
 
     public static Logger LOGGER = LogManager.getLogger();
 
     public static final String MOD_ID = "terracraft";
     public static final String MOD_NAME = "Terracraft";
 
+    private HashMap wooden_armor;
+
     @Override
     public void onInitialize() {
-        log(Level.INFO, "Initializing Items");
-        //Tools
-    
-        //Weapons
+        ServerTickCallback.EVENT.register(this::onServerTick);
 
-        //Ammunition
-        registerItem("musket_ball", ItemGroup.COMBAT, 64);
-        registerItem("silver_bullet", ItemGroup.COMBAT, 64);
-        registerItem("tungsten_bullet", ItemGroup.COMBAT, 64);
-        registerItem("meteor_shot", ItemGroup.COMBAT, 64);
+        log(Level.INFO, "Initializing");
 
-        registerItem("wooden_arrow", ItemGroup.COMBAT, 64);
-        registerItem("flaming_arrow", ItemGroup.COMBAT, 64);
-        registerItem("frostburn_arrow", ItemGroup.COMBAT, 64);
-        registerItem("bone_arrow", ItemGroup.COMBAT, 64);
-        registerItem("heart_arrow", ItemGroup.COMBAT, 64);
-        registerItem("unholy_arrow", ItemGroup.COMBAT, 64);
-        registerItem("jesters_arrow", ItemGroup.COMBAT, 64);
-        registerItem("hellfire_arrow", ItemGroup.COMBAT, 64);
-        registerItem("spectral_arrow", ItemGroup.COMBAT, 64);
+        // Tools
 
-        registerItem("poison_dart", ItemGroup.COMBAT, 64);
+        // Weapons
 
-        registerItem("flare", ItemGroup.COMBAT, 64);
-        registerItem("blue_flare", ItemGroup.COMBAT, 64);
+        // Ammunition
+        registerAmmo("musket_ball");
+        registerAmmo("silver_bullet");
+        registerAmmo("tungsten_bullet");
+        registerAmmo("meteor_shot");
 
-        registerItem("seed", ItemGroup.COMBAT, 64);
-        //Armor
+        registerAmmo("flaming_arrow");
+        registerAmmo("frostburn_arrow");
+        registerAmmo("bone_arrow");
+        registerAmmo("unholy_arrow");
+        registerAmmo("jesters_arrow");
+        registerAmmo("hellfire_arrow");
 
-        //Furniture
+        registerAmmo("poison_dart");
 
-        //Crafting Stations
+        registerAmmo("flare");
+        registerAmmo("blue_flare");
 
-        //Coins
+        registerAmmo("seed");
+        // Armor
+        wooden_armor = registerArmor(ArmorMaterials.WOOD);
+        // Furniture
+
+        // Crafting Stations
+
+        // Coins
         registerItem("copper_coin", ItemGroup.MISC, 64);
         registerItem("silver_coin", ItemGroup.MISC, 64);
         registerItem("gold_coin", ItemGroup.MISC, 64);
         registerItem("platinum_coin", ItemGroup.MISC, 64);
-        //Ores
+        // Ores
 
-        //Bars
+        // Bars
 
-        //Accessories
+        // Accessories
 
-        //Blocks
+        // Blocks
 
-        //Walls
-                
-        //Paint
+        // Walls
 
-        //Gems
+        // Paint
 
-        //Vanity Items
+        // Gems
 
-        //Dyes
+        // Vanity Items
 
-        //Potions
+        // Dyes
 
-        //Statues
+        // Potions
 
-        //Wire
+        // Statues
 
-        //Pets
+        // Wire
 
-        //Mounts
+        // Pets
 
-        //Minions
+        // Mounts
 
-        //Wings
+        // Minions
 
-        //Miscellaneous
+        // Wings
+
+        // Miscellaneous
     }
 
-    public static void registerArmor(String name, ItemGroup group, ArmorMaterial material, EquipmentSlot slot) {
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModArmor(material, slot, (new Item.Settings()).group(group)));
-    }
+    // Tooltips
 
-    public static void registerAxe(String name, ItemGroup group, ToolMaterial material, float damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModAxe(material, damage, speed, (new Item.Settings()).group(group)));
-    }
+    /*@Override
+    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+        tooltip.add(new TranslatableText("item.tutorial.fabric_item.tooltip"));
+    }*/
 
-    public static void registerHoe(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModHoe(material, damage, speed, (new Item.Settings()).group(group)));
-    }
-
-    public static void registerPickaxe(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModPickaxe(material, damage, speed, (new Item.Settings()).group(group)));
-    }
-
-    public static void registerShovel(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModShovel(material, damage, speed, (new Item.Settings()).group(group)));
-    }
-
-    public static void registerSword(String name, ItemGroup group, ToolMaterial material, int damage, float speed) {
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new ModSword(material, damage, speed, (new Item.Settings()).group(group)));
-    }
-
-    public static void registerItem(String name, ItemGroup group, int stack) {
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new Item(new Item.Settings().group(group).maxCount(stack)));
-    }
+    // Logger
 
     public static void log(Level level, String message){
         LOGGER.log(level, "["+MOD_NAME+"] " + message);
+    }
+
+    // Listener
+    
+    private void onServerTick(MinecraftServer server) {
+        Iterator<ServerPlayerEntity> players = server.getPlayerManager().getPlayerList().iterator();
+        while(players.hasNext()) {
+            ServerPlayerEntity player = players.next();
+            setBonus(player, "wooden_armor", wooden_armor, EntityAttributes.GENERIC_ARMOR, 1.0D, Operation.ADDITION, UUIDs.GENERIC_ARMOR_UUID);
+        }
+    }
+
+    // Set Bonuses
+
+    private void setBonus(ServerPlayerEntity player, String name, HashMap armor_set, EntityAttribute attribute, Double value, Operation operation, UUID uuid) {
+        Item[] slots = {player.getEquippedStack(EquipmentSlot.HEAD).getItem(),player.getEquippedStack(EquipmentSlot.CHEST).getItem(),player.getEquippedStack(EquipmentSlot.LEGS).getItem(),player.getEquippedStack(EquipmentSlot.FEET).getItem()};
+        if (slots[0] == armor_set.get(EquipmentSlot.HEAD) && slots[1] == armor_set.get(EquipmentSlot.CHEST) && slots[2] == armor_set.get(EquipmentSlot.LEGS) && slots[3] == armor_set.get(EquipmentSlot.FEET)) {
+            if(player.getAttributeInstance(attribute).getModifier(uuid) == null) {
+                player.getAttributeInstance(attribute).addTemporaryModifier(new EntityAttributeModifier(uuid, name, value, operation));
+            }
+        } else {
+            if(player.getAttributeInstance(attribute).getModifier(uuid) != null) {
+                player.getAttributeInstance(attribute).removeModifier(new EntityAttributeModifier(uuid, name, value, operation));
+            }
+        }
+    }
+    private void setBonus(ServerPlayerEntity player, HashMap armor_set, StatusEffect effect, Integer duration, Integer amplifier) {
+        Item[] slots = {player.getEquippedStack(EquipmentSlot.HEAD).getItem(),player.getEquippedStack(EquipmentSlot.CHEST).getItem(),player.getEquippedStack(EquipmentSlot.LEGS).getItem(),player.getEquippedStack(EquipmentSlot.FEET).getItem()};
+        if (slots[0] == armor_set.get(EquipmentSlot.HEAD) && slots[1] == armor_set.get(EquipmentSlot.CHEST) && slots[2] == armor_set.get(EquipmentSlot.LEGS) && slots[3] == armor_set.get(EquipmentSlot.FEET)) {
+            player.applyStatusEffect(new StatusEffectInstance(effect, duration, amplifier, false, false));
+        }
     }
 }

@@ -1,0 +1,38 @@
+{
+  "ammunition": "-------------------------AMMUNITION-------------------------",
+
+  "item.terracraft.musket_ball": "Musket Ball",
+  "item.terracraft.silver_bullet": "Silver Bullet",
+  "item.terracraft.tungsten_bullet": "Tungsten Bullet",
+  "item.terracraft.meteor_shot": "Meteor Shot",
+
+  "item.terracraft.flaming_arrow": "Flaming Arrow",
+  "item.terracraft.frostburn_arrow": "Frostburn Arrow",
+  "item.terracraft.bone_arrow": "Bone Arrow",
+  "item.terracraft.unholy_arrow": "Unholy Arrow",
+  "item.terracraft.jesters_arrow": "Jester's Arrow",
+  "item.terracraft.hellfire_arrow": "Hellfire Arrow",
+
+  "item.terracraft.poison_dart": "Poison Dart",
+
+  "item.terracraft.flare": "Flare",
+  "item.terracraft.blue_flar": "Blue Flare",
+
+  "item.terracraft.seed": "Seed",
+
+
+  "armor": "-------------------------ARMOR-------------------------",
+
+  "item.terracraft.wooden_helmet": "Wooden Helmet",
+  "item.terracraft.wooden_chestplate": "Wooden Chestplate",
+  "item.terracraft.wooden_leggings": "Wooden Leggings",
+  "item.terracraft.wooden_boots": "Wooden Boots",
+
+
+  "coins": "-------------------------COINS-------------------------",
+
+  "item.terracraft.copper_coin": "Copper Coin",
+  "item.terracraft.silver_coin": "Silver Coin",
+  "item.terracraft.gold_coin": "Gold Coin",
+  "item.terracraft.platinum_coin": "Platinum Coin"
+}

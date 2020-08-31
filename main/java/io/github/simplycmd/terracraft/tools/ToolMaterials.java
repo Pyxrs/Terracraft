@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.ToolsArmor;
+package io.github.simplycmd.terracraft.tools;
 //Credit to KWPUGH (Owner of More Gems) for this simple design
 import java.util.function.Supplier;
 

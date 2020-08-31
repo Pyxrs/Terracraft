@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.ToolsArmor;
+package io.github.simplycmd.terracraft.armor;
 //Credit to KWPUGH (Owner of More Gems) for this simple design
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;

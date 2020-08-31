@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.ToolsArmor;
+package io.github.simplycmd.terracraft.armor;
 //Credit to KWPUGH (Owner of More Gems) for this simple design
 import java.util.function.Supplier;
 
@@ -14,16 +14,13 @@ import net.minecraft.util.Lazy;
 
 public enum ArmorMaterials implements ArmorMaterial
 {
-    /*TOPAZ("topaz", 26, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
-		return Ingredient.ofItems(Terracraft.TOPAZ);
-		}),*/
-	EMERALD("emerald_", 25, new int[]{2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
-		return Ingredient.ofItems(Items.EMERALD);
-		});
+	WOOD("wooden", 1.2F, new int[]{0, 1, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0F, 0.0F, () -> {
+		return Ingredient.ofItems(Items.OAK_LOG);
+	});
 
-	private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
+	private static final int[] BASE_DURABILITY = new int[]{65, 75, 80, 55}; // Leather armor durability
 	private final String name;
-	private final int durabilityMultiplier;
+	private final float durabilityMultiplier;
 	private final int[] protectionAmounts;
 	private final int enchantability;
 	private final SoundEvent equipSound;
@@ -31,7 +28,7 @@ public enum ArmorMaterials implements ArmorMaterial
 	private final float knockbackResistance;
 	private final Lazy<Ingredient> repairIngredientSupplier;
 
-	private ArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> supplier)
+	private ArmorMaterials(String name, float durabilityMultiplier, int[] protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> supplier)
 	{
 		this.name = name;
 		this.durabilityMultiplier = durabilityMultiplier;
@@ -45,7 +42,7 @@ public enum ArmorMaterials implements ArmorMaterial
 
 	public int getDurability(EquipmentSlot slot)
 	{
-		return BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier;
+		return Math.round(BASE_DURABILITY[slot.getEntitySlotId()] * this.durabilityMultiplier);
 	}
 
 	public int getProtectionAmount(EquipmentSlot slot)

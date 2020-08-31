@@ -22,7 +22,7 @@
     "client": [],
     "server": []
   },
-  "DISABLEDmixins": [
+  "mixins": [
     "terracraft.mixins.json"
   ],
   "depends": {
