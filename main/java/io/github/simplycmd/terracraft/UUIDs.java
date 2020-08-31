@@ -1,4 +1,4 @@
-package io.github;
+package io.github.simplycmd.terracraft;
 
 import java.util.UUID;
 

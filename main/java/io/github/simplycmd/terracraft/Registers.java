@@ -8,8 +8,6 @@ import io.github.simplycmd.terracraft.tools.ModHoe;
 import io.github.simplycmd.terracraft.tools.ModPickaxe;
 import io.github.simplycmd.terracraft.tools.ModShovel;
 import io.github.simplycmd.terracraft.tools.ModSword;
-import io.github.simplycmd.terracraft.items.WoodenArmor;
-import net.fabricmc.fabric.api.event.server.ServerTickCallback;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
@@ -19,7 +17,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class Registers {
-    public static HashMap registerArmor(ArmorMaterial material) {
+    public static HashMap registerArmor(ArmorMaterial material, Boolean tooltip) {
         ItemGroup group = ItemGroup.COMBAT;
         EquipmentSlot[] slot = {EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET};
         HashMap<EquipmentSlot, Item> armor = new HashMap<EquipmentSlot, Item>();

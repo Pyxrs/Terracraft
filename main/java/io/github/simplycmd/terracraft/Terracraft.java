@@ -1,49 +1,29 @@
 package io.github.simplycmd.terracraft;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import io.github.UUIDs;
 import io.github.simplycmd.terracraft.armor.ArmorMaterials;
-import io.github.simplycmd.terracraft.armor.ModArmor;
-import io.github.simplycmd.terracraft.items.WoodenArmor;
-import io.github.simplycmd.terracraft.tools.ModAxe;
-import io.github.simplycmd.terracraft.tools.ModHoe;
-import io.github.simplycmd.terracraft.tools.ModPickaxe;
-import io.github.simplycmd.terracraft.tools.ModShovel;
-import io.github.simplycmd.terracraft.tools.ModSword;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerTickCallback;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.network.MessageType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.World;
 
 public class Terracraft extends Registers implements ModInitializer {
 
@@ -84,7 +64,7 @@ public class Terracraft extends Registers implements ModInitializer {
 
         registerAmmo("seed");
         // Armor
-        wooden_armor = registerArmor(ArmorMaterials.WOOD);
+        wooden_armor = registerArmor(ArmorMaterials.WOOD, true);
         // Furniture
 
         // Crafting Stations
@@ -128,13 +108,6 @@ public class Terracraft extends Registers implements ModInitializer {
 
         // Miscellaneous
     }
-
-    // Tooltips
-
-    /*@Override
-    public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(new TranslatableText("item.tutorial.fabric_item.tooltip"));
-    }*/
 
     // Logger
 

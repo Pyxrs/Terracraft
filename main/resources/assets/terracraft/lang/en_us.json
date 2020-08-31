@@ -28,6 +28,16 @@
   "item.terracraft.wooden_leggings": "Wooden Leggings",
   "item.terracraft.wooden_boots": "Wooden Boots",
 
+  "item.terracraft.wooden_helmet.tooltip1": "§9Armor: §6+1 Defense",
+  "item.terracraft.wooden_chestplate.tooltip1": "§9Armor: §6+2 Defense",
+  "item.terracraft.wooden_leggings.tooltip1": "§9Armor: §6+1 Defense",
+  "item.terracraft.wooden_boots.tooltip1": "§9Armor: §6+0 Defense",
+
+  "item.terracraft.wooden_helmet.tooltip2": "§9Set Bonus: §6+1 Defense",
+  "item.terracraft.wooden_chestplate.tooltip2": "§9Set Bonus: §6+1 Defense",
+  "item.terracraft.wooden_leggings.tooltip2": "§9Set Bonus: §6+1 Defense",
+  "item.terracraft.wooden_boots.tooltip2": "§9Set Bonus: §6+1 Defense",
+
 
   "coins": "-------------------------COINS-------------------------",
 
