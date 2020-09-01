@@ -26,6 +26,39 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public class Terracraft extends Registers implements ModInitializer {
+    /*-------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    -------- TODO: Add consumable and stuff automatically be a tooltip
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------
+    --------*/
 
     public static Logger LOGGER = LogManager.getLogger();
 
@@ -45,35 +78,35 @@ public class Terracraft extends Registers implements ModInitializer {
         // Weapons
 
         // Ammunition
-        registerAmmo("musket_ball");
-        registerAmmo("silver_bullet");
-        registerAmmo("tungsten_bullet");
-        registerAmmo("meteor_shot");
+        registerAmmo("musket_ball", 0);
+        registerAmmo("silver_bullet", 0);
+        registerAmmo("tungsten_bullet", 0);
+        registerAmmo("meteor_shot", 0);
 
-        registerAmmo("flaming_arrow");
-        registerAmmo("frostburn_arrow");
-        registerAmmo("bone_arrow");
-        registerAmmo("unholy_arrow");
-        registerAmmo("jesters_arrow");
-        registerAmmo("hellfire_arrow");
+        registerAmmo("flaming_arrow", 0);
+        registerAmmo("frostburn_arrow", 0);
+        registerAmmo("bone_arrow", 0);
+        registerAmmo("unholy_arrow", 0);
+        registerAmmo("jesters_arrow", 0);
+        registerAmmo("hellfire_arrow", 0);
 
-        registerAmmo("poison_dart");
+        registerAmmo("poison_dart", 1);
 
-        registerAmmo("flare");
-        registerAmmo("blue_flare");
+        registerAmmo("flare", 0);
+        registerAmmo("blue_flare", 0);
 
-        registerAmmo("seed");
+        registerAmmo("seed", 1);
         // Armor
-        wooden_armor = registerArmor(ArmorMaterials.WOOD, true);
+        wooden_armor = registerArmor(ArmorMaterials.WOOD, 2);
         // Furniture
 
         // Crafting Stations
 
         // Coins
-        registerItem("copper_coin", ItemGroup.MISC, 64);
-        registerItem("silver_coin", ItemGroup.MISC, 64);
-        registerItem("gold_coin", ItemGroup.MISC, 64);
-        registerItem("platinum_coin", ItemGroup.MISC, 64);
+        registerItem("copper_coin", ItemGroup.MISC, 64, 0);
+        registerItem("silver_coin", ItemGroup.MISC, 64, 0);
+        registerItem("gold_coin", ItemGroup.MISC, 64, 0);
+        registerItem("platinum_coin", ItemGroup.MISC, 64, 0);
         // Ores
 
         // Bars

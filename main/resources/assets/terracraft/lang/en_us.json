@@ -13,30 +13,22 @@
   "item.terracraft.jesters_arrow": "Jester's Arrow",
   "item.terracraft.hellfire_arrow": "Hellfire Arrow",
 
-  "item.terracraft.poison_dart": "Poison Dart",
+  "item.terracraft.poison_dart": "Poison Dart", "item.terracraft.poison_dart.tooltip0": "§oInflicts poison on enemies",
 
   "item.terracraft.flare": "Flare",
-  "item.terracraft.blue_flar": "Blue Flare",
+  "item.terracraft.blue_flare": "Blue Flare",
 
-  "item.terracraft.seed": "Seed",
+  "item.terracraft.seed": "Seed", "item.terracraft.seed.tooltip0": "§oFor use with Blowpipe",
+
 
 
   "armor": "-------------------------ARMOR-------------------------",
 
-  "item.terracraft.wooden_helmet": "Wooden Helmet",
-  "item.terracraft.wooden_chestplate": "Wooden Chestplate",
-  "item.terracraft.wooden_leggings": "Wooden Leggings",
-  "item.terracraft.wooden_boots": "Wooden Boots",
+  "item.terracraft.wooden_helmet": "Wooden Helmet", "item.terracraft.wooden_helmet.tooltip0": "§9Armor: §6+1 Defense", "item.terracraft.wooden_helmet.tooltip1": "§9Set Bonus: §6+1 Defense",
+  "item.terracraft.wooden_chestplate": "Wooden Chestplate", "item.terracraft.wooden_chestplate.tooltip0": "§9Armor: §6+2 Defense", "item.terracraft.wooden_chestplate.tooltip1": "§9Set Bonus: §6+1 Defense",
+  "item.terracraft.wooden_leggings": "Wooden Leggings", "item.terracraft.wooden_leggings.tooltip0": "§9Armor: §6+1 Defense", "item.terracraft.wooden_leggings.tooltip1": "§9Set Bonus: §6+1 Defense",
+  "item.terracraft.wooden_boots": "Wooden Boots", "item.terracraft.wooden_boots.tooltip0": "§9Armor: §6+0 Defense", "item.terracraft.wooden_boots.tooltip1": "§9Set Bonus: §6+1 Defense",
 
-  "item.terracraft.wooden_helmet.tooltip1": "§9Armor: §6+1 Defense",
-  "item.terracraft.wooden_chestplate.tooltip1": "§9Armor: §6+2 Defense",
-  "item.terracraft.wooden_leggings.tooltip1": "§9Armor: §6+1 Defense",
-  "item.terracraft.wooden_boots.tooltip1": "§9Armor: §6+0 Defense",
-
-  "item.terracraft.wooden_helmet.tooltip2": "§9Set Bonus: §6+1 Defense",
-  "item.terracraft.wooden_chestplate.tooltip2": "§9Set Bonus: §6+1 Defense",
-  "item.terracraft.wooden_leggings.tooltip2": "§9Set Bonus: §6+1 Defense",
-  "item.terracraft.wooden_boots.tooltip2": "§9Set Bonus: §6+1 Defense",
 
 
   "coins": "-------------------------COINS-------------------------",

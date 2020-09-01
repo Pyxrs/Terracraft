@@ -8,14 +8,22 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 
 public class ItemTooltips {
+    public static final String[] zero = {
+        "musket_ball", "silver_bullet", "tungsten_bullet", "meteor_shot",
+        "flaming_arrow", "frostburn_arrow", "bone_arrow", "unholy_arrow", "jesters_arrow", "hellfire_arrow",
+        "flare", "blue_flare",
+
+        "copper_coin", "silver_coin", "gold_coin", "platinum_coin",
+    };
     public static final String[] one = {
-        ""
+        "poison_dart",
+        "seed"
     };
     public static final String[] two = {
         "wooden_helmet",
         "wooden_chestplate",
         "wooden_leggings",
-        "wooden_boots"
+        "wooden_boots",
     };
     public static final String[] three = {
         ""
@@ -24,33 +32,16 @@ public class ItemTooltips {
         ""
     };
 
-    public static void Tooltipper(ItemStack stack, List<Text> tooltip) {
-        Boolean found = false;
-        String item = stack.getItem().toString();
-        String[][] lines = {one, two, three, four};
-
-        for (int x = 0; x < 4; x++) {
-            for (int i = 0; i < lines[x].length; i++) {
-                if (Objects.equals(lines[x][i], item)) {
-                    found = true;
-                    if (x == 3) {
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip1"));
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip2"));
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip3"));
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip4"));
-                    } else if (x == 2) {
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip1"));
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip2"));
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip3"));
-                    } else if (x == 1) {
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip1"));
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip2"));
-                    } else {
-                        tooltip.add(new TranslatableText("item.terracraft." + item + ".tooltip1"));
-                    }
-                }
-            }
+    public static void Tooltipper(ItemStack stack, List<Text> tooltip, Integer lines) {
+        for (int i = 0; i < lines; i++) {
+            tooltip.add(new TranslatableText(stack.getItem().getTranslationKey() + ".tooltip" + i));
         }
-        if (!found) {throw new IllegalArgumentException("Tooltip entry for " + item + " not found!");}
+    }
+    public static void Tooltipper(ItemStack stack, List<Text> tooltip, Integer lines, Integer defense) {
+        tooltip.add(new TranslatableText("§9Armor: §6+" + defense + " Defense"));
+
+        for (int i = 0; i < lines; i++) {
+            tooltip.add(new TranslatableText(stack.getItem().getTranslationKey() + ".tooltip" + (i)));
+        }
     }
 }
