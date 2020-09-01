@@ -1,9 +1,5 @@
-# Fabric Example Mod
 
-## Setup
+## Welcome to Terracraft!
+![Terracraft](https://github.com/SimplyCmd/Terracraft/blob/master/main/resources/terracraft_logo.png?raw=true)
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
-
-## License
-
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+#### To see information about the mod, please visit https://simplycmd.github.io/Terracraft/
