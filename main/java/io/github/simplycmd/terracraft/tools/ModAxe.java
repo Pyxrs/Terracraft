@@ -11,9 +11,9 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class ModAxe extends AxeItem {
-	Integer lines;
+	Boolean lines;
 
-	public ModAxe(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings, Integer tooltip_lines) {
+	public ModAxe(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings, Boolean tooltip_lines) {
 		super(material, attackDamage, attackSpeed, settings);
 		lines = tooltip_lines;
 	}

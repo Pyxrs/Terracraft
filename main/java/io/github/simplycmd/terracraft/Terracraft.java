@@ -78,35 +78,35 @@ public class Terracraft extends Registers implements ModInitializer {
         // Weapons
 
         // Ammunition
-        registerAmmo("musket_ball", 0);
-        registerAmmo("silver_bullet", 0);
-        registerAmmo("tungsten_bullet", 0);
-        registerAmmo("meteor_shot", 0);
+        registerAmmo("musket_ball", false);
+        registerAmmo("silver_bullet", false);
+        registerAmmo("tungsten_bullet", false);
+        registerAmmo("meteor_shot", false);
 
-        registerAmmo("flaming_arrow", 0);
-        registerAmmo("frostburn_arrow", 0);
-        registerAmmo("bone_arrow", 0);
-        registerAmmo("unholy_arrow", 0);
-        registerAmmo("jesters_arrow", 0);
-        registerAmmo("hellfire_arrow", 0);
+        registerAmmo("flaming_arrow", false);
+        registerAmmo("frostburn_arrow", false);
+        registerAmmo("bone_arrow", false);
+        registerAmmo("unholy_arrow", false);
+        registerAmmo("jesters_arrow", false);
+        registerAmmo("hellfire_arrow", false);
 
-        registerAmmo("poison_dart", 1);
+        registerAmmo("poison_dart", true);
 
-        registerAmmo("flare", 0);
-        registerAmmo("blue_flare", 0);
+        registerAmmo("flare", false);
+        registerAmmo("blue_flare", false);
 
-        registerAmmo("seed", 1);
+        registerAmmo("seed", true);
         // Armor
-        wooden_armor = registerArmor(ArmorMaterials.WOOD, 2);
+        wooden_armor = registerArmor(ArmorMaterials.WOOD, false, false, "+1 Defense");
         // Furniture
 
         // Crafting Stations
 
         // Coins
-        registerItem("copper_coin", ItemGroup.MISC, 64, 0);
-        registerItem("silver_coin", ItemGroup.MISC, 64, 0);
-        registerItem("gold_coin", ItemGroup.MISC, 64, 0);
-        registerItem("platinum_coin", ItemGroup.MISC, 64, 0);
+        registerItem("copper_coin", ItemGroup.MISC, 64, false);
+        registerItem("silver_coin", ItemGroup.MISC, 64, false);
+        registerItem("gold_coin", ItemGroup.MISC, 64, false);
+        registerItem("platinum_coin", ItemGroup.MISC, 64, false);
         // Ores
 
         // Bars

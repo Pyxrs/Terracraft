@@ -11,9 +11,9 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class ModSword extends SwordItem {
-	Integer lines;
+	Boolean lines;
 
-	public ModSword(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings, Integer tooltip_lines) {
+	public ModSword(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings, Boolean tooltip_lines) {
 		super(toolMaterial, attackDamage, attackSpeed, settings);
 		lines = tooltip_lines;
 	}

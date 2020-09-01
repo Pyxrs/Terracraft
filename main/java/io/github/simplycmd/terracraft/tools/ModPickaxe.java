@@ -11,9 +11,9 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class ModPickaxe extends PickaxeItem {
-	Integer lines;
+	Boolean lines;
 
-	public ModPickaxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings, Integer tooltip_lines) {
+	public ModPickaxe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings, Boolean tooltip_lines) {
 		super(material, attackDamage, attackSpeed, settings);
 		lines = tooltip_lines;
 	}

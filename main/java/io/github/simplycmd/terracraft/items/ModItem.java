@@ -9,15 +9,15 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class ModItem extends Item {
-    Integer lines;
+    Boolean tip;
 
-    public ModItem(Settings settings, Integer tooltip_lines) {
+    public ModItem(Settings settings, Boolean tooltip) {
         super(settings);
-        lines = tooltip_lines;
+        tip = tooltip;
     }
  
     @Override
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-		ItemTooltips.Tooltipper(stack, tooltip, lines);
+		ItemTooltips.Tooltipper(stack, tooltip, tip);
 	}
 }

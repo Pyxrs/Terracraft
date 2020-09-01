@@ -11,9 +11,9 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class ModHoe extends HoeItem {
-	Integer lines;
+	Boolean lines;
 
-	public ModHoe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings, Integer tooltip_lines) {
+	public ModHoe(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings, Boolean tooltip_lines) {
 		super(material, attackDamage, attackSpeed, settings);
 		lines = tooltip_lines;
 	}
