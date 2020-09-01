@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "terracraft",
+  "version": "${version}",
+
+  "name": "Terracraft",
+  "description": "A Minecraft mod designed to implement Terraria into the vanilla game",
+  "authors": [
+    "SimplyCmd"
+  ],
+  "contact": {
+    "homepage": "https://simplycmd.github.io/Terracraft/",
+    "sources": "https://github.com/SimplyCmd/Terracraft"
+  },
+
+  "license": "MIT",
+  "icon": "assets/terracraft/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.simplycmd.terracraft.Terracraft"
+    ]
+  },
+  "mixins": [
+    "modid.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
