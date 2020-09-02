@@ -1,16 +1,7 @@
 @font-face { font-family: opensans; src: url('./OpenSans-Regular.ttf');}
 
-#download{
-    height: 300px;
-    width: 300px;
-    background: green; 
-}
-
 html {
 	scroll-behavior: smooth;
-}
-
-body {
 	font-family: opensans;
 	color: white;
 	font-size:20px;
@@ -27,8 +18,11 @@ body {
 	background-size: cover;
 }
 
-body, html {
-	height: 100%;
+body {
+	background-image: url("background-color.png");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position-y: 5cm;
 }
 
 .button {
