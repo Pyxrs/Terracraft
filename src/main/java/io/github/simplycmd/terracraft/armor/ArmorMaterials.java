@@ -18,7 +18,7 @@ public enum ArmorMaterials implements ArmorMaterial
 		return Ingredient.ofItems(Items.OAK_LOG);
 	}),
 
-	MINE("mining", 1.0F, new int[]{0, 1, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
+	MINE("mining", 1.0F, new int[]{1, 1, 2, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {
 		return Ingredient.ofItems(Items.LEATHER);
 	});
 

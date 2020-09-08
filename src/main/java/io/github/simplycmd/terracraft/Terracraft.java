@@ -4,10 +4,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.UUID;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import io.github.simplycmd.terracraft.armor.ArmorMaterials;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerTickCallback;
@@ -28,8 +24,8 @@ public class Terracraft extends Registers implements ModInitializer {
 	public static final String MOD_ID = "terracraft";
     public static final String MOD_NAME = "Terracraft";
 
-    private HashMap wooden_armor;
-	private HashMap mining_armor;
+    private HashMap<EquipmentSlot, Item> wooden_armor = new HashMap<EquipmentSlot, Item>();
+	private HashMap<EquipmentSlot, Item> mining_armor = new HashMap<EquipmentSlot, Item>();
 	
 	@Override
 	public void onInitialize() {
@@ -40,36 +36,45 @@ public class Terracraft extends Registers implements ModInitializer {
         // Weapons
 
         // Ammunition
-        registerAmmo("musket_ball", false);
-        registerAmmo("silver_bullet", false);
-        registerAmmo("tungsten_bullet", false);
-        registerAmmo("meteor_shot", false);
+        registerNew(Types.AMMUNITION_BULLET, "musket_ball", null);
+        registerNew(Types.AMMUNITION_BULLET, "silver_bullet", null);
+        registerNew(Types.AMMUNITION_BULLET, "tungsten_bullet", null);
+        registerNew(Types.AMMUNITION_BULLET, "meteor_shot", null);
 
-        registerAmmo("flaming_arrow", false);
-        registerAmmo("frostburn_arrow", false);
-        registerAmmo("bone_arrow", false);
-        registerAmmo("unholy_arrow", false);
-        registerAmmo("jesters_arrow", false);
-        registerAmmo("hellfire_arrow", false);
+        registerNew(Types.AMMUNITION_ARROW, "flaming_arrow", null);
+        registerNew(Types.AMMUNITION_ARROW, "frostburn_arrow", null);
+        registerNew(Types.AMMUNITION_ARROW, "bone_arrow", null);
+        registerNew(Types.AMMUNITION_ARROW, "unholy_arrow", null);
+        registerNew(Types.AMMUNITION_ARROW, "jesters_arrow", null);
+        registerNew(Types.AMMUNITION_ARROW, "hellfire_arrow", null);
 
-        registerAmmo("poison_dart", true);
+        registerNew(Types.AMMUNITION_DART, "poison_dart", null);
 
-        registerAmmo("flare", false);
-        registerAmmo("blue_flare", false);
+        registerNew(Types.AMMUNITION_SPECIAL, "flare", null);
+        registerNew(Types.AMMUNITION_SPECIAL, "blue_flare", null);
 
-        registerAmmo("seed", true);
+        registerNew(Types.AMMUNITION_SPECIAL, "seed", null);
         // Armor
-        mining_armor = registerArmor(ArmorMaterials.MINE, false, false, "+20% Mining Speed"); //Not 30% because haste goes in steps of 20%.
-        wooden_armor = registerArmor(ArmorMaterials.WOOD, false, false, "+1 Defense");
+        wooden_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "wooden_helmet", null, ArmorMaterials.WOOD));
+        wooden_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "wooden_chestplate", null, ArmorMaterials.WOOD));
+        wooden_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "wooden_leggings", null, ArmorMaterials.WOOD));
+        wooden_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "wooden_boots", null, ArmorMaterials.WOOD));
+
+        mining_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "mining_helmet", null, ArmorMaterials.MINE));
+        mining_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "mining_chestplate", null, ArmorMaterials.MINE));
+        mining_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "mining_leggings", null, ArmorMaterials.MINE));
+        mining_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "mining_boots", null, ArmorMaterials.MINE));
+        //mining_armor = registerArmor(ArmorMaterials.MINE, false, false, "+20% Mining Speed"); //Not 30% because haste goes in steps of 20%.
+        //wooden_armor = registerArmor(ArmorMaterials.WOOD, false, false, "+1 Defense");
         // Furniture
 
         // Crafting Stations
 
         // Coins
-        registerItem("copper_coin", ItemGroup.MISC, 64, false);
-        registerItem("silver_coin", ItemGroup.MISC, 64, false);
-        registerItem("gold_coin", ItemGroup.MISC, 64, false);
-        registerItem("platinum_coin", ItemGroup.MISC, 64, false);
+        registerNew(Types.COIN, "copper_coin", null);
+        registerNew(Types.COIN, "silver_coin", null);
+        registerNew(Types.COIN, "gold_coin", null);
+        registerNew(Types.COIN, "platinum_coin", null);
         // Ores
 
         // Bars
@@ -103,22 +108,21 @@ public class Terracraft extends Registers implements ModInitializer {
         // Wings
 
         // Miscellaneous
+
 	}
 
 	// Listener
-    
     private void onServerTick(MinecraftServer server) {
         Iterator<ServerPlayerEntity> players = server.getPlayerManager().getPlayerList().iterator();
         while(players.hasNext()) {
             ServerPlayerEntity player = players.next();
-            setBonus(player, "wooden_armor", wooden_armor, EntityAttributes.GENERIC_ARMOR, 1.0D, Operation.ADDITION, UUIDs.GENERIC_ARMOR_UUID);
-            setBonus(player, mining_armor, StatusEffects.HASTE, 209, 1);
+            setBonus(player, wooden_armor, EntityAttributes.GENERIC_ARMOR, 1.0D, Operation.ADDITION, Types.GENERIC_ARMOR_UUID, "wooden_armor");
+            setBonus(player, mining_armor, StatusEffects.HASTE, 209, 0);
         }
     }
 
     // Set Bonuses
-
-    private void setBonus(ServerPlayerEntity player, String name, HashMap armor_set, EntityAttribute attribute, Double value, Operation operation, UUID uuid) {
+    private void setBonus(ServerPlayerEntity player, HashMap armor_set, EntityAttribute attribute, Double value, Operation operation, UUID uuid, String name) {
         Item[] slots = {player.getEquippedStack(EquipmentSlot.HEAD).getItem(),player.getEquippedStack(EquipmentSlot.CHEST).getItem(),player.getEquippedStack(EquipmentSlot.LEGS).getItem(),player.getEquippedStack(EquipmentSlot.FEET).getItem()};
         if (slots[0] == armor_set.get(EquipmentSlot.HEAD) && slots[1] == armor_set.get(EquipmentSlot.CHEST) && slots[2] == armor_set.get(EquipmentSlot.LEGS) && slots[3] == armor_set.get(EquipmentSlot.FEET)) {
             if(player.getAttributeInstance(attribute).getModifier(uuid) == null) {

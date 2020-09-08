@@ -12,9 +12,9 @@ public enum ToolMaterials implements ToolMaterial
 	/*TOPAZ(2, 1248, 6.0F, 2.0F, 14, () -> {
         return Ingredient.ofItems(Terracraft.TOPAZ);
 		}),*/
-    EMERALD(2, 1170, 6.0F, 2.0F, 14, () -> {
-        return Ingredient.ofItems(Items.EMERALD);
-	   });
+   EMERALD(2, 1170, 6.0F, 2.0F, 14, () -> {
+      return Ingredient.ofItems(Items.EMERALD);
+	});
 
    private final int miningLevel;
    private final int itemDurability;
