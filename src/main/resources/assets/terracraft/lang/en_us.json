@@ -1,4 +1,18 @@
 {
+  "tools": "-------------------------TOOLS-------------------------",
+
+  "item.terracraft.cactus_pickaxe": "Cactus Pickaxe",
+
+  "item.terracraft.copper_pickaxe": "Copper Pickaxe",
+  "item.terracraft.tin_pickaxe": "Tin Pickaxe",
+
+  "item.terracraft.lead_pickaxe": "Lead Pickaxe",
+
+  "item.terracraft.silver_pickaxe": "Silver Pickaxe",
+  "item.terracraft.tungsten_pickaxe": "Tungsten Pickaxe",
+
+  "item.terracraft.platinum_pickaxe": "Platinum Pickaxe",
+
   "ammunition": "-------------------------AMMUNITION-------------------------",
 
   "item.terracraft.musket_ball": "Musket Ball",
@@ -20,16 +34,12 @@
 
   "item.terracraft.seed": "Seed", "item.terracraft.seed.tooltip0": "§oFor use with Blowpipe",
 
-
-
   "armor": "-------------------------ARMOR-------------------------",
 
   "item.terracraft.wooden_helmet": "Wooden Helmet",
   "item.terracraft.wooden_chestplate": "Wooden Chestplate",
   "item.terracraft.wooden_leggings": "Wooden Leggings",
   "item.terracraft.wooden_boots": "Wooden Boots",
-
-
 
   "coins": "-------------------------COINS-------------------------",
 

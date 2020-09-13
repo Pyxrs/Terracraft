@@ -3,14 +3,17 @@ package io.github.simplycmd.terracraft.items;
 import java.util.List;
 import java.util.Objects;
 
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.world.World;
 
 public class ItemTooltips {
     public static void Tooltipper(Float type, List<Text> tooltip, String specified_tooltip) {
+        if (!(Objects.equals(specified_tooltip, null) || Objects.equals(specified_tooltip, ""))) {
+            tooltip.add(new TranslatableText("§9" + specified_tooltip));
+            //stack.getItem().getTranslationKey() + ".tooltip"
+        }
+    }
+    public static void Tooltipper(Float type, List<Text> tooltip, String specified_tooltip, String set_bonus) {
         if (!(Objects.equals(specified_tooltip, null) || Objects.equals(specified_tooltip, ""))) {
             tooltip.add(new TranslatableText("§9" + specified_tooltip));
             //stack.getItem().getTranslationKey() + ".tooltip"
@@ -23,7 +26,7 @@ public class ItemTooltips {
         }
         tooltip.add(new TranslatableText("§9Armor: §6+" + defense + " Defense"));
         if (tip) {
-            tooltip.add(new TranslatableText(stack.getItem().getTranslationKey() + ".tooltip"));
+            tooltip.add(new TranslatableText(stack.getItm().getTranslationKey() + ".tooltip"));
         }
     }
     public static void TooltipperArmor(ItemStack stack, List<Text> tooltip, Boolean tip, Boolean vanity, Integer defense, String set_bonus) {

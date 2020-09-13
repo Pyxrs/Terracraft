@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import io.github.simplycmd.terracraft.armor.ArmorMaterials;
+import io.github.simplycmd.terracraft.tools.ToolMaterials;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerTickCallback;
 import net.minecraft.entity.EquipmentSlot;
@@ -16,7 +17,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 
@@ -32,7 +33,19 @@ public class Terracraft extends Registers implements ModInitializer {
 		ServerTickCallback.EVENT.register(this::onServerTick);
 
 		// Tools
+        registerNew(Types.TOOL_PICKAXE, "cactus_pickaxe", null, ToolMaterials.CACTUS, 2, -2.8F);
+        //registerNew(Types.TOOL_AXE, "cactus_axe", null, ToolMaterials.CACTUS, 3, 0.8F);
 
+        registerNew(Types.TOOL_PICKAXE, "copper_pickaxe", null, ToolMaterials.COPPER, 2, -2.8F);
+
+        registerNew(Types.TOOL_PICKAXE, "tin_pickaxe", null, ToolMaterials.TIN, 2, -2.8F);
+
+        registerNew(Types.TOOL_PICKAXE, "lead_pickaxe", null, ToolMaterials.LEAD, 2, -2.8F);
+
+        registerNew(Types.TOOL_PICKAXE, "silver_pickaxe", null, ToolMaterials.SILVER, 2, -2.8F);
+        registerNew(Types.TOOL_PICKAXE, "tungsten_pickaxe", null, ToolMaterials.TUNGSTEN, 2, -2.8F);
+
+        registerNew(Types.TOOL_PICKAXE, "platinum_pickaxe", null, ToolMaterials.PLATINUM, 2, -2.8F);
         // Weapons
 
         // Ammunition
@@ -55,17 +68,15 @@ public class Terracraft extends Registers implements ModInitializer {
 
         registerNew(Types.AMMUNITION_SPECIAL, "seed", null);
         // Armor
-        wooden_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "wooden_helmet", null, ArmorMaterials.WOOD));
-        wooden_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "wooden_chestplate", null, ArmorMaterials.WOOD));
-        wooden_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "wooden_leggings", null, ArmorMaterials.WOOD));
-        wooden_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "wooden_boots", null, ArmorMaterials.WOOD));
+        wooden_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "wooden_helmet", null, ArmorMaterials.WOOD, "+1 Defense"));
+        wooden_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "wooden_chestplate", null, ArmorMaterials.WOOD, "+1 Defense"));
+        wooden_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "wooden_leggings", null, ArmorMaterials.WOOD, "+1 Defense"));
+        wooden_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "wooden_boots", null, ArmorMaterials.WOOD, "+1 Defense"));
 
-        mining_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "mining_helmet", null, ArmorMaterials.MINE));
-        mining_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "mining_chestplate", null, ArmorMaterials.MINE));
-        mining_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "mining_leggings", null, ArmorMaterials.MINE));
-        mining_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "mining_boots", null, ArmorMaterials.MINE));
-        //mining_armor = registerArmor(ArmorMaterials.MINE, false, false, "+20% Mining Speed"); //Not 30% because haste goes in steps of 20%.
-        //wooden_armor = registerArmor(ArmorMaterials.WOOD, false, false, "+1 Defense");
+        mining_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "mining_helmet", null, ArmorMaterials.MINE, "+20% Mining Speed")); //Not 30% because haste goes in steps of 20%.
+        mining_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "mining_chestplate", null, ArmorMaterials.MINE, "+20% Mining Speed"));
+        mining_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "mining_leggings", null, ArmorMaterials.MINE, "+20% Mining Speed"));
+        mining_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "mining_boots", null, ArmorMaterials.MINE, "+20% Mining Speed"));
         // Furniture
 
         // Crafting Stations

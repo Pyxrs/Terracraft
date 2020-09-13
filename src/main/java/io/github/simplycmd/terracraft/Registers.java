@@ -70,22 +70,22 @@ public class Registers {
 
     public Item registerNew(Float type, String name, String tooltip) {
         // If you are registering an item
-        return registerNew(type, name, tooltip, null, null, null, null);
+        return registerNew(type, name, tooltip, null, null, null, null, null);
     }
 
     public Item registerNew(Float type, String name, String tooltip, ToolMaterial tool_material, Integer attack_damage,
             Float attack_speed) {
         // If you are registering a tool
-        return registerNew(type, name, tooltip, tool_material, null, attack_damage, attack_speed);
+        return registerNew(type, name, tooltip, tool_material, null, attack_damage, attack_speed, null);
     }
 
-    public Item registerNew(Float type, String name, String tooltip, ArmorMaterial armor_material) {
+    public Item registerNew(Float type, String name, String tooltip, ArmorMaterial armor_material, String set_bonus) {
         // If you are registering a piece of armor
-        return registerNew(type, name, tooltip, null, armor_material, null, null);
+        return registerNew(type, name, tooltip, null, armor_material, null, null, set_bonus);
     }
 
     public Item registerNew(Float type, String name, String tooltip, ToolMaterial tool_material,
-            ArmorMaterial armor_material, Integer attack_damage, Float attack_speed) {
+            ArmorMaterial armor_material, Integer attack_damage, Float attack_speed, String set_bonus) {
 
         ItemGroup group = ItemGroup.MISC;
         Integer stack = 64;
@@ -155,7 +155,7 @@ public class Registers {
         } else if (type >= Types.ARMOR_HELMET && type <= Types.ARMOR_BOOTS) {
             final ModArmor item = new ModArmor(armor_material, slot, (new Item.Settings()).group(group));
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
-            ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
+            ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip, set_bonus);
             return item;
         } else {
             final ModItem item = new ModItem(new Item.Settings().group(group).maxCount(stack));
