@@ -21,29 +21,29 @@ public enum ToolMaterials implements ToolMaterial
     * 9 - 200%-209% (Chlorophyte)
     * 10 - 210%+ (Lihzahrd Brick)
     */
-	CACTUS(2, 59, 4.0F, 0.0F, 15, () -> {
+	CACTUS(2, 59, 4.0F, 15, () -> {
       return Ingredient.ofItems(Items.CACTUS);
    }),
 
-   COPPER(2, 200, 5.0F, 1.0F, 14, () -> {
+   COPPER(2, 200, 5.0F, 14, () -> {
       return Ingredient.ofItems(Items.IRON_INGOT); // Replace repear item with correct one when added
    }),
-   TIN(2, 200, 5.5F, 1.0F, 14, () -> {
-      return Ingredient.ofItems(Items.IRON_INGOT); // Replace repear item with correct one when added
-   }),
-
-   LEAD(2, 250, 6.0F, 2.0F, 14, () -> {
+   TIN(2, 200, 5.5F, 14, () -> {
       return Ingredient.ofItems(Items.IRON_INGOT); // Replace repear item with correct one when added
    }),
 
-   SILVER(2, 950, 6.5F, 2.0F, 12, () -> {
-      return Ingredient.ofItems(Items.IRON_INGOT); // Replace repear item with correct one when added
-   }),
-   TUNGSTEN(3, 1000, 7.0F, 2.0F, 12, () -> {
+   LEAD(2, 250, 6.0F, 14, () -> {
       return Ingredient.ofItems(Items.IRON_INGOT); // Replace repear item with correct one when added
    }),
 
-   PLATINUM(4, 1500, 8.0F, 3.0F, 10, () -> {
+   SILVER(2, 950, 6.5F, 12, () -> {
+      return Ingredient.ofItems(Items.IRON_INGOT); // Replace repear item with correct one when added
+   }),
+   TUNGSTEN(3, 1000, 7.0F, 12, () -> {
+      return Ingredient.ofItems(Items.IRON_INGOT); // Replace repear item with correct one when added
+   }),
+
+   PLATINUM(4, 1500, 8.0F, 10, () -> {
       return Ingredient.ofItems(Items.IRON_INGOT); // Replace repear item with correct one when added
    });
 
@@ -54,12 +54,12 @@ public enum ToolMaterials implements ToolMaterial
    private final int enchantability;
    private final Lazy<Ingredient> repairIngredient;
 
-   private ToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantibility, Supplier<Ingredient> repairIngredient)
+   private ToolMaterials(int miningLevel, int itemDurability, float miningSpeed, int enchantibility, Supplier<Ingredient> repairIngredient)
    {
       this.miningLevel = miningLevel;
       this.itemDurability = itemDurability;
       this.miningSpeed = miningSpeed;
-      this.attackDamage = attackDamage;
+      this.attackDamage = 0.0F; // This is so attack damage is specified in only one place instead of two.
       this.enchantability = enchantibility;
       this.repairIngredient = new Lazy(repairIngredient);
    }

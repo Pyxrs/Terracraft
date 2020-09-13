@@ -33,19 +33,26 @@ public class Terracraft extends Registers implements ModInitializer {
 		ServerTickCallback.EVENT.register(this::onServerTick);
 
 		// Tools
-        registerNew(Types.TOOL_PICKAXE, "cactus_pickaxe", null, ToolMaterials.CACTUS, 2, -2.8F);
-        //registerNew(Types.TOOL_AXE, "cactus_axe", null, ToolMaterials.CACTUS, 3, 0.8F);
+        registerNew(Types.TOOL_PICKAXE, "cactus_pickaxe", null, ToolMaterials.CACTUS, 2, 1.2F);
+        registerNew(Types.TOOL_AXE, "cactus_axe", null, ToolMaterials.CACTUS, 7, 0.8F);
 
-        registerNew(Types.TOOL_PICKAXE, "copper_pickaxe", null, ToolMaterials.COPPER, 2, -2.8F);
+        registerNew(Types.TOOL_PICKAXE, "copper_pickaxe", null, ToolMaterials.COPPER, 3, 1.2F);
+        registerNew(Types.TOOL_AXE, "copper_axe", null, ToolMaterials.COPPER, 9, 0.8F);
 
-        registerNew(Types.TOOL_PICKAXE, "tin_pickaxe", null, ToolMaterials.TIN, 2, -2.8F);
+        registerNew(Types.TOOL_PICKAXE, "tin_pickaxe", null, ToolMaterials.TIN, 3, 1.2F);
+        registerNew(Types.TOOL_AXE, "tin_axe", null, ToolMaterials.TIN, 9, 0.8F);
 
-        registerNew(Types.TOOL_PICKAXE, "lead_pickaxe", null, ToolMaterials.LEAD, 2, -2.8F);
+        registerNew(Types.TOOL_PICKAXE, "lead_pickaxe", null, ToolMaterials.LEAD, 4, 1.2F);
+        registerNew(Types.TOOL_AXE, "lead_axe", null, ToolMaterials.LEAD, 9, 0.9F);
 
-        registerNew(Types.TOOL_PICKAXE, "silver_pickaxe", null, ToolMaterials.SILVER, 2, -2.8F);
-        registerNew(Types.TOOL_PICKAXE, "tungsten_pickaxe", null, ToolMaterials.TUNGSTEN, 2, -2.8F);
+        registerNew(Types.TOOL_PICKAXE, "silver_pickaxe", null, ToolMaterials.SILVER, 5, 1.2F);
+        registerNew(Types.TOOL_AXE, "silver_axe", null, ToolMaterials.SILVER, 9, 1.0F);
 
-        registerNew(Types.TOOL_PICKAXE, "platinum_pickaxe", null, ToolMaterials.PLATINUM, 2, -2.8F);
+        registerNew(Types.TOOL_PICKAXE, "tungsten_pickaxe", null, ToolMaterials.TUNGSTEN, 5, 1.2F);
+        registerNew(Types.TOOL_AXE, "tungsten_axe", null, ToolMaterials.TUNGSTEN, 9, 1.0F);
+
+        registerNew(Types.TOOL_PICKAXE, "platinum_pickaxe", null, ToolMaterials.PLATINUM, 6, 1.2F);
+        registerNew(Types.TOOL_AXE, "platinum_axe", null, ToolMaterials.PLATINUM, 10, 1.0F);
         // Weapons
 
         // Ammunition

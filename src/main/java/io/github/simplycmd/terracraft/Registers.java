@@ -90,6 +90,9 @@ public class Registers {
         ItemGroup group = ItemGroup.MISC;
         Integer stack = 64;
         EquipmentSlot slot = EquipmentSlot.CHEST;
+        if (attack_speed != null) {
+            attack_speed = attack_speed - 4.0F; // Translate actual attack speed to weird code attack speed
+        }
 
         // Determine stack size
         /*
