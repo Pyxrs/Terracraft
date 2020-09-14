@@ -32,25 +32,32 @@ public class Terracraft extends Registers implements ModInitializer {
 	public void onInitialize() {
 		ServerTickCallback.EVENT.register(this::onServerTick);
 
-		// Tools
+        // Tools
+        registerNew(Types.WEAPON_SWORD, "cactus_sword", null, ToolMaterials.CACTUS, 4, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "cactus_pickaxe", null, ToolMaterials.CACTUS, 2, 1.2F);
         registerNew(Types.TOOL_AXE, "cactus_axe", null, ToolMaterials.CACTUS, 7, 0.8F);
 
+        registerNew(Types.WEAPON_SWORD, "copper_broadsword", null, ToolMaterials.COPPER, 5, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "copper_pickaxe", null, ToolMaterials.COPPER, 3, 1.2F);
         registerNew(Types.TOOL_AXE, "copper_axe", null, ToolMaterials.COPPER, 9, 0.8F);
 
+        registerNew(Types.WEAPON_SWORD, "tin_broadsword", null, ToolMaterials.TIN, 5, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "tin_pickaxe", null, ToolMaterials.TIN, 3, 1.2F);
         registerNew(Types.TOOL_AXE, "tin_axe", null, ToolMaterials.TIN, 9, 0.8F);
 
+        registerNew(Types.WEAPON_SWORD, "lead_broadsword", null, ToolMaterials.LEAD, 6, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "lead_pickaxe", null, ToolMaterials.LEAD, 4, 1.2F);
         registerNew(Types.TOOL_AXE, "lead_axe", null, ToolMaterials.LEAD, 9, 0.9F);
 
+        registerNew(Types.WEAPON_SWORD, "silver_broadsword", null, ToolMaterials.SILVER, 7, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "silver_pickaxe", null, ToolMaterials.SILVER, 5, 1.2F);
         registerNew(Types.TOOL_AXE, "silver_axe", null, ToolMaterials.SILVER, 9, 1.0F);
 
+        registerNew(Types.WEAPON_SWORD, "tungsten_broadsword", null, ToolMaterials.TUNGSTEN, 7, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "tungsten_pickaxe", null, ToolMaterials.TUNGSTEN, 5, 1.2F);
         registerNew(Types.TOOL_AXE, "tungsten_axe", null, ToolMaterials.TUNGSTEN, 9, 1.0F);
 
+        registerNew(Types.WEAPON_SWORD, "platinum_broadsword", null, ToolMaterials.PLATINUM, 8, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "platinum_pickaxe", null, ToolMaterials.PLATINUM, 6, 1.2F);
         registerNew(Types.TOOL_AXE, "platinum_axe", null, ToolMaterials.PLATINUM, 10, 1.0F);
         // Weapons

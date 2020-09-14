@@ -59,7 +59,7 @@ public enum ToolMaterials implements ToolMaterial
       this.miningLevel = miningLevel;
       this.itemDurability = itemDurability;
       this.miningSpeed = miningSpeed;
-      this.attackDamage = 0.0F; // This is so attack damage is specified in only one place instead of two.
+      this.attackDamage = -1.0F; // This is so attack damage is specified in only one place instead of two. (For some reason Minecraft adds 1 to all damage, so the -1 counteracts it)
       this.enchantability = enchantibility;
       this.repairIngredient = new Lazy(repairIngredient);
    }
