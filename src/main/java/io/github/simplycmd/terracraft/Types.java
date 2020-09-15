@@ -34,35 +34,53 @@ public class Types {
     public static final Float ARMOR_LEGGINGS = 4.2F;
     public static final Float ARMOR_BOOTS = 4.3F;
 
-    public static final Float COIN = 5.0F;
+    public static final Float FURNITURE = 5.0F;
 
-    public static final Float ACCESSORY = 6.0F;
+    public static final Float CRAFTING_STATION = 6.0F;
 
-    public static final Float PAINT = 7.0F;
+    public static final Float COIN = 7.0F;
 
-    public static final Float GEM = 8.0F;
+    public static final Float ORE = 8.0F;
 
-    public static final Float VANITY_HEAD = 9.0F;
-    public static final Float VANITY_CHEST = 9.1F;
-    public static final Float VANITY_LEGS = 9.2F;
-    public static final Float VANITY_FEET = 9.3F;
+    public static final Float BAR = 9.0F;
 
-    public static final Float DYE = 10.0F;
+    public static final Float ACCESSORY = 10.0F;
 
-    public static final Float POTION_RECOVERY = 11.0F;
-    public static final Float POTION_FOOD = 11.1F;
-    public static final Float POTION_DRINK = 11.2F;
-    public static final Float POTION_BUFF = 11.3F;
-    public static final Float POTION_FLASK = 11.4F;
-    public static final Float POTION_OTHER = 11.5F;
+    public static final Float BLOCK = 11.0F;
 
-    public static final Float PET = 12.0F;
+    public static final Float WALL = 12.0F;
 
-    public static final Float MOUNT = 13.0F;
+    public static final Float PAINT = 13.0F;
 
-    public static final Float WINGS = 14.0F;
+    public static final Float GEM = 14.0F;
 
-    public static final Float MISC = 15.0F;
+    public static final Float VANITY_HEAD = 15.0F;
+    public static final Float VANITY_CHEST = 15.1F;
+    public static final Float VANITY_LEGS = 15.2F;
+    public static final Float VANITY_FEET = 15.3F;
+
+    public static final Float DYE = 16.0F;
+
+    public static final Float POTION_RECOVERY = 17.0F;
+    public static final Float POTION_FOOD = 17.1F;
+    public static final Float POTION_DRINK = 17.2F;
+    public static final Float POTION_BUFF = 17.3F;
+    public static final Float POTION_FLASK = 17.4F;
+    public static final Float POTION_OTHER = 17.5F;
+
+    public static final Float STATUE = 18.0F;
+
+    public static final Float MECHANISM = 19.0F;
+
+    public static final Float PET = 20.0F;
+
+    public static final Float MOUNT = 21.0F;
+
+    public static final Float MINION = 22.0F;
+
+    public static final Float WINGS = 23.0F;
+
+    public static final Float MISC = 24.0F;
 
     public static final UUID GENERIC_MAX_HEALTH_UUID = UUID.randomUUID();
     public static final UUID GENERIC_FOLLOW_RANGE_UUID = UUID.randomUUID();

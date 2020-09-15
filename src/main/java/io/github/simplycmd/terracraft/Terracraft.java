@@ -8,6 +8,7 @@ import io.github.simplycmd.terracraft.armor.ArmorMaterials;
 import io.github.simplycmd.terracraft.tools.ToolMaterials;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerTickCallback;
+import net.minecraft.block.Material;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -17,7 +18,6 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
-import net.minecraft.item.ToolMaterial;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 
@@ -101,7 +101,7 @@ public class Terracraft extends Registers implements ModInitializer {
         registerNew(Types.COIN, "gold_coin", null);
         registerNew(Types.COIN, "platinum_coin", null);
         // Ores
-
+        registerNew(Types.ORE, "copper_ore", null, Material.METAL);
         // Bars
 
         // Accessories

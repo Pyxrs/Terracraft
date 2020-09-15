@@ -11,9 +11,13 @@ import io.github.simplycmd.terracraft.tools.ModHoe;
 import io.github.simplycmd.terracraft.tools.ModPickaxe;
 import io.github.simplycmd.terracraft.tools.ModShovel;
 import io.github.simplycmd.terracraft.tools.ModSword;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
+import net.minecraft.block.Material;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -26,66 +30,29 @@ import net.minecraft.world.World;
 public class Registers {
     static HashMap<Item, List<Text>> tooltip_list = new HashMap<Item, List<Text>>();
 
-    /*
-     * public HashMap registerArmor(ArmorMaterial material, Boolean tip, Boolean
-     * vanity) { ItemGroup group = ItemGroup.COMBAT; EquipmentSlot[] slot =
-     * {EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS,
-     * EquipmentSlot.FEET}; HashMap<EquipmentSlot, Item> armor = new
-     * HashMap<EquipmentSlot, Item>();
-     * 
-     * for (int i = 0; i < 4; i++) { String equipment = ""; String name; Integer
-     * defense = material.getProtectionAmount(slot[i]);
-     * 
-     * if(i == 0) {equipment = "_helmet";} else if(i == 1) {equipment =
-     * "_chestplate";} else if(i == 2) {equipment = "_leggings";} else if(i == 3)
-     * {equipment = "_boots";}
-     * 
-     * name = material.getName() + equipment; armor.put(slot[i], new
-     * ModArmor(material, slot[i], (new Item.Settings()).group(group), tip, vanity,
-     * defense)); Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID,
-     * name), armor.get(slot[i])); }
-     * 
-     * return armor; }
-     * 
-     * public HashMap registerArmor(ArmorMaterial material, Boolean tip, Boolean
-     * vanity, String set_bonus) { ItemGroup group = ItemGroup.COMBAT;
-     * EquipmentSlot[] slot = {EquipmentSlot.HEAD, EquipmentSlot.CHEST,
-     * EquipmentSlot.LEGS, EquipmentSlot.FEET}; HashMap<EquipmentSlot, Item> armor =
-     * new HashMap<EquipmentSlot, Item>();
-     * 
-     * for (int i = 0; i < 4; i++) { String equipment = ""; String name; Integer
-     * defense = material.getProtectionAmount(slot[i]);
-     * 
-     * if(i == 0) {equipment = "_helmet";} else if(i == 1) {equipment =
-     * "_chestplate";} else if(i == 2) {equipment = "_leggings";} else if(i == 3)
-     * {equipment = "_boots";}
-     * 
-     * name = material.getName() + equipment; armor.put(slot[i], new
-     * ModArmor(material, slot[i], (new Item.Settings()).group(group), tip, vanity,
-     * defense, set_bonus)); Registry.register(Registry.ITEM, new
-     * Identifier(Terracraft.MOD_ID, name), armor.get(slot[i])); }
-     * 
-     * return armor; }
-     */
-
     public Item registerNew(Float type, String name, String tooltip) {
         // If you are registering an item
-        return registerNew(type, name, tooltip, null, null, null, null, null);
+        return registerNew(type, name, tooltip, null, null, null, null, null, null);
+    }
+
+    public Item registerNew(Float type, String name, String tooltip, Material tool_material) {
+        // If you are registering a block
+        return registerNew(type, name, tooltip, null, null, null, null, null, tool_material);
     }
 
     public Item registerNew(Float type, String name, String tooltip, ToolMaterial tool_material, Integer attack_damage,
             Float attack_speed) {
         // If you are registering a tool
-        return registerNew(type, name, tooltip, tool_material, null, attack_damage, attack_speed, null);
+        return registerNew(type, name, tooltip, tool_material, null, attack_damage, attack_speed, null, null);
     }
 
     public Item registerNew(Float type, String name, String tooltip, ArmorMaterial armor_material, String set_bonus) {
         // If you are registering a piece of armor
-        return registerNew(type, name, tooltip, null, armor_material, null, null, set_bonus);
+        return registerNew(type, name, tooltip, null, armor_material, null, null, set_bonus, null);
     }
 
     public Item registerNew(Float type, String name, String tooltip, ToolMaterial tool_material,
-            ArmorMaterial armor_material, Integer attack_damage, Float attack_speed, String set_bonus) {
+            ArmorMaterial armor_material, Integer attack_damage, Float attack_speed, String set_bonus, Material block_material) {
 
         ItemGroup group = ItemGroup.MISC;
         Integer stack = 64;
@@ -108,11 +75,17 @@ public class Registers {
         if (type >= Types.WEAPON_SWORD && type <= Types.ARMOR_BOOTS) {
             group = ItemGroup.COMBAT;
         }
-        if ((type >= Types.COIN && type <= Types.DYE) || (type >= Types.PET)) {
+        if ((type >= Types.FURNITURE && type <= Types.CRAFTING_STATION)) {
+            group = ItemGroup.DECORATIONS;
+        }
+        if ((type >= Types.COIN) || (type >= Types.ACCESSORY) || (type >= Types.PAINT && type <= Types.DYE) || (type >= Types.PET)) {
             group = ItemGroup.MISC;
         }
         if (type >= Types.POTION_RECOVERY && type <= Types.POTION_OTHER) {
             group = ItemGroup.BREWING;
+        }
+        if (type == Types.ORE || type == Types.BAR || type == Types.BLOCK || type == Types.WALL) {
+            group = ItemGroup.BUILDING_BLOCKS;
         }
         if (type == Types.ARMOR_HELMET) {
             slot = EquipmentSlot.HEAD;
@@ -157,6 +130,13 @@ public class Registers {
             return item;
         } else if (type >= Types.ARMOR_HELMET && type <= Types.ARMOR_BOOTS) {
             final ModArmor item = new ModArmor(armor_material, slot, (new Item.Settings()).group(group));
+            Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip, set_bonus);
+            return item;
+        } else if (type == Types.ORE || type == Types.BAR || type == Types.BLOCK) {
+            final Block block = new Block(FabricBlockSettings.of(Material.METAL));
+            final BlockItem item = new BlockItem(block, new Item.Settings().group(group).maxCount(stack));
+            Registry.register(Registry.BLOCK, new Identifier(Terracraft.MOD_ID, name), block);
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip, set_bonus);
             return item;
