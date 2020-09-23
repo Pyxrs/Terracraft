@@ -30,30 +30,32 @@ import net.minecraft.world.World;
 public class Registers {
     static HashMap<Item, List<Text>> tooltip_list = new HashMap<Item, List<Text>>();
 
-    public Item registerNew(Float type, String name, String tooltip) {
+    public NewType registerNew(Float type, String name, String tooltip) {
         // If you are registering an item
         return registerNew(type, name, tooltip, null, null, null, null, null, null);
     }
 
-    public Item registerNew(Float type, String name, String tooltip, Material tool_material) {
+    public NewType registerNew(Float type, String name, String tooltip, Material tool_material) {
         // If you are registering a block
         return registerNew(type, name, tooltip, null, null, null, null, null, tool_material);
     }
 
-    public Item registerNew(Float type, String name, String tooltip, ToolMaterial tool_material, Integer attack_damage,
+    public NewType registerNew(Float type, String name, String tooltip, ToolMaterial tool_material, Integer attack_damage,
             Float attack_speed) {
         // If you are registering a tool
         return registerNew(type, name, tooltip, tool_material, null, attack_damage, attack_speed, null, null);
     }
 
-    public Item registerNew(Float type, String name, String tooltip, ArmorMaterial armor_material, String set_bonus) {
+    public NewType registerNew(Float type, String name, String tooltip, ArmorMaterial armor_material, String set_bonus) {
         // If you are registering a piece of armor
         return registerNew(type, name, tooltip, null, armor_material, null, null, set_bonus, null);
     }
 
-    public Item registerNew(Float type, String name, String tooltip, ToolMaterial tool_material,
+    public NewType registerNew(Float type, String name, String tooltip, ToolMaterial tool_material,
             ArmorMaterial armor_material, Integer attack_damage, Float attack_speed, String set_bonus, Material block_material) {
 
+        NewType new_type = new NewType();
+        
         ItemGroup group = ItemGroup.MISC;
         Integer stack = 64;
         EquipmentSlot slot = EquipmentSlot.CHEST;
@@ -103,49 +105,52 @@ public class Registers {
                     (new Item.Settings()).group(group));
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            return item;
+            new_type.setItem(item);
         } else if (type == Types.TOOL_HOE) {
             final ModHoe item = new ModHoe(tool_material, attack_damage, attack_speed,
                     (new Item.Settings()).group(group));
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            return item;
+            new_type.setItem(item);
         } else if (type == Types.TOOL_PICKAXE) {
             final ModPickaxe item = new ModPickaxe(tool_material, attack_damage, attack_speed,
                     (new Item.Settings()).group(group));
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            return item;
+            new_type.setItem(item);
         } else if (type == Types.TOOL_SHOVEL) {
             final ModShovel item = new ModShovel(tool_material, attack_damage, attack_speed,
                     (new Item.Settings()).group(group));
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            return item;
+            new_type.setItem(item);
         } else if (type == Types.WEAPON_SWORD) {
             final ModSword item = new ModSword(tool_material, attack_damage, attack_speed,
                     (new Item.Settings()).group(group));
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            return item;
+            new_type.setItem(item);
         } else if (type >= Types.ARMOR_HELMET && type <= Types.ARMOR_BOOTS) {
             final ModArmor item = new ModArmor(armor_material, slot, (new Item.Settings()).group(group));
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip, set_bonus);
-            return item;
-        } else if (type == Types.ORE || type == Types.BAR || type == Types.BLOCK) {
+            new_type.setItem(item);
+        } else if (type == Types.BAR || type == Types.BLOCK || type == Types.ORE) {
             final Block block = new Block(FabricBlockSettings.of(Material.METAL));
             final BlockItem item = new BlockItem(block, new Item.Settings().group(group).maxCount(stack));
             Registry.register(Registry.BLOCK, new Identifier(Terracraft.MOD_ID, name), block);
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip, set_bonus);
-            return item;
+            new_type.setBlockItem(item);
+            new_type.setBlock(block);
         } else {
             final ModItem item = new ModItem(new Item.Settings().group(group).maxCount(stack));
             Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            return item;
+            new_type.setItem(item);
         }
+
+        return new_type;
     }
 
     public static void PutTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {

@@ -8,6 +8,8 @@ import io.github.simplycmd.terracraft.armor.ArmorMaterials;
 import io.github.simplycmd.terracraft.tools.ToolMaterials;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerTickCallback;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -17,20 +19,32 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.structure.rule.RuleTest;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 public class Terracraft extends Registers implements ModInitializer {
 	public static final String MOD_ID = "terracraft";
     public static final String MOD_NAME = "Terracraft";
 
     private HashMap<EquipmentSlot, Item> wooden_armor = new HashMap<EquipmentSlot, Item>();
-	private HashMap<EquipmentSlot, Item> mining_armor = new HashMap<EquipmentSlot, Item>();
+    private HashMap<EquipmentSlot, Item> mining_armor = new HashMap<EquipmentSlot, Item>();
+
+    public static HashMap<Integer, ConfiguredFeature> ores = new HashMap<Integer, ConfiguredFeature>();
 	
 	@Override
 	public void onInitialize() {
-		ServerTickCallback.EVENT.register(this::onServerTick);
+        ServerTickCallback.EVENT.register(this::onServerTick);
 
         // Tools
         registerNew(Types.WEAPON_SWORD, "cactus_sword", null, ToolMaterials.CACTUS, 4, 1.6F);
@@ -82,15 +96,15 @@ public class Terracraft extends Registers implements ModInitializer {
 
         registerNew(Types.AMMUNITION_SPECIAL, "seed", null);
         // Armor
-        wooden_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "wooden_helmet", null, ArmorMaterials.WOOD, "+1 Defense"));
-        wooden_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "wooden_chestplate", null, ArmorMaterials.WOOD, "+1 Defense"));
-        wooden_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "wooden_leggings", null, ArmorMaterials.WOOD, "+1 Defense"));
-        wooden_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "wooden_boots", null, ArmorMaterials.WOOD, "+1 Defense"));
+        wooden_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "wooden_helmet", null, ArmorMaterials.WOOD, "+1 Defense").getItem());
+        wooden_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "wooden_chestplate", null, ArmorMaterials.WOOD, "+1 Defense").getItem());
+        wooden_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "wooden_leggings", null, ArmorMaterials.WOOD, "+1 Defense").getItem());
+        wooden_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "wooden_boots", null, ArmorMaterials.WOOD, "+1 Defense").getItem());
 
-        mining_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "mining_helmet", null, ArmorMaterials.MINE, "+20% Mining Speed")); //Not 30% because haste goes in steps of 20%.
-        mining_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "mining_chestplate", null, ArmorMaterials.MINE, "+20% Mining Speed"));
-        mining_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "mining_leggings", null, ArmorMaterials.MINE, "+20% Mining Speed"));
-        mining_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "mining_boots", null, ArmorMaterials.MINE, "+20% Mining Speed"));
+        mining_armor.put(EquipmentSlot.HEAD, registerNew(Types.ARMOR_HELMET, "mining_helmet", null, ArmorMaterials.MINE, "+20% Mining Speed").getItem()); //Not 30% because haste goes in steps of 20%.
+        mining_armor.put(EquipmentSlot.CHEST, registerNew(Types.ARMOR_CHESTPLATE, "mining_chestplate", null, ArmorMaterials.MINE, "+20% Mining Speed").getItem());
+        mining_armor.put(EquipmentSlot.LEGS, registerNew(Types.ARMOR_LEGGINGS, "mining_leggings", null, ArmorMaterials.MINE, "+20% Mining Speed").getItem());
+        mining_armor.put(EquipmentSlot.FEET, registerNew(Types.ARMOR_BOOTS, "mining_boots", null, ArmorMaterials.MINE, "+20% Mining Speed").getItem());
         // Furniture
 
         // Crafting Stations
@@ -101,9 +115,24 @@ public class Terracraft extends Registers implements ModInitializer {
         registerNew(Types.COIN, "gold_coin", null);
         registerNew(Types.COIN, "platinum_coin", null);
         // Ores
-        registerNew(Types.ORE, "copper_ore", null, Material.METAL);
-        // Bars
+        ores.put(0, oreGen(registerNew(Types.ORE, "tin_ore", null, Material.METAL).getBlock(), OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, 9, 0, 0, 64, 20));
 
+        registerNew(Types.ORE, "lead_ore", null, Material.METAL);
+
+        registerNew(Types.ORE, "silver_ore", null, Material.METAL);
+        registerNew(Types.ORE, "tungsten_ore", null, Material.METAL);
+
+        registerNew(Types.ORE, "platinum_ore", null, Material.METAL);
+        // Bars
+        registerNew(Types.ORE, "copper_bar", null, Material.METAL);
+        registerNew(Types.ORE, "tin_bar", null, Material.METAL);
+
+        registerNew(Types.ORE, "lead_bar", null, Material.METAL);
+
+        registerNew(Types.ORE, "silver_bar", null, Material.METAL);
+        registerNew(Types.ORE, "tungsten_bar", null, Material.METAL);
+
+        registerNew(Types.ORE, "platinum_bar", null, Material.METAL);
         // Accessories
 
         // Blocks
@@ -134,7 +163,22 @@ public class Terracraft extends Registers implements ModInitializer {
 
         // Miscellaneous
 
-	}
+    }
+    
+    private ConfiguredFeature<?, ?> oreGen(Block block, RuleTest dimension, Integer vein_size, Integer bottom_offset, Integer min_ylevel, Integer max_ylevel, Integer veins_per_chunk) {
+        ConfiguredFeature<?, ?> ore = Feature.ORE
+            .configure(new OreFeatureConfig(
+            dimension,
+            block.getDefaultState(),
+            vein_size)) // vein size
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
+            bottom_offset, // bottom offset
+            min_ylevel, // min y level
+            max_ylevel))) // max y level
+            .spreadHorizontally()
+            .repeat(veins_per_chunk); // number of veins per chunk
+        return ore;
+    }
 
 	// Listener
     private void onServerTick(MinecraftServer server) {

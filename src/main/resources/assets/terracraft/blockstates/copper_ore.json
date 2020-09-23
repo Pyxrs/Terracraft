@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "terracraft:block/copper_ore" }
+  }
+}
