@@ -30,28 +30,28 @@ import net.minecraft.world.World;
 public class Registers {
     static HashMap<Item, List<Text>> tooltip_list = new HashMap<Item, List<Text>>();
 
-    public NewType registerNew(Float type, String name, String tooltip) {
+    public static NewType registerNew(Float type, String name, String tooltip) {
         // If you are registering an item
         return registerNew(type, name, tooltip, null, null, null, null, null, null);
     }
 
-    public NewType registerNew(Float type, String name, String tooltip, Material tool_material) {
+    public static NewType registerNew(Float type, String name, String tooltip, Material tool_material) {
         // If you are registering a block
         return registerNew(type, name, tooltip, null, null, null, null, null, tool_material);
     }
 
-    public NewType registerNew(Float type, String name, String tooltip, ToolMaterial tool_material, Integer attack_damage,
+    public static NewType registerNew(Float type, String name, String tooltip, ToolMaterial tool_material, Integer attack_damage,
             Float attack_speed) {
         // If you are registering a tool
         return registerNew(type, name, tooltip, tool_material, null, attack_damage, attack_speed, null, null);
     }
 
-    public NewType registerNew(Float type, String name, String tooltip, ArmorMaterial armor_material, String set_bonus) {
+    public static NewType registerNew(Float type, String name, String tooltip, ArmorMaterial armor_material, String set_bonus) {
         // If you are registering a piece of armor
         return registerNew(type, name, tooltip, null, armor_material, null, null, set_bonus, null);
     }
 
-    public NewType registerNew(Float type, String name, String tooltip, ToolMaterial tool_material,
+    public static NewType registerNew(Float type, String name, String tooltip, ToolMaterial tool_material,
             ArmorMaterial armor_material, Integer attack_damage, Float attack_speed, String set_bonus, Material block_material) {
 
         NewType new_type = new NewType();
@@ -157,7 +157,7 @@ public class Registers {
         tooltip_list.put(stack.getItem(), tooltip);
     }
 
-    public List<Text> GetTooltip(Item item) {
+    public static List<Text> GetTooltip(Item item) {
         return tooltip_list.get(item);
     }
 }

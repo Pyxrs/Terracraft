@@ -12,9 +12,11 @@ public class NewType {
     public void setItem(Item item) {
         item = this.item;
     }
+
     public void setBlockItem(BlockItem blockitem) {
         blockitem = this.blockitem;
     }
+
     public void setBlock(Block block) {
         block = this.block;
     }
@@ -22,9 +24,11 @@ public class NewType {
     public Item getItem() {
         return item;
     }
+
     public BlockItem getBlockItem() {
         return blockitem;
     }
+
     public Block getBlock() {
         return block;
     }
