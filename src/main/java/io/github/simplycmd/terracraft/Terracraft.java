@@ -7,7 +7,11 @@ import java.util.UUID;
 import io.github.simplycmd.terracraft.armor.ArmorMaterials;
 import io.github.simplycmd.terracraft.tools.ToolMaterials;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.event.server.ServerTickCallback;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -20,6 +24,15 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 public class Terracraft extends Registers implements ModInitializer {
 	public static final String MOD_ID = "terracraft";
@@ -27,16 +40,22 @@ public class Terracraft extends Registers implements ModInitializer {
 
     private HashMap<EquipmentSlot, Item> wooden_armor = new HashMap<EquipmentSlot, Item>();
     private HashMap<EquipmentSlot, Item> mining_armor = new HashMap<EquipmentSlot, Item>();
+
+    public static Block test = registerNew(Types.ORE, "test_ore", null, Material.METAL).getBlock();
+    public static ConfiguredFeature<?, ?> TEST_ORE_OVERWORLD = oreGen(Blocks.ACACIA_SLAB, 9, 0, 0, 64, 20);
 	
 	@Override
 	public void onInitialize() {
+        System.out.println(test.toString());
         ServerTickCallback.EVENT.register(this::onServerTick);
 
         // Tools
         registerNew(Types.WEAPON_SWORD, "cactus_sword", null, ToolMaterials.CACTUS, 4, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "cactus_pickaxe", null, ToolMaterials.CACTUS, 2, 1.2F);
         registerNew(Types.TOOL_AXE, "cactus_axe", null, ToolMaterials.CACTUS, 7, 0.8F);
-
+        
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MOD_ID, "test_ore_overworld"), TEST_ORE_OVERWORLD);
+        
         registerNew(Types.WEAPON_SWORD, "copper_broadsword", null, ToolMaterials.COPPER, 5, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "copper_pickaxe", null, ToolMaterials.COPPER, 3, 1.2F);
         registerNew(Types.TOOL_AXE, "copper_axe", null, ToolMaterials.COPPER, 9, 0.8F);
@@ -179,5 +198,10 @@ public class Terracraft extends Registers implements ModInitializer {
         if (slots[0] == armor_set.get(EquipmentSlot.HEAD) && slots[1] == armor_set.get(EquipmentSlot.CHEST) && slots[2] == armor_set.get(EquipmentSlot.LEGS) && slots[3] == armor_set.get(EquipmentSlot.FEET)) {
             player.applyStatusEffect(new StatusEffectInstance(effect, duration, amplifier, false, false));
         }
+    }
+
+    // Ore Generation
+    private static ConfiguredFeature<?, ?> oreGen(Block block, Integer vein_size, Integer bottom_offset, Integer min_y, Integer max_y, Integer vein_count) {
+        return Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, block.getDefaultState(), vein_size)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(bottom_offset, min_y, max_y))).spreadHorizontally().repeat(vein_count);
     }
 }
