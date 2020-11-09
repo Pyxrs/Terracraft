@@ -14,6 +14,6 @@ import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 public class DefaultBiomeFeaturesMixin {
     @Inject(method = "addDefaultOres(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V", at = @At("TAIL"))
     private static void addDefaultOres(GenerationSettings.Builder builder, CallbackInfo ci) {
-        builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, Terracraft.TEST_ORE_OVERWORLD);
+        //builder.feature(GenerationStep.Feature.UNDERGROUND_ORES, Terracraft.TEST_ORE_OVERWORLD);
     }
 }

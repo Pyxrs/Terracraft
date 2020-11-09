@@ -103,51 +103,51 @@ public class Registers {
         if (type == Types.TOOL_AXE) {
             final ModAxe item = new ModAxe(tool_material, attack_damage, attack_speed,
                     (new Item.Settings()).group(group));
-            Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            final Item final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            new_type.setItem(item);
+            new_type.setItem(final_item);
         } else if (type == Types.TOOL_HOE) {
             final ModHoe item = new ModHoe(tool_material, attack_damage, attack_speed,
                     (new Item.Settings()).group(group));
-            Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            final Item final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            new_type.setItem(item);
+            new_type.setItem(final_item);
         } else if (type == Types.TOOL_PICKAXE) {
             final ModPickaxe item = new ModPickaxe(tool_material, attack_damage, attack_speed,
                     (new Item.Settings()).group(group));
-            Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            final Item final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            new_type.setItem(item);
+            new_type.setItem(final_item);
         } else if (type == Types.TOOL_SHOVEL) {
             final ModShovel item = new ModShovel(tool_material, attack_damage, attack_speed,
                     (new Item.Settings()).group(group));
-            Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            final Item final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            new_type.setItem(item);
+            new_type.setItem(final_item);
         } else if (type == Types.WEAPON_SWORD) {
             final ModSword item = new ModSword(tool_material, attack_damage, attack_speed,
                     (new Item.Settings()).group(group));
-            Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            final Item final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            new_type.setItem(item);
+            new_type.setItem(final_item);
         } else if (type >= Types.ARMOR_HELMET && type <= Types.ARMOR_BOOTS) {
             final ModArmor item = new ModArmor(armor_material, slot, (new Item.Settings()).group(group));
-            Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            final Item final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip, set_bonus);
-            new_type.setItem(item);
+            new_type.setItem(final_item);
         } else if (type == Types.BAR || type == Types.BLOCK || type == Types.ORE) {
             final Block block = new Block(FabricBlockSettings.of(Material.METAL));
             final BlockItem item = new BlockItem(block, new Item.Settings().group(group).maxCount(stack));
-            Registry.register(Registry.BLOCK, new Identifier(Terracraft.MOD_ID, name), block);
-            Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            final Block final_block = Registry.register(Registry.BLOCK, new Identifier(Terracraft.MOD_ID, name), block);
+            final BlockItem final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip, set_bonus);
-            new_type.setBlockItem(item);
-            new_type.setBlock(block);
+            new_type.setBlockItem(final_item);
+            new_type.setBlock(final_block);
         } else {
             final ModItem item = new ModItem(new Item.Settings().group(group).maxCount(stack));
-            Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            final Item final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip);
-            new_type.setItem(item);
+            new_type.setItem(final_item);
         }
 
         return new_type;

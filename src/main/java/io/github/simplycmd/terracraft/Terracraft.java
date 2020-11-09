@@ -41,14 +41,12 @@ public class Terracraft extends Registers implements ModInitializer {
     private HashMap<EquipmentSlot, Item> wooden_armor = new HashMap<EquipmentSlot, Item>();
     private HashMap<EquipmentSlot, Item> mining_armor = new HashMap<EquipmentSlot, Item>();
 
-    public static Block test = registerNew(Types.ORE, "test_ore", null, Material.METAL).getBlock();
-    public static ConfiguredFeature<?, ?> TEST_ORE_OVERWORLD = oreGen(Blocks.ACACIA_SLAB, 9, 0, 0, 64, 20);
+    public static NewType test = registerNew(Types.ORE, "test_ore", null, Material.METAL);
+    public static ConfiguredFeature<?, ?> TEST_ORE_OVERWORLD = oreGen(test.getBlock(), 9, 0, 0, 64, 20);
 	
 	@Override
 	public void onInitialize() {
-        System.out.println(test.toString());
         ServerTickCallback.EVENT.register(this::onServerTick);
-
         // Tools
         registerNew(Types.WEAPON_SWORD, "cactus_sword", null, ToolMaterials.CACTUS, 4, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "cactus_pickaxe", null, ToolMaterials.CACTUS, 2, 1.2F);
