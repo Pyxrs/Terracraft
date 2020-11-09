@@ -2,7 +2,7 @@
 ## Welcome to Terracraft!
 ![Terracraft](https://github.com/SimplyCmd/Terracraft/blob/master/terracraft_logo.png?raw=true)
 
-[![Build Status](https://travis-ci.com/SimplyCmd/Terracraft.svg?branch=master)](https://travis-ci.com/github/SimplyCmd/Terracraft)
+<a href="https://travis-ci.com/github/SimplyCmd/Terracraft" target="_blank"><img alt="Build Status" src="https://api.travis-ci.com/SimplyCmd/Terracraft.svg?branch=master"></a>
 
 #### To see information about the mod, please visit https://simplycmd.github.io/Terracraft/
 
