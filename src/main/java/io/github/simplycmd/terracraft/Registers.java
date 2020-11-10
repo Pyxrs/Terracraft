@@ -136,13 +136,11 @@ public class Registers {
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip, set_bonus);
             new_type.setItem(final_item);
         } else if (type == Types.BAR || type == Types.BLOCK || type == Types.ORE) {
-            final Block block = new Block(FabricBlockSettings.of(Material.METAL));
-            final BlockItem item = new BlockItem(block, new Item.Settings().group(group).maxCount(stack));
-            final Block final_block = Registry.register(Registry.BLOCK, new Identifier(Terracraft.MOD_ID, name), block);
-            final BlockItem final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);
+            final Block block = Registry.register(Registry.BLOCK, new Identifier(Terracraft.MOD_ID, name), new Block(FabricBlockSettings.of(Material.METAL)));
+            final BlockItem item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), new BlockItem(block, new Item.Settings().group(group).maxCount(stack)));
             ItemTooltips.Tooltipper(type, GetTooltip(item), tooltip, set_bonus);
-            new_type.setBlockItem(final_item);
-            new_type.setBlock(final_block);
+            new_type.setBlockItem(item);
+            new_type.setBlock(block);
         } else {
             final ModItem item = new ModItem(new Item.Settings().group(group).maxCount(stack));
             final Item final_item = Registry.register(Registry.ITEM, new Identifier(Terracraft.MOD_ID, name), item);

@@ -9,16 +9,16 @@ public class NewType {
     private BlockItem blockitem;
     private Block block;
 
-    public void setItem(Item item) {
-        item = this.item;
+    public void setItem(Item item1) {
+        item = item1;
     }
 
-    public void setBlockItem(BlockItem blockitem) {
-        blockitem = this.blockitem;
+    public void setBlockItem(BlockItem blockitem1) {
+        blockitem = blockitem1;
     }
 
-    public void setBlock(Block block) {
-        block = this.block;
+    public void setBlock(Block block1) {
+        block = block1;
     }
 
     public Item getItem() {

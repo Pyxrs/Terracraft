@@ -33,6 +33,7 @@ import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.GenerationStep;
 
 public class Terracraft extends Registers implements ModInitializer {
 	public static final String MOD_ID = "terracraft";
@@ -41,9 +42,10 @@ public class Terracraft extends Registers implements ModInitializer {
     private HashMap<EquipmentSlot, Item> wooden_armor = new HashMap<EquipmentSlot, Item>();
     private HashMap<EquipmentSlot, Item> mining_armor = new HashMap<EquipmentSlot, Item>();
 
-    public static NewType test = registerNew(Types.ORE, "test_ore", null, Material.METAL);
-    public static ConfiguredFeature<?, ?> TEST_ORE_OVERWORLD = oreGen(test.getBlock(), 9, 0, 0, 64, 20);
-	
+    static NewType tin_ore = registerNew(Types.ORE, "tin_ore", null, Material.METAL);
+
+    public static ConfiguredFeature<?, ?> ORE_WOOL_OVERWORLD = oreGen(tin_ore.getBlock(), 9, 0, 0, 64, 20);
+
 	@Override
 	public void onInitialize() {
         ServerTickCallback.EVENT.register(this::onServerTick);
@@ -51,8 +53,6 @@ public class Terracraft extends Registers implements ModInitializer {
         registerNew(Types.WEAPON_SWORD, "cactus_sword", null, ToolMaterials.CACTUS, 4, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "cactus_pickaxe", null, ToolMaterials.CACTUS, 2, 1.2F);
         registerNew(Types.TOOL_AXE, "cactus_axe", null, ToolMaterials.CACTUS, 7, 0.8F);
-        
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MOD_ID, "test_ore_overworld"), TEST_ORE_OVERWORLD);
         
         registerNew(Types.WEAPON_SWORD, "copper_broadsword", null, ToolMaterials.COPPER, 5, 1.6F);
         registerNew(Types.TOOL_PICKAXE, "copper_pickaxe", null, ToolMaterials.COPPER, 3, 1.2F);
@@ -118,7 +118,7 @@ public class Terracraft extends Registers implements ModInitializer {
         registerNew(Types.COIN, "gold_coin", null);
         registerNew(Types.COIN, "platinum_coin", null);
         // Ores
-        registerNew(Types.ORE, "tin_ore", null, Material.METAL);
+        
 
         registerNew(Types.ORE, "lead_ore", null, Material.METAL);
 
@@ -166,6 +166,10 @@ public class Terracraft extends Registers implements ModInitializer {
 
         // Miscellaneous
 
+        RegistryKey<ConfiguredFeature<?, ?>> oreWoolOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+            new Identifier("terracraft", "ore_wool_overworld"));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolOverworld.getValue(), ORE_WOOL_OVERWORLD);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreWoolOverworld);
     }
 
 	// Listener
