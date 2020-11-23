@@ -116,12 +116,7 @@ public class Terracraft extends Registers implements ModInitializer {
         registerNew(Types.COIN, "gold_coin", null);
         registerNew(Types.COIN, "platinum_coin", null);
         // Ores: BELOW
-        registerNew(Types.ORE, "lead_ore", null, Material.METAL);
-
-        registerNew(Types.ORE, "silver_ore", null, Material.METAL);
-        registerNew(Types.ORE, "tungsten_ore", null, Material.METAL);
-
-        registerNew(Types.ORE, "platinum_ore", null, Material.METAL);
+        
         // Bars
         registerNew(Types.ORE, "copper_bar", null, Material.METAL);
         registerNew(Types.ORE, "tin_bar", null, Material.METAL);
@@ -166,9 +161,22 @@ public class Terracraft extends Registers implements ModInitializer {
 
     // Ores
     private static boolean registerOres() {
-        NewType tin_ore = registerNew(Types.ORE, "tin_ore", null, Material.METAL);
+        //NewType tin_ore = registerNew(Types.ORE, "tin_ore", null, Material.METAL);
+        //NewType lead_ore = registerNew(Types.ORE, "lead_ore", null, Material.METAL);
 
-        registerOre(tin_ore, 9, 0, 0, 64, 20);
+        //NewType silver_ore = registerNew(Types.ORE, "silver_ore", null, Material.METAL);
+        //NewType tungsten_ore = registerNew(Types.ORE, "tungsten_ore", null, Material.METAL);
+
+        //NewType platinum_ore = registerNew(Types.ORE, "platinum_ore", null, Material.METAL);
+
+        //registerOre(tin_ore, 14, 0, 0, 64, 2);
+        //registerOre(lead_ore, 14, 0, 0, 64, 2);
+
+        //registerOre(silver_ore, 14, 0, 0, 64, 2);
+        //registerOre(tungsten_ore, 14, 0, 0, 64, 2);
+
+        //registerOre(platinum_ore, 14, 0, 0, 64, 2);
+
         return true;
     }
 
