@@ -42,8 +42,6 @@ public class Terracraft extends Registers implements ModInitializer {
     private HashMap<EquipmentSlot, Item> wooden_armor = new HashMap<EquipmentSlot, Item>();
     private HashMap<EquipmentSlot, Item> mining_armor = new HashMap<EquipmentSlot, Item>();
 
-    private Boolean yes = registerOres();
-
 	@Override
 	public void onInitialize() {
         ServerTickCallback.EVENT.register(this::onServerTick);
@@ -116,6 +114,19 @@ public class Terracraft extends Registers implements ModInitializer {
         registerNew(Types.COIN, "gold_coin", null);
         registerNew(Types.COIN, "platinum_coin", null);
         // Ores: BELOW
+        NewType tin_ore = registerNew(Types.ORE, "tin_ore", null, Material.METAL);
+        registerCustomOre(tin_ore, customOre(tin_ore, 14, 0, 0, 64, 2));
+
+        NewType lead_ore = registerNew(Types.ORE, "lead_ore", null, Material.METAL);
+        registerCustomOre(lead_ore, customOre(lead_ore, 14, 0, 0, 64, 2));
+
+        NewType silver_ore = registerNew(Types.ORE, "silver_ore", null, Material.METAL);
+        registerCustomOre(silver_ore, customOre(silver_ore, 14, 0, 0, 64, 2));
+        NewType tungsten_ore = registerNew(Types.ORE, "tungsten_ore", null, Material.METAL);
+        registerCustomOre(tungsten_ore, customOre(tungsten_ore, 14, 0, 0, 64, 2));
+
+        NewType platinum_ore = registerNew(Types.ORE, "platinum_ore", null, Material.METAL);
+        registerCustomOre(platinum_ore, customOre(platinum_ore, 14, 0, 0, 64, 2));
         
         // Bars
         registerNew(Types.ORE, "copper_bar", null, Material.METAL);
@@ -159,34 +170,25 @@ public class Terracraft extends Registers implements ModInitializer {
 
     }
 
-    // Ores
-    private static boolean registerOres() {
-        //NewType tin_ore = registerNew(Types.ORE, "tin_ore", null, Material.METAL);
-        //NewType lead_ore = registerNew(Types.ORE, "lead_ore", null, Material.METAL);
-
-        //NewType silver_ore = registerNew(Types.ORE, "silver_ore", null, Material.METAL);
-        //NewType tungsten_ore = registerNew(Types.ORE, "tungsten_ore", null, Material.METAL);
-
-        //NewType platinum_ore = registerNew(Types.ORE, "platinum_ore", null, Material.METAL);
-
-        //registerOre(tin_ore, 14, 0, 0, 64, 2);
-        //registerOre(lead_ore, 14, 0, 0, 64, 2);
-
-        //registerOre(silver_ore, 14, 0, 0, 64, 2);
-        //registerOre(tungsten_ore, 14, 0, 0, 64, 2);
-
-        //registerOre(platinum_ore, 14, 0, 0, 64, 2);
-
-        return true;
+    private ConfiguredFeature<?, ?> customOre(NewType ore, Integer vein_size, Integer bottom_offset, Integer min_y, Integer max_y, Integer vein_count) {
+        return Feature.ORE
+            .configure(new OreFeatureConfig(
+            OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+            ore.getBlock().getDefaultState(),
+            vein_size)) // vein size
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
+            bottom_offset, // bottom offset
+            min_y, // min y level
+            max_y))) // max y level
+            .spreadHorizontally()
+            .repeat(vein_count); // number of veins per chunk
     }
 
-    // Ore Registry System
-    private static void registerOre(NewType ore, Integer vein_size, Integer bottom_offset, Integer min_y, Integer max_y, Integer vein_count) {
-        ConfiguredFeature<?, ?> ORE_OVERWORLD = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ore.getBlock().getDefaultState(), vein_size)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(bottom_offset, min_y, max_y))).spreadHorizontally().repeat(vein_count);
-        RegistryKey<ConfiguredFeature<?, ?>> ore_overworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-            new Identifier(MOD_ID, ore.getBlockItem().getName().asString()));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, ore_overworld.getValue(), ORE_OVERWORLD);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, ore_overworld);
+    private void registerCustomOre(NewType ore, ConfiguredFeature<?, ?> ore_gen) {
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+        new Identifier(MOD_ID, ore.getBlockItem().getTranslationKey() + "_overworld")).getValue(), ore_gen);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+        new Identifier(MOD_ID, ore.getBlockItem().getTranslationKey() + "_overworld")));
     }
 
 	// Listener
