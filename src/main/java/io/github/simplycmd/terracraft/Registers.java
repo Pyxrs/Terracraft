@@ -70,25 +70,22 @@ public class Registers {
          * type < 15.0F)) { stack = 1; }
          */
 
-        // Determine item group and slot (if armor)
-        if (type <= Types.TOOL_SHOVEL) {
+        // Determine item group
+        if (isBetween(type, Types.TOOL_AXE, Types.TOOL_SHOVEL)) {
             group = ItemGroup.TOOLS;
-        }
-        if (type >= Types.WEAPON_SWORD && type <= Types.ARMOR_BOOTS) {
+        } else if (isBetween(type, Types.WEAPON_SWORD, Types.ARMOR_BOOTS)) {
             group = ItemGroup.COMBAT;
-        }
-        if ((type >= Types.FURNITURE && type <= Types.CRAFTING_STATION)) {
+        } else if (isBetween(type, Types.FURNITURE, Types.CRAFTING_STATION)) {
             group = ItemGroup.DECORATIONS;
-        }
-        if ((type >= Types.COIN) || (type >= Types.ACCESSORY) || (type >= Types.PAINT && type <= Types.DYE) || (type >= Types.PET)) {
+        } else if (isBetween(type, Types.PAINT, Types.DYE) || type == Types.COIN || type == Types.ACCESSORY || type >= Types.PET) {
             group = ItemGroup.MISC;
-        }
-        if (type >= Types.POTION_RECOVERY && type <= Types.POTION_OTHER) {
+        } else if (isBetween(type, Types.POTION_RECOVERY, Types.POTION_OTHER)) {
             group = ItemGroup.BREWING;
-        }
-        if (type == Types.ORE || type == Types.BAR || type == Types.BLOCK || type == Types.WALL) {
+        } else if (type == Types.ORE || type == Types.BAR || type == Types.BLOCK || type == Types.WALL) {
             group = ItemGroup.BUILDING_BLOCKS;
         }
+        
+        // Determine armor slot
         if (type == Types.ARMOR_HELMET) {
             slot = EquipmentSlot.HEAD;
         } else if (type == Types.ARMOR_CHESTPLATE) {
@@ -149,6 +146,10 @@ public class Registers {
         }
 
         return new_type;
+    }
+
+    public static boolean isBetween(float value, float lower, float upper) {
+        return lower <= value && value <= upper;
     }
 
     public static void PutTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {

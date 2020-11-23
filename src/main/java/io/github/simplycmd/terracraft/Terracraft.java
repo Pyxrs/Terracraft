@@ -42,9 +42,7 @@ public class Terracraft extends Registers implements ModInitializer {
     private HashMap<EquipmentSlot, Item> wooden_armor = new HashMap<EquipmentSlot, Item>();
     private HashMap<EquipmentSlot, Item> mining_armor = new HashMap<EquipmentSlot, Item>();
 
-    static NewType tin_ore = registerNew(Types.ORE, "tin_ore", null, Material.METAL);
-
-    public static ConfiguredFeature<?, ?> ORE_WOOL_OVERWORLD = oreGen(tin_ore.getBlock(), 9, 0, 0, 64, 20);
+    private Boolean yes = registerOres();
 
 	@Override
 	public void onInitialize() {
@@ -117,9 +115,7 @@ public class Terracraft extends Registers implements ModInitializer {
         registerNew(Types.COIN, "silver_coin", null);
         registerNew(Types.COIN, "gold_coin", null);
         registerNew(Types.COIN, "platinum_coin", null);
-        // Ores
-        
-
+        // Ores: BELOW
         registerNew(Types.ORE, "lead_ore", null, Material.METAL);
 
         registerNew(Types.ORE, "silver_ore", null, Material.METAL);
@@ -166,10 +162,23 @@ public class Terracraft extends Registers implements ModInitializer {
 
         // Miscellaneous
 
-        RegistryKey<ConfiguredFeature<?, ?>> oreWoolOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-            new Identifier("terracraft", "ore_wool_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolOverworld.getValue(), ORE_WOOL_OVERWORLD);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreWoolOverworld);
+    }
+
+    // Ores
+    private static boolean registerOres() {
+        NewType tin_ore = registerNew(Types.ORE, "tin_ore", null, Material.METAL);
+
+        registerOre(tin_ore, 9, 0, 0, 64, 20);
+        return true;
+    }
+
+    // Ore Registry System
+    private static void registerOre(NewType ore, Integer vein_size, Integer bottom_offset, Integer min_y, Integer max_y, Integer vein_count) {
+        ConfiguredFeature<?, ?> ORE_OVERWORLD = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ore.getBlock().getDefaultState(), vein_size)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(bottom_offset, min_y, max_y))).spreadHorizontally().repeat(vein_count);
+        RegistryKey<ConfiguredFeature<?, ?>> ore_overworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+            new Identifier(MOD_ID, ore.getBlockItem().getName().asString()));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, ore_overworld.getValue(), ORE_OVERWORLD);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, ore_overworld);
     }
 
 	// Listener
@@ -200,10 +209,5 @@ public class Terracraft extends Registers implements ModInitializer {
         if (slots[0] == armor_set.get(EquipmentSlot.HEAD) && slots[1] == armor_set.get(EquipmentSlot.CHEST) && slots[2] == armor_set.get(EquipmentSlot.LEGS) && slots[3] == armor_set.get(EquipmentSlot.FEET)) {
             player.applyStatusEffect(new StatusEffectInstance(effect, duration, amplifier, false, false));
         }
-    }
-
-    // Ore Generation
-    private static ConfiguredFeature<?, ?> oreGen(Block block, Integer vein_size, Integer bottom_offset, Integer min_y, Integer max_y, Integer vein_count) {
-        return Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, block.getDefaultState(), vein_size)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(bottom_offset, min_y, max_y))).spreadHorizontally().repeat(vein_count);
     }
 }
