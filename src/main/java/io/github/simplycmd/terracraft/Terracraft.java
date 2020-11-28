@@ -113,20 +113,20 @@ public class Terracraft extends Registers implements ModInitializer {
         registerNew(Types.COIN, "silver_coin", null);
         registerNew(Types.COIN, "gold_coin", null);
         registerNew(Types.COIN, "platinum_coin", null);
-        // Ores: BELOW
+        // Ores
         NewType tin_ore = registerNew(Types.ORE, "tin_ore", null, Material.METAL);
-        registerCustomOre(tin_ore, customOre(tin_ore, 14, 0, 0, 64, 2));
+        registerCustomOre(tin_ore, customOre(tin_ore, 11, 0, 0, 128, 10));
 
         NewType lead_ore = registerNew(Types.ORE, "lead_ore", null, Material.METAL);
-        registerCustomOre(lead_ore, customOre(lead_ore, 14, 0, 0, 64, 2));
+        registerCustomOre(lead_ore, customOre(lead_ore, 9, 0, 0, 64, 10));
 
         NewType silver_ore = registerNew(Types.ORE, "silver_ore", null, Material.METAL);
-        registerCustomOre(silver_ore, customOre(silver_ore, 14, 0, 0, 64, 2));
+        registerCustomOre(silver_ore, customOre(silver_ore, 8, 0, 0, 48, 5));
         NewType tungsten_ore = registerNew(Types.ORE, "tungsten_ore", null, Material.METAL);
-        registerCustomOre(tungsten_ore, customOre(tungsten_ore, 14, 0, 0, 64, 2));
+        registerCustomOre(tungsten_ore, customOre(tungsten_ore, 8, 0, 0, 48, 5));
 
         NewType platinum_ore = registerNew(Types.ORE, "platinum_ore", null, Material.METAL);
-        registerCustomOre(platinum_ore, customOre(platinum_ore, 14, 0, 0, 64, 2));
+        registerCustomOre(platinum_ore, customOre(platinum_ore, 9, 0, 0, 32, 2));
         
         // Bars
         registerNew(Types.ORE, "copper_bar", null, Material.METAL);
