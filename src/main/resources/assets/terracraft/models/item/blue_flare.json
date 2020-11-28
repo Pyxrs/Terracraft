@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "terracraft:item/blue_flare"
+    "layer0": "terracraft:item/ammo/blue_flare"
   }
 }

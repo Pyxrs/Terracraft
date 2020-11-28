@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/tin_axe"
+    "layer0": "terracraft:item/tool/tin_axe"
   }
 }

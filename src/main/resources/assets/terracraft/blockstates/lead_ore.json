@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "terracraft:block/lead_ore" }
+    "": { "model": "terracraft:block/ore/lead_ore" }
   }
 }

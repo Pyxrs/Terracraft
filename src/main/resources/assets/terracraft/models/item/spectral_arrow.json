@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "terracraft:item/spectral_arrow"
+    "layer0": "terracraft:item/ammo/spectral_arrow"
   }
 }

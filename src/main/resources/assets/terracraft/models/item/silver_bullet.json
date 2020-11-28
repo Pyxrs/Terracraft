@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "terracraft:item/silver_bullet"
+    "layer0": "terracraft:item/ammo/silver_bullet"
   }
 }

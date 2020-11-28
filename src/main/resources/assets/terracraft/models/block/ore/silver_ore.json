@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "terracraft:block/silver_ore"
+    "all": "terracraft:block/ore/silver_ore"
   }
 }

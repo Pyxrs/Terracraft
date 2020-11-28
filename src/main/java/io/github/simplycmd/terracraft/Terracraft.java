@@ -129,15 +129,15 @@ public class Terracraft extends Registers implements ModInitializer {
         registerCustomOre(platinum_ore, customOre(platinum_ore, 9, 0, 0, 32, 2));
         
         // Bars
-        registerNew(Types.ORE, "copper_bar", null, Material.METAL);
-        registerNew(Types.ORE, "tin_bar", null, Material.METAL);
+        registerNew(Types.BAR, "copper_bar", null, Material.METAL);
+        registerNew(Types.BAR, "tin_bar", null, Material.METAL);
 
-        registerNew(Types.ORE, "lead_bar", null, Material.METAL);
+        registerNew(Types.BAR, "lead_bar", null, Material.METAL);
 
-        registerNew(Types.ORE, "silver_bar", null, Material.METAL);
-        registerNew(Types.ORE, "tungsten_bar", null, Material.METAL);
+        registerNew(Types.BAR, "silver_bar", null, Material.METAL);
+        registerNew(Types.BAR, "tungsten_bar", null, Material.METAL);
 
-        registerNew(Types.ORE, "platinum_bar", null, Material.METAL);
+        registerNew(Types.BAR, "platinum_bar", null, Material.METAL);
         // Accessories
 
         // Blocks

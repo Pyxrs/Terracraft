@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/silver_axe"
+    "layer0": "terracraft:item/tool/silver_axe"
   }
 }

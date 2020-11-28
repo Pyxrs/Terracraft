@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/copper_broadsword"
+    "layer0": "terracraft:item/tool/copper_broadsword"
   }
 }

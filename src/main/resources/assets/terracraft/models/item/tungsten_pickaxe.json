@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/tungsten_pickaxe"
+    "layer0": "terracraft:item/tool/tungsten_pickaxe"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "terracraft:block/lead_ore"
+    "all": "terracraft:block/bar/lead_bar"
   }
 }

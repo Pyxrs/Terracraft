@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/copper_pickaxe"
+    "layer0": "terracraft:item/tool/copper_pickaxe"
   }
 }

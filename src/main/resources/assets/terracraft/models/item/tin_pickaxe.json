@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/tin_pickaxe"
+    "layer0": "terracraft:item/tool/tin_pickaxe"
   }
 }

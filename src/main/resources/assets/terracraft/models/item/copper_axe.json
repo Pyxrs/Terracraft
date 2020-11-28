@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/copper_axe"
+    "layer0": "terracraft:item/tool/copper_axe"
   }
 }

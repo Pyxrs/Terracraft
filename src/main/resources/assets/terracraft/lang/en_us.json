@@ -1,17 +1,33 @@
 {
   "tools": "-------------------------TOOLS-------------------------",
 
+  "item.terracraft.cactus_sword": "Cactus Sword",
   "item.terracraft.cactus_pickaxe": "Cactus Pickaxe",
+  "item.terracraft.cactus_axe": "Cactus Axe",
 
+  "item.terracraft.copper_broadsword": "Copper Broadsword",
   "item.terracraft.copper_pickaxe": "Copper Pickaxe",
+  "item.terracraft.copper_axe": "Copper Axe",
+
+  "item.terracraft.tin_broadsword": "Tin Broadsword",
   "item.terracraft.tin_pickaxe": "Tin Pickaxe",
+  "item.terracraft.tin_axe": "Tin Axe",
 
+  "item.terracraft.lead_broadsword": "Lead Broadsword",
   "item.terracraft.lead_pickaxe": "Lead Pickaxe",
+  "item.terracraft.lead_axe": "Lead Axe",
 
+  "item.terracraft.silver_broadsword": "Silver Broadsword",
   "item.terracraft.silver_pickaxe": "Silver Pickaxe",
-  "item.terracraft.tungsten_pickaxe": "Tungsten Pickaxe",
+  "item.terracraft.silver_axe": "Silver Axe",
 
+  "item.terracraft.tungsten_broadsword": "Tungsten Broadsword",
+  "item.terracraft.tungsten_pickaxe": "Tungsten Pickaxe",
+  "item.terracraft.tungsten_axe": "Tungsten Axe",
+
+  "item.terracraft.platinum_broadsword": "Platinum Broadsword",
   "item.terracraft.platinum_pickaxe": "Platinum Pickaxe",
+  "item.terracraft.platinum_axe": "Platinum Axe",
 
   "ammunition": "-------------------------AMMUNITION-------------------------",
 
@@ -41,10 +57,32 @@
   "item.terracraft.wooden_leggings": "Wooden Leggings",
   "item.terracraft.wooden_boots": "Wooden Boots",
 
+  "item.terracraft.mining_helmet": "Mining Helmet",
+  "item.terracraft.mining_chestplate": "Mining Chestplate",
+  "item.terracraft.mining_leggings": "Mining Leggings",
+  "item.terracraft.mining_boots": "Mining Boots",
+
   "coins": "-------------------------COINS-------------------------",
 
   "item.terracraft.copper_coin": "Copper Coin",
   "item.terracraft.silver_coin": "Silver Coin",
   "item.terracraft.gold_coin": "Gold Coin",
-  "item.terracraft.platinum_coin": "Platinum Coin"
+  "item.terracraft.platinum_coin": "Platinum Coin",
+
+  "ores": "--------------------------ORES-------------------------",
+
+  "block.terracraft.tin_ore": "Tin Ore",
+  "block.terracraft.lead_ore": "Lead Ore",
+  "block.terracraft.silver_ore": "Silver Ore",
+  "block.terracraft.tungsten_ore": "Tungsten Ore",
+  "block.terracraft.platinum_ore": "Platinum Ore",
+
+  "bars": "--------------------------BARS-------------------------",
+
+  "block.terracraft.copper_bar": "Copper Bar",
+  "block.terracraft.tin_bar": "Tin Bar",
+  "block.terracraft.lead_bar": "Lead Bar",
+  "block.terracraft.silver_bar": "Silver Bar",
+  "block.terracraft.tungsten_bar": "Tungsten Bar",
+  "block.terracraft.platinum_bar": "Platinum Bar"
 }

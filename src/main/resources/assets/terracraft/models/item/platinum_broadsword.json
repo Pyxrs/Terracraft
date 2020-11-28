@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/platinum_broadsword"
+    "layer0": "terracraft:item/tool/platinum_broadsword"
   }
 }

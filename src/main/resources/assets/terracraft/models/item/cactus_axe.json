@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/cactus_axe"
+    "layer0": "terracraft:item/tool/cactus_axe"
   }
 }

@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "terracraft:item/musket_ball"
+    "layer0": "terracraft:item/ammo/musket_ball"
   }
 }

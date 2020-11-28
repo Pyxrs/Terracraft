@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "terracraft:item/tungsten_bullet"
+    "layer0": "terracraft:item/ammo/tungsten_bullet"
   }
 }

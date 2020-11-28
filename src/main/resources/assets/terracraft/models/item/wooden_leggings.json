@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "terracraft:item/wooden_leggings"
+    "layer0": "terracraft:item/armor/wooden_leggings"
   }
 }

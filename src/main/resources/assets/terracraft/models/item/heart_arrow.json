@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "terracraft:item/heart_arrow"
+    "layer0": "terracraft:item/ammo/heart_arrow"
   }
 }

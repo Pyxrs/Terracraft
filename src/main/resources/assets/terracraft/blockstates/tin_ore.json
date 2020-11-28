@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "terracraft:block/tin_ore" }
+    "": { "model": "terracraft:block/ore/tin_ore" }
   }
 }

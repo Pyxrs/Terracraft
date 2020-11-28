@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "terracraft:item/cactus_sword"
+    "layer0": "terracraft:item/tool/cactus_sword"
   },
   "display": {
     "thirdperson_righthand": {

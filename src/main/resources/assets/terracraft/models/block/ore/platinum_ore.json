@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "terracraft:block/copper_ore"
+    "all": "terracraft:block/ore/platinum_ore"
   }
 }

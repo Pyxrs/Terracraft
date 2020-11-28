@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "terracraft:item/poison_dart"
+    "layer0": "terracraft:item/ammo/poison_dart"
   }
 }

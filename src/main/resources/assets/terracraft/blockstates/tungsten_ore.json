@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "terracraft:block/tungsten_ore" }
+    "": { "model": "terracraft:block/ore/tungsten_ore" }
   }
 }
