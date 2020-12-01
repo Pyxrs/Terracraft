@@ -43,12 +43,12 @@
   "item.terracraft.jesters_arrow": "Jester's Arrow",
   "item.terracraft.hellfire_arrow": "Hellfire Arrow",
 
-  "item.terracraft.poison_dart": "Poison Dart", "item.terracraft.poison_dart.tooltip0": "§oInflicts poison on enemies",
+  "item.terracraft.poison_dart": "Poison Dart", "item.terracraft.poison_dart.tooltip": "§oInflicts poison on enemies",
 
   "item.terracraft.flare": "Flare",
   "item.terracraft.blue_flare": "Blue Flare",
 
-  "item.terracraft.seed": "Seed", "item.terracraft.seed.tooltip0": "§oFor use with Blowpipe",
+  "item.terracraft.seed": "Seed", "item.terracraft.seed.tooltip": "§oFor use with Blowpipe",
 
   "armor": "-------------------------ARMOR-------------------------",
 

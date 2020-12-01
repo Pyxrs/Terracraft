@@ -1,15 +1,16 @@
 package io.github.simplycmd.terracraft;
 
+import io.github.simplycmd.terracraft.items.ModItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 
-public class NewType {
-    private Item item;
+public class ModType {
+    private ModItem item;
     private BlockItem blockitem;
     private Block block;
 
-    public void setItem(Item item1) {
+    public void setItem(ModItem item1) {
         item = item1;
     }
 
