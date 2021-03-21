@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "terracraft",
+  "id": "modid",
   "version": "${version}",
 
-  "name": "Terracraft",
-  "description": "A Minecraft mod designed to implement Terraria into the vanilla game",
+  "name": "Example Mod",
+  "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "SimplyCmd"
+    "Me!"
   ],
   "contact": {
-    "homepage": "https://simplycmd.github.io/Terracraft/",
-    "sources": "https://github.com/SimplyCmd/Terracraft"
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
 
-  "license": "MIT",
-  "icon": "assets/terracraft/icon.png",
+  "license": "CC0-1.0",
+  "icon": "assets/modid/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.simplycmd.terracraft.Terracraft"
+      "net.fabricmc.example.ExampleMod"
     ]
   },
   "mixins": [
-    "terracraft.mixins.json"
+    "modid.mixins.json"
   ],
 
   "depends": {
