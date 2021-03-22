@@ -12,6 +12,6 @@
 
 ### If you want to make changes:
   1. Clone the repository
-  2. Choose an IDE. The most popular IDEs for Fabric mods are [IntelliJ Idea](https://www.jetbrains.com/idea/), [Visual Studio Code](https://code.visualstudio.com/), and [Eclipse](https://www.eclipse.org/eclipseide/). I recommend using Visual Studio Code.
+  2. Choose an IDE. The most popular IDEs for Fabric mods are [IntelliJ Idea](https://www.jetbrains.com/idea/), [Visual Studio Code](https://code.visualstudio.com/), and [Eclipse](https://www.eclipse.org/eclipseide/). I recommend using IntelliJ Idea with the Minecraft Development plugin.
   3. In Powershell (Windows) or Terminal (Mac) or Bash (Linux), run "./gradlew genSources" inside of your cloned repository's folder.
   4. Follow [these](https://fabricmc.net/wiki/tutorial:setup) steps for your preferred IDE (Below the "Manual Steps" section)

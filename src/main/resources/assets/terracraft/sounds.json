@@ -1,0 +1,8 @@
+{
+  "magic_mirror_sound": {
+    "subtitle": "subtitles.terracraft.item_magic_mirror_use",
+    "sounds": [
+      "terracraft:item_magic_mirror_use"
+    ]
+  }
+}
