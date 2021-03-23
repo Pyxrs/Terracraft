@@ -10,12 +10,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 public class Blocks {
+
     public static void RegisterBlocks() {
-        //RegisterBlock("hellstone_block", new Block(FabricBlockSettings.of(Material.METAL).strength(1.5f, 6.0f).requiresTool()), ItemGroup.BUILDING_BLOCKS);
+        RegisterBlock("hellstone_block", new Block(FabricBlockSettings.of(Material.METAL).strength(1.5f, 6.0f).requiresTool()), ItemGroup.BUILDING_BLOCKS);
     }
 
     public static Block RegisterBlock(String id, Block block, ItemGroup group) {

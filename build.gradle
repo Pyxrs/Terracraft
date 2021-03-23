@@ -37,6 +37,9 @@ dependencies {
 	modRuntime ("com.github.SuperCoder7979:databreaker:${project.databreaker_version}") {
 		exclude module: "fabric-loader"
 	}
+
+	//modApi "com.github.LazuriteMC:Rayon:${project.rayon_version}"
+	//include "com.github.LazuriteMC:Rayon:${project.rayon_version}"
 }
 
 processResources {
