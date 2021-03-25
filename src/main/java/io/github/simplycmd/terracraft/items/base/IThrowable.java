@@ -5,7 +5,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.explosion.Explosion.DestructionType;
 
-public abstract interface IThowable {
+public abstract interface IThrowable {
 
 	public enum ThowableType {
 		NORMAL,

@@ -1,6 +1,7 @@
 package io.github.simplycmd.terracraft.items;
 
 import io.github.simplycmd.terracraft.Main;
+import io.github.simplycmd.terracraft.Sounds;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -43,7 +44,7 @@ public class MirrorItem extends Item {
             MinecraftClient.getInstance().particleManager.addEmitter(clientPlayer, ParticleTypes.END_ROD, 30);
             MinecraftClient.getInstance().gameRenderer.showFloatingItem(this.getDefaultStack());
             if (!world.isClient) {
-                world.playSound(null, playerEntity.getBlockPos(), Main.ITEM_MAGIC_MIRROR_USE, SoundCategory.PLAYERS, 1f, 1f);
+                world.playSound(null, playerEntity.getBlockPos(), Sounds.ITEM_MAGIC_MIRROR_USE, SoundCategory.PLAYERS, 1f, 1f);
             }
             tick = true;
             return TypedActionResult.success(playerEntity.getStackInHand(hand));
