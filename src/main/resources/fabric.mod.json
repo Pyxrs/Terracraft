@@ -18,7 +18,8 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": ["io.github.simplycmd.terracraft.Main"]
+    "main": ["io.github.simplycmd.terracraft.Main"],
+    "client": ["io.github.simplycmd.terracraft.MainClient"]
   },
   "mixins": [
     "terracraft.mixins.json"

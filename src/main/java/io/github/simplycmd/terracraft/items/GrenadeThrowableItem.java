@@ -21,7 +21,11 @@ public class GrenadeThrowableItem extends Item implements IThrowable {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         this.world = world;
-        throwItem();
+        GrenadeEntity grenade = new GrenadeEntity(Entities.GRENADE, world);
+        grenade.updatePosition(playerEntity.getX(), playerEntity.getY(), playerEntity.getZ());
+        grenade.setVelocity(1, 0.5, 0);
+        world.spawnEntity(grenade);
+        //throwItem();
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
 

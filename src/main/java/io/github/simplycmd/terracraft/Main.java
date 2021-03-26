@@ -1,5 +1,6 @@
 package io.github.simplycmd.terracraft;
 
+import io.github.simplycmd.terracraft.entities.Entities;
 import io.github.simplycmd.terracraft.items.Items;
 import io.github.simplycmd.terracraft.items.base.IThrowable;
 import net.fabricmc.api.ModInitializer;
@@ -17,8 +18,9 @@ public class Main implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Blocks.RegisterBlocks();
 		Items.RegisterItems();
+		Blocks.RegisterBlocks();
+		Entities.RegisterEntities();
 		Sounds.RegisterSounds();
 		doListeners();
 	}

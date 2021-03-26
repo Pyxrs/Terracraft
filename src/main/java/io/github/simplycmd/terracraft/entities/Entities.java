@@ -13,6 +13,10 @@ public class Entities {
     public static EntityType<GrenadeEntity> GRENADE = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(Main.MOD_ID, "grenade"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, GrenadeEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC, GrenadeEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build()
     );
+
+    public static void RegisterEntities() {
+        FabricDefaultAttributeRegistry.register(GRENADE, GrenadeEntity.createMobAttributes());
+    }
 }
