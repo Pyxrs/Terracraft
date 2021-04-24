@@ -38,6 +38,9 @@ dependencies {
 		exclude module: "fabric-loader"
 	}
 
+	compileOnly("org.projectlombok:lombok:${project.lombok_version}")
+	annotationProcessor("org.projectlombok:lombok:${project.lombok_version}")
+
 	//modApi "com.github.LazuriteMC:Rayon:${project.rayon_version}"
 	//include "com.github.LazuriteMC:Rayon:${project.rayon_version}"
 }
