@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "terracraft:block/dart_trap" },
+    "facing=east":  { "model": "terracraft:block/dart_trap", "y":  90},
+    "facing=south": { "model": "terracraft:block/dart_trap", "y": 180 },
+    "facing=west":  { "model": "terracraft:block/dart_trap", "y": 270 }
+  }
+}

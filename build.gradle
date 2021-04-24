@@ -34,15 +34,7 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modRuntime ("com.github.SuperCoder7979:databreaker:${project.databreaker_version}") {
-		exclude module: "fabric-loader"
-	}
-
-	compileOnly("org.projectlombok:lombok:${project.lombok_version}")
-	annotationProcessor("org.projectlombok:lombok:${project.lombok_version}")
-
-	//modApi "com.github.LazuriteMC:Rayon:${project.rayon_version}"
-	//include "com.github.LazuriteMC:Rayon:${project.rayon_version}"
+	modImplementation(include("com.github.SimplyCmd:SimplyLib:${project.simplylib_version}"))
 }
 
 processResources {

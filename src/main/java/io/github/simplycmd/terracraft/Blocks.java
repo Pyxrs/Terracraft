@@ -1,5 +1,6 @@
 package io.github.simplycmd.terracraft;
 
+import io.github.simplycmd.simplylib.SimplyLib;
 import io.github.simplycmd.terracraft.blocks.DartTrapBlock;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -26,35 +27,9 @@ public class Blocks {
     public static Block HELLSTONE_BLOCK;
 
     public static void RegisterBlocks() {
-        HELLSTONE_BLOCK = RegisterBlock("hellstone_block", new Block(FabricBlockSettings.of(Material.METAL).strength(1.5f, 6.0f).requiresTool()), ItemGroup.BUILDING_BLOCKS);
-        RegisterOverworldOre("hellstone_ore", HELLSTONE_BLOCK, YOffset.getBottom(), YOffset.getTop(), 9, 20);
+        HELLSTONE_BLOCK = SimplyLib.registerBlock(Main.MOD_ID, "hellstone_block", new Block(FabricBlockSettings.of(Material.METAL).strength(1.5f, 6.0f).requiresTool()), ItemGroup.BUILDING_BLOCKS);
+        SimplyLib.registerOverworldOre(Main.MOD_ID, "hellstone_ore", HELLSTONE_BLOCK, YOffset.getBottom(), YOffset.getTop(), 9, 20);
 
-        RegisterBlock("dart_trap", new DartTrapBlock(FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).requiresTool()), ItemGroup.DECORATIONS);
+        SimplyLib.registerBlock(Main.MOD_ID, "dart_trap", new DartTrapBlock(FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).requiresTool()), ItemGroup.DECORATIONS);
     }
-
-    public static Block RegisterBlock(String id, Block block, ItemGroup group) {
-        Registry.register(Registry.BLOCK, new Identifier(Main.MOD_ID, id), block);
-        Registry.register(Registry.ITEM, new Identifier(Main.MOD_ID, id), new BlockItem(block, new Item.Settings().group(group)));
-        return block;
-    }
-
-    public static ConfiguredFeature<?, ?> RegisterOverworldOre(String id, Block block, YOffset lowest, YOffset highest, Integer vein_size, Integer veins_per_chunk) {
-        ConfiguredFeature<?, ?> ORE = Feature.ORE
-                .configure(new OreFeatureConfig(
-                        OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
-                        block.getDefaultState(),
-                        vein_size))
-                .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(lowest, highest))))
-                .spreadHorizontally()
-                .repeat(veins_per_chunk);
-
-        RegistryKey<ConfiguredFeature<?, ?>> oreWoolOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
-                new Identifier("tutorial", "ore_wool_overworld"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolOverworld.getValue(), ORE);
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreWoolOverworld);
-
-        return ORE;
-    }
-
-
 }

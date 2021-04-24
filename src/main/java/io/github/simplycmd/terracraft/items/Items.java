@@ -11,6 +11,7 @@ public class Items {
     public static void RegisterItems() {
         RegisterItem("magic_mirror", new MirrorItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1)));
         RegisterItem("grenade", new GrenadeThrowableItem(new FabricItemSettings().group(ItemGroup.COMBAT)));
+        RegisterItem("flaming_arrow", new FlamingArrowItem(new FabricItemSettings().group(ItemGroup.COMBAT)));
     }
 
     public static void RegisterItem(String id, Item item) {
