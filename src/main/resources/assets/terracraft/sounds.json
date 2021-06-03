@@ -1,8 +1,15 @@
+
 {
-  "magic_mirror_sound": {
+  "item_magic_mirror_use": {
     "subtitle": "subtitles.terracraft.item_magic_mirror_use",
     "sounds": [
       "terracraft:item_magic_mirror_use"
+    ]
+  },
+  "block_pot_smash": {
+    "subtitle": "subtitles.terracraft.block_pot_smash",
+    "sounds": [
+      "terracraft:block_pot_smash"
     ]
   }
 }

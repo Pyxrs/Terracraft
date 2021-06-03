@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "terracraft:block/blue_berry_bush_stage1"
+  }
+}

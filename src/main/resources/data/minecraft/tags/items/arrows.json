@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:arrow",
+    "minecraft:tipped_arrow",
+    "minecraft:spectral_arrow",
+    "terracraft:flaming_arrow"
+  ]
+}

@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/orientable",
   "textures": {
-    "top": "minecraft:block/cobblestone",
-    "front": "minecraft:block/dispenser_front_vertical",
-    "side": "minecraft:block/cobblestone"
+    "top": "minecraft:block/polished_deepslate",
+    "front": "terracraft:block/dart_trap",
+    "side": "minecraft:block/polished_deepslate"
   }
 }

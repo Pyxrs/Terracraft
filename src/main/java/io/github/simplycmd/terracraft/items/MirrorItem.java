@@ -43,9 +43,7 @@ public class MirrorItem extends Item {
         if (!tick) {
             MinecraftClient.getInstance().particleManager.addEmitter(clientPlayer, ParticleTypes.END_ROD, 30);
             MinecraftClient.getInstance().gameRenderer.showFloatingItem(this.getDefaultStack());
-            if (!world.isClient) {
-                world.playSound(null, playerEntity.getBlockPos(), Sounds.ITEM_MAGIC_MIRROR_USE, SoundCategory.PLAYERS, 1f, 1f);
-            }
+            serverWorld.playSound(playerEntity, playerEntity.getBlockPos(), Sounds.ITEM_MAGIC_MIRROR_USE_EVENT, SoundCategory.PLAYERS, 1f, 1f);
             tick = true;
             return TypedActionResult.success(playerEntity.getStackInHand(hand));
         } else {

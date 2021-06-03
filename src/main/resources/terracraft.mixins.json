@@ -4,6 +4,8 @@
   "package": "io.github.simplycmd.terracraft.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "DefaultBiomeFeaturesMixin",
+    "ItemStackMixin"
   ],
   "client": [
   ],

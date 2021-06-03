@@ -1,8 +1,8 @@
-package io.github.simplycmd.terracraft.items.base;
+package io.github.simplycmd.terracraft.items.util;
 
 import net.minecraft.item.ItemStack;
 
-public abstract interface IConsumable {
+public interface IConsumable {
 
 	public abstract int removeAmount();
 	

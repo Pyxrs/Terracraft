@@ -33,8 +33,11 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
 	modImplementation(include("com.github.SimplyCmd:SimplyLib:${project.simplylib_version}"))
+	modImplementation(include(fileTree(dir: 'libs', include: '*.jar')))
+
+	compile("org.projectlombok:lombok:${project.lombok_version}")
+	annotationProcessor("org.projectlombok:lombok:${project.lombok_version}")
 }
 
 processResources {

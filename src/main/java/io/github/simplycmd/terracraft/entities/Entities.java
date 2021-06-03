@@ -3,6 +3,7 @@ package io.github.simplycmd.terracraft.entities;
 import io.github.simplycmd.terracraft.Main;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -17,6 +18,6 @@ public class Entities {
     );
 
     public static void RegisterEntities() {
-        FabricDefaultAttributeRegistry.register(GRENADE, GrenadeEntity.createMobAttributes());
+        //FabricDefaultAttributeRegistry.register(GRENADE, GrenadeEntity.createMobAttributes());
     }
 }

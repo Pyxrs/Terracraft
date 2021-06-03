@@ -1,36 +1,36 @@
 package io.github.simplycmd.terracraft.entities;
 
-import net.minecraft.client.model.ModelPart;
+import io.github.simplycmd.terracraft.entities.util.BaseEntityModel;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MovementType;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.Packet;
+import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class GrenadeEntityModel extends EntityModel<GrenadeEntity> {
-
-    private ModelPart base;
-    private List<ModelPart.Cuboid> cubes = new ArrayList<ModelPart.Cuboid>();
-
+@Environment(EnvType.CLIENT)
+public class GrenadeEntityModel extends BaseEntityModel {
     public GrenadeEntityModel() {
         cubes.add(new ModelPart.Cuboid(0, 0, -2, -3, -2, 4, 6, 4, 0, 0, 0, false, 32, 16));
         cubes.add(new ModelPart.Cuboid(16, 0, -4, -5, 0, 6, 6, 0, 0, 0, 0, false, 32, 16));
         base = new ModelPart(cubes, new HashMap<>());
     }
 
-    @Override
-    public void setAngles(GrenadeEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-
-    }
-
-    @Override
     public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
-        // translate model down
-        matrices.translate(0, 1.32, 0);
-
-        // render cube
-        base.render(matrices, vertices, light, overlay);
+        matrices.translate(0, -0.1875, 0);
+        super.render(matrices, vertices, light, overlay, red, green, blue, alpha);
     }
 }
