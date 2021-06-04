@@ -27,13 +27,6 @@ public class CoinItem extends SwordItem implements IItem {
     }
 
     @Override
-    public List<BetterEnchantment> getEnchantments() {
-        List<BetterEnchantment> list = new ArrayList<BetterEnchantment>();
-        list.add(new BetterEnchantment(Enchantments.KNOCKBACK, 10));
-        return list;
-    }
-
-    @Override
     public Value getSellValue() {
         return value;
     }

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "terracraft:block/cursed_torch"
+    }
+  }
+}

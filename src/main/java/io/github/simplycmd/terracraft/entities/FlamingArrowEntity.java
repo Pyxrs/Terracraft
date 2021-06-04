@@ -8,21 +8,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class FlamingArrowEntity extends PersistentProjectileEntity {
-    private static final int CRAZY_HIGH_NUMBER = 10000000;
+    private static final int INTEGER_LIMIT = 2147483647;
 
     protected FlamingArrowEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
         super(entityType, world);
-        this.setOnFireFor(CRAZY_HIGH_NUMBER);
+        this.setOnFireFor(INTEGER_LIMIT);
     }
 
     public FlamingArrowEntity(World world, LivingEntity owner) {
         super(EntityType.ARROW, owner, world);
-        this.setOnFireFor(CRAZY_HIGH_NUMBER);
+        this.setOnFireFor(INTEGER_LIMIT);
     }
 
     public FlamingArrowEntity(World world, double x, double y, double z) {
         super(EntityType.ARROW, x, y, z, world);
-        this.setOnFireFor(CRAZY_HIGH_NUMBER);
+        this.setOnFireFor(INTEGER_LIMIT);
     }
 
     @Override

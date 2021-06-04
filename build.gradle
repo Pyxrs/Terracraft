@@ -8,6 +8,9 @@ repositories {
 		name = "JitPack"
 		url = "https://jitpack.io"
 	}
+	maven {
+		url = uri("https://storage.googleapis.com/devan-maven/")
+	}
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -16,14 +19,6 @@ targetCompatibility = JavaVersion.VERSION_1_8
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
-
-repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
-}
 
 dependencies {
 	// To change the versions see the gradle.properties file
@@ -34,6 +29,8 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation(include("com.github.SimplyCmd:SimplyLib:${project.simplylib_version}"))
+	modImplementation(include("net.devtech:arrp:${project.arrp_version}"))
+
 	modImplementation(include(fileTree(dir: 'libs', include: '*.jar')))
 
 	compile("org.projectlombok:lombok:${project.lombok_version}")
