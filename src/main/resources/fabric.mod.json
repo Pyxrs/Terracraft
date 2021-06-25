@@ -6,14 +6,16 @@
   "name": "Terracraft",
   "description": "A Terraria mod for Minecraft with the primary focus of making 3D Terraria whilst preserving as many Minecraft mechanics and features as possible",
   "authors": [
-    "SimplyCmd"
+    "SimplyCmd",
+    "RiverOaken",
+    "Ryorama"
   ],
   "contact": {
     "homepage": "https://simplycmd.github.io/Terracraft/",
     "sources": "https://github.com/SimplyCmd/Terracraft"
   },
 
-  "license": "Apache-2.0",
+  "license": "MIT",
   "icon": "assets/terracraft/icon.png",
 
   "environment": "*",
@@ -26,10 +28,12 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.x"
+    "minecraft": "1.17.x",
+    "java": ">=16"
   },
   "suggests": {
+    "another-mod": "*"
   }
 }

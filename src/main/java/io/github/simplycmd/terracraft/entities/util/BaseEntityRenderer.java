@@ -1,8 +1,6 @@
 package io.github.simplycmd.terracraft.entities.util;
 
 import io.github.simplycmd.terracraft.Main;
-import io.github.simplycmd.terracraft.entities.GrenadeEntity;
-import io.github.simplycmd.terracraft.entities.GrenadeEntityModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.OverlayTexture;
@@ -13,12 +11,7 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.Packet;
-import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
 
 @Environment(EnvType.CLIENT)
 public abstract class BaseEntityRenderer extends EntityRenderer<Entity> {

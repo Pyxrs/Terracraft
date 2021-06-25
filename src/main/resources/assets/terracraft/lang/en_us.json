@@ -1,0 +1,31 @@
+{
+  "item.terracraft.magic_mirror": "Magic Mirror",
+  "item.terracraft.grenade": "Grenade",
+  "item.terracraft.flaming_arrow": "Flaming Arrow",
+  "item.terracraft.soul_fire_arrow": "Soul Fire Arrow",
+  "item.terracraft.slap_hand": "Slap Hand",
+  "item.terracraft.heart": "Heart",
+  "item.terracraft.copper_coin": "Copper Coin",
+  "item.terracraft.silver_coin": "Silver Coin",
+  "item.terracraft.gold_coin": "Gold Coin",
+  "item.terracraft.platinum_coin": "Platinum Coin",
+
+  "block.terracraft.hellstone_block": "Hellstone Block",
+  "block.terracraft.dart_trap": "Dart Trap",
+  "block.terracraft.forest_pot": "Forest Pot",
+  "block.terracraft.blue_berry_bush": "Blue Berry Bush",
+
+  "block.terracraft.ice_torch": "Ice Torch",
+  "block.terracraft.bone_torch": "Bone Torch",
+  "block.terracraft.ultrabright_torch": "Ultrabright Torch",
+  "block.terracraft.demon_torch": "Demon Torch",
+  "block.terracraft.cursed_torch": "Cursed Torch",
+  "block.terracraft.ichor_torch": "Ichor Torch",
+  "block.terracraft.rainbow_torch": "Rainbow Torch",
+  "block.terracraft.desert_torch": "Desert Torch",
+  "block.terracraft.coral_torch": "Coral Torch",
+  "block.terracraft.corrupt_torch": "Corrupt Torch",
+  "block.terracraft.crimson_torch": "Crimson Torch",
+  "block.terracraft.hallowed_torch": "Hallowed Torch",
+  "block.terracraft.jungle_torch": "Jungle Torch"
+}

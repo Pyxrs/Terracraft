@@ -1,7 +1,7 @@
 package io.github.simplycmd.terracraft;
 
 import io.github.simplycmd.terracraft.registry.BlockRegistry;
-import io.github.simplycmd.terracraft.entities.Entities;
+import io.github.simplycmd.terracraft.registry.EntityRegistry;
 import io.github.simplycmd.terracraft.features.Features;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import net.devtech.arrp.api.RRPCallback;
@@ -22,7 +22,6 @@ public class Main implements ModInitializer {
 		RRPCallback.EVENT.register(a -> a.add(RESOURCE_PACK));
 		ItemRegistry.register();
 		BlockRegistry.register();
-		Entities.RegisterEntities();
 		Sounds.RegisterSounds();
 		Features.RegisterFeatures();
 	}

@@ -3,6 +3,8 @@ package io.github.simplycmd.terracraft.registry;
 import io.github.simplycmd.simplylib.SimplyLib;
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.blocks.*;
+import io.github.simplycmd.terracraft.blocks.util.CustomSettings;
+import io.github.simplycmd.terracraft.blocks.util.PotBlocks;
 import net.devtech.arrp.json.blockstate.JBlockModel;
 import net.devtech.arrp.json.blockstate.JState;
 import net.devtech.arrp.json.models.JModel;
@@ -20,6 +22,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.YOffset;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,51 +30,42 @@ import static net.devtech.arrp.api.RuntimeResourcePack.id;
 import static net.devtech.arrp.json.loot.JLootTable.*;
 
 public class BlockRegistry {
-    enum BlockstateType {
-        NORMAL,
-        RANDOM_X,
-        RANDOM_Y,
-    }
-    enum ItemModelType {
-        NORMAL,
-        TEXTURE
-    }
 
-    private static final HashMap<String, Block> BLOCKS = new HashMap<String, Block>() {{
-        put("hellstone_block", new Block(FabricBlockSettings.of(Material.METAL).strength(1.5f, 6.0f).requiresTool()));
-        put("dart_trap", new DartTrapBlock(FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).requiresTool()));
-        put("forest_pot", new PotBlock(PotBlocks.FOREST));
-        put("blue_berry_bush", new BlueBerryBushBlock(FabricBlockSettings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH)));
+    private static final HashMap<CustomSettings, Block> BLOCKS = new HashMap<>() {{
+        put(new CustomSettings("hellstone_block", CustomSettings.BlockstateType.RANDOM), new Block(FabricBlockSettings.of(Material.METAL).strength(1.5f, 6.0f).requiresTool()));
+        put(new CustomSettings("dart_trap"), new DartTrapBlock(FabricBlockSettings.of(Material.STONE).strength(1.5f, 6.0f).requiresTool()));
+        put(new CustomSettings("forest_pot", CustomSettings.BlockstateType.NORMAL, CustomSettings.ItemModelType.NORMAL, CustomSettings.LootType.NONE), new PotBlock(PotBlocks.FOREST));
+        put(new CustomSettings("blue_berry_bush"), new BlueBerryBushBlock(FabricBlockSettings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH)));
 
-        put("ice_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("ice_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("bone_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("bone_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("ultrabright_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("ultrabright_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("demon_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("demon_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("cursed_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("cursed_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("ichor_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("ichor_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("rainbow_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("rainbow_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("desert_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("desert_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("coral_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("coral_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("corrupt_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("corrupt_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("crimson_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("crimson_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("hallowed_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("hallowed_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("jungle_torch", new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
-        put("jungle_wall_torch", new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("ice_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("ice_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("bone_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("bone_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("ultrabright_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("ultrabright_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("demon_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("demon_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("cursed_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("cursed_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("ichor_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("ichor_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("rainbow_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("rainbow_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("desert_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("desert_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("coral_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("coral_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("corrupt_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("corrupt_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("crimson_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("crimson_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("hallowed_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("hallowed_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("jungle_torch"), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        put(new CustomSettings("jungle_wall_torch"), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
     }};
 
-    private static final HashMap<String, BlockItem> BLOCK_ITEMS = new HashMap<String, BlockItem>() {{
+    private static final HashMap<String, BlockItem> BLOCK_ITEMS = new HashMap<>() {{
         put("hellstone_block", new BlockItem(BlockRegistry.get("hellstone_block"), new Item.Settings().group(ItemGroup.BUILDING_BLOCKS)));
         put("dart_trap", new BlockItem(BlockRegistry.get("dart_trap"), new Item.Settings().group(ItemGroup.REDSTONE)));
         put("forest_pot", new BlockItem(BlockRegistry.get("forest_pot"), new Item.Settings().group(ItemGroup.DECORATIONS)));
@@ -94,11 +88,12 @@ public class BlockRegistry {
 
 
     public static void register() {
-        for (Map.Entry<String, Block> block : BLOCKS.entrySet()) {
-            Registry.register(Registry.BLOCK, Main.ID(block.getKey()), block.getValue());
-            Main.RESOURCE_PACK.addBlockState(blockstate(block.getKey(), BlockstateType.NORMAL), Main.ID(block.getKey()));
-            Main.RESOURCE_PACK.addModel(model(block.getKey(), ItemModelType.NORMAL), Main.ID("item/" + block.getKey()));
-            standardLootTable(block.getKey());
+        // Scary code do not touch
+        for (Map.Entry<CustomSettings, Block> block : BLOCKS.entrySet()) {
+            Registry.register(Registry.BLOCK, Main.ID(block.getKey().getId()), block.getValue());
+            Main.RESOURCE_PACK.addBlockState(blockstate(block.getKey().getId(), block.getKey().getBlockstateType()), Main.ID(block.getKey().getId()));
+            Main.RESOURCE_PACK.addModel(model(block.getKey().getId(), block.getKey().getItemModelType()), Main.ID("item/" + block.getKey().getId()));
+            lootTable(block.getKey().getId(), block.getKey().getLootType());
         }
         for (Map.Entry<String, BlockItem> item : BLOCK_ITEMS.entrySet()) {
             Registry.register(Registry.ITEM, Main.ID(item.getKey()), item.getValue());
@@ -107,38 +102,50 @@ public class BlockRegistry {
     }
 
     public static Block get(String blockId) {
-        return BLOCKS.getOrDefault(blockId, Blocks.AIR);
+        for (Map.Entry<CustomSettings, Block> block : BLOCKS.entrySet()) {
+            if (block.getKey().getId().matches(blockId)) {
+                return block.getValue();
+            }
+        }
+        throw new IllegalArgumentException("Block not valid!");
     }
 
-    public static void standardLootTable(String blockId) {
-        Main.RESOURCE_PACK.addLootTable(id(Main.MOD_ID + ":blocks/" + blockId),
-                loot("minecraft:block")
-                        .pool(pool()
-                                .rolls(1)
-                                .entry(entry()
-                                        .type("minecraft:item")
-                                        .name(Main.MOD_ID + ":" + blockId))
-                                .condition(predicate("minecraft:survives_explosion")))
-        );
-    }
-
-    private static JState blockstate(String blockId, BlockstateType type) {
-        JBlockModel model = JState.model(Main.MOD_ID + ":block/" + blockId);
+    public static void lootTable(String blockId, CustomSettings.LootType type) {
         switch (type) {
-            case RANDOM_X:
-                return JState.state(JState.multipart(
-                        model, model.x(90), model.x(180), model.x(270)
-                ));
-            case RANDOM_Y:
-                return JState.state(JState.multipart(
-                        model, model.y(90), model.y(180), model.y(270)
-                ));
-            default:
-                return JState.state(JState.variant(model));
+            case NORMAL: {
+                Main.RESOURCE_PACK.addLootTable(id(Main.MOD_ID + ":blocks/" + blockId),
+                        loot("minecraft:block")
+                                .pool(pool()
+                                        .rolls(1)
+                                        .entry(entry()
+                                                .type("minecraft:item")
+                                                .name(Main.MOD_ID + ":" + blockId))
+                                        .condition(predicate("minecraft:survives_explosion")))
+                );
+            }
+            case NONE: {
+
+            }
         }
     }
 
-    private static JModel model(String blockId, ItemModelType type) {
+    private static JState blockstate(String blockId, CustomSettings.BlockstateType type) {
+        JBlockModel model = JState.model(Main.MOD_ID + ":block/" + blockId);
+        return switch (type) {
+            case RANDOM_X -> JState.state(JState.multipart(
+                    model, model.x(90), model.x(180), model.x(270)
+            ));
+            case RANDOM_Y -> JState.state(JState.multipart(
+                    model, model.y(90), model.y(180), model.y(270)
+            ));
+            case RANDOM -> JState.state(JState.multipart(
+                    model, model.x(90), model.x(180), model.x(270), model.y(90), model.y(180), model.y(270)
+            ));
+            default -> JState.state(JState.variant(model));
+        };
+    }
+
+    private static JModel model(String blockId, CustomSettings.ItemModelType type) {
         switch (type) {
             case TEXTURE:
                 return JModel.model().parent("minecraft:item/generated").textures(JModel.textures().layer0(Main.MOD_ID + ":item/" + blockId));

@@ -5,19 +5,16 @@ import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterials;
+import net.minecraft.item.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CoinItem extends SwordItem implements IItem {
+public class CoinItem extends Item implements IItem {
     Value value;
 
     public CoinItem(Value value) {
-        super(ToolMaterials.IRON, 4, -2.0F, new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1));
+        super(new FabricItemSettings().group(ItemGroup.MISC));
         this.value = value;
     }
 

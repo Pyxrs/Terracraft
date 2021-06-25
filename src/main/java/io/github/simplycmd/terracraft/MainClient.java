@@ -1,28 +1,21 @@
 package io.github.simplycmd.terracraft;
 
-import io.github.simplycmd.terracraft.blocks.*;
 import io.github.simplycmd.terracraft.registry.BlockRegistry;
-import io.github.simplycmd.terracraft.entities.Entities;
-import io.github.simplycmd.terracraft.entities.GrenadeEntityRenderer;
+import io.github.simplycmd.terracraft.registry.EntityRegistry;
+import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.Block;
-import net.minecraft.block.Material;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.sound.BlockSoundGroup;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 @Environment(EnvType.CLIENT)
 public class MainClient implements ClientModInitializer {
 
-    private static final ArrayList<String> CUTOUT = new ArrayList<String>() {{
+    private static final ArrayList<String> CUTOUT = new ArrayList<>() {{
         add("blue_berry_bush");
         add("forest_pot");
         add("ice_torch");
@@ -58,6 +51,6 @@ public class MainClient implements ClientModInitializer {
         for (String id : CUTOUT) {
             BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.get(id), RenderLayer.getCutout());
         }
-        EntityRendererRegistry.INSTANCE.register(Entities.GRENADE, GrenadeEntityRenderer::new);
+        EntityRegistry.register();
     }
 }
