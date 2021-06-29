@@ -102,12 +102,16 @@ public class BlockRegistry {
     }
 
     public static Block get(String blockId) {
-        for (Map.Entry<CustomSettings, Block> block : BLOCKS.entrySet()) {
-            if (block.getKey().getId().matches(blockId)) {
-                return block.getValue();
+        if (BLOCKS != null) {
+            for (Map.Entry<CustomSettings, Block> block : BLOCKS.entrySet()) {
+                if (block.getKey().getId().matches(blockId)) {
+                    return block.getValue();
+                }
             }
+            throw new IllegalArgumentException("Block not valid!");
+        } else {
+            return Blocks.AIR;
         }
-        throw new IllegalArgumentException("Block not valid!");
     }
 
     public static void lootTable(String blockId, CustomSettings.LootType type) {

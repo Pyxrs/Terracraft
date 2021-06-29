@@ -65,20 +65,32 @@ public class PotBlock extends Block implements Waterloggable {
             // Random number from 1-8 (7 outcomes)
             switch(RANDOM.nextInt(7) + 1) {
                 // 1: Drop hearts
-                case 1: dropHearts(world, pos);
+                case 1: {
+                    dropHearts(world, pos);
+                    break;
+                }
                 // 2: Drop torches
-                case 2: dropTorches(world, pos);
-                // 3: Drop ammo
+                case 2: {
+                    dropTorches(world, pos);
+                    break;
+                }
+                // 3: TODO: Drop ammo
                 case 3: ;
-                // 4: Drop healing potions
+                // 4: TODO: Drop healing potions
                 case 4: ;
-                // 5: Drop explosives
+                // 5: TODO: Drop explosives
                 case 5: ;
-                // 6: Drop rope
+                // 6: TODO: Drop rope
                 case 6: ;
                 // 7/8: Drop money
-                case 7: ;
-                case 8: ;
+                case 7: {
+                    dropCoins(world, pos);
+                    break;
+                }
+                case 8: {
+                    dropCoins(world, pos);
+                    break;
+                }
             }
         }
     }
@@ -104,22 +116,35 @@ public class PotBlock extends Block implements Waterloggable {
     }
 
     private void dropTorches(World world, BlockPos pos) {
-        if (world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 10000, true).getHealth() < 20) {
-            // Determines an amount from 4-12
-            int amount = RANDOM.nextInt(8) + 4;
+        // TODO: drop glowsticks instead when in water
 
-            // Tundra drops half the amount of torches
-            if (type.equals(PotBlocks.TUNDRA)) {
-                for (int i = 0; i < (amount / 2); i++) {
-                    ItemEntity torch = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), type.getTorch_type().getDefaultStack());
-                    world.spawnEntity(torch);
-                }
-            } else {
-                for (int i = 0; i < amount; i++) {
-                    ItemEntity torch = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), type.getTorch_type().getDefaultStack());
-                    world.spawnEntity(torch);
-                }
+        // Determines an amount from 4-12
+        int amount = RANDOM.nextInt(8) + 4;
+
+        // Tundra drops half the amount of torches
+        if (type.equals(PotBlocks.TUNDRA))
+            for (int i = 0; i < (amount / 2); i++) {
+                ItemEntity torch = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), type.getTorch_type().getDefaultStack());
+                world.spawnEntity(torch);
             }
+        else
+            for (int i = 0; i < amount; i++) {
+                ItemEntity torch = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), type.getTorch_type().getDefaultStack());
+                world.spawnEntity(torch);
+            }
+    }
+
+    private void dropCoins(World world, BlockPos pos) {
+        // Spawn silver coins from 0-3
+        for (int i = 0; i < RANDOM.nextInt(3); i++) {
+            ItemEntity coin = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemRegistry.get("silver_coin").getDefaultStack());
+            world.spawnEntity(coin);
         }
+
+        // Spawn copper coins from 0-64
+        ItemStack copper_coins = ItemRegistry.get("copper_coin").getDefaultStack();
+        copper_coins.setCount(RANDOM.nextInt(64));
+        ItemEntity coin = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), copper_coins);
+        world.spawnEntity(coin);
     }
 }
