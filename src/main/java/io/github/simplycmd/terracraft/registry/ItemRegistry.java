@@ -25,7 +25,10 @@ public class ItemRegistry {
         put("flaming_arrow", new FlamingArrowItem());
         put("soul_fire_arrow", new FlamingArrowItem());
         put("slap_hand", new SlapHandItem());
+        put("wand_of_sparking", new WandOfSparkingItem(new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1).maxDamage(250)));
         put("heart", new HeartItem());
+
+        put("daybloom", new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
         put("copper_coin", new CoinItem(CoinItem.Coin.COPPER));
         put("silver_coin", new CoinItem(CoinItem.Coin.SILVER));

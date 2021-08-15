@@ -51,6 +51,13 @@ public class CustomSettings {
         this.lootType = LootType.NORMAL;
     }
 
+    public CustomSettings(String id, LootType lootType) {
+        this.id = id;
+        this.blockstateType = BlockstateType.NORMAL;
+        this.itemModelType = ItemModelType.NORMAL;
+        this.lootType = lootType;
+    }
+
     public CustomSettings(String id) {
         this.id = id;
         this.blockstateType = BlockstateType.NORMAL;

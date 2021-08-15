@@ -14,11 +14,5 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 
 public class Features {
     public static ConfiguredFeature<?, ?> BLUE_BERRY_BUSH_FEATURE = SimplyLib.registerFeature(Main.MOD_ID, "berry_bush_feature", 5, new BlueBerryBushFeature(DefaultFeatureConfig.CODEC));
-    //private static final Feature<DefaultFeatureConfig> STONE_SPIRAL = new BlueBerryBushFeature(DefaultFeatureConfig.CODEC);
-    //public static final ConfiguredFeature<?, ?> STONE_SPIRAL_CONFIGURED = STONE_SPIRAL.configure(FeatureConfig.DEFAULT).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(5)));
-
-    public static void RegisterFeatures() {
-        //Registry.register(Registry.FEATURE, new Identifier(Main.MOD_ID, "stone_spiral"), STONE_SPIRAL);
-        //Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Main.MOD_ID, "stone_spiral"), STONE_SPIRAL_CONFIGURED);
-    }
+    public static ConfiguredFeature<?, ?> DAYBLOOM_FEATURE = SimplyLib.registerFeature(Main.MOD_ID, "daybloom_feature", 20, new DaybloomFeature(DefaultFeatureConfig.CODEC));
 }

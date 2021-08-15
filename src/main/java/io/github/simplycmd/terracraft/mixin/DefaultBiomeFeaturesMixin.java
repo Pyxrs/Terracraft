@@ -14,5 +14,6 @@ public class DefaultBiomeFeaturesMixin {
     @Inject(method = "addPlainsFeatures(Lnet/minecraft/world/biome/GenerationSettings$Builder;)V", at = @At("TAIL"))
     private static void addPlainsFeatures(GenerationSettings.Builder builder, CallbackInfo ci) {
         builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, Features.BLUE_BERRY_BUSH_FEATURE);
+        builder.feature(GenerationStep.Feature.TOP_LAYER_MODIFICATION, Features.DAYBLOOM_FEATURE);
     }
 }

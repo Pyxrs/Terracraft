@@ -17,7 +17,10 @@ public class MainClient implements ClientModInitializer {
 
     private static final ArrayList<String> CUTOUT = new ArrayList<>() {{
         add("blue_berry_bush");
+        add("daybloom");
+
         add("forest_pot");
+
         add("ice_torch");
         add("ice_wall_torch");
         add("bone_torch");

@@ -7,6 +7,7 @@ import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import net.devtech.arrp.api.RRPCallback;
 import net.devtech.arrp.api.RuntimeResourcePack;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
 public class Main implements ModInitializer {
@@ -23,7 +24,6 @@ public class Main implements ModInitializer {
 		ItemRegistry.register();
 		BlockRegistry.register();
 		Sounds.RegisterSounds();
-		Features.RegisterFeatures();
 	}
 
 	//Convert health: T / 10 = M

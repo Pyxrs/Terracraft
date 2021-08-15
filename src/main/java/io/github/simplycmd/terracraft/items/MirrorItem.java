@@ -2,6 +2,8 @@ package io.github.simplycmd.terracraft.items;
 
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.Sounds;
+import io.github.simplycmd.terracraft.items.util.IItem;
+import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -22,7 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class MirrorItem extends Item {
+public class MirrorItem extends Item implements IItem {
     public MirrorItem(Settings settings) {
         super(settings);
     }
@@ -76,11 +78,8 @@ public class MirrorItem extends Item {
         }
     }
 
-    private void bounce(Entity entity) {
-        Vec3d vec3d = entity.getVelocity();
-        if (vec3d.y < 0.0D) {
-            double d = entity instanceof LivingEntity ? 1.0D : 0.8D;
-            entity.setVelocity(vec3d.x, -vec3d.y * d, vec3d.z);
-        }
+    @Override
+    public Value getSellValue() {
+        return new Value(0, 1, 0, 0);
     }
 }

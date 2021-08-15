@@ -5,6 +5,8 @@ import io.github.simplycmd.terracraft.entities.coin_portal.CoinPortalEntity;
 import io.github.simplycmd.terracraft.entities.coin_portal.CoinPortalEntityRenderer;
 import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntity;
 import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntityRenderer;
+import io.github.simplycmd.terracraft.entities.spark.SparkEntity;
+import io.github.simplycmd.terracraft.entities.spark.SparkEntityRenderer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -19,6 +21,11 @@ public class EntityRegistry {
             new Identifier(Main.MOD_ID, "grenade"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, GrenadeEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build()
     );
+    public static EntityType<SparkEntity> SPARK = Registry.register(
+            Registry.ENTITY_TYPE,
+            new Identifier(Main.MOD_ID, "spark"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC, SparkEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build()
+    );
     public static EntityType<CoinPortalEntity> COIN_PORTAL = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(Main.MOD_ID, "coin_portal"),
@@ -27,6 +34,7 @@ public class EntityRegistry {
 
     public static void register() {
         EntityRendererRegistry.INSTANCE.register(GRENADE, GrenadeEntityRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(SPARK, SparkEntityRenderer::new);
         EntityRendererRegistry.INSTANCE.register(COIN_PORTAL, CoinPortalEntityRenderer::new);
     }
 }
