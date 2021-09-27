@@ -1,6 +1,5 @@
 package io.github.simplycmd.terracraft.entities.util;
 
-import io.github.simplycmd.simplylib.BetterEnchantment;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

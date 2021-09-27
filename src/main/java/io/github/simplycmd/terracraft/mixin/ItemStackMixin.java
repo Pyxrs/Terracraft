@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.mixin;
 
-import io.github.simplycmd.simplylib.BetterEnchantment;
+import io.github.simplycmd.simplylib.util.EnchantmentWithLevel;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
@@ -16,9 +16,9 @@ public class ItemStackMixin {
     @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/item/ItemConvertible;I)V")
     private void init(ItemConvertible item, int count, CallbackInfo ci) {
         if (item instanceof IItem) {
-            Iterator<BetterEnchantment> enchantmentIterator = ((IItem) item).getEnchantments().iterator();
+            Iterator<EnchantmentWithLevel> enchantmentIterator = ((IItem) item).getEnchantments().iterator();
             while(enchantmentIterator.hasNext()) {
-                BetterEnchantment enchantment = enchantmentIterator.next();
+                EnchantmentWithLevel enchantment = enchantmentIterator.next();
                 ((ItemStack) (Object) this).addEnchantment(enchantment.getEnchantment(), enchantment.getLevel());
             }
         }

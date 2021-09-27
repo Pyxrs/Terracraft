@@ -1,14 +1,9 @@
 package io.github.simplycmd.terracraft;
 
-import io.github.simplycmd.terracraft.registry.BlockRegistry;
 import io.github.simplycmd.terracraft.registry.EntityRegistry;
-import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.minecraft.client.render.RenderLayer;
 
 import java.util.ArrayList;
 
@@ -52,7 +47,7 @@ public class MainClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         for (String id : CUTOUT) {
-            BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.get(id), RenderLayer.getCutout());
+            //BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.get(id), RenderLayer.getCutout());
         }
         EntityRegistry.register();
     }

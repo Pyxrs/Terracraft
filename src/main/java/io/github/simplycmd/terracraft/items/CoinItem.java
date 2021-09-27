@@ -1,25 +1,14 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.simplylib.BetterEnchantment;
-import io.github.simplycmd.terracraft.Main;
+
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
-import lombok.Getter;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static net.devtech.arrp.api.RuntimeResourcePack.id;
-import static net.devtech.arrp.json.loot.JLootTable.*;
-import static net.devtech.arrp.json.loot.JLootTable.predicate;
 
 public class CoinItem extends Item implements IItem {
     public enum Coin {

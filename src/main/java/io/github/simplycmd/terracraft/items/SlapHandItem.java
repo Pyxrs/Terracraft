@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.simplylib.BetterEnchantment;
+import io.github.simplycmd.simplylib.util.EnchantmentWithLevel;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -24,9 +24,9 @@ public class SlapHandItem extends SwordItem implements IItem {
     }
 
     @Override
-    public List<BetterEnchantment> getEnchantments() {
-        List<BetterEnchantment> list = new ArrayList<BetterEnchantment>();
-        list.add(new BetterEnchantment(Enchantments.KNOCKBACK, 10));
+    public List<EnchantmentWithLevel> getEnchantments() {
+        List<EnchantmentWithLevel> list = new ArrayList<>();
+        list.add(new EnchantmentWithLevel(Enchantments.KNOCKBACK, 10));
         return list;
     }
 

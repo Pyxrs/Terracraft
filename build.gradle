@@ -11,12 +11,14 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+	mavenCentral()
+	maven { url 'https://jitpack.io' }
+	maven { url 'https://storage.googleapis.com/devan-maven/' }
+	maven { url 'https://maven.terraformersmc.com/' }
+	maven { url 'https://ladysnake.jfrog.io/artifactory/mods' }
 	maven {
-		name = "JitPack"
-		url = "https://jitpack.io"
-	}
-	maven {
-		url = uri("https://storage.googleapis.com/devan-maven/")
+		url "https://www.cursemaven.com"
+		content { includeGroup "curse.maven" }
 	}
 }
 
@@ -24,16 +26,17 @@ dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	modImplementation(include("com.github.SimplyCmd:SimplyLib:${project.simplylib_version}"))
-	modImplementation(include("net.devtech:arrp:${project.arrp_version}"))
+	include modImplementation("curse.maven:simplylib-525225:${project.simplylib_version}")
+	include modImplementation("net.devtech:arrp:0.4.4")
+	//modImplementation include ("dev.emi:trinkets:${project.trinkets_version}")
 
-	modImplementation(include(fileTree(dir: 'libs', include: '*.jar')))
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
 
-	compileOnly("org.projectlombok:lombok:${project.lombok_version}")
-	annotationProcessor("org.projectlombok:lombok:${project.lombok_version}")
+	testCompileOnly 'org.projectlombok:lombok:1.18.20'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
 processResources {

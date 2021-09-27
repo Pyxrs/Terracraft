@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import io.github.simplycmd.simplylib.SimplyLib;
+import io.github.simplycmd.simplylib.util.Util;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
@@ -42,7 +42,7 @@ public class DartTrapBlock extends HorizontalFacingBlock {
                 arrowEntity.updatePosition(arrow_pos.getX(), arrow_pos.getY(), arrow_pos.getZ());
                 arrowEntity.updateVelocity(1, Vec3d.of(state.get(Properties.HORIZONTAL_FACING).getVector()));*/
 
-                world.spawnEntity(SimplyLib.initArrow(Items.TIPPED_ARROW, Potions.POISON, arrowPosition(pos, state), 1, Vec3d.of(state.get(Properties.HORIZONTAL_FACING).getVector()), PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY, world));
+                world.spawnEntity(Util.initArrow(Items.TIPPED_ARROW, Potions.POISON, arrowPosition(pos, state), 1, Vec3d.of(state.get(Properties.HORIZONTAL_FACING).getVector()), PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY, world));
             }
         }
     }

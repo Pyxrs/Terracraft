@@ -1,6 +1,5 @@
 package io.github.simplycmd.terracraft.items.util;
 
-import io.github.simplycmd.simplylib.BetterEnchantment;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import lombok.Getter;
 import lombok.Setter;

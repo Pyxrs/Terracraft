@@ -1,6 +1,5 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.simplylib.BetterEnchantment;
 import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntity;
 import io.github.simplycmd.terracraft.entities.spark.SparkEntity;
 import io.github.simplycmd.terracraft.items.util.IItem;

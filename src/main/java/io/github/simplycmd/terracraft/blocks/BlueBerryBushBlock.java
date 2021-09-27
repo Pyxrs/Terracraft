@@ -19,6 +19,8 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
+import static io.github.simplycmd.terracraft.registry.BlockRegistry.ID;
+
 public class BlueBerryBushBlock extends SweetBerryBushBlock {
     public BlueBerryBushBlock(Settings settings) {
         super(settings);
@@ -26,7 +28,7 @@ public class BlueBerryBushBlock extends SweetBerryBushBlock {
 
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(BlockRegistry.get("blue_berry_bush").asItem());
+        return new ItemStack(BlockRegistry.get(ID("blue_berry_bush")).asItem());
     }
 
     @Override
@@ -44,7 +46,7 @@ public class BlueBerryBushBlock extends SweetBerryBushBlock {
             return ActionResult.PASS;
         } else if (i > 1) {
             int j = 1 + world.random.nextInt(2);
-            dropStack(world, pos, new ItemStack(BlockRegistry.get("blue_berry_bush").asItem(), j + (bl ? 1 : 0)));
+            dropStack(world, pos, new ItemStack(BlockRegistry.get(ID("blue_berry_bush")).asItem(), j + (bl ? 1 : 0)));
             world.playSound(null, pos, SoundEvents.BLOCK_SWEET_BERRY_BUSH_PICK_BERRIES, SoundCategory.BLOCKS, 1.0F, 0.8F + world.random.nextFloat() * 0.4F);
             world.setBlockState(pos, state.with(AGE, 1), 2);
             return ActionResult.success(world.isClient);

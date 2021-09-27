@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.features;
 
-import io.github.simplycmd.simplylib.SimplyLib;
+import io.github.simplycmd.simplylib.util.Util;
 import io.github.simplycmd.terracraft.Main;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -13,6 +13,6 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 
 public class Features {
-    public static ConfiguredFeature<?, ?> BLUE_BERRY_BUSH_FEATURE = SimplyLib.registerFeature(Main.MOD_ID, "berry_bush_feature", 5, new BlueBerryBushFeature(DefaultFeatureConfig.CODEC));
-    public static ConfiguredFeature<?, ?> DAYBLOOM_FEATURE = SimplyLib.registerFeature(Main.MOD_ID, "daybloom_feature", 20, new DaybloomFeature(DefaultFeatureConfig.CODEC));
+    public static ConfiguredFeature<?, ?> BLUE_BERRY_BUSH_FEATURE = Util.registerFeature(Main.MOD_ID, "berry_bush_feature", 5, new BlueBerryBushFeature(DefaultFeatureConfig.CODEC));
+    public static ConfiguredFeature<?, ?> DAYBLOOM_FEATURE = Util.registerFeature(Main.MOD_ID, "daybloom_feature", 20, new DaybloomFeature(DefaultFeatureConfig.CODEC));
 }
