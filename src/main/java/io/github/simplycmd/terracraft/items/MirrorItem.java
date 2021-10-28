@@ -1,15 +1,11 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.terracraft.Main;
-import io.github.simplycmd.terracraft.Sounds;
+import io.github.simplycmd.terracraft.registry.SoundReg;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,14 +13,14 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class MirrorItem extends Item implements IItem {
+    // TODO: Store tick in nbt so this works on multiplayer
+
     public MirrorItem(Settings settings) {
         super(settings);
     }
@@ -45,7 +41,7 @@ public class MirrorItem extends Item implements IItem {
         if (!tick) {
             MinecraftClient.getInstance().particleManager.addEmitter(clientPlayer, ParticleTypes.END_ROD, 30);
             MinecraftClient.getInstance().gameRenderer.showFloatingItem(this.getDefaultStack());
-            serverWorld.playSound(playerEntity, playerEntity.getBlockPos(), Sounds.ITEM_MAGIC_MIRROR_USE_EVENT, SoundCategory.PLAYERS, 1f, 1f);
+            serverWorld.playSound(playerEntity, playerEntity.getBlockPos(), SoundReg.ITEM_MAGIC_MIRROR_USE_EVENT, SoundCategory.PLAYERS, 1f, 1f);
             tick = true;
             return TypedActionResult.success(playerEntity.getStackInHand(hand));
         } else {
@@ -55,25 +51,23 @@ public class MirrorItem extends Item implements IItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (player != null) {
-            if (tick) {
-                if (tickCounter >= 30) {
-                    tick = false;
-                    tickCounter = 0;
-                    BlockPos position;
+        if (player != null && tick) {
+            if (tickCounter >= 30) {
+                tick = false;
+                tickCounter = 0;
+                BlockPos position;
 
-                    if (player.getSpawnPointPosition() == null) { // Determine if set position to bed or world spawn
-                        position = serverWorld.getSpawnPos();
-                    } else {
-                        position = player.getSpawnPointPosition();
-                    }
-
-                    System.out.println();
-                    
-                    player.teleport(serverWorld, position.getX(), position.getY(), position.getZ(), 0, 0); // Teleport to correct position
+                if (player.getSpawnPointPosition() == null) { // Determine if set position to bed or world spawn
+                    position = serverWorld.getSpawnPos();
                 } else {
-                    tickCounter++;
+                    position = player.getSpawnPointPosition();
                 }
+
+                System.out.println();
+
+                player.teleport(serverWorld, position.getX(), position.getY(), position.getZ(), 0, 0); // Teleport to correct position
+            } else {
+                tickCounter++;
             }
         }
     }

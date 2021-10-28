@@ -6,7 +6,8 @@
   "mixins": [
     "CampfireBlockEntityMixin",
     "DefaultBiomeFeaturesMixin",
-    "ItemStackMixin"
+    "ItemStackMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
   ],

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "terracraft:block/grass_bale_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "terracraft:block/grass_bale"
+    },
+    "axis=z": {
+      "model": "terracraft:block/grass_bale_horizontal",
+      "x": 90
+    }
+  }
+}

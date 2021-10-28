@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import io.github.simplycmd.terracraft.registry.BlockRegistry;
+import io.github.simplycmd.terracraft.registry.BlockReg;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
@@ -14,8 +14,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 import java.util.Random;
-
-import static io.github.simplycmd.terracraft.registry.BlockRegistry.ID;
 
 public class DaybloomBlock extends PlantBlock implements Fertilizable {
     public static final int MAX_AGE = 2;
@@ -39,7 +37,7 @@ public class DaybloomBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(BlockRegistry.getBlockItem(ID("daybloom_seeds")));
+        return new ItemStack(BlockReg.get("daybloom").asItem());
     }
 
     @Override

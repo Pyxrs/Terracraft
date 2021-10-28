@@ -1,15 +1,17 @@
-package io.github.simplycmd.terracraft;
+package io.github.simplycmd.terracraft.blocks;
 
-import io.github.simplycmd.terracraft.registry.EntityRegistry;
+import io.github.simplycmd.terracraft.registry.BlockReg;
+import io.github.simplycmd.terracraft.registry.EntityReg;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.minecraft.client.render.RenderLayer;
 
 import java.util.ArrayList;
 
 @Environment(EnvType.CLIENT)
-public class MainClient implements ClientModInitializer {
-
+public class BlockRenderer {
     private static final ArrayList<String> CUTOUT = new ArrayList<>() {{
         add("blue_berry_bush");
         add("daybloom");
@@ -44,11 +46,9 @@ public class MainClient implements ClientModInitializer {
         add("jungle_wall_torch");
     }};
 
-    @Override
-    public void onInitializeClient() {
+    public static void addBlocks() {
         for (String id : CUTOUT) {
-            //BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.get(id), RenderLayer.getCutout());
+            BlockRenderLayerMap.INSTANCE.putBlock(BlockReg.get(id), RenderLayer.getCutout());
         }
-        EntityRegistry.register();
     }
 }

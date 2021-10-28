@@ -1,10 +1,10 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import io.github.simplycmd.terracraft.Sounds;
+import io.github.simplycmd.terracraft.registry.SoundReg;
 import io.github.simplycmd.terracraft.blocks.util.PotBlocks;
 import io.github.simplycmd.terracraft.entities.coin_portal.CoinPortalEntity;
-import io.github.simplycmd.terracraft.registry.EntityRegistry;
-import io.github.simplycmd.terracraft.registry.ItemRegistry;
+import io.github.simplycmd.terracraft.registry.EntityReg;
+import io.github.simplycmd.terracraft.registry.ItemReg;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -32,7 +32,7 @@ public class PotBlock extends Block implements Waterloggable {
     public static final IntProperty VARIANT = IntProperty.of("variant", 0, 3);
 
     public PotBlock(PotBlocks type) {
-        super(FabricBlockSettings.of((new Material.Builder(MapColor.TERRACOTTA_BROWN)).build()).breakInstantly().noCollision().sounds(new BlockSoundGroup(1.0F, 1.0F, Sounds.BLOCK_POT_SMASH_EVENT, SoundEvents.BLOCK_STONE_STEP, SoundEvents.BLOCK_STONE_PLACE, SoundEvents.BLOCK_STONE_HIT, SoundEvents.BLOCK_STONE_FALL)));
+        super(FabricBlockSettings.of((new Material.Builder(MapColor.TERRACOTTA_BROWN)).build()).breakInstantly().noCollision().sounds(new BlockSoundGroup(1.0F, 1.0F, SoundReg.BLOCK_POT_SMASH_EVENT, SoundEvents.BLOCK_STONE_STEP, SoundEvents.BLOCK_STONE_PLACE, SoundEvents.BLOCK_STONE_HIT, SoundEvents.BLOCK_STONE_FALL)));
         setDefaultState(getStateManager().getDefaultState().with(VARIANT, 0));
         this.type = type;
     }
@@ -96,7 +96,7 @@ public class PotBlock extends Block implements Waterloggable {
     }
 
     private void spawnCoinPortal(World world, BlockPos potPos) {
-        CoinPortalEntity portal = new CoinPortalEntity(EntityRegistry.COIN_PORTAL, world);
+        CoinPortalEntity portal = new CoinPortalEntity(EntityReg.COIN_PORTAL, world);
         portal.updatePosition(potPos.getX(), potPos.getY() + 2, potPos.getZ());
         world.spawnEntity(portal);
     }
@@ -104,12 +104,12 @@ public class PotBlock extends Block implements Waterloggable {
     private void dropHearts(World world, BlockPos pos) {
         if (world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 10000, true).getHealth() < 20) {
             // Spawn first heart
-            ItemEntity heart = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemRegistry.get("heart").getDefaultStack());
+            ItemEntity heart = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemReg.get("heart").getDefaultStack());
             world.spawnEntity(heart);
 
             // Spawn second heart
             if (RANDOM.nextFloat() < 0.5) {
-                ItemEntity heart2 = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemRegistry.get("heart").getDefaultStack());
+                ItemEntity heart2 = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemReg.get("heart").getDefaultStack());
                 world.spawnEntity(heart2);
             }
         }
@@ -137,12 +137,12 @@ public class PotBlock extends Block implements Waterloggable {
     private void dropCoins(World world, BlockPos pos) {
         // Spawn silver coins from 0-3
         for (int i = 0; i < RANDOM.nextInt(3); i++) {
-            ItemEntity coin = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemRegistry.get("silver_coin").getDefaultStack());
+            ItemEntity coin = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemReg.get("silver_coin").getDefaultStack());
             world.spawnEntity(coin);
         }
 
         // Spawn copper coins from 0-64
-        ItemStack copper_coins = ItemRegistry.get("copper_coin").getDefaultStack();
+        ItemStack copper_coins = ItemReg.get("copper_coin").getDefaultStack();
         copper_coins.setCount(RANDOM.nextInt(64));
         ItemEntity coin = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), copper_coins);
         world.spawnEntity(coin);

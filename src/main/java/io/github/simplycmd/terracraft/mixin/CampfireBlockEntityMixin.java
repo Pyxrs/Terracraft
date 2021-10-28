@@ -17,14 +17,21 @@ import java.util.Iterator;
 
 @Mixin(CampfireBlockEntity.class)
 public class CampfireBlockEntityMixin {
+    private static final byte RADIUS = 20;
+
     @Inject(at = @At("TAIL"), method = "litServerTick")
     private static void litServerTick(World world, BlockPos pos, BlockState state, CampfireBlockEntity campfire, CallbackInfo ci) {
         for (PlayerEntity player : world.getPlayers()) {
             BlockPos player_pos = player.getBlockPos();
-            if (Math.abs(pos.getX() - player_pos.getX()) < 20)
-                if (Math.abs(pos.getY() - player_pos.getY()) < 20)
-                    if (Math.abs(pos.getZ() - player_pos.getZ()) < 20)
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 10, 0, false, false, true));
+            if (dist(pos, player_pos))
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 10, 0, true, false, false));
         }
+    }
+
+    private static boolean dist(BlockPos pos1, BlockPos pos2) {
+        // Avoids sqrt since this will be called every tick
+        double mag1 = Math.sqrt(Math.pow(pos1.getX(), 2) + Math.pow(pos1.getY(), 2) + Math.pow(pos1.getZ(), 2));
+        double mag2 = Math.sqrt(Math.pow(pos2.getX(), 2) + Math.pow(pos2.getY(), 2) + Math.pow(pos2.getZ(), 2));
+        return Math.abs(mag1 - mag2) < Math.pow(RADIUS, 2);
     }
 }

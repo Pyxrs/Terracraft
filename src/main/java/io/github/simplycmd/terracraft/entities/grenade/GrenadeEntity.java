@@ -10,6 +10,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
 public class GrenadeEntity extends BaseEntity {
+    private static final float VEL_CONST = 0.017453292F;
+
     double y_vel = 0.5;
     int tick = 0;
 
@@ -38,10 +40,11 @@ public class GrenadeEntity extends BaseEntity {
     };
 
     public void setProperties(Entity user, float pitch, float yaw, float roll) {
-        float f = -MathHelper.sin(yaw * 0.017453292F) * MathHelper.cos(pitch * 0.017453292F);
-        float g = -MathHelper.sin((pitch + roll) * 0.017453292F);
-        float h = MathHelper.cos(yaw * 0.017453292F) * MathHelper.cos(pitch * 0.017453292F);
-        this.setVelocity(f, g, h);
+        final float cos = MathHelper.cos(pitch * VEL_CONST);
+        float x = -MathHelper.sin(yaw * VEL_CONST) * cos;
+        float y = -MathHelper.sin((pitch + roll) * VEL_CONST);
+        float z = MathHelper.cos(yaw * VEL_CONST) * cos;
+        this.setVelocity(x, y, z);
         Vec3d vec3d = user.getVelocity();
         this.setVelocity(this.getVelocity().add(vec3d.x, user.isOnGround() ? 0.0D : vec3d.y, vec3d.z));
     }

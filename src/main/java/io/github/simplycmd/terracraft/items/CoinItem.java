@@ -3,7 +3,7 @@ package io.github.simplycmd.terracraft.items;
 
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
-import io.github.simplycmd.terracraft.registry.ItemRegistry;
+import io.github.simplycmd.terracraft.registry.ItemReg;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 
 public class CoinItem extends Item implements IItem {
     public enum Coin {
-        COPPER(new Value(0, 0, 0, 1), ItemRegistry.get("silver_coin")),
-        SILVER(new Value(0, 0, 1, 0), ItemRegistry.get("gold_coin")),
-        GOLD(new Value(0, 1, 0, 0), ItemRegistry.get("platinum_coin")),
+        COPPER(new Value(0, 0, 0, 1), ItemReg.get("silver_coin")),
+        SILVER(new Value(0, 0, 1, 0), ItemReg.get("gold_coin")),
+        GOLD(new Value(0, 1, 0, 0), ItemReg.get("platinum_coin")),
         PLATINUM(new Value(1, 0, 0, 0), null);
 
         Value value;

@@ -12,7 +12,7 @@ import java.util.HashMap;
 @Environment(EnvType.CLIENT)
 public class SparkEntityModel extends BaseEntityModel {
     public SparkEntityModel() {
-
+        base = new ModelPart(cubes, new HashMap<>());
     }
 
     public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {

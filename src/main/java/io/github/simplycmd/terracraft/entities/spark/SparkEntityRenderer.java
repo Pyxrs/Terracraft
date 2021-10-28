@@ -8,6 +8,6 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 @Environment(EnvType.CLIENT)
 public class SparkEntityRenderer extends BaseEntityRenderer {
     public SparkEntityRenderer(EntityRendererFactory.Context ctx) {
-        super("textures/entity/grenade/grenade.png", new SparkEntityModel(), ctx);
+        super("", new SparkEntityModel(), ctx);
     }
 }

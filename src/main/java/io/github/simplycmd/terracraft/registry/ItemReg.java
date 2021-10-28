@@ -1,20 +1,23 @@
 package io.github.simplycmd.terracraft.registry;
 
+import io.github.simplycmd.simplylib.registry.BlockRegistry;
+import io.github.simplycmd.simplylib.registry.ID;
+import io.github.simplycmd.simplylib.registry.ItemRegistry;
 import io.github.simplycmd.simplylib.registry.RegisterModItemCallback;
+import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.items.*;
 import io.github.simplycmd.terracraft.items.util.ArmorMaterials;
 import io.github.simplycmd.terracraft.items.util.tools.AxeItem;
 import io.github.simplycmd.terracraft.items.util.tools.HoeItem;
 import io.github.simplycmd.terracraft.items.util.tools.PickaxeItem;
 import io.github.simplycmd.terracraft.items.util.tools.ToolMaterials;
-
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 
-import static io.github.simplycmd.terracraft.registry.BlockRegistry.ID;
+public class ItemReg {
 
-public class ItemRegistry {
     public static void register() {
         RegisterModItemCallback.EVENT.register((items) -> {
             items.put(ID("magic_mirror"), new MirrorItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1)));
@@ -25,8 +28,9 @@ public class ItemRegistry {
             items.put(ID("wand_of_sparking"), new WandOfSparkingItem(new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1).maxDamage(250)));
             items.put(ID("heart"), new HeartItem());
             items.put(ID("umbrella"), new UmbrellaItem());
+            items.put(ID("sickle"), new SickleItem());
 
-            items.put(ID("daybloom"), new Item(new FabricItemSettings().group(ItemGroup.MISC)));
+            items.put(ID("daybloom"), new Item(new FabricItemSettings().group(ItemGroup.MATERIALS)));
 
             items.put(ID("copper_coin"), new CoinItem(CoinItem.Coin.COPPER));
             items.put(ID("silver_coin"), new CoinItem(CoinItem.Coin.SILVER));
@@ -44,10 +48,19 @@ public class ItemRegistry {
             items.put(ID("cactus_hoe"), new HoeItem(ToolMaterials.CACTUS, 0, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS)));
         });
 
-        io.github.simplycmd.simplylib.registry.ItemRegistry.register();
+        ItemRegistry.register();
     }
 
     public static Item get(String itemId) {
-        return io.github.simplycmd.simplylib.registry.ItemRegistry.get(ID(itemId));
+        Item item = ItemRegistry.get(ID(itemId));
+        if (item != null) {
+            return item;
+        } else {
+            return Items.AIR;
+        }
+    }
+
+    private static ID ID(String id) {
+        return new ID(Main.MOD_ID, id);
     }
 }
