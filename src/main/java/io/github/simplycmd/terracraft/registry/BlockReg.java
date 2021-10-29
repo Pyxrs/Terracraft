@@ -97,6 +97,13 @@ public class BlockReg {
 
         BlockRegistry.register();
     }
+    
+    private static void torch(String prefix, ParticleType particle, HashMap<BlockRegistrySettings, Block> blocks, HashMap<ID, BlockItem> block_items) {
+        blocks.put(new BlockRegistrySettings(ID(prefix + "_torch")), new CustomTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+        blocks.put(new BlockRegistrySettings(ID(prefix + "_wall_torch")).lootType(BlockRegistrySettings.LootType.NONE), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
+
+        block_items.put(ID(prefix + "_torch"), new WallStandingBlockItem(BlockReg.get(prefix + "_torch"), BlockReg.get(prefix + "_wall_torch"), new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+    }
 
     public static Block get(String blockId) {
         try {
