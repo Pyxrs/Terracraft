@@ -24,5 +24,5 @@ public class Main implements ModInitializer, ClientModInitializer {
 		BlockRenderer.addBlocks();
 	}
 
-	//Convert health: T / 10 = M
+	//Convert health/damage: T / 10 = M (rounded up)
 }

@@ -15,7 +15,7 @@ public class GrenadeEntity extends BaseEntity {
     double y_vel = 0.5;
     int tick = 0;
 
-    public GrenadeEntity(EntityType<?> type, World world) {
+    public GrenadeEntity(EntityType<? extends GrenadeEntity> type, World world) {
         super(type, world);
     }
 

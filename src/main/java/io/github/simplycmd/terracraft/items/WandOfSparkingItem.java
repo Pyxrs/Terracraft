@@ -17,7 +17,7 @@ public class WandOfSparkingItem extends Item implements IItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
-        SparkEntity spark = new SparkEntity(EntityReg.SPARK, world, playerEntity);
+        SparkEntity spark = new SparkEntity(EntityReg.SPARK, world); // TODO: Shooter
         spark.updatePosition(playerEntity.getX(), playerEntity.getY() + 2, playerEntity.getZ());
         spark.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F);
         world.spawnEntity(spark);

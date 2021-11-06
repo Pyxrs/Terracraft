@@ -1,10 +1,11 @@
 package io.github.simplycmd.terracraft.entities.spark;
 
+import java.util.Optional;
+
 import io.github.simplycmd.terracraft.entities.util.BaseEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MovementType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.MathHelper;
@@ -14,25 +15,32 @@ import net.minecraft.world.World;
 public class SparkEntity extends BaseEntity {
     private static final float VEL_CONST = 0.017453292F;
     int tick = 0;
-    private final LivingEntity shooter;
+    private final Optional<LivingEntity> shooter;
 
-    public SparkEntity(EntityType<?> type, World world, LivingEntity shooter) {
+    public SparkEntity(EntityType<? extends SparkEntity> type, World world) {
         super(type, world);
-        this.shooter = shooter;
+        this.shooter = Optional.empty();
     }
 
-    @Override
     public void tick() {
+        // Ticking
         tick++;
         if (horizontalCollision || verticalCollision) tick += 10;
-        if (tick >= 50) discard();
         if (tick % 3 == 0) world.addParticle(ParticleTypes.LAVA, getPos().getX(), getPos().getY(), getPos().getZ(), 0.0D, 0.0D, 0.0D);
-        for (Entity entity : world.getOtherEntities(shooter, getBoundingBox())) {
-            entity.damage(DamageSource.mobProjectile(this, shooter), 1);
-            entity.setOnFireFor(3);
+        if (tick >= 50) {
+            world.addParticle(ParticleTypes.POOF, getPos().getX(), getPos().getY(), getPos().getZ(), 0.0D, 0.0D, 0.0D);
+            discard();
         }
+
+        // Attacking
+        if (shooter.isPresent())
+            for (Entity entity : world.getOtherEntities(shooter.get(), getBoundingBox())) {
+                entity.damage(DamageSource.mobProjectile(this, shooter.get()), 2);
+                entity.setOnFireFor(3);
+            }
+
+        // Movement
         updateVelocity(0.05F, new Vec3d(0, -1, 0));
-        move(MovementType.SELF, getVelocity());
         super.tick();
     }
 

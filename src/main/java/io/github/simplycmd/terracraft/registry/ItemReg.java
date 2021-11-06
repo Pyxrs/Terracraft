@@ -1,20 +1,20 @@
 package io.github.simplycmd.terracraft.registry;
 
-import io.github.simplycmd.simplylib.registry.BlockRegistry;
 import io.github.simplycmd.simplylib.registry.ID;
 import io.github.simplycmd.simplylib.registry.ItemRegistry;
 import io.github.simplycmd.simplylib.registry.RegisterModItemCallback;
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.items.*;
-import io.github.simplycmd.terracraft.items.util.ArmorMaterials;
-import io.github.simplycmd.terracraft.items.util.tools.AxeItem;
-import io.github.simplycmd.terracraft.items.util.tools.HoeItem;
-import io.github.simplycmd.terracraft.items.util.tools.PickaxeItem;
-import io.github.simplycmd.terracraft.items.util.tools.ToolMaterials;
+import io.github.simplycmd.terracraft.items.util.*;
+import io.github.simplycmd.terracraft.items.util.tools.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.*;
+import net.minecraft.item.ArmorItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Items;
+import net.minecraft.item.ShovelItem;
+import net.minecraft.item.SwordItem;
 
 public class ItemReg {
 

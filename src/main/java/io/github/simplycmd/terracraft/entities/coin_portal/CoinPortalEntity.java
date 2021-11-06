@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class CoinPortalEntity extends BaseEntity {
     int tick = 0;
 
-    public CoinPortalEntity(EntityType<?> type, World world) {
+    public CoinPortalEntity(EntityType<? extends CoinPortalEntity> type, World world) {
         super(type, world);
     }
 

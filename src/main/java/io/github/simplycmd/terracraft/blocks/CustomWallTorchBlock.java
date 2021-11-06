@@ -1,6 +1,5 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import net.minecraft.block.TorchBlock;
 import net.minecraft.block.WallTorchBlock;
 import net.minecraft.particle.ParticleEffect;
 

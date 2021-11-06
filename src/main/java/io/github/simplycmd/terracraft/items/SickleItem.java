@@ -1,29 +1,21 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.simplylib.registry.BlockRegistry;
-import io.github.simplycmd.simplylib.registry.ItemRegistry;
-import io.github.simplycmd.simplylib.util.EnchantmentWithLevel;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.registry.BlockReg;
-import io.github.simplycmd.terracraft.registry.ItemReg;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.FernBlock;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
 
 public class SickleItem extends SwordItem implements IItem {
     public SickleItem() {

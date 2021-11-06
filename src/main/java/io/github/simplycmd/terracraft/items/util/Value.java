@@ -1,17 +1,6 @@
 package io.github.simplycmd.terracraft.items.util;
 
-import io.github.simplycmd.terracraft.items.util.IItem;
 import lombok.Getter;
-import lombok.Setter;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterials;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Value {
     @Getter

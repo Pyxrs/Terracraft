@@ -1,14 +1,12 @@
 package io.github.simplycmd.terracraft.blocks;
 
+import java.util.ArrayList;
+
 import io.github.simplycmd.terracraft.registry.BlockReg;
-import io.github.simplycmd.terracraft.registry.EntityReg;
-import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
-
-import java.util.ArrayList;
 
 @Environment(EnvType.CLIENT)
 public class BlockRenderer {

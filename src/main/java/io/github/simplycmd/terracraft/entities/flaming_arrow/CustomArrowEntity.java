@@ -1,6 +1,5 @@
 package io.github.simplycmd.terracraft.entities.flaming_arrow;
 
-import io.github.simplycmd.terracraft.registry.ItemReg;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -13,8 +12,8 @@ public class CustomArrowEntity extends PersistentProjectileEntity {
 
     private final Item dropItem;
 
-    public CustomArrowEntity(World world, LivingEntity owner, Item dropItem, boolean fire) {
-        super(EntityType.ARROW, owner, world);
+    public CustomArrowEntity(EntityType<? extends CustomArrowEntity> type, World world, LivingEntity owner, Item dropItem, boolean fire) {
+        super(type, owner, world);
         if (fire) this.setOnFireFor(INTEGER_LIMIT);
         this.dropItem = dropItem;
     }

@@ -1,17 +1,11 @@
 package io.github.simplycmd.terracraft.items.util.tools;
 
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.ItemConvertible;
+import java.util.function.Supplier;
+
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.tag.ItemTags;
 import net.minecraft.util.Lazy;
-
-import java.util.function.Supplier;
 
 public enum ToolMaterials implements ToolMaterial {
     CACTUS(0, 59, 2.0F, 0.0F, 15, () -> {
@@ -31,7 +25,7 @@ public enum ToolMaterials implements ToolMaterial {
         this.miningSpeed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
-        this.repairIngredient = new Lazy(repairIngredient);
+        this.repairIngredient = new Lazy<Ingredient>(repairIngredient);
     }
 
     public int getDurability() {
