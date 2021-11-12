@@ -13,7 +13,6 @@ import io.github.simplycmd.terracraft.entities.spark.SparkEntity;
 import io.github.simplycmd.terracraft.entities.spark.SparkEntityRenderer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
