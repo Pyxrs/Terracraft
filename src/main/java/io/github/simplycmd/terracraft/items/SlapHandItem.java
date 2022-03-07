@@ -1,6 +1,5 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.simplylib.util.EnchantmentWithLevel;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -13,6 +12,8 @@ import net.minecraft.item.ToolMaterials;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.simplycmd.featherlib.util.SimpleEnchantment;
+
 public class SlapHandItem extends SwordItem implements IItem {
     public SlapHandItem() {
         super(ToolMaterials.IRON, 4, -2.0F, new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1));
@@ -24,9 +25,9 @@ public class SlapHandItem extends SwordItem implements IItem {
     }
 
     @Override
-    public List<EnchantmentWithLevel> getEnchantments() {
-        List<EnchantmentWithLevel> list = new ArrayList<>();
-        list.add(new EnchantmentWithLevel(Enchantments.KNOCKBACK, 10));
+    public List<SimpleEnchantment> getEnchantments() {
+        List<SimpleEnchantment> list = new ArrayList<>();
+        list.add(new SimpleEnchantment(Enchantments.KNOCKBACK, 10));
         return list;
     }
 

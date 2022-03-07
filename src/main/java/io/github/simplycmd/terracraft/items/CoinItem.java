@@ -1,35 +1,24 @@
 package io.github.simplycmd.terracraft.items;
 
 
+import io.github.simplycmd.terracraft.data.PlayerData;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
-import io.github.simplycmd.terracraft.registry.ItemReg;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
 
 public class CoinItem extends Item implements IItem {
-    public enum Coin {
-        COPPER(new Value(0, 0, 0, 1), ItemReg.get("silver_coin")),
-        SILVER(new Value(0, 0, 1, 0), ItemReg.get("gold_coin")),
-        GOLD(new Value(0, 1, 0, 0), ItemReg.get("platinum_coin")),
-        PLATINUM(new Value(1, 0, 0, 0), null);
+    final Value value;
+    final Item next;
 
-        Value value;
-        Item next;
-
-        Coin(Value value, Item next) {
-            this.value = value;
-            this.next = next;
-        }
-    }
-    Coin coin;
-
-    public CoinItem(Coin coin) {
+    public CoinItem(Value value, Item next) {
         super(new FabricItemSettings().group(ItemGroup.MISC));
-        this.coin = coin;
+        this.value = value;
+        this.next = next;
     }
 
     @Override
@@ -39,14 +28,14 @@ public class CoinItem extends Item implements IItem {
 
     @Override
     public Value getSellValue() {
-        return coin.value;
+        return value;
     }
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (stack.getCount() == getMaxCount() && coin.next != null) {
+        if (entity instanceof PlayerEntity && !PlayerData.inventoryOpen.getOrDefault((PlayerEntity) entity, true) && !PlayerInventory.isValidHotbarIndex(slot) && stack.getCount() == getMaxCount() && next != null) {
             stack.decrement(getMaxCount());
-            ((PlayerEntity) entity).getInventory().insertStack(coin.next.getDefaultStack());
+            ((PlayerEntity) entity).getInventory().insertStack(next.getDefaultStack());
         }
     }
 }

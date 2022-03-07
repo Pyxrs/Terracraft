@@ -2,7 +2,7 @@ package io.github.simplycmd.terracraft.items;
 
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
-import io.github.simplycmd.terracraft.registry.EntityReg;
+import io.github.simplycmd.terracraft.registry.EntityRegistry;
 import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -18,7 +18,7 @@ public class GrenadeThrowableItem extends Item implements IItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
-        GrenadeEntity grenade = new GrenadeEntity(EntityReg.GRENADE, world);
+        GrenadeEntity grenade = new GrenadeEntity(EntityRegistry.GRENADE, world);
         grenade.updatePosition(playerEntity.getX(), playerEntity.getY() + 2, playerEntity.getZ());
         grenade.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F);
         world.spawnEntity(grenade);

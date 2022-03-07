@@ -3,7 +3,7 @@ package io.github.simplycmd.terracraft.items;
 import io.github.simplycmd.terracraft.entities.flaming_arrow.FlamingArrowEntity;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
-import io.github.simplycmd.terracraft.registry.EntityReg;
+import io.github.simplycmd.terracraft.registry.EntityRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
@@ -19,7 +19,7 @@ public class FlamingArrowItem extends ArrowItem implements IItem {
 
     @Override
     public PersistentProjectileEntity createArrow(World world, ItemStack stack, LivingEntity shooter) {
-        return new FlamingArrowEntity(EntityReg.FLAMING_ARROW, world); // TODO: Shooter
+        return new FlamingArrowEntity(EntityRegistry.FLAMING_ARROW, world); // TODO: Shooter
     }
 
     @Override

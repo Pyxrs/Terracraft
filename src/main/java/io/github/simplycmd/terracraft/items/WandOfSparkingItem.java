@@ -3,7 +3,7 @@ package io.github.simplycmd.terracraft.items;
 import io.github.simplycmd.terracraft.entities.spark.SparkEntity;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
-import io.github.simplycmd.terracraft.registry.EntityReg;
+import io.github.simplycmd.terracraft.registry.EntityRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.Hand;
@@ -17,7 +17,7 @@ public class WandOfSparkingItem extends Item implements IItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
-        SparkEntity spark = new SparkEntity(EntityReg.SPARK, world); // TODO: Shooter
+        SparkEntity spark = new SparkEntity(EntityRegistry.SPARK, world); // TODO: Shooter
         spark.updatePosition(playerEntity.getX(), playerEntity.getY() + 2, playerEntity.getZ());
         spark.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F);
         world.spawnEntity(spark);

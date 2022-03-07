@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "variant=0": { "model": "terracraft:block/pot" },
+    "variant=1":  { "model": "terracraft:block/pot_1" },
+    "variant=2": { "model": "terracraft:block/pot_2" },
+    "variant=3":  { "model": "terracraft:block/pot_3" }
+  }
+}

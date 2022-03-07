@@ -19,7 +19,7 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class EntityReg {
+public class EntityRegistry {
     public static EntityType<GrenadeEntity> GRENADE = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(Main.MOD_ID, "grenade"),

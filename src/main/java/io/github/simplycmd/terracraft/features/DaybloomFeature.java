@@ -2,7 +2,7 @@ package io.github.simplycmd.terracraft.features;
 
 import com.mojang.serialization.Codec;
 import io.github.simplycmd.terracraft.blocks.DaybloomBlock;
-import io.github.simplycmd.terracraft.registry.BlockReg;
+import io.github.simplycmd.terracraft.registry.BlockRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Heightmap;
@@ -19,8 +19,7 @@ public class DaybloomFeature extends Feature<DefaultFeatureConfig> {
     public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
         BlockPos topPos = context.getWorld().getTopPosition(Heightmap.Type.WORLD_SURFACE, context.getOrigin());
         if (context.getWorld().getBlockState(new BlockPos(topPos.getX(), topPos.getY() - 1, topPos.getZ())) == Blocks.GRASS_BLOCK.getDefaultState())
-            context.getWorld().setBlockState(topPos, BlockReg.get("daybloom").getDefaultState().with(DaybloomBlock.AGE, 2), 2);
-
+            context.getWorld().setBlockState(topPos, BlockRegistry.daybloom.getBlock().getDefaultState().with(DaybloomBlock.AGE, 2), 2);
         return true;
     }
 }

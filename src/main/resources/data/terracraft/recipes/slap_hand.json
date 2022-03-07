@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "R",
+    "H",
+    "B"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "H": {
+      "item": "terracraft:life_crystal"
+    },
+    "B": {
+      "item": "minecraft:bone"
+    }
+  },
+  "result": {
+    "item": "terracraft:slap_hand",
+    "count": 1
+  }
+}

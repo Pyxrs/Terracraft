@@ -4,7 +4,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class SoundReg {
+public class SoundRegistry {
     public static final Identifier ITEM_MAGIC_MIRROR_USE_ID = new Identifier("terracraft:item_magic_mirror_use");
     public static SoundEvent ITEM_MAGIC_MIRROR_USE_EVENT = new SoundEvent(ITEM_MAGIC_MIRROR_USE_ID);
 

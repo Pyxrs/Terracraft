@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import io.github.simplycmd.simplylib.util.Util;
+import com.simplycmd.featherlib.util.Util;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;

@@ -1,15 +1,17 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import io.github.simplycmd.terracraft.registry.SoundReg;
-import io.github.simplycmd.terracraft.blocks.util.PotBlocks;
+import io.github.simplycmd.terracraft.registry.SoundRegistry;
+import lombok.Getter;
 import io.github.simplycmd.terracraft.entities.coin_portal.CoinPortalEntity;
-import io.github.simplycmd.terracraft.registry.EntityReg;
-import io.github.simplycmd.terracraft.registry.ItemReg;
+import io.github.simplycmd.terracraft.registry.BlockRegistry;
+import io.github.simplycmd.terracraft.registry.EntityRegistry;
+import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
@@ -27,14 +29,28 @@ import java.util.Random;
 
 public class PotBlock extends Block implements Waterloggable {
     private static final Random RANDOM = new Random();
-    private final PotBlocks type;
+    
+    @Getter
+    private final int variants;
+
+    @Getter
+    private final double coin_portal_chance;
+
+    @Getter
+    private final Item torch_type;
+
+    @Getter
+    private final float base_money_modifier;
 
     public static final IntProperty VARIANT = IntProperty.of("variant", 0, 3);
 
-    public PotBlock(PotBlocks type) {
-        super(FabricBlockSettings.of((new Material.Builder(MapColor.TERRACOTTA_BROWN)).build()).breakInstantly().noCollision().sounds(new BlockSoundGroup(1.0F, 1.0F, SoundReg.BLOCK_POT_SMASH_EVENT, SoundEvents.BLOCK_STONE_STEP, SoundEvents.BLOCK_STONE_PLACE, SoundEvents.BLOCK_STONE_HIT, SoundEvents.BLOCK_STONE_FALL)));
+    public PotBlock(int variants, double coin_portal_chance, Item torch_type, float base_money_modifier) {
+        super(FabricBlockSettings.of((new Material.Builder(MapColor.TERRACOTTA_BROWN)).build()).breakInstantly().noCollision().sounds(new BlockSoundGroup(1.0F, 1.0F, SoundRegistry.BLOCK_POT_SMASH_EVENT, SoundEvents.BLOCK_STONE_STEP, SoundEvents.BLOCK_STONE_PLACE, SoundEvents.BLOCK_STONE_HIT, SoundEvents.BLOCK_STONE_FALL)));
         setDefaultState(getStateManager().getDefaultState().with(VARIANT, 0));
-        this.type = type;
+        this.variants = variants;
+        this.coin_portal_chance = coin_portal_chance;
+        this.torch_type = torch_type;
+        this.base_money_modifier = base_money_modifier;
     }
 
     @Override
@@ -44,7 +60,7 @@ public class PotBlock extends Block implements Waterloggable {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(VARIANT, (int) Math.round((Math.random() * (type.getVariants() - 1))));
+        return this.getDefaultState().with(VARIANT, (int) Math.round((Math.random() * (getVariants() - 1))));
     }
 
     @Override
@@ -56,7 +72,7 @@ public class PotBlock extends Block implements Waterloggable {
         super.afterBreak(world, player, pos, state, blockEntity, stack);
 
         // Check if coin portal (ends process)
-        if (RANDOM.nextFloat() < type.getCoin_portal_chance()) spawnCoinPortal(world, pos);
+        if (RANDOM.nextFloat() < getCoin_portal_chance()) spawnCoinPortal(world, pos);
         else {
             // TODO: Give gold key next to dungeon
             // TODO: Drop a potion (ends process)
@@ -96,7 +112,7 @@ public class PotBlock extends Block implements Waterloggable {
     }
 
     private void spawnCoinPortal(World world, BlockPos potPos) {
-        CoinPortalEntity portal = new CoinPortalEntity(EntityReg.COIN_PORTAL, world);
+        CoinPortalEntity portal = new CoinPortalEntity(EntityRegistry.COIN_PORTAL, world);
         portal.updatePosition(potPos.getX(), potPos.getY() + 2, potPos.getZ());
         world.spawnEntity(portal);
     }
@@ -104,12 +120,12 @@ public class PotBlock extends Block implements Waterloggable {
     private void dropHearts(World world, BlockPos pos) {
         if (world.getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 10000, true).getHealth() < 20) {
             // Spawn first heart
-            ItemEntity heart = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemReg.get("heart").getDefaultStack());
+            ItemEntity heart = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemRegistry.heart.getItem().getDefaultStack());
             world.spawnEntity(heart);
 
             // Spawn second heart
             if (RANDOM.nextFloat() < 0.5) {
-                ItemEntity heart2 = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemReg.get("heart").getDefaultStack());
+                ItemEntity heart2 = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemRegistry.heart.getItem().getDefaultStack());
                 world.spawnEntity(heart2);
             }
         }
@@ -122,14 +138,14 @@ public class PotBlock extends Block implements Waterloggable {
         int amount = RANDOM.nextInt(8) + 4;
 
         // Tundra drops half the amount of torches
-        if (type.equals(PotBlocks.TUNDRA))
+        if (equals(BlockRegistry.tundra_pot.getBlock()))
             for (int i = 0; i < (amount / 2); i++) {
-                ItemEntity torch = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), type.getTorch_type().getDefaultStack());
+                ItemEntity torch = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), getTorch_type().getDefaultStack());
                 world.spawnEntity(torch);
             }
         else
             for (int i = 0; i < amount; i++) {
-                ItemEntity torch = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), type.getTorch_type().getDefaultStack());
+                ItemEntity torch = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), getTorch_type().getDefaultStack());
                 world.spawnEntity(torch);
             }
     }
@@ -137,12 +153,12 @@ public class PotBlock extends Block implements Waterloggable {
     private void dropCoins(World world, BlockPos pos) {
         // Spawn silver coins from 0-3
         for (int i = 0; i < RANDOM.nextInt(3); i++) {
-            ItemEntity coin = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemReg.get("silver_coin").getDefaultStack());
+            ItemEntity coin = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), ItemRegistry.silver_coin.getItem().getDefaultStack());
             world.spawnEntity(coin);
         }
 
         // Spawn copper coins from 0-64
-        ItemStack copper_coins = ItemReg.get("copper_coin").getDefaultStack();
+        ItemStack copper_coins = ItemRegistry.copper_coin.getItem().getDefaultStack();
         copper_coins.setCount(RANDOM.nextInt(64));
         ItemEntity coin = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), copper_coins);
         world.spawnEntity(coin);

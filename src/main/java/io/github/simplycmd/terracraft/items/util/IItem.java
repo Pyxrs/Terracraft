@@ -1,12 +1,12 @@
 package io.github.simplycmd.terracraft.items.util;
 
-import io.github.simplycmd.simplylib.util.EnchantmentWithLevel;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import com.simplycmd.featherlib.util.SimpleEnchantment;
+
 public interface IItem {
-    default List<EnchantmentWithLevel> getEnchantments() {
+    default List<SimpleEnchantment> getEnchantments() {
         return new ArrayList<>();
     };
     default Value getBuyValue() {

@@ -5,8 +5,9 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "CampfireBlockEntityMixin",
-    "DefaultBiomeFeaturesMixin",
+    "InventoryMixin",
     "ItemStackMixin",
+    "LateServerRegistryMixin",
     "PlayerEntityMixin"
   ],
   "client": [

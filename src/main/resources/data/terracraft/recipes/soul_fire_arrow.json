@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:arrow"
+    },
+    "X": [
+      {
+        "item": "minecraft:soul_torch"
+      }
+    ]
+  },
+  "result": {
+    "item": "terracraft:soul_fire_arrow",
+    "count": 1
+  }
+}

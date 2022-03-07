@@ -2,7 +2,7 @@ package io.github.simplycmd.terracraft.items;
 
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
-import io.github.simplycmd.terracraft.registry.SoundReg;
+import io.github.simplycmd.terracraft.registry.SoundRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
@@ -39,7 +39,7 @@ public class MirrorItem extends Item implements IItem {
             final MinecraftClient client = MinecraftClient.getInstance();
             client.particleManager.addEmitter(clientPlayer, ParticleTypes.END_ROD, 30);
             client.gameRenderer.showFloatingItem(this.getDefaultStack());
-            player.getServerWorld().playSound(playerEntity, playerEntity.getBlockPos(), SoundReg.ITEM_MAGIC_MIRROR_USE_EVENT, SoundCategory.PLAYERS, 1f, 1f);
+            player.getWorld().playSound(playerEntity, playerEntity.getBlockPos(), SoundRegistry.ITEM_MAGIC_MIRROR_USE_EVENT, SoundCategory.PLAYERS, 1f, 1f);
             tick = true;
             return TypedActionResult.success(playerEntity.getStackInHand(hand));
         } else {
@@ -62,10 +62,10 @@ public class MirrorItem extends Item implements IItem {
     private static void magicMirror(ServerPlayerEntity player) {
         BlockPos position = player.getSpawnPointPosition();
         if (player.getSpawnPointPosition() == null) { // Determine if set position to bed or world spawn
-            position = player.getServerWorld().getSpawnPos();
+            position = player.getWorld().getSpawnPos();
         }
 
-        player.teleport(player.getServerWorld(), position.getX(), position.getY(), position.getZ(), 0, 0); // Teleport to correct position
+        player.teleport(player.getWorld(), position.getX(), position.getY(), position.getZ(), 0, 0); // Teleport to correct position
     }
 
     @Override

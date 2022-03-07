@@ -2,7 +2,7 @@ package io.github.simplycmd.terracraft.items;
 
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
-import io.github.simplycmd.terracraft.registry.BlockReg;
+import io.github.simplycmd.terracraft.registry.BlockRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FernBlock;
@@ -25,7 +25,7 @@ public class SickleItem extends SwordItem implements IItem {
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         if (miner instanceof ServerPlayerEntity && !((ServerPlayerEntity) miner).isCreative() && state.getBlock() instanceof FernBlock) {
-            ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), BlockReg.get("grass_bale").asItem().getDefaultStack());
+            ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), BlockRegistry.grass_bale.getItem().get().getDefaultStack());
             entity.updatePosition(pos.getX(), pos.getY(), pos.getZ());
             world.spawnEntity(entity);
         }

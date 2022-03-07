@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "terracraft:silver_coin"
+    }
+  },
+  "result": {
+    "item": "terracraft:copper_coin",
+    "count": 64
+  }
+}
