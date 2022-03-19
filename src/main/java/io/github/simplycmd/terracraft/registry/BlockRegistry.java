@@ -103,14 +103,14 @@ public class BlockRegistry {
         final SimpleItem item1 = new SimpleItem(ID(torch), new WallStandingBlockItem(block1.getBlock(), block2.getBlock(), new FabricItemSettings().group(ItemGroup.DECORATIONS))).blockItemModel(block1.getBlock());
 
         // Delay this until after said items are registered
-        Main.delay(() -> Resources.RESOURCE_PACK.addRecipe(ID(torch), JRecipe.shaped(
+        Resources.RESOURCE_PACK.addRecipe(ID(torch), JRecipe.shaped(
             JPattern.pattern("X", "#", "S"),
             JKeys.keys()
                 .key("X", JIngredient.ingredient().item(Items.COAL).item(Items.CHARCOAL))
                 .key("#", JIngredient.ingredient().item(Items.STICK))
                 .key("S", resource),
             JResult.itemStack(item1.getItem(), 4)
-        )));
+        ));
 
         return new Torch(block1, block2, item1);
     }

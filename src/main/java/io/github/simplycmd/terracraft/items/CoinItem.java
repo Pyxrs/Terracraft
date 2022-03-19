@@ -1,7 +1,5 @@
 package io.github.simplycmd.terracraft.items;
 
-
-import io.github.simplycmd.terracraft.data.PlayerData;
 import io.github.simplycmd.terracraft.items.util.IItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -33,7 +31,7 @@ public class CoinItem extends Item implements IItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (entity instanceof PlayerEntity && !PlayerData.inventoryOpen.getOrDefault((PlayerEntity) entity, true) && !PlayerInventory.isValidHotbarIndex(slot) && stack.getCount() == getMaxCount() && next != null) {
+        if (entity instanceof PlayerEntity && !PlayerInventory.isValidHotbarIndex(slot) && stack.getCount() == getMaxCount() && next != null) {
             stack.decrement(getMaxCount());
             ((PlayerEntity) entity).getInventory().insertStack(next.getDefaultStack());
         }

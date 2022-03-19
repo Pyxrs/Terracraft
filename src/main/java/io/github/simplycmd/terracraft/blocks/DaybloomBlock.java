@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import io.github.simplycmd.terracraft.registry.BlockRegistry;
+import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import net.minecraft.block.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
@@ -37,7 +37,7 @@ public class DaybloomBlock extends PlantBlock implements Fertilizable {
 
     @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return new ItemStack(BlockRegistry.daybloom.getItem().get());
+        return ItemRegistry.daybloom_seeds.getItem().getDefaultStack();
     }
 
     @Override

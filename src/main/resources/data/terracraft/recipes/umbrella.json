@@ -10,13 +10,13 @@
       "item": "minecraft:stick"
     },
     "W": {
-      "item": "#minecraft:wool"
+      "tag": "minecraft:wool"
     },
     "S": {
       "item": "minecraft:string"
     }
   },
   "result": {
-    "item": "terracraft:sickle"
+    "item": "terracraft:umbrella"
   }
 }
