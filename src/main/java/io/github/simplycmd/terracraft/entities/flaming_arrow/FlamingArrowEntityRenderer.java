@@ -15,6 +15,6 @@ public class FlamingArrowEntityRenderer extends ProjectileEntityRenderer<Flaming
 
     @Override
     public Identifier getTexture(FlamingArrowEntity entity) {
-        return new Identifier(Main.MOD_ID, "textures/entity/flaming_arrow/flaming_arrow.png");
+        return new Identifier(Main.MOD_ID, "textures/entity/flaming_arrow/arrow.png");
     }
 }

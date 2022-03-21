@@ -28,7 +28,7 @@ public class EntityRegistry {
     public static EntityType<SparkEntity> SPARK = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(Main.MOD_ID, "spark"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, SparkEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build()
+            FabricEntityTypeBuilder.<SparkEntity>create(SpawnGroup.MISC, SparkEntity::new).dimensions(EntityDimensions.fixed(0.25f, 0.25f)).build()
     );
     public static EntityType<CoinPortalEntity> COIN_PORTAL = Registry.register(
             Registry.ENTITY_TYPE,
@@ -38,12 +38,12 @@ public class EntityRegistry {
     public static EntityType<FlamingArrowEntity> FLAMING_ARROW = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(Main.MOD_ID, "flaming_arrow"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, FlamingArrowEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).build()
+            FabricEntityTypeBuilder.<FlamingArrowEntity>create(SpawnGroup.MISC, FlamingArrowEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).build()
     );
     public static EntityType<SoulFireArrowEntity> FLAMING_SOUL_ARROW = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier(Main.MOD_ID, "flaming_soul_arrow"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MISC, SoulFireArrowEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).build()
+            FabricEntityTypeBuilder.<SoulFireArrowEntity>create(SpawnGroup.MISC, SoulFireArrowEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).build()
     );
     public static void register() {
         EntityRendererRegistry.INSTANCE.register(GRENADE, GrenadeEntityRenderer::new);

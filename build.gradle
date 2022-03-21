@@ -36,10 +36,6 @@ dependencies {
 	include modImplementation("curse.maven:featherlib-525225:${project.featherlib_version}")
 	include modImplementation("net.devtech:arrp:${project.arrp_version}")
 
-	modRuntimeOnly ("supercoder79:databreaker:${databreaker_version}") {
-		exclude module: "fabric-loader"
-	}
-
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
 

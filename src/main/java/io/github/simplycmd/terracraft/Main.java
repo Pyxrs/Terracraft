@@ -8,6 +8,7 @@ import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import io.github.simplycmd.terracraft.registry.SoundRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.util.Identifier;
 
 public class Main implements ModInitializer, ClientModInitializer {
 	public static String MOD_ID = "terracraft";
@@ -26,6 +27,10 @@ public class Main implements ModInitializer, ClientModInitializer {
 		EntityRegistry.register();
 		BlockRenderer.addBlocks();
 	}
+
+	public static Identifier ID(String id) {
+        return new Identifier(Main.MOD_ID, id);
+    }
 
 	//Convert health/damage: T / 10 = M (rounded up)
 }

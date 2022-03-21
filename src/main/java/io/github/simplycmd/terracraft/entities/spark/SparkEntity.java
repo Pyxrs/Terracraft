@@ -21,6 +21,10 @@ public class SparkEntity extends BaseEntity {
         super(type, world);
         this.shooter = Optional.empty();
     }
+    public SparkEntity(EntityType<? extends SparkEntity> type, World world, LivingEntity owner) {
+        super(type, world);
+        this.shooter = Optional.of(owner);
+    }
 
     public void tick() {
         // Ticking

@@ -15,6 +15,6 @@ public class SoulFireArrowEntityRenderer extends ProjectileEntityRenderer<SoulFi
 
     @Override
     public Identifier getTexture(SoulFireArrowEntity entity) {
-        return new Identifier(Main.MOD_ID, "textures/entity/flaming_arrow/soul_fire_arrow.png");
+        return new Identifier(Main.MOD_ID, "textures/entity/flaming_arrow/arrow.png");
     }
 }
