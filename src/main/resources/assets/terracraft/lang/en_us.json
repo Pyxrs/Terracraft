@@ -51,5 +51,9 @@
   "entity.terracraft.flaming_arrow": "Flaming Arrow",
   "entity.terracraft.flaming_soul_arrow": "Soul Fire Arrow",
   "entity.terracraft.grenade": "Grenade",
-  "entity.terracraft.spark": "Spark"
+  "entity.terracraft.spark": "Spark",
+
+  "trinkets.slot.terracraft.accessory": "§9Accessory",
+  "trinkets.slot.chest.shirt": "§9Shirt",
+  "trinkets.slot.legs.pants": "§9Pants"
 }

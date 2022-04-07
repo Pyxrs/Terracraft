@@ -1,4 +1,5 @@
 {
   "icon": "terracraft:gui/slots/accessory",
+  "validator_predicates": ["terracraft:accessory"],
   "amount": 7
 }

@@ -5,6 +5,7 @@ import com.simplycmd.featherlib.registry.SimpleItem;
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.items.*;
 import io.github.simplycmd.terracraft.items.util.*;
+import io.github.simplycmd.terracraft.items.util.accessories.AccessoryItem;
 import io.github.simplycmd.terracraft.items.util.tools.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
@@ -21,7 +22,11 @@ public class ItemRegistry {
     public static SimpleItem daybloom, daybloom_seeds, blue_berries;
     public static SimpleItem copper_coin, silver_coin, gold_coin, platinum_coin;
     public static SimpleItem cactus_helmet, cactus_chestplate, cactus_leggings, cactus_boots, cactus_sword, cactus_shovel, cactus_pickaxe, cactus_axe, cactus_hoe;
-    public static SimpleItem aglet, anklet_of_the_wind;
+
+    // Movement accessories
+    public static SimpleItem aglet, anklet_of_the_wind, balloon_pufferfish, climbing_claws, cloud_in_a_bottle, dunerider_boots, flipper, flurry_boots, flying_carpet,
+                            hermes_boots, ice_skates, inner_tube, lucky_horseshoe, magiluminescence, rocket_boots, sailfish_boots, sandstorm_in_a_bottle, shiny_red_balloon,
+                            shoe_spikes, step_stool, tsunami_in_a_bottle, valentine_ring, water_walking_boots, fledgling_wings;
 
     public static void register() {
         magic_mirror = new SimpleItem(ID("magic_mirror"), new MirrorItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1))).defaultItemModel();
@@ -54,7 +59,29 @@ public class ItemRegistry {
         cactus_hoe = new SimpleItem(ID("cactus_hoe"), new HoeItem(ToolMaterials.CACTUS, 0, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
 
         aglet = new SimpleItem(ID("aglet"), new AgletItem(new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
-        anklet_of_the_wind = new SimpleItem(ID("anklet_of_the_wind"), new AnkletOfTheWindItem(new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
+        anklet_of_the_wind = new SimpleItem(ID("anklet_of_the_wind"), new AnkletOfTheWindItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        balloon_pufferfish = new SimpleItem(ID("balloon_pufferfish"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        climbing_claws = new SimpleItem(ID("climbing_claws"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        cloud_in_a_bottle = new SimpleItem(ID("cloud_in_a_bottle"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        dunerider_boots = new SimpleItem(ID("dunerider_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        flipper = new SimpleItem(ID("flipper"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        flurry_boots = new SimpleItem(ID("flurry_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        flying_carpet = new SimpleItem(ID("flying_carpet"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        hermes_boots = new SimpleItem(ID("hermes_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        ice_skates = new SimpleItem(ID("ice_skates"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        inner_tube = new SimpleItem(ID("inner_tube"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        lucky_horseshoe = new SimpleItem(ID("lucky_horseshoe"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        magiluminescence = new SimpleItem(ID("magiluminescence"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        rocket_boots = new SimpleItem(ID("rocket_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        sailfish_boots = new SimpleItem(ID("sailfish_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        sandstorm_in_a_bottle = new SimpleItem(ID("sandstorm_in_a_bottle"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        shiny_red_balloon = new SimpleItem(ID("shiny_red_balloon"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        shoe_spikes = new SimpleItem(ID("shoe_spikes"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        step_stool = new SimpleItem(ID("step_stool"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        tsunami_in_a_bottle = new SimpleItem(ID("tsunami_in_a_bottle"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        valentine_ring = new SimpleItem(ID("valentine_ring"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        water_walking_boots = new SimpleItem(ID("water_walking_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        fledgling_wings = new SimpleItem(ID("fledgling_wings"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
     }
 
     private static Identifier ID(String id) {
