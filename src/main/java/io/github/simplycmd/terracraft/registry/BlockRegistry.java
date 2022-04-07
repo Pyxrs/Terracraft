@@ -62,29 +62,29 @@ public class BlockRegistry {
         forest_pot = new SimpleBlock(ID("forest_pot"), new PotBlock(4, 1/500.0, Items.TORCH, 1.0F))
             .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
         tundra_pot = new SimpleBlock(ID("tundra_pot"), new PotBlock(3, 1/461.0, BlockRegistry.ice_torch.getItem().getItem(), 1.25F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         jungle_pot = new SimpleBlock(ID("jungle_pot"), new PotBlock(3, 1/400.0, BlockRegistry.jungle_torch.getItem().getItem(), 1.75F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         dungeon_pot = new SimpleBlock(ID("dungeon_pot"), new PotBlock(3, 1/384.0, Items.TORCH, 1.9F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         underworld_pot = new SimpleBlock(ID("underworld_pot"), new PotBlock(3, 1/365.0, Items.TORCH, 2.1F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         corrupt_pot = new SimpleBlock(ID("corrupt_pot"), new PotBlock(3, 1/365.0, BlockRegistry.corrupt_torch.getItem().getItem(), 1.6F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         crimson_pot = new SimpleBlock(ID("crimson_pot"), new PotBlock(3, 1/365.0, BlockRegistry.crimson_torch.getItem().getItem(), 1.6F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         hallowed_pot = new SimpleBlock(ID("hallowed_pot"), new PotBlock(3, 1/365.0, BlockRegistry.hallowed_torch.getItem().getItem(), 1.6F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         spider_pot = new SimpleBlock(ID("spider_pot"), new PotBlock(3, 1/272.0, Items.TORCH, 3.5F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         pyramid_pot = new SimpleBlock(ID("pyramid_pot"), new PotBlock(3, 1/125.0, Items.TORCH, 10.0F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         lihzahrd_pot = new SimpleBlock(ID("lihzahrd_pot"), new PotBlock(3, 1/250.0, Items.TORCH, 4.0F)) // TODO: Portal values are 1/250 for hm and 1/500 for pre-hm AND modifier is 4.0F hm and 1.0F pre-hm
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         marble_pot = new SimpleBlock(ID("marble_pot"), new PotBlock(3, 1/375.0, Items.TORCH, 2.0F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
         desert_pot = new SimpleBlock(ID("desert_pot"), new PotBlock(3, 1/461.0, BlockRegistry.desert_torch.getItem().getItem(), 1.25F))
-            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+            .withItem(ItemModel.BLOCK, (block) -> new BlockItem(block, new FabricItemSettings()));
     }
 
     private static JIngredient tr(Item item) {

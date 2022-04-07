@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.terracraft.items.util.IItem;
+import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.Entity;
@@ -14,7 +14,7 @@ import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class UmbrellaItem extends SwordItem implements IItem {
+public class UmbrellaItem extends SwordItem implements BaseItem {
     public UmbrellaItem() {
         super(ToolMaterials.IRON, 1, -2.0F, new FabricItemSettings().group(ItemGroup.COMBAT).maxCount(1));
     }

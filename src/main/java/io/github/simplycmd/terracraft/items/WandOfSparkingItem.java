@@ -1,7 +1,7 @@
 package io.github.simplycmd.terracraft.items;
 
 import io.github.simplycmd.terracraft.entities.spark.SparkEntity;
-import io.github.simplycmd.terracraft.items.util.IItem;
+import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.registry.EntityRegistry;
 import net.minecraft.entity.player.PlayerEntity;
@@ -10,7 +10,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class WandOfSparkingItem extends Item implements IItem {
+public class WandOfSparkingItem extends Item implements BaseItem {
     public WandOfSparkingItem(Settings settings) {
         super(settings);
     }

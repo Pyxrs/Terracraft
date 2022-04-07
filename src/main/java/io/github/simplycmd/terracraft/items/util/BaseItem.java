@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.simplycmd.featherlib.util.SimpleEnchantment;
 
-public interface IItem {
+public interface BaseItem {
     default List<SimpleEnchantment> getEnchantments() {
         return new ArrayList<>();
     };

@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.terracraft.items.util.IItem;
+import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.registry.EntityRegistry;
 import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntity;
@@ -11,7 +11,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class GrenadeThrowableItem extends Item implements IItem {
+public class GrenadeThrowableItem extends Item implements BaseItem {
     public GrenadeThrowableItem(Settings settings) {
         super(settings);
     }

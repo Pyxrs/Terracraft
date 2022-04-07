@@ -4,14 +4,32 @@
   "item.terracraft.flaming_arrow": "Flaming Arrow",
   "item.terracraft.soul_fire_arrow": "Soul Fire Arrow",
   "item.terracraft.slap_hand": "Slap Hand",
+  "item.terracraft.wand_of_sparking": "Wand of Sparking",
+  "item.terracraft.umbrella": "Umbrella",
+  "item.terracraft.sickle": "Sickle",
+  "item.terracraft.daybloom": "Daybloom",
+  "item.terracraft.daybloom_seeds": "Daybloom Seeds",
+  "item.terracraft.blue_berries": "Blue Berries",
   "item.terracraft.heart": "Heart",
   "item.terracraft.copper_coin": "Copper Coin",
   "item.terracraft.silver_coin": "Silver Coin",
   "item.terracraft.gold_coin": "Gold Coin",
   "item.terracraft.platinum_coin": "Platinum Coin",
 
+  "item.terracraft.cactus_helmet": "Cactus Helmet",
+  "item.terracraft.cactus_chestplate": "Cactus Chestplate",
+  "item.terracraft.cactus_leggings": "Cactus Leggings",
+  "item.terracraft.cactus_boots": "Cactus Boots",
+  "item.terracraft.cactus_sword": "Cactus Sword",
+  "item.terracraft.cactus_shovel": "Cactus Shovel",
+  "item.terracraft.cactus_pickaxe": "Cactus Pickaxe",
+  "item.terracraft.cactus_axe": "Cactus Axe",
+  "item.terracraft.cactus_hoe": "Cactus Hoe",
+
   "block.terracraft.hellstone_block": "Hellstone Block",
+  "block.terracraft.grass_bale": "Grass Bale",
   "block.terracraft.dart_trap": "Dart Trap",
+  "block.terracraft.life_crystal": "Life Crystal",
   "block.terracraft.forest_pot": "Forest Pot",
   "block.terracraft.blue_berry_bush": "Blue Berry Bush",
 
@@ -27,5 +45,11 @@
   "block.terracraft.corrupt_torch": "Corrupt Torch",
   "block.terracraft.crimson_torch": "Crimson Torch",
   "block.terracraft.hallowed_torch": "Hallowed Torch",
-  "block.terracraft.jungle_torch": "Jungle Torch"
+  "block.terracraft.jungle_torch": "Jungle Torch",
+
+  "entity.terracraft.coin_portal": "Coin Portal",
+  "entity.terracraft.flaming_arrow": "Flaming Arrow",
+  "entity.terracraft.flaming_soul_arrow": "Soul Fire Arrow",
+  "entity.terracraft.grenade": "Grenade",
+  "entity.terracraft.spark": "Spark"
 }

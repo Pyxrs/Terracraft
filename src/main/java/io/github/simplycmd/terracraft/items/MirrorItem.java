@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.terracraft.items.util.IItem;
+import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.registry.SoundRegistry;
 import net.minecraft.client.MinecraftClient;
@@ -17,7 +17,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class MirrorItem extends Item implements IItem {
+public class MirrorItem extends Item implements BaseItem {
     // TODO: Store tick in nbt so this works on multiplayer
 
     public MirrorItem(Settings settings) {

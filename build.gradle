@@ -22,6 +22,14 @@ repositories {
 		name = "Gegy's Maven"
 		url = "https://maven.gegy.dev/"
 	}
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
+	maven {
+		name = "Ladysnake Libs"
+		url = "https://ladysnake.jfrog.io/artifactory/mods"
+	}
 }
 
 dependencies {
@@ -34,7 +42,9 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	include modImplementation("curse.maven:featherlib-525225:${project.featherlib_version}")
+	include modImplementation("curse.maven:tooltipfix-411557:${project.tooltip_version}")
 	include modImplementation("net.devtech:arrp:${project.arrp_version}")
+	include modImplementation("dev.emi:trinkets:${project.trinkets_version}")
 
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'

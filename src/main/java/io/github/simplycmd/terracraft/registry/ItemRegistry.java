@@ -21,6 +21,7 @@ public class ItemRegistry {
     public static SimpleItem daybloom, daybloom_seeds, blue_berries;
     public static SimpleItem copper_coin, silver_coin, gold_coin, platinum_coin;
     public static SimpleItem cactus_helmet, cactus_chestplate, cactus_leggings, cactus_boots, cactus_sword, cactus_shovel, cactus_pickaxe, cactus_axe, cactus_hoe;
+    public static SimpleItem aglet, anklet_of_the_wind;
 
     public static void register() {
         magic_mirror = new SimpleItem(ID("magic_mirror"), new MirrorItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1))).defaultItemModel();
@@ -51,6 +52,9 @@ public class ItemRegistry {
         cactus_pickaxe = new SimpleItem(ID("cactus_pickaxe"), new PickaxeItem(ToolMaterials.CACTUS, 1, -2.8F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
         cactus_axe = new SimpleItem(ID("cactus_axe"), new AxeItem(ToolMaterials.CACTUS, 6.0F, -3.2F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
         cactus_hoe = new SimpleItem(ID("cactus_hoe"), new HoeItem(ToolMaterials.CACTUS, 0, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
+
+        aglet = new SimpleItem(ID("aglet"), new AgletItem(new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
+        anklet_of_the_wind = new SimpleItem(ID("anklet_of_the_wind"), new AnkletOfTheWindItem(new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
     }
 
     private static Identifier ID(String id) {

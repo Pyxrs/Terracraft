@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.terracraft.items.util.IItem;
+import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.Entity;
@@ -9,7 +9,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
 
-public class CoinItem extends Item implements IItem {
+public class CoinItem extends Item implements BaseItem {
     final Value value;
     final Item next;
 

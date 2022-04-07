@@ -1,0 +1,6 @@
+{
+  "icon": "terracraft:gui/slots/shirt",
+  "validator_predicates": ["terracraft:shirt"],
+  "quick_move_predicates": ["terracraft:quick_shirt"],
+  "order": -512
+}

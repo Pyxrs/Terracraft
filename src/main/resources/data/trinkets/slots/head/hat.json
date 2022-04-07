@@ -1,0 +1,6 @@
+{
+    "icon": "trinkets:gui/slots/hat",
+    "validator_predicates": ["terracraft:hat"],
+    "quick_move_predicates": ["terracraft:quick_hat"],
+    "order": -512
+  }

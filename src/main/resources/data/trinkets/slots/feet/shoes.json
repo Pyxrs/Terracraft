@@ -1,0 +1,6 @@
+{
+    "icon": "trinkets:gui/slots/shoes",
+    "validator_predicates": ["terracraft:shoes"],
+    "quick_move_predicates": ["terracraft:quick_shoes"],
+    "order": -512
+  }

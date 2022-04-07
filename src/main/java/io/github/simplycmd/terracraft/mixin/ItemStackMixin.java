@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.mixin;
 
-import io.github.simplycmd.terracraft.items.util.IItem;
+import io.github.simplycmd.terracraft.items.util.BaseItem;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,8 +16,8 @@ import com.simplycmd.featherlib.util.SimpleEnchantment;
 public class ItemStackMixin {
     @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/item/ItemConvertible;I)V")
     private void init(ItemConvertible item, int count, CallbackInfo ci) {
-        if (item instanceof IItem) {
-            Iterator<SimpleEnchantment> enchantmentIterator = ((IItem) item).getEnchantments().iterator();
+        if (item instanceof BaseItem) {
+            Iterator<SimpleEnchantment> enchantmentIterator = ((BaseItem) item).getEnchantments().iterator();
             while(enchantmentIterator.hasNext()) {
                 SimpleEnchantment enchantment = enchantmentIterator.next();
                 ((ItemStack) (Object) this).addEnchantment(enchantment.getEnchantment(), enchantment.getLevel());

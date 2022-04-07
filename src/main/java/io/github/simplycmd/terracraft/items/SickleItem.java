@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.items;
 
-import io.github.simplycmd.terracraft.items.util.IItem;
+import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.registry.BlockRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -17,7 +17,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class SickleItem extends SwordItem implements IItem {
+public class SickleItem extends SwordItem implements BaseItem {
     public SickleItem() {
         super(ToolMaterials.IRON, 1, -2.2F, new FabricItemSettings().group(ItemGroup.TOOLS).maxCount(1));
     }

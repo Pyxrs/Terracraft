@@ -6,6 +6,7 @@ import io.github.simplycmd.terracraft.registry.EntityRegistry;
 import io.github.simplycmd.terracraft.registry.FeatureRegistry;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import io.github.simplycmd.terracraft.registry.SoundRegistry;
+import io.github.simplycmd.terracraft.registry.TrinketsRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
@@ -19,6 +20,7 @@ public class Main implements ModInitializer, ClientModInitializer {
 		ItemRegistry.register();
 		SoundRegistry.register();
 		FeatureRegistry.register();
+		TrinketsRegistry.register();
 		//Resources.RESOURCE_PACK.dump();
 	}
 

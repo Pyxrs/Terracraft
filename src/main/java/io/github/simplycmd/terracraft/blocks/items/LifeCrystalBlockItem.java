@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.blocks.items;
 
-import io.github.simplycmd.terracraft.items.util.IItem;
+import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import java.util.Objects;
 import java.util.UUID;
 
-public class LifeCrystalBlockItem extends BlockItem implements IItem {
+public class LifeCrystalBlockItem extends BlockItem implements BaseItem {
     private static final UUID uuid = UUID.fromString("1af5ca30-fc27-48e2-88bb-f930a22f0ffe");
 
     public LifeCrystalBlockItem(Block block, FabricItemSettings settings) {
