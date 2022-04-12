@@ -24,6 +24,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class BlockRegistry {
+    public static SimpleBlock step_stool;
     public static SimpleBlock hellstone_block, grass_bale, dart_trap;
     public static SimpleBlock blue_berry_bush, daybloom;
     public static SimpleBlock life_crystal;
@@ -44,6 +45,8 @@ public class BlockRegistry {
 
         life_crystal = new SimpleBlock(ID("life_crystal"), new Block(FabricBlockSettings.of(Material.AMETHYST, MapColor.BRIGHT_RED).sounds(BlockSoundGroup.LARGE_AMETHYST_BUD))).defaultBlockstate()
             .withItem(ItemModel.ITEM, (block) -> new LifeCrystalBlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+
+        step_stool = new SimpleBlock(ID("step_stool"), new Block(FabricBlockSettings.of(Material.PISTON).sounds(BlockSoundGroup.WOOD).strength(-1.0f, 3600000.0f)));
 
         ice_torch = torch("ice", ParticleTypes.SOUL_FIRE_FLAME, tr(Items.ICE));
         bone_torch = torch("bone", ParticleTypes.SOUL_FIRE_FLAME, tr(Items.BONE));
