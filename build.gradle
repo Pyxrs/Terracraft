@@ -18,6 +18,7 @@ repositories {
         }
     }
     maven { url 'https://storage.googleapis.com/devan-maven/' }
+	maven { url = "https://maven.florens.be" }
 	maven {
 		name = "Gegy's Maven"
 		url = "https://maven.gegy.dev/"
@@ -45,6 +46,7 @@ dependencies {
 	include modImplementation("curse.maven:tooltipfix-411557:${project.tooltip_version}")
 	include modImplementation("net.devtech:arrp:${project.arrp_version}")
 	include modImplementation("dev.emi:trinkets:${project.trinkets_version}")
+	include modImplementation("be.florens:expandability-fabric:${project.expandability_version}")
 
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'

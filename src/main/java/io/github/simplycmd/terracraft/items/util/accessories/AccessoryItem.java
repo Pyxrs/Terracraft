@@ -7,6 +7,7 @@ import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.SlotType;
 import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
+import io.github.simplycmd.terracraft.TrinketsUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
@@ -24,14 +25,6 @@ public class AccessoryItem extends TrinketItem {
 
     @Override
     public boolean canEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        Optional<TrinketComponent> component = TrinketsApi.getTrinketComponent(entity);
-        for (var equipped : component.get().getAllEquipped()) {
-            // could be simplified but not going to because it could break some unrealistic scenario in the future lol
-            SlotType slotType = equipped.getLeft().inventory().getSlotType();
-            if (slotType.getName().equals("accessory") && equipped.getRight().getItem() == this) {
-                return false;
-            }
-        }
-        return true;
+        return !TrinketsUtil.isEquipped(entity, this);
 	}
 }

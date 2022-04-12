@@ -6,6 +6,8 @@ import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.items.*;
 import io.github.simplycmd.terracraft.items.util.*;
 import io.github.simplycmd.terracraft.items.util.accessories.AccessoryItem;
+import io.github.simplycmd.terracraft.items.util.accessories.FluidWalkingAccessoryItem;
+import io.github.simplycmd.terracraft.items.util.accessories.SpeedAccessoryItem;
 import io.github.simplycmd.terracraft.items.util.tools.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
@@ -15,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
+import net.minecraft.tag.FluidTags;
 import net.minecraft.util.Identifier;
 
 public class ItemRegistry {
@@ -58,8 +61,8 @@ public class ItemRegistry {
         cactus_axe = new SimpleItem(ID("cactus_axe"), new AxeItem(ToolMaterials.CACTUS, 6.0F, -3.2F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
         cactus_hoe = new SimpleItem(ID("cactus_hoe"), new HoeItem(ToolMaterials.CACTUS, 0, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
 
-        aglet = new SimpleItem(ID("aglet"), new AgletItem(new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
-        anklet_of_the_wind = new SimpleItem(ID("anklet_of_the_wind"), new AnkletOfTheWindItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        aglet = new SimpleItem(ID("aglet"), new SpeedAccessoryItem(0.05F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
+        anklet_of_the_wind = new SimpleItem(ID("anklet_of_the_wind"), new SpeedAccessoryItem(0.1F, new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         balloon_pufferfish = new SimpleItem(ID("balloon_pufferfish"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         climbing_claws = new SimpleItem(ID("climbing_claws"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         cloud_in_a_bottle = new SimpleItem(ID("cloud_in_a_bottle"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
@@ -80,7 +83,7 @@ public class ItemRegistry {
         step_stool = new SimpleItem(ID("step_stool"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         tsunami_in_a_bottle = new SimpleItem(ID("tsunami_in_a_bottle"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         valentine_ring = new SimpleItem(ID("valentine_ring"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        water_walking_boots = new SimpleItem(ID("water_walking_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        water_walking_boots = new SimpleItem(ID("water_walking_boots"), new FluidWalkingAccessoryItem(FluidTags.WATER, new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         fledgling_wings = new SimpleItem(ID("fledgling_wings"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
     }
 

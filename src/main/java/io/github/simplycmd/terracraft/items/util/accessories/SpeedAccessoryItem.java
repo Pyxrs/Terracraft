@@ -13,7 +13,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
 
 public class SpeedAccessoryItem extends AccessoryItem {
-    final float increasePercent;
+    private final float increasePercent;
 
     public SpeedAccessoryItem(float increasePercent, FabricItemSettings settings) {
         super(settings);
