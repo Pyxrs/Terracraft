@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.util.accessories;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import java.util.UUID;
 
@@ -6,23 +6,31 @@ import com.google.common.collect.Multimap;
 
 import dev.emi.trinkets.api.SlotReference;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Block;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
-public class SpeedAccessoryItem extends AccessoryItem {
-    private final float increasePercent;
+public class StepAccessoryItem extends AccessoryItem {
+    private final Block stepBlock;
 
-    public SpeedAccessoryItem(float increasePercent, FabricItemSettings settings) {
+    public StepAccessoryItem(Block stepBlock, FabricItemSettings settings) {
         super(settings);
-        this.increasePercent = increasePercent;
+        this.stepBlock = stepBlock;
     }
 
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
+        var increasePercent = 0;
         modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(uuid, this.getTranslationKey() + "_speed", increasePercent, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         return modifiers;
+    }
+
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        //a
     }
 }

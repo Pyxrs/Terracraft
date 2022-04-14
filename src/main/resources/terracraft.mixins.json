@@ -5,9 +5,12 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "CampfireBlockEntityMixin",
-    "LivingEntityMixin",
+    "ClientPlayerEntityMixin",
+    "CraftingResultSlotMixin",
     "ItemStackMixin",
-    "PlayerEntityMixin"
+    "LivingEntityMixin",
+    "PlayerEntityMixin",
+    "RecipeManagerMixin"
   ],
   "client": [
     "ArmorFeatureRendererMixin"

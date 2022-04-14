@@ -97,3 +97,28 @@ publishing {
 		// retrieving dependencies.
 	}
 }
+loom {
+	runs {
+		data {
+			server()
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
+			vmArg "-Dfabric-api.datagen.strict-validation"
+			vmArg "-Dfabric-api.datagen.modid=terracrafts"
+			ideConfigGenerated = true
+			runDir "build/datagen"
+		}
+	}
+}
+
+
+sourceSets {
+	main {
+		resources {
+			srcDirs += [
+					'src/generated/resources'
+			]
+		}
+	}
+}

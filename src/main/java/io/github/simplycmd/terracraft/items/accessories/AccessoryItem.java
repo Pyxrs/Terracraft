@@ -1,13 +1,9 @@
-package io.github.simplycmd.terracraft.items.util.accessories;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import java.util.UUID;
-import java.util.Optional;
 
 import dev.emi.trinkets.api.SlotReference;
-import dev.emi.trinkets.api.SlotType;
-import dev.emi.trinkets.api.TrinketComponent;
-import dev.emi.trinkets.api.TrinketsApi;
-import io.github.simplycmd.terracraft.TrinketsUtil;
+import io.github.simplycmd.terracraft.util.TrinketsUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;

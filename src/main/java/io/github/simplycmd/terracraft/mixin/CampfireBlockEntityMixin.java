@@ -21,7 +21,8 @@ public class CampfireBlockEntityMixin {
     @Inject(at = @At("TAIL"), method = "litServerTick")
     private static void litServerTick(World world, BlockPos pos, BlockState state, CampfireBlockEntity campfire, CallbackInfo ci) {
         for (ServerPlayerEntity player : world.getNonSpectatingEntities(ServerPlayerEntity.class, new Box(pos, pos).expand(RADIUS, RADIUS, RADIUS))) {
-            final boolean activeStatus = player.getStatusEffect(StatusEffects.REGENERATION) != null && player.getStatusEffect(StatusEffects.REGENERATION).getDuration() > 20;
+            var q = player.getStatusEffect(StatusEffects.REGENERATION);
+            final boolean activeStatus = q != null && q.getDuration() > 20; // CUT THAT OUT
             if (!activeStatus) { player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 10, 0, true, false, true)); }
         }
     }

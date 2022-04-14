@@ -31,9 +31,9 @@ public class CoinItem extends Item implements BaseItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (entity instanceof PlayerEntity && !PlayerInventory.isValidHotbarIndex(slot) && stack.getCount() == getMaxCount() && next != null) {
-            stack.decrement(getMaxCount());
-            ((PlayerEntity) entity).getInventory().insertStack(next.getDefaultStack());
-        }
+//        if (entity instanceof PlayerEntity && !PlayerInventory.isValidHotbarIndex(slot) && stack.getCount() == getMaxCount() && next != null) {
+//            stack.decrement(getMaxCount());
+//            ((PlayerEntity) entity).getInventory().insertStack(next.getDefaultStack());
+//        }
     }
 }
