@@ -1,7 +1,9 @@
 package io.github.simplycmd.terracraft.packets;
 
 import io.github.simplycmd.terracraft.JumpingEffect;
+import io.github.simplycmd.terracraft.gui.BuyScreenHandler;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
+import io.github.simplycmd.terracraft.registry.ScreenHandlerRegistry;
 import io.github.simplycmd.terracraft.util.TrinketsUtil;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -12,11 +14,18 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.UUID;
@@ -52,6 +61,7 @@ public class PacketHandler {
             server.execute(()->{
                 //player.jump();
                 player.getItemCooldownManager().set(DoubleJumpAccessoryItem.getFromPower(d), 5);
+                player.openHandledScreen(new SimpleNamedScreenHandlerFactory(((syncId, inv, player1) -> new BuyScreenHandler(inv, syncId)), new LiteralText("NPC")));
                 PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
                 passedData.writeUuid(player.getUuid());
                 passedData.writeByte(DoubleJumpAccessoryItem.getFromPower(d).particleId());
