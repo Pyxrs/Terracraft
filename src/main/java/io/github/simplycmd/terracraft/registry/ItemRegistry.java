@@ -5,9 +5,7 @@ import com.simplycmd.featherlib.registry.SimpleItem;
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.items.*;
 import io.github.simplycmd.terracraft.items.util.*;
-import io.github.simplycmd.terracraft.items.util.accessories.AccessoryItem;
-import io.github.simplycmd.terracraft.items.util.accessories.FluidWalkingAccessoryItem;
-import io.github.simplycmd.terracraft.items.util.accessories.SpeedAccessoryItem;
+import io.github.simplycmd.terracraft.items.util.accessories.*;
 import io.github.simplycmd.terracraft.items.util.tools.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
@@ -30,6 +28,8 @@ public class ItemRegistry {
     public static SimpleItem aglet, anklet_of_the_wind, balloon_pufferfish, climbing_claws, cloud_in_a_bottle, dunerider_boots, flipper, flurry_boots, flying_carpet,
                             hermes_boots, ice_skates, inner_tube, lucky_horseshoe, magiluminescence, rocket_boots, sailfish_boots, sandstorm_in_a_bottle, shiny_red_balloon,
                             shoe_spikes, step_stool, tsunami_in_a_bottle, valentine_ring, water_walking_boots, fledgling_wings;
+    // Combat accessories
+    public static SimpleItem feral_claws;
 
     public static void register() {
         magic_mirror = new SimpleItem(ID("magic_mirror"), new MirrorItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1))).defaultItemModel();
@@ -85,6 +85,7 @@ public class ItemRegistry {
         /*TODO*/valentine_ring = new SimpleItem(ID("valentine_ring"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         water_walking_boots = new SimpleItem(ID("water_walking_boots"), new FluidWalkingAccessoryItem(FluidTags.WATER, new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         /*TODO*/fledgling_wings = new SimpleItem(ID("fledgling_wings"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        feral_claws = new SimpleItem(ID("feral_claws"), new AttackSpeedAccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
     }
 
     private static Identifier ID(String id) {
