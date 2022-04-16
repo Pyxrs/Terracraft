@@ -6,6 +6,8 @@ import io.github.simplycmd.terracraft.util.Offer;
 import io.github.simplycmd.terracraft.util.OfferList;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.gui.screen.ingame.CraftingScreen;
 import net.minecraft.client.gui.screen.ingame.Generic3x3ContainerScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -28,6 +30,8 @@ import net.minecraft.village.TradeOfferList;
 
 import java.util.Iterator;
 import java.util.Random;
+
+import static io.github.simplycmd.terracraft.packets.PacketHandler.CHANGE_OFFER;
 
 public class BuyScreen extends HandledScreen<BuyScreenHandler> {
     private static final Identifier TEXTURE = new Identifier("terracraft:textures/gui/container/coin_interface.png");
@@ -146,11 +150,7 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
     }
 
     private OfferList getOffers() {
-        var offers = new OfferList();
-        for (int l = 0; l < 15; l++) {
-            offers.add(new Offer(Registry.ITEM.get(l+1), new Value(new Random().nextInt(10000))));
-        }
-        return offers;
+        return this.handler.getRecipes();
     }
 
     @Override
@@ -220,9 +220,12 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
     }
 
     private void syncRecipeIndex() {
-//        ((MerchantScreenHandler)this.handler).setRecipeIndex(this.selectedIndex);
-//        ((MerchantScreenHandler)this.handler).switchTo(this.selectedIndex);
-//        this.client.getNetworkHandler().sendPacket(new SelectMerchantTradeC2SPacket(this.selectedIndex));
+        this.handler.setRecipeIndex(this.selectedIndex);
+        this.handler.switchTo(this.selectedIndex);
+        var l = PacketByteBufs.create();
+        l.writeInt(this.selectedIndex);
+        ClientPlayNetworking.send(CHANGE_OFFER, l);
+        //this.client.getNetworkHandler().sendPacket(new SelectMerchantTradeC2SPacket(this.selectedIndex));
     }
 
     private void renderArrow(MatrixStack matrices, Offer tradeOffer, int x, int y) {

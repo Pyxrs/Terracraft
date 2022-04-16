@@ -15,7 +15,9 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.network.NetworkThreadUtils;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.screen.MerchantScreenHandler;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
@@ -35,6 +37,7 @@ import static io.github.simplycmd.terracraft.Main.MOD_ID;
 public class PacketHandler {
     private static final Identifier DOUBLE_DUMP = new Identifier(MOD_ID, "double_jump");
     private static final Identifier DOUBLE_DUMP_EFFECT = new Identifier(MOD_ID, "double_jump_effect");
+    public static final Identifier CHANGE_OFFER = new Identifier(MOD_ID, "change_offer");
     public static void sendToServer(int power) {
         System.out.println("SEND");
         var buf = PacketByteBufs.create();
@@ -75,10 +78,24 @@ public class PacketHandler {
         }
     }
 
+    public static void processOfferChange(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
+        var d = buf.readInt();
+        server.execute(()-> {
+            //NetworkThreadUtils.forceMainThread(handler, handler);
+            ScreenHandler screenHandler = player.currentScreenHandler;
+            if (screenHandler instanceof BuyScreenHandler buyScreenHandler) {
+                buyScreenHandler.setRecipeIndex(d);
+                buyScreenHandler.switchTo(d);
+            }
+        });
+    }
+
     public static void registerServerPackets(){
         ServerPlayNetworking.registerGlobalReceiver(DOUBLE_DUMP, PacketHandler::receiveFromClient);
+        ServerPlayNetworking.registerGlobalReceiver(CHANGE_OFFER, PacketHandler::processOfferChange);
     }
     public static void registerClientPackets() {
         ClientPlayNetworking.registerGlobalReceiver(DOUBLE_DUMP_EFFECT, PacketHandler::recieveFromServer);
     }
+
 }

@@ -1,10 +1,14 @@
 package io.github.simplycmd.terracraft.items.util;
 
 import com.google.common.annotations.Beta;
+import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import io.netty.util.internal.UnstableApi;
 import lombok.Getter;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.data.DataProvider;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import org.jetbrains.annotations.ApiStatus;
 
 public class Value {
@@ -37,6 +41,77 @@ public class Value {
         value += gold*GOLD_VALUE;
         value += platinum*PLATINUM_VALUE;
         return value;
+    }
+
+    public static boolean trySpend2(PlayerInventory playerInventory, int value) {
+        int platinum = 0;
+        int gold = 0;
+        int silver = 0;
+        int copper = 0;
+        for (int i = 0; i < playerInventory.main.size(); i++) {
+            var stack = playerInventory.main.get(i);
+            if (stack.isOf(ItemRegistry.platinum_coin.getItem())) {
+                platinum += stack.getCount();
+            }
+            if (stack.isOf(ItemRegistry.gold_coin.getItem())) {
+                gold += stack.getCount();
+            }
+            if (stack.isOf(ItemRegistry.silver_coin.getItem())) {
+                silver += stack.getCount();
+            }
+            if (stack.isOf(ItemRegistry.copper_coin.getItem())) {
+                copper += stack.getCount();
+            }
+        }
+        int original[] = new int[]{platinum, gold, silver, copper};
+        var d = trySpend(platinum, gold, silver, copper, value);
+        if (!d.successful) return false;
+        //removeItemFromInventory(playerInventory, ItemRegistry.platinum_coin.getItem(), platinum-d.platinum);
+        //removeItemFromInventory(playerInventory, ItemRegistry.gold_coin.getItem(), gold-d.gold);
+        //removeItemFromInventory(playerInventory, ItemRegistry.silver_coin.getItem(), silver-d.silver);
+        //removeItemFromInventory(playerInventory, ItemRegistry.copper_coin.getItem(), copper-d.copper);
+        return true;
+    }
+
+    public static boolean trySpend(PlayerInventory playerInventory, int value) {
+        int platinum = 0;
+        int gold = 0;
+        int silver = 0;
+        int copper = 0;
+        for (int i = 0; i < playerInventory.main.size(); i++) {
+            var stack = playerInventory.main.get(i);
+            if (stack.isOf(ItemRegistry.platinum_coin.getItem())) {
+                platinum += stack.getCount();
+            }
+            if (stack.isOf(ItemRegistry.gold_coin.getItem())) {
+                gold += stack.getCount();
+            }
+            if (stack.isOf(ItemRegistry.silver_coin.getItem())) {
+                silver += stack.getCount();
+            }
+            if (stack.isOf(ItemRegistry.copper_coin.getItem())) {
+                copper += stack.getCount();
+            }
+        }
+        int original[] = new int[]{platinum, gold, silver, copper};
+        var d = trySpend(platinum, gold, silver, copper, value);
+        if (!d.successful) return false;
+        removeItemFromInventory(playerInventory, ItemRegistry.platinum_coin.getItem(), platinum-d.platinum);
+        removeItemFromInventory(playerInventory, ItemRegistry.gold_coin.getItem(), gold-d.gold);
+        removeItemFromInventory(playerInventory, ItemRegistry.silver_coin.getItem(), silver-d.silver);
+        removeItemFromInventory(playerInventory, ItemRegistry.copper_coin.getItem(), copper-d.copper);
+        return true;
+    }
+
+    private static void removeItemFromInventory(PlayerInventory inventory,  Item item, int amount) {
+        for (ItemStack itemStack : inventory.main) {
+            if (amount <= 0) return;
+            if (itemStack.isOf(item)) {
+                var d = Math.min(itemStack.getCount(), amount);
+                itemStack.decrement(d);
+                amount -= d;
+            }
+        }
     }
 
     public static SpentMoney trySpend(int platinum, int gold, int silver, int copper, int value) {
