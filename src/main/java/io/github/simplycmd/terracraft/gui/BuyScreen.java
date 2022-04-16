@@ -95,8 +95,8 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
             } else {
                 this.itemRenderer.zOffset = 100.0F;
                 int n = k + 2;
-                this.itemRenderer.renderInGui(offer.getItem().getDefaultStack(), i + 5 + 68, n);
-                this.itemRenderer.renderGuiItemOverlay(this.textRenderer, offer.getItem().getDefaultStack(), i + 5 + 68, n);
+                this.itemRenderer.renderInGui(offer.getItem(), i + 5 + 68, n);
+                this.itemRenderer.renderGuiItemOverlay(this.textRenderer, offer.getItem(), i + 5 + 68, n);
                 ++m;
                 k += 20;
                 this.itemRenderer.zOffset = 0.0F;
@@ -198,7 +198,7 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
             if (this.hovered && BuyScreen.this.getOffers().size() > this.index +  BuyScreen.this.indexStartOffset) {
                 ItemStack itemStack;
                 if (mouseX > this.x + 65) {
-                    itemStack = BuyScreen.this.getOffers().get(this.index + BuyScreen.this.indexStartOffset).getItem().getDefaultStack();
+                    itemStack = BuyScreen.this.getOffers().get(this.index + BuyScreen.this.indexStartOffset).getItem();
                     BuyScreen.this.renderTooltip(matrices, itemStack, mouseX, mouseY);
                 }
             }
@@ -208,6 +208,7 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
         @Override
         public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
             super.render(matrices, mouseX, mouseY, delta);
+            if (BuyScreen.this.getOffers().size() <= this.index) return;
             var offer = BuyScreen.this.getOffers().get(this.index + BuyScreen.this.indexStartOffset);
             BuyScreen.this.textRenderer.drawWithShadow(matrices, "$" + offer.getValue().getValue(), calcX() - BuyScreen.this.textRenderer.getWidth("$" + offer.getValue().getValue()), this.y + ((float)this.height/2)-(float)BuyScreen.this.textRenderer.fontHeight/2, 0xFFFFFF);
         }

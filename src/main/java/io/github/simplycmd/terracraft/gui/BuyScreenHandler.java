@@ -32,6 +32,7 @@ public class BuyScreenHandler extends ScreenHandler {
         super(ScreenHandlerRegistry.BUY_SCREEN_HANDLER, syncId);
         this.simpleInventory = new SimpleInventory(1);
         this.playerInventory = playerInventory;
+        this.oferu = offers;
         this.addSlot(new Slot(this.simpleInventory, 0, 220, 37){
             @Override
             public boolean canInsert(ItemStack stack) {
@@ -89,11 +90,7 @@ public class BuyScreenHandler extends ScreenHandler {
     private OfferList oferu = null;
     public OfferList getRecipes() {
         if (oferu != null) return oferu;
-        var offers = new OfferList();
-        for (int l = 0; l < 15; l++) {
-            offers.add(new Offer(Registry.ITEM.get(l+1), new Value(l)));
-        }
-        this.oferu = offers;
+        this.oferu = new OfferList();
         return oferu;
     }
 
@@ -131,7 +128,7 @@ public class BuyScreenHandler extends ScreenHandler {
 
     public boolean update() {
         if (trySpend2(this.playerInventory, getRecipes().get(this.recipeIndex).getValue().getValue()))
-        this.simpleInventory.setStack(0, getRecipes().get(this.recipeIndex).getItem().getDefaultStack());
+        this.simpleInventory.setStack(0, getRecipes().get(this.recipeIndex).getItem().copy());
         else this.simpleInventory.setStack(0, ItemStack.EMPTY);
         return trySpend2(this.playerInventory, getRecipes().get(this.recipeIndex).getValue().getValue());
     }
@@ -139,5 +136,9 @@ public class BuyScreenHandler extends ScreenHandler {
     public void take() {
         trySpend(this.playerInventory, getRecipes().get(this.recipeIndex).getValue().getValue());
         this.playerInventory.markDirty();
+    }
+
+    public void setOffers(OfferList list) {
+        oferu = list;
     }
 }
