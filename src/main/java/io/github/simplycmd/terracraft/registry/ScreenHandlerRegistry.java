@@ -1,6 +1,7 @@
 package io.github.simplycmd.terracraft.registry;
 
 import io.github.simplycmd.terracraft.gui.BuyScreenHandler;
+import io.github.simplycmd.terracraft.util.OfferList;
 import net.minecraft.block.CraftingTableBlock;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandlerType;
@@ -17,6 +18,6 @@ public class ScreenHandlerRegistry {
     }
 
     private static BuyScreenHandler create(int syncId, PlayerInventory playerInventory) {
-        return new BuyScreenHandler(playerInventory, syncId);
+        return new BuyScreenHandler(new OfferList(), playerInventory, syncId);
     }
 }

@@ -28,7 +28,7 @@ public class BuyScreenHandler extends ScreenHandler {
     private int recipeIndex;
     private final SimpleInventory simpleInventory;
     private final PlayerInventory playerInventory;
-    public BuyScreenHandler(PlayerInventory playerInventory, int syncId) {
+    public BuyScreenHandler(OfferList offers, PlayerInventory playerInventory, int syncId) {
         super(ScreenHandlerRegistry.BUY_SCREEN_HANDLER, syncId);
         this.simpleInventory = new SimpleInventory(1);
         this.playerInventory = playerInventory;

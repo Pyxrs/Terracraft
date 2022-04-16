@@ -64,7 +64,7 @@ public class PacketHandler {
             server.execute(()->{
                 //player.jump();
                 player.getItemCooldownManager().set(DoubleJumpAccessoryItem.getFromPower(d), 5);
-                player.openHandledScreen(new SimpleNamedScreenHandlerFactory(((syncId, inv, player1) -> new BuyScreenHandler(inv, syncId)), new LiteralText("NPC")));
+                player.openHandledScreen(new SimpleNamedScreenHandlerFactory(((syncId, inv, player1) -> new BuyScreenHandler(null, inv, syncId)), new LiteralText("NPC")));
                 PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
                 passedData.writeUuid(player.getUuid());
                 passedData.writeByte(DoubleJumpAccessoryItem.getFromPower(d).particleId());
