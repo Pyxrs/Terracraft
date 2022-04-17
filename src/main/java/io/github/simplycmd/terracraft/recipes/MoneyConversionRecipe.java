@@ -84,7 +84,7 @@ public abstract class MoneyConversionRecipe extends SpecialCraftingRecipe {
 
     @Override
     public boolean fits(int width, int height) {
-        return true;
+        return width*height>=1;
     }
 
     @Override
@@ -103,6 +103,6 @@ public abstract class MoneyConversionRecipe extends SpecialCraftingRecipe {
 
     @Override
     public boolean isIgnoredInRecipeBook() {
-        return true; // LOL GET REKT MOJANG
+        return true;
     }
 }

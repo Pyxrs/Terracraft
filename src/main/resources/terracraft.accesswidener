@@ -1,0 +1,4 @@
+accessWidener v1 named
+
+extendable method net/minecraft/client/gui/screen/ingame/HandledScreen drawSlot (Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/screen/slot/Slot;)V
+accessible field net/minecraft/world/dimension/DimensionType OVERWORLD Lnet/minecraft/world/dimension/DimensionType;

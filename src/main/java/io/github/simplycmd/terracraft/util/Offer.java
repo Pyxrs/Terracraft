@@ -50,6 +50,7 @@ public class Offer {
         d.add(new Offer((BaseItem) ItemRegistry.sickle.getItem()));
         d.add(new Offer((BaseItem) ItemRegistry.grenade.getItem()));
         d.add(new Offer((BaseItem) ItemRegistry.slap_hand.getItem()));
+        d.add(new Offer(Items.BEDROCK.getDefaultStack(), new Value(100, 0, 0, 0)));
         //d.add(new Offer(Items.CACTUS.getDefaultStack(), new Value(1)));
         player.openHandledScreen(new SimpleNamedScreenHandlerFactory(((syncId, inv, player1) -> new BuyScreenHandler(d, inv, syncId)), new LiteralText("NPC")));
         PacketHandler.sendOffers(player, player.currentScreenHandler.syncId, d);

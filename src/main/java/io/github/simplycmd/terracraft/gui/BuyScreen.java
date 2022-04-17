@@ -2,12 +2,16 @@ package io.github.simplycmd.terracraft.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.github.simplycmd.terracraft.items.util.Value;
+import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import io.github.simplycmd.terracraft.util.Offer;
 import io.github.simplycmd.terracraft.util.OfferList;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawableHelper;
+import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.screen.ingame.CraftingScreen;
 import net.minecraft.client.gui.screen.ingame.Generic3x3ContainerScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -20,6 +24,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.network.packet.c2s.play.SelectMerchantTradeC2SPacket;
 import net.minecraft.screen.MerchantScreenHandler;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -63,6 +68,10 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
             }));
             k += 20;
         }
+        this.addDrawableChild(new WidgetSellButton(i + 204, j + 57, 0, (button -> {
+            this.handler.close(MinecraftClient.getInstance().player);
+            this.client.setScreen(new TitleScreen());
+        })));
     }
 
     @Override
@@ -74,18 +83,43 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
         int i = (this.width - this.backgroundWidth) / 2;
         int j = (this.height - this.backgroundHeight) / 2;
         drawTexture(matrices, i, j, this.getZOffset(), 0.0F, 0.0F, this.backgroundWidth, this.backgroundHeight, 512, 256);
-
+        drawTexture(matrices, i+107, j+17, this.getZOffset(), 276, 38, 18, 48, 512, 256);
+        if(displayItemCompact())
+            drawTexture(matrices, i+251, j+7, this.getZOffset(), 340, 0, 18, 66, 512, 256);
     }
 
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
-        this.renderBackground(matrices);
-        super.render(matrices, mouseX, mouseY, delta);
         int i = (this.width - this.backgroundWidth) / 2;
         int j = (this.height - this.backgroundHeight) / 2;
+        //this.playerInventoryTitleX = 107+20;
+        this.renderBackground(matrices);
+        super.render(matrices, mouseX, mouseY, delta);
         int k = j + 16 + 1;
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderTexture(0, TEXTURE);
+        //drawTexture(matrices, i+215, j+8, this.getZOffset(), 276, 38, 48, 18, 512, 256);
+        // 218, 8
+        if (showItemDisplays()) {
+            var d = this.getOffers().size() <= this.selectedIndex ? new Value(0).getMoney() : this.getOffers().get(this.selectedIndex).getValue().getMoney();
+            this.itemRenderer.zOffset = 100.0F;
+            this.itemRenderer.renderInGui(new ItemStack(ItemRegistry.platinum_coin.getItem()), i+252, j+8);
+            this.itemRenderer.renderInGui(new ItemStack(ItemRegistry.gold_coin.getItem()), i+252, j+8+16);
+            this.itemRenderer.renderInGui(new ItemStack(ItemRegistry.silver_coin.getItem()), i+252, j+8+16+16);
+            this.itemRenderer.renderInGui(new ItemStack(ItemRegistry.copper_coin.getItem()), i+252, j+8+16+16+16);
+            if (displayItemCompact()) {
+                this.itemRenderer.renderGuiItemOverlay(this.textRenderer, new ItemStack(ItemRegistry.platinum_coin.getItem()), i+252, j+8, ""+d.getPlatinum());
+                this.itemRenderer.renderGuiItemOverlay(this.textRenderer, new ItemStack(ItemRegistry.gold_coin.getItem()), i+252, j+8+16, ""+d.getGold());
+                this.itemRenderer.renderGuiItemOverlay(this.textRenderer, new ItemStack(ItemRegistry.silver_coin.getItem()), i+252, j+8+16+16, ""+d.getSilver());
+                this.itemRenderer.renderGuiItemOverlay(this.textRenderer, new ItemStack(ItemRegistry.copper_coin.getItem()), i+252,j+8+16+16+16, ""+d.getCopper());
+            } else {
+                this.textRenderer.draw(matrices, "x" + d.getPlatinum(), 136 + 50 + 16, 45 + (float) this.textRenderer.fontHeight / 2, 4210752);
+                this.textRenderer.draw(matrices, "x" + d.getGold(), 136 + 50 + 16, 55 + 6 + (float) this.textRenderer.fontHeight / 2, 4210752);
+                this.textRenderer.draw(matrices, "x" + d.getSilver(), 136 + 50 + 16, 65 + 12 + (float) this.textRenderer.fontHeight / 2, 4210752);
+                this.textRenderer.draw(matrices, "x" + d.getCopper(), 136 + 50 + 16, 75 + 18 + (float) this.textRenderer.fontHeight / 2, 4210752);
+            }
+            this.itemRenderer.zOffset = 0.0F;
+        }
         var offers = getOffers();
         renderScrollbar(matrices, i, j, offers);
         int m = 0;
@@ -180,6 +214,13 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
+    class WidgetSellButton extends ButtonWidget {
+
+        public WidgetSellButton(int x, int y, int index, PressAction onPress) {
+            super(x, y, 45, 20, new LiteralText("Sell"), onPress);
+        }
+    }
+
     @Environment(EnvType.CLIENT)
     class WidgetButtonPage extends ButtonWidget {
         final int index;
@@ -239,5 +280,31 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
             drawTexture(matrices, x + 5 + 35 + 20, y + 3, this.getZOffset(), 15.0F, 171.0F, 10, 9, 512, 256);
         }
 
+    }
+
+    private boolean showItemDisplays() {
+        return true;
+    }
+
+    private boolean displayItemCompact() {
+        return true;
+    }
+
+    @Override
+    protected void drawSlot(MatrixStack matrices, Slot slot) {
+        super.drawSlot(matrices, slot);
+        int i = slot.x;
+        int j = slot.y;
+        var d = this.handler.slots.indexOf(slot);
+        //this.textRenderer.draw(matrices, "" + d, i, j, 0x222222);
+    }
+
+    @Override
+    protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
+        //super.drawForeground(matrices, mouseX, mouseY);
+        this.textRenderer.draw(matrices, this.playerInventoryTitle, (float)this.playerInventoryTitleX, (float)this.playerInventoryTitleY, 4210752);
+
+        int l = this.textRenderer.getWidth("Offers");
+        this.textRenderer.draw(matrices, "Offers", (float)(5 - l / 2 + 48), 6.0F, 4210752);
     }
 }
