@@ -69,8 +69,7 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
             k += 20;
         }
         this.addDrawableChild(new WidgetSellButton(i + 204, j + 57, 0, (button -> {
-            this.handler.close(MinecraftClient.getInstance().player);
-            this.client.setScreen(new TitleScreen());
+            this.handler.switchToSellScreen();
         })));
     }
 

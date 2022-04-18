@@ -1,10 +1,13 @@
 package io.github.simplycmd.terracraft.gui;
 
 import io.github.simplycmd.terracraft.items.util.Value;
+import io.github.simplycmd.terracraft.packets.PacketHandler;
 import io.github.simplycmd.terracraft.registry.ScreenHandlerRegistry;
 import io.github.simplycmd.terracraft.util.Offer;
 import io.github.simplycmd.terracraft.util.OfferList;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.block.DispenserBlock;
+import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingInventory;
@@ -16,15 +19,13 @@ import net.minecraft.network.packet.s2c.play.ScreenHandlerSlotUpdateS2CPacket;
 import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.screen.CraftingScreenHandler;
-import net.minecraft.screen.MerchantScreenHandler;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.screen.*;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.TradeOutputSlot;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.LiteralText;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.village.MerchantInventory;
 import net.minecraft.world.World;
@@ -159,6 +160,7 @@ public class BuyScreenHandler extends ScreenHandler {
     }
 
     public boolean update() {
+        if (this.oferu.size() <= 0) return false;
         if (trySpend2(this.playerInventory, getRecipes().get(this.recipeIndex).getValue().getValue()))
         this.simpleInventory.setStack(0, getRecipes().get(this.recipeIndex).getItem().copy());
         else this.simpleInventory.setStack(0, ItemStack.EMPTY);
@@ -166,6 +168,7 @@ public class BuyScreenHandler extends ScreenHandler {
     }
 
     public void take() {
+        if (this.oferu.size() <= 0) return;
         trySpend(this.playerInventory, getRecipes().get(this.recipeIndex).getValue().getValue());
         this.playerInventory.markDirty();
     }
@@ -206,5 +209,9 @@ public class BuyScreenHandler extends ScreenHandler {
     public void clearCraftingSlots() {
         this.craftingInventory.clear();
         this.craftingResult.clear();
+    }
+
+    public void switchToSellScreen() {
+        PacketHandler.openSellScreen();
     }
 }

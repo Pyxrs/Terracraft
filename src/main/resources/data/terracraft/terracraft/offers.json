@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "offers": [
+    {
+      "item": {
+        "id": "minecraft:cake",
+        "tag": "{Enchantments:[{id:sharpness,lvl:15}]}",
+        "Count": 5
+      },
+      "price": 15
+    }
+  ]
+}

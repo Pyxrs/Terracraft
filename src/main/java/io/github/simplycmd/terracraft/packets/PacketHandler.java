@@ -3,9 +3,8 @@ package io.github.simplycmd.terracraft.packets;
 import io.github.simplycmd.terracraft.JumpingEffect;
 import io.github.simplycmd.terracraft.gui.BuyScreenHandler;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
-import io.github.simplycmd.terracraft.registry.ScreenHandlerRegistry;
-import io.github.simplycmd.terracraft.util.Offer;
 import io.github.simplycmd.terracraft.util.OfferList;
+import io.github.simplycmd.terracraft.util.OfferUtils;
 import io.github.simplycmd.terracraft.util.TrinketsUtil;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -15,23 +14,13 @@ import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.network.NetworkThreadUtils;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.screen.MerchantScreenHandler;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.village.TradeOfferList;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.UUID;
@@ -43,6 +32,7 @@ public class PacketHandler {
     private static final Identifier DOUBLE_DUMP_EFFECT = new Identifier(MOD_ID, "double_jump_effect");
     public static final Identifier CHANGE_OFFER = new Identifier(MOD_ID, "change_offer");
     public static final Identifier OFFER_CHANGED = new Identifier(MOD_ID, "offer_changed");
+    public static final Identifier OPEN_SELL_SCREEN = new Identifier(MOD_ID, "open_sell_screen");
     public static void sendToServer(int power) {
         System.out.println("SEND");
         var buf = PacketByteBufs.create();
@@ -70,7 +60,7 @@ public class PacketHandler {
                 //player.jump();
                 player.getItemCooldownManager().set(DoubleJumpAccessoryItem.getFromPower(d), 5);
                 PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
-                Offer.initializeOffer(player);
+                OfferUtils.initializeBuyOffer(player);
                 passedData.writeUuid(player.getUuid());
                 passedData.writeByte(DoubleJumpAccessoryItem.getFromPower(d).particleId());
                 passedData.writeInt(DoubleJumpAccessoryItem.getFromPower(d).particleAmount());
@@ -107,9 +97,22 @@ public class PacketHandler {
         });
     }
 
+    public static void openSellScreen() {
+        var buf = PacketByteBufs.create();
+        ClientPlayNetworking.send(OPEN_SELL_SCREEN, buf);
+    }
+
+    private static void openSellScreen(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
+        server.execute(() -> {
+            player.closeHandledScreen();
+            OfferUtils.initalizeSellOffer(player);
+        });
+    }
+
     public static void registerServerPackets(){
         ServerPlayNetworking.registerGlobalReceiver(DOUBLE_DUMP, PacketHandler::receiveFromClient);
         ServerPlayNetworking.registerGlobalReceiver(CHANGE_OFFER, PacketHandler::processOfferChange);
+        ServerPlayNetworking.registerGlobalReceiver(OPEN_SELL_SCREEN, PacketHandler::openSellScreen);
     }
     public static void registerClientPackets() {
         ClientPlayNetworking.registerGlobalReceiver(DOUBLE_DUMP_EFFECT, PacketHandler::recieveFromServer);
