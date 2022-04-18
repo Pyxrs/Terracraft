@@ -3,7 +3,7 @@ package io.github.simplycmd.terracraft.items.accessories;
 import java.util.UUID;
 
 import dev.emi.trinkets.api.SlotReference;
-import io.github.simplycmd.terracraft.util.TrinketsUtil;
+import io.github.simplycmd.terracraft.AccessoryUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
@@ -21,6 +21,6 @@ public class AccessoryItem extends TrinketItem {
 
     @Override
     public boolean canEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        return !TrinketsUtil.isEquipped(entity, this);
+        return !AccessoryUtil.isItemEquipped(entity, this);
 	}
 }

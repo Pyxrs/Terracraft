@@ -36,6 +36,7 @@ public class FeatureRegistry {
         public static ConfiguredFeature<RandomPatchFeatureConfig, ?> blueBerryBushCF;
         public static RegistryKey<PlacedFeature> blueBerryBushPF;
 
+        @SuppressWarnings("unchecked")
         public static void register() {
                 final Tuple daybloom = registerSimplePlant(BlockRegistry.daybloom, 22, 64, 3, 2, BiomeSelectors.includeByKey(BiomeKeys.FOREST, BiomeKeys.BIRCH_FOREST));
                 daybloomCF = (ConfiguredFeature<RandomPatchFeatureConfig, ?>)daybloom.get(0);

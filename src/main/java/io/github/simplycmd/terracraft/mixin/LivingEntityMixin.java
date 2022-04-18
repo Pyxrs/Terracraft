@@ -4,6 +4,7 @@ import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import net.minecraft.block.Block;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -17,6 +18,8 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import io.github.simplycmd.terracraft.util.TrinketsUtil;
+import io.github.simplycmd.terracraft.AccessoryUtil;
+import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -26,7 +29,6 @@ import java.util.HashMap;
 public abstract class LivingEntityMixin implements LivingEntityExtension {
     @Unique
     private HashMap<DoubleJumpAccessoryItem, Integer> jumpItemCounter = null;
-    @Shadow protected abstract void jump();
 
     @Override
     public HashMap<DoubleJumpAccessoryItem, Integer> terracraft$getJumpCounter() {
@@ -47,7 +49,7 @@ public abstract class LivingEntityMixin implements LivingEntityExtension {
 
     @ModifyArg(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;updateVelocity(FLnet/minecraft/util/math/Vec3d;)V"), index = 0)
     private float updateVelocity(float original) {
-        if (TrinketsUtil.isEquipped(((LivingEntity) (Object) this), ItemRegistry.flipper.getItem())) {
+        if (AccessoryUtil.isItemEquipped(((LivingEntity) (Object) this), (AccessoryItem)ItemRegistry.flipper.getItem())) {
             return original * 2;
         }
         return original;
@@ -55,7 +57,7 @@ public abstract class LivingEntityMixin implements LivingEntityExtension {
 
     @ModifyArg(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setVelocity(Lnet/minecraft/util/math/Vec3d;)V"), index = 0)
     private Vec3d setVelocity(Vec3d velocity) {
-        if (TrinketsUtil.isEquipped(((LivingEntity) (Object) this), ItemRegistry.inner_tube.getItem())
+        if (AccessoryUtil.isItemEquipped(((LivingEntity) (Object) this), (AccessoryItem)ItemRegistry.inner_tube.getItem())
                 && !((LivingEntity) (Object) this).isInSneakingPose()) {
             return velocity.add(0, 0.1, 0);
         }
@@ -77,7 +79,7 @@ public abstract class LivingEntityMixin implements LivingEntityExtension {
 
     @Redirect(method = "travel", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;getSlipperiness()F"))
     private float getSlipperiness(Block self) {
-        if (TrinketsUtil.isEquipped(((LivingEntity) (Object) this), ItemRegistry.ice_skates.getItem())) {
+        if (AccessoryUtil.isItemEquipped(((LivingEntity) (Object) this), (AccessoryItem)ItemRegistry.ice_skates.getItem())) {
             return 0.6F;
         }
         return self.getSlipperiness();
