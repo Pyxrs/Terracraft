@@ -5,7 +5,6 @@ import com.simplycmd.featherlib.registry.SimpleItem;
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.items.*;
 import io.github.simplycmd.terracraft.items.util.*;
-import io.github.simplycmd.terracraft.items.util.accessories.AttackSpeedAccessoryItem;
 import io.github.simplycmd.terracraft.items.accessories.*;
 import io.github.simplycmd.terracraft.items.util.tools.*;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
@@ -84,7 +83,7 @@ public class ItemRegistry {
         sandstorm_in_a_bottle = new SimpleItem(ID("sandstorm_in_a_bottle"), DoubleJumpAccessoryItem.create(new FabricItemSettings().group(ItemGroup.MISC), ParticleUtil.getParticleId(ParticleTypes.CLOUD), 50, 1.6, 1)).defaultItemModel();
         /*TODO*/shiny_red_balloon = new SimpleItem(ID("shiny_red_balloon"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         /*TODO*/shoe_spikes = new SimpleItem(ID("shoe_spikes"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        step_stool = new SimpleItem(ID("step_stool"), new StepAccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
+        step_stool = new SimpleItem(ID("step_stool"), new StepAccessoryItem(Blocks.AIR, new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         tsunami_in_a_bottle = new SimpleItem(ID("tsunami_in_a_bottle"), DoubleJumpAccessoryItem.create(new FabricItemSettings().group(ItemGroup.MISC), ParticleUtil.getParticleId(ParticleTypes.RAIN), 300, 0.8, 1)).defaultItemModel();
         /*TODO*/valentine_ring = new SimpleItem(ID("valentine_ring"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         water_walking_boots = new SimpleItem(ID("water_walking_boots"), new FluidWalkingAccessoryItem(FluidTags.WATER, new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();

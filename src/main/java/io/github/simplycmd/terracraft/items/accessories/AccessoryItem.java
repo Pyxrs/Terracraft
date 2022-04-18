@@ -3,11 +3,11 @@ package io.github.simplycmd.terracraft.items.accessories;
 import java.util.UUID;
 
 import dev.emi.trinkets.api.SlotReference;
-import io.github.simplycmd.terracraft.AccessoryUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import dev.emi.trinkets.api.TrinketItem;
+import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import lombok.Getter;
 
 public class AccessoryItem extends TrinketItem {

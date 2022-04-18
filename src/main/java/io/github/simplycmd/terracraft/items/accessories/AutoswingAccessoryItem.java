@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.util.accessories;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
