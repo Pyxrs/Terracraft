@@ -5,6 +5,7 @@ import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import io.github.simplycmd.terracraft.util.Offer;
 import io.github.simplycmd.terracraft.util.OfferList;
+import io.github.simplycmd.terracraft.util.PlayerEntityExtension;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -300,7 +301,10 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
 
     @Override
     protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {
+        int i = (this.width - this.backgroundWidth) / 2;
+        int j = (this.height - this.backgroundHeight) / 2;
         //super.drawForeground(matrices, mouseX, mouseY);
+        this.textRenderer.draw(matrices, "TM: " + ((PlayerEntityExtension)MinecraftClient.getInstance().player).getTemporaryMoney(), i, j-this.textRenderer.fontHeight, 0xffffff);
         this.textRenderer.draw(matrices, this.playerInventoryTitle, (float)this.playerInventoryTitleX, (float)this.playerInventoryTitleY, 4210752);
 
         int l = this.textRenderer.getWidth("Offers");

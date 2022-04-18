@@ -139,10 +139,10 @@ public class Value {
             value -= COPPER_VALUE;
             copper--;
         }
-        var o = Math.max(temporary_money-value, value);
+        var o = Math.min(value, temporary_money);
         value -= o;
         temporary_money -= o;
-        if (temporary_money < 0) {
+        if (!(temporary_money >= 0)) {
             value += o;
             temporary_money += o;
         }

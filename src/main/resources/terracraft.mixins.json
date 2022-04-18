@@ -4,6 +4,7 @@
   "package": "io.github.simplycmd.terracraft.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "BipedEntityModelMixin",
     "CampfireBlockEntityMixin",
     "ClientPlayerEntityMixin",
     "CraftingResultSlotMixin",
