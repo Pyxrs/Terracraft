@@ -97,3 +97,39 @@ publishing {
 		// retrieving dependencies.
 	}
 }
+loom {
+	runs {
+		data {
+			server()
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
+			vmArg "-Dfabric-api.datagen.strict-validation"
+			vmArg "-Dfabric-api.datagen.modid=terracraft"
+			ideConfigGenerated = true
+			runDir "build/datagen"
+		}
+		dataClient {
+			client()
+			name "Data Generation"
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
+			vmArg "-Dfabric-api.datagen.strict-validation"
+			vmArg "-Dfabric-api.datagen.modid=terracraft"
+			ideConfigGenerated = true
+			runDir "build/datagen"
+		}
+	}
+	accessWidenerPath = file("src/main/resources/terracraft.accesswidener")
+}
+
+
+sourceSets {
+	main {
+		resources {
+			srcDirs += [
+					'src/generated/resources'
+			]
+		}
+	}
+}

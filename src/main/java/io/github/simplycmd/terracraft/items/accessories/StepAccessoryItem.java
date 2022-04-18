@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.util.accessories;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import java.util.UUID;
 
@@ -6,6 +6,7 @@ import com.google.common.collect.Multimap;
 
 import dev.emi.trinkets.api.SlotReference;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;

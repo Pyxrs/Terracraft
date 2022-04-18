@@ -23,7 +23,7 @@ import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import java.util.function.Predicate;
 import com.simplycmd.featherlib.registry.SimpleBlock;
 import io.github.simplycmd.terracraft.Main;
-import io.github.simplycmd.terracraft.Tuple;
+import io.github.simplycmd.terracraft.util.Tuple;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 

@@ -1,8 +1,8 @@
-package io.github.simplycmd.terracraft.items.util.accessories;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import net.minecraft.tag.TagKey;
 import be.florens.expandability.api.fabric.LivingFluidCollisionCallback;
-import io.github.simplycmd.terracraft.AccessoryUtil;
+import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.fluid.Fluid;
 

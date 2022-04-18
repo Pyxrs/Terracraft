@@ -17,9 +17,7 @@ public class ItemStackMixin {
     @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/item/ItemConvertible;I)V")
     private void init(ItemConvertible item, int count, CallbackInfo ci) {
         if (item instanceof BaseItem) {
-            Iterator<SimpleEnchantment> enchantmentIterator = ((BaseItem) item).getEnchantments().iterator();
-            while(enchantmentIterator.hasNext()) {
-                SimpleEnchantment enchantment = enchantmentIterator.next();
+            for (SimpleEnchantment enchantment : ((BaseItem) item).getEnchantments()) {
                 ((ItemStack) (Object) this).addEnchantment(enchantment.getEnchantment(), enchantment.getLevel());
             }
         }
