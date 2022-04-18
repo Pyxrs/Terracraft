@@ -6,11 +6,9 @@ import io.github.simplycmd.terracraft.registry.SoundRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.particle.ParticleTypes;
@@ -24,7 +22,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class MirrorItem extends Item implements BaseItem {
     // TODO: Store tick in nbt so this works on multiplayer
-
     public MirrorItem(Settings settings) {
         super(settings);
     }

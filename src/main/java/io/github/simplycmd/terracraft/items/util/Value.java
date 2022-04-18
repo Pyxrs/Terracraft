@@ -1,15 +1,10 @@
 package io.github.simplycmd.terracraft.items.util;
 
-import com.google.common.annotations.Beta;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import io.github.simplycmd.terracraft.util.PlayerEntityExtension;
-import lombok.Getter;
-import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.data.DataProvider;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import org.jetbrains.annotations.ApiStatus;
 
 public class Value {
     private final long value;
@@ -63,7 +58,7 @@ public class Value {
                 copper += stack.getCount();
             }
         }
-        long original[] = new long[]{platinum, gold, silver, copper};
+        //long original[] = new long[]{platinum, gold, silver, copper};
         var d = trySpend(platinum, gold, silver, copper, ((PlayerEntityExtension)playerInventory.player).getTemporaryMoney(), value);
         if (!d.successful) return false;
         //removeItemFromInventory(playerInventory, ItemRegistry.platinum_coin.getItem(), platinum-d.platinum);

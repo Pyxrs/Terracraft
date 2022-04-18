@@ -1,8 +1,8 @@
 package io.github.simplycmd.terracraft.mixin;
 
-import io.github.simplycmd.terracraft.JumpingEffect;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
+import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.EntityType;
@@ -58,7 +58,7 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
                     doJump();
                     //player.sendSystemMessage(new LiteralText("<Console> JUMPING"), null);
                     //System.out.println("JUMP!");
-                    JumpingEffect.play(player, getBestActiveDJ().particleId(), getBestActiveDJ().particleAmount());
+                    ParticleUtil.jumpEffect(player, getBestActiveDJ().particleId(), getBestActiveDJ().particleAmount());
                     PacketHandler.sendToServer(getBestActiveDJ().getPower());
                     terracraft$getJumpCounter().put(getBestActiveDJ(), terracraft$getJumpCounter().get(getBestActiveDJ())-1);
                 }
