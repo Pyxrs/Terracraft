@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.packets;
 
-import io.github.simplycmd.terracraft.JumpingEffect;
+import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.gui.BuyScreenHandler;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import io.github.simplycmd.terracraft.util.OfferList;
@@ -48,7 +48,7 @@ public class PacketHandler {
         client.execute(() -> {
             PlayerEntity effectPlayer = client.player.getEntityWorld().getPlayerByUuid(effectPlayerUuid);
             if (effectPlayer != null) {
-                JumpingEffect.play(client.player, effectPlayer, effect, amount);
+                ParticleUtil.jumpEffect(client.player, effectPlayer, effect, amount);
             }
         });
     }

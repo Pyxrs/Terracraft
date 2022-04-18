@@ -1,20 +1,17 @@
 package io.github.simplycmd.terracraft;
 
-import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.LongArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import io.github.simplycmd.terracraft.blocks.BlockRenderer;
 import io.github.simplycmd.terracraft.data.OfferManager;
 import io.github.simplycmd.terracraft.gui.BuyScreen;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
-import io.github.simplycmd.terracraft.recipes.MoneyConversionRecipe;
 import io.github.simplycmd.terracraft.registry.*;
-import io.github.simplycmd.terracraft.util.ParticleUtils;
+import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.util.PlayerEntityExtension;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.client.MinecraftClient;
@@ -23,14 +20,10 @@ import net.minecraft.entity.data.TrackedDataHandler;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.ArmorDyeRecipe;
-import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.server.command.CommandManager;
-import net.minecraft.server.command.GiveCommand;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 public class Main implements ModInitializer, ClientModInitializer {
 	public static String MOD_ID = "terracraft";
@@ -64,7 +57,7 @@ public class Main implements ModInitializer, ClientModInitializer {
 			dispatcher.register(literalArgumentBuilder);
 		}));
 		TrackedDataHandlerRegistry.register(LONG_HANDLER);
-		ParticleUtils.particleTypes();
+		ParticleUtil.particleTypes();
 		BlockRegistry.register();
 		ItemRegistry.register();
 		SoundRegistry.register();

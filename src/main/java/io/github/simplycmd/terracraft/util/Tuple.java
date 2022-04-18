@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft;
+package io.github.simplycmd.terracraft.util;
 
 import java.util.Arrays;
 
