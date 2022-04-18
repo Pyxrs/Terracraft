@@ -93,6 +93,7 @@ public class BlockRegistry {
     private static JIngredient tr(Item item) {
         return JIngredient.ingredient().item(item);
     }
+    @SuppressWarnings("unused")
     private static JIngredient tr(String tag) {
         return JIngredient.ingredient().tag(tag);
     }

@@ -11,16 +11,18 @@ import net.minecraft.item.ItemStack;
 
 import java.util.UUID;
 
-public class AttackSpeedAccessoryItem extends AccessoryItem{
+public class AttackSpeedAccessoryItem extends AccessoryItem {
+    private final float speed;
 
-    public AttackSpeedAccessoryItem(FabricItemSettings settings) {
+    public AttackSpeedAccessoryItem(FabricItemSettings settings, float speed) {
         super(settings);
+        this.speed = speed;
     }
 
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
         // attack speed
-        modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid, "terracraft:attack_speed", 0.12, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid, "terracraft:attack_speed", speed, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         return modifiers;
     }
 }
