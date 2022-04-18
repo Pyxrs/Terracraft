@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.util.accessories;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;

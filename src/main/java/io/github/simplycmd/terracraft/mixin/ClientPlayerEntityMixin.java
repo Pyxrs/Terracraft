@@ -4,18 +4,23 @@ import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ElytraItem;
 import net.minecraft.item.Items;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.Stats;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -29,6 +34,8 @@ import static io.github.simplycmd.terracraft.util.TrinketsUtil.getDJList;
 
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin extends LivingEntity implements LivingEntityExtension {
+    @Shadow public abstract void playSound(SoundEvent sound, float volume, float pitch);
+
     //private int amountOfJumps = 0;
     private boolean jumpedRecently = false;
 
@@ -37,10 +44,22 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
         throw new UnsupportedOperationException();
     }
 
-
+    @Unique
+    protected double getSquaredMaxAttackDistance(LivingEntity entity) {
+        return (double)(this.getWidth() * 2.0F * this.getWidth() * 2.0F + entity.getWidth());
+    }
     @Inject(method = "tickMovement", at = @At("HEAD"))
     private void tickMovement(CallbackInfo info) {
         var player = (ClientPlayerEntity)(Object)this;
+        if (((MinecraftClientAccessor)MinecraftClient.getInstance()).getAttackCooldown() <= 0) {
+            ((MinecraftClientAccessor)MinecraftClient.getInstance()).callDoAttack();
+        }
+//        var e = this.world.getOtherEntities(this, new Box(new Vec3d(7,7,7), new Vec3d(-7, -7, -7)), (livingEntity) -> {
+//            if (livingEntity instanceof LivingEntity)
+//            return this.getSquaredMaxAttackDistance((LivingEntity) livingEntity) >= this.squaredDistanceTo(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
+//            return false;
+//        });
+//        player.tryAttack()
 //        if (player.input.jumping) {
 //            player.sendSystemMessage(new LiteralText(String.format("Amount of jumps: %s, Jumping(Input): %s, Jumped Recently: %s, Amount Of Jumps: %s, Cooldown: %s", amountOfJumps, player.input.jumping, jumpedRecently, amountOfJumps, player.getItemCooldownManager().getCooldownProgress(TrinketsUtil.getDJ(player),0))), null);
 //        }

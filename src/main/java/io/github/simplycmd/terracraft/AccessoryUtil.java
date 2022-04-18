@@ -4,8 +4,8 @@ import java.util.Optional;
 import java.util.function.Function;
 
 import dev.emi.trinkets.api.TrinketsApi;
-import io.github.simplycmd.terracraft.items.util.accessories.AccessoryItem;
-import io.github.simplycmd.terracraft.items.util.accessories.CombinationAccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.CombinationAccessoryItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 
@@ -38,7 +38,7 @@ public class AccessoryUtil {
      * Executes the given Function on each item in the given slot type group.
      * @param entity The LivingEntity to check.
      * @param slotType String name of the SlotType.
-     * @param consumer The Function to execute on each Item.
+     * @param function The Function to execute on each Item.
      * @return The first Function returned if there was an Item, otherwise Optional.empty().
      */
     public static Optional<?> ifEquipped(LivingEntity entity, String slotType, Function<Item, Optional<?>> function) {

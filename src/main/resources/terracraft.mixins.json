@@ -10,6 +10,7 @@
     "CraftingResultSlotMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
+    "MinecraftClientAccessor",
     "PlayerEntityMixin",
     "RecipeManagerMixin"
   ],
