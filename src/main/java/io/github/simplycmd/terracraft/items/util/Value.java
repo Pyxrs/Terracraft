@@ -2,7 +2,7 @@ package io.github.simplycmd.terracraft.items.util;
 
 import com.google.common.annotations.Beta;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
-import io.netty.util.internal.UnstableApi;
+import io.github.simplycmd.terracraft.util.PlayerEntityExtension;
 import lombok.Getter;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.data.DataProvider;
@@ -12,21 +12,21 @@ import net.minecraft.item.ItemStack;
 import org.jetbrains.annotations.ApiStatus;
 
 public class Value {
-    private final int value;
-    public static final int COPPER_VALUE = 1;
-    public static final int SILVER_VALUE = 64;
-    public static final int GOLD_VALUE = 4096;
-    public static final int PLATINUM_VALUE = 262144;
+    private final long value;
+    public static final long COPPER_VALUE = 1;
+    public static final long SILVER_VALUE = 64;
+    public static final long GOLD_VALUE = 4096;
+    public static final long PLATINUM_VALUE = 262144;
 
-    public Value(int platinum, int gold, int silver, int copper) {
+    public Value(long platinum, long gold, long silver, long copper) {
         this.value = convert(platinum, gold, silver, copper);
     }
 
-    public Value(int value) {
+    public Value(long value) {
         this.value = value;
     }
 
-    public int getValue() {
+    public long getValue() {
         return this.value;
     }
 
@@ -34,8 +34,8 @@ public class Value {
         return new Money(value);
     }
 
-    private static int convert(int platinum, int gold, int silver, int copper) {
-        int value = 0;
+    private static long convert(long platinum, long gold, long silver, long copper) {
+        long value = 0;
         value += copper*COPPER_VALUE;
         value += silver*SILVER_VALUE;
         value += gold*GOLD_VALUE;
@@ -43,7 +43,7 @@ public class Value {
         return value;
     }
 
-    public static boolean trySpend2(PlayerInventory playerInventory, int value) {
+    public static boolean trySpend2(PlayerInventory playerInventory, long value) {
         int platinum = 0;
         int gold = 0;
         int silver = 0;
@@ -63,8 +63,8 @@ public class Value {
                 copper += stack.getCount();
             }
         }
-        int original[] = new int[]{platinum, gold, silver, copper};
-        var d = trySpend(platinum, gold, silver, copper, value);
+        long original[] = new long[]{platinum, gold, silver, copper};
+        var d = trySpend(platinum, gold, silver, copper, ((PlayerEntityExtension)playerInventory.player).getTemporaryMoney(), value);
         if (!d.successful) return false;
         //removeItemFromInventory(playerInventory, ItemRegistry.platinum_coin.getItem(), platinum-d.platinum);
         //removeItemFromInventory(playerInventory, ItemRegistry.gold_coin.getItem(), gold-d.gold);
@@ -73,7 +73,7 @@ public class Value {
         return true;
     }
 
-    public static boolean trySpend(PlayerInventory playerInventory, int value) {
+    public static boolean trySpend(PlayerInventory playerInventory, long value) {
         int platinum = 0;
         int gold = 0;
         int silver = 0;
@@ -93,51 +93,58 @@ public class Value {
                 copper += stack.getCount();
             }
         }
-        int original[] = new int[]{platinum, gold, silver, copper};
-        var d = trySpend(platinum, gold, silver, copper, value);
+        var d = trySpend(platinum, gold, silver, copper, ((PlayerEntityExtension)playerInventory.player).getTemporaryMoney(), value);
         if (!d.successful) return false;
         removeItemFromInventory(playerInventory, ItemRegistry.platinum_coin.getItem(), platinum-d.platinum);
         removeItemFromInventory(playerInventory, ItemRegistry.gold_coin.getItem(), gold-d.gold);
         removeItemFromInventory(playerInventory, ItemRegistry.silver_coin.getItem(), silver-d.silver);
         removeItemFromInventory(playerInventory, ItemRegistry.copper_coin.getItem(), copper-d.copper);
+        ((PlayerEntityExtension)playerInventory.player).setTemporaryMoney(d.temporaryMoney);
         return true;
     }
 
-    private static void removeItemFromInventory(PlayerInventory inventory,  Item item, int amount) {
+    private static void removeItemFromInventory(PlayerInventory inventory, Item item, long amount) {
         for (ItemStack itemStack : inventory.main) {
             if (amount <= 0) return;
             if (itemStack.isOf(item)) {
                 var d = Math.min(itemStack.getCount(), amount);
-                itemStack.decrement(d);
+                itemStack.decrement((int) d);
                 amount -= d;
             }
         }
     }
 
-    public static SpentMoney trySpend(int platinum, int gold, int silver, int copper, int value) {
-        int[] originals = new int[]{platinum, gold, silver, copper, value};
+    public static SpentMoney trySpend(int platinum, int gold, int silver, int copper, long temporary_money, long value) {
+        long[] originals = new long[]{platinum, gold, silver, copper, temporary_money, value};
         var l = Math.min(value/PLATINUM_VALUE, platinum);
-        for (int i = 0; i < l; i++) {
+        for (long i = 0; i < l; i++) {
             value -= PLATINUM_VALUE;
             platinum--;
         }
 
         var d = Math.min(value/GOLD_VALUE, gold);
-        for (int i = 0; i < d; i++) {
+        for (long i = 0; i < d; i++) {
             value -= GOLD_VALUE;
             gold--;
         }
 
         var q = Math.min(value/SILVER_VALUE, silver);
-        for (int i = 0; i < q; i++) {
+        for (long i = 0; i < q; i++) {
             value -= SILVER_VALUE;
             silver--;
         }
 
         var p = Math.min(value/COPPER_VALUE, copper);
-        for (int i = 0; i < p; i++) {
+        for (long i = 0; i < p; i++) {
             value -= COPPER_VALUE;
             copper--;
+        }
+        var o = Math.max(temporary_money-value, value);
+        value -= o;
+        temporary_money -= o;
+        if (temporary_money < 0) {
+            value += o;
+            temporary_money += o;
         }
         if (value > 0) {
             SpentMoney money = new SpentMoney();
@@ -145,6 +152,7 @@ public class Value {
             money.gold = originals[1];
             money.silver = originals[2];
             money.copper = originals[3];
+            money.temporaryMoney = originals[4];
             money.successful = false;
             return money;
         }
@@ -154,40 +162,29 @@ public class Value {
         money.silver = silver;
         money.gold = gold;
         money.platinum = platinum;
+        money.temporaryMoney = temporary_money;
         return money;
     }
 
-    @Deprecated(forRemoval = true)
-    @ApiStatus.ScheduledForRemoval
-    @ApiStatus.Internal
-    @ApiStatus.Experimental
-    @UnstableApi
-    @Beta
-    private void testFeature() {
-        SpentMoney d;
-        if (true) throw new UnsupportedOperationException();
-        System.out.println("Copper: " + d.copper + ", Silver: " + d.silver + ", Gold: " + d.gold + ", Platinum: " + d.platinum + ", Successful: " + d.successful);
-    }
-
-    public static final class SpentMoney extends Money { private boolean successful;public boolean isSuccessful() { return successful; }}
+    public static final class SpentMoney extends Money { private long temporaryMoney; private boolean successful;public boolean isSuccessful() { return successful; } public long getTemporaryMoney(){return temporaryMoney;}}
     public sealed static class Money permits SpentMoney {
-        protected int copper;
-        protected int silver;
-        protected int gold;
-        protected int platinum;
-        protected Money(int value){
+        protected long copper;
+        protected long silver;
+        protected long gold;
+        protected long platinum;
+        protected Money(long value){
             this.platinum = value/PLATINUM_VALUE;
-            int a = value%PLATINUM_VALUE;
+            long a = value%PLATINUM_VALUE;
             this.gold = a/GOLD_VALUE;
-            int b = a%GOLD_VALUE;
+            long b = a%GOLD_VALUE;
             this.silver = b/SILVER_VALUE;
-            int c = b%SILVER_VALUE;
+            long c = b%SILVER_VALUE;
             this.copper = c/COPPER_VALUE;
         }
         private Money(){}
-        public int getPlatinum() { return platinum; }
-        public int getGold() { return gold; }
-        public int getCopper() { return copper; }
-        public int getSilver() { return silver; }
+        public long getPlatinum() { return platinum; }
+        public long getGold() { return gold; }
+        public long getCopper() { return copper; }
+        public long getSilver() { return silver; }
     }
 }

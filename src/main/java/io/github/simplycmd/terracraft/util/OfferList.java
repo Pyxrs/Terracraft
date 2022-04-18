@@ -28,7 +28,7 @@ public class OfferList extends ArrayList<Offer> {
 
         for (Offer offer : this) {
             buf.writeItemStack(offer.getItem());
-            buf.writeInt(offer.getValue().getValue());
+            buf.writeLong(offer.getValue().getValue());
         }
     }
 
@@ -38,7 +38,7 @@ public class OfferList extends ArrayList<Offer> {
 
         for(int j = 0; j < i; ++j) {
             ItemStack itemStack = buf.readItemStack();
-            int price = buf.readInt();
+            long price = buf.readLong();
             tradeOfferList.add(new Offer(itemStack, new Value(price)));
         }
 

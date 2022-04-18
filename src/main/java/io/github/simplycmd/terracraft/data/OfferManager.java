@@ -84,7 +84,7 @@ public class OfferManager implements IdentifiableResourceReloadListener {
             System.out.println("B");
             System.out.println(object.toString());
             var stack = deserializeItemStack(object.getAsJsonObject("item"));
-            var price = object.get("price").getAsInt();
+            var price = object.get("price").getAsLong();
             offers.add(new Offer(stack, new Value(price)));
         } catch (CommandSyntaxException e) {
             throw new RuntimeException(e);
@@ -95,10 +95,12 @@ public class OfferManager implements IdentifiableResourceReloadListener {
         var count = object.get("Count").getAsInt();
         Item item = Registry.ITEM.get(Identifier.tryParse(object.get("id").getAsString()));
         var itemstack = new ItemStack(item);
-        var nbt = StringNbtReader.parse(object.get("tag").getAsString());
-        itemstack.setNbt(nbt);
+        if (object.has("tag")) {
+            var nbt = StringNbtReader.parse(object.get("tag").getAsString());
+            itemstack.setNbt(nbt);
+        }
         itemstack.setCount(count);
-        System.out.println(itemstack.toString() + " " + itemstack.getNbt().toString());
+        //System.out.println(itemstack.toString() + " " + itemstack.getNbt().toString());
         return itemstack;
     }
 }

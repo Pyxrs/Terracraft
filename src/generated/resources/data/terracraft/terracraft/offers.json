@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "offers": [
+    {
+      "item": {
+        "id": "minecraft:bedrock",
+        "Count": 1
+      },
+      "price": 214748364700
+    },
+    {
+      "item": {
+        "id": "minecraft:obsidian",
+        "Count": 1
+      },
+      "price": 11500
+    }
+  ]
+}
