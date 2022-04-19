@@ -2,24 +2,21 @@ package io.github.simplycmd.terracraft.mixin;
 
 import io.github.simplycmd.terracraft.items.accessories.AutoswingAccessoryItem;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
+import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
-import io.github.simplycmd.terracraft.util.TrinketsUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.item.ElytraItem;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -35,7 +32,7 @@ import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import static io.github.simplycmd.terracraft.util.TrinketsUtil.getDJList;
+import static io.github.simplycmd.terracraft.util.AccessoryUtil.getDJList;
 
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin extends LivingEntity implements LivingEntityExtension {
@@ -58,7 +55,7 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
     @Inject(method = "tickMovement", at = @At("HEAD"))
     private void tickMovement(CallbackInfo info) {
         var player = (ClientPlayerEntity)(Object)this;
-        if (player.getAttackCooldownProgress(0.5F) >= 1.0F && TrinketsUtil.isEquipped(player, AutoswingAccessoryItem.class)) {
+        if (player.getAttackCooldownProgress(0.5F) >= 1.0F && AccessoryUtil.isEquipped(player, AutoswingAccessoryItem.class)) {
             ((MinecraftClientAccessor)MinecraftClient.getInstance()).callDoAttack();
         }
         //this.sendSystemMessage(new LiteralText("" + player.getAttackCooldownProgress(0.5F)), null);

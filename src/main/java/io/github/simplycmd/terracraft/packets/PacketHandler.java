@@ -1,11 +1,11 @@
 package io.github.simplycmd.terracraft.packets;
 
+import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.gui.BuyScreenHandler;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import io.github.simplycmd.terracraft.util.OfferList;
 import io.github.simplycmd.terracraft.util.OfferUtils;
-import io.github.simplycmd.terracraft.util.TrinketsUtil;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
@@ -55,7 +55,7 @@ public class PacketHandler {
 
     public static void receiveFromClient(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
         var d = buf.readByte();
-        if(Arrays.stream(TrinketsUtil.getDJList(player)).toList().contains(DoubleJumpAccessoryItem.getFromPower(d))) {
+        if(Arrays.stream(AccessoryUtil.getDJList(player)).toList().contains(DoubleJumpAccessoryItem.getFromPower(d))) {
             server.execute(()->{
                 //player.jump();
                 player.getItemCooldownManager().set(DoubleJumpAccessoryItem.getFromPower(d), 5);

@@ -135,4 +135,17 @@ public class AccessoryUtil {
         }
         return l;
     }
+
+    public static boolean isEquipped(LivingEntity entity, Class<? extends AccessoryItem> itemClazz) {
+        var component = TrinketsApi.getTrinketComponent((LivingEntity) entity);
+        if (component.isPresent()) {
+            for (var equipped : component.get().getAllEquipped()) {
+                if (equipped.getLeft().inventory().getSlotType().getName().equals("accessory")
+                        && itemClazz.isAssignableFrom(equipped.getRight().getItem().getClass())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
