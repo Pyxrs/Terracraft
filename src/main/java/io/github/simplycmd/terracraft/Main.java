@@ -16,6 +16,7 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.entity.data.TrackedDataHandler;
@@ -52,7 +53,7 @@ public class Main implements ModInitializer, ClientModInitializer {
 	public void onInitialize() {
 		// dev testing command
 		CommandRegistrationCallback.EVENT.register(((dispatcher, dedicated) -> {
-			LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("money")
+			LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("money").requires((serverCommandSource -> serverCommandSource.getEntity() instanceof PlayerEntity && FabricLoader.getInstance().isDevelopmentEnvironment()))
 			    .then(CommandManager.argument("amount", LongArgumentType.longArg()).executes(
 				    (context) -> {
 					        ((PlayerEntityExtension)(PlayerEntity)context.getSource().getEntity()).setTemporaryMoney(context.getArgument("amount", Long.class));

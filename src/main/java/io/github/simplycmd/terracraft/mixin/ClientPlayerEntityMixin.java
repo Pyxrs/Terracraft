@@ -17,6 +17,8 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
+import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -56,8 +58,16 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
     private void tickMovement(CallbackInfo info) {
         var player = (ClientPlayerEntity)(Object)this;
         if (player.getAttackCooldownProgress(0.5F) >= 1.0F && AccessoryUtil.isPowerEquipped(player, AutoSwingAccessory.class) && (MinecraftClient.getInstance().options.attackKey.isPressed() || MinecraftClient.getInstance().options.attackKey.wasPressed())) {
-            ((MinecraftClientAccessor)MinecraftClient.getInstance()).callDoAttack();
-            MinecraftClient.getInstance().options.attackKey.setPressed(true);
+            if (MinecraftClient.getInstance().crosshairTarget != null && MinecraftClient.getInstance().crosshairTarget.getType().equals(HitResult.Type.ENTITY)) {
+                if (MinecraftClient.getInstance().crosshairTarget instanceof EntityHitResult result) {
+                    if (result.getEntity() instanceof LivingEntity q) {
+                        if (q.hurtTime <= 0) {
+                            ((MinecraftClientAccessor)MinecraftClient.getInstance()).callDoAttack();
+                            MinecraftClient.getInstance().options.attackKey.setPressed(true);
+                        }
+                    }
+                }
+            }
         }
         //this.sendSystemMessage(new LiteralText("" + player.getAttackCooldownProgress(0.5F)), null);
 //        var e = this.world.getOtherEntities(this, new Box(new Vec3d(7,7,7), new Vec3d(-7, -7, -7)), (livingEntity) -> {
