@@ -10,6 +10,6 @@ public interface MinecraftClientAccessor {
     @Invoker
     boolean callDoAttack();
 
-    @Accessor
+    @Accessor("attackCooldown")
     int getAttackCooldown();
 }

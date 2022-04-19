@@ -1,6 +1,7 @@
 package io.github.simplycmd.terracraft.util;
 
 import dev.emi.trinkets.api.TrinketsApi;
+import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemConvertible;
@@ -15,6 +16,19 @@ public class TrinketsUtil {
             for (var equipped : component.get().getAllEquipped()) {
                 if (equipped.getLeft().inventory().getSlotType().getName().equals("accessory")
                         && equipped.getRight().getItem() == item.asItem()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean isEquipped(LivingEntity entity, Class<? extends AccessoryItem> itemClazz) {
+        var component = TrinketsApi.getTrinketComponent((LivingEntity) entity);
+        if (component.isPresent()) {
+            for (var equipped : component.get().getAllEquipped()) {
+                if (equipped.getLeft().inventory().getSlotType().getName().equals("accessory")
+                        && itemClazz.isAssignableFrom(equipped.getRight().getItem().getClass())) {
                     return true;
                 }
             }

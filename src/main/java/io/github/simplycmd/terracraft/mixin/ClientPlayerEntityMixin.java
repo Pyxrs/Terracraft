@@ -1,9 +1,11 @@
 package io.github.simplycmd.terracraft.mixin;
 
+import io.github.simplycmd.terracraft.items.accessories.AutoswingAccessoryItem;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
+import io.github.simplycmd.terracraft.util.TrinketsUtil;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.EntityType;
@@ -15,6 +17,8 @@ import net.minecraft.item.ElytraItem;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.Stats;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -29,12 +33,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import javax.annotation.Nonnull;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import static io.github.simplycmd.terracraft.util.TrinketsUtil.getDJList;
 
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin extends LivingEntity implements LivingEntityExtension {
     @Shadow public abstract void playSound(SoundEvent sound, float volume, float pitch);
+
+    @Shadow public abstract void sendSystemMessage(Text message, UUID sender);
 
     //private int amountOfJumps = 0;
     private boolean jumpedRecently = false;
@@ -51,9 +58,10 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
     @Inject(method = "tickMovement", at = @At("HEAD"))
     private void tickMovement(CallbackInfo info) {
         var player = (ClientPlayerEntity)(Object)this;
-        if (((MinecraftClientAccessor)MinecraftClient.getInstance()).getAttackCooldown() <= 0) {
+        if (player.getAttackCooldownProgress(0.5F) >= 1.0F && TrinketsUtil.isEquipped(player, AutoswingAccessoryItem.class)) {
             ((MinecraftClientAccessor)MinecraftClient.getInstance()).callDoAttack();
         }
+        //this.sendSystemMessage(new LiteralText("" + player.getAttackCooldownProgress(0.5F)), null);
 //        var e = this.world.getOtherEntities(this, new Box(new Vec3d(7,7,7), new Vec3d(-7, -7, -7)), (livingEntity) -> {
 //            if (livingEntity instanceof LivingEntity)
 //            return this.getSquaredMaxAttackDistance((LivingEntity) livingEntity) >= this.squaredDistanceTo(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
