@@ -1,6 +1,7 @@
 package io.github.simplycmd.terracraft.mixin;
 
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
+import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import net.minecraft.block.Block;
 import net.minecraft.entity.LivingEntity;
@@ -16,9 +17,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import io.github.simplycmd.terracraft.util.TrinketsUtil;
-import io.github.simplycmd.terracraft.AccessoryUtil;
 import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -66,9 +64,9 @@ public abstract class LivingEntityMixin implements LivingEntityExtension {
 
     @Inject(method = "computeFallDamage", at = @At("RETURN"), cancellable = true)
     private void computeFallDamage(float fallDistance, float damageMultiplier, CallbackInfoReturnable<Integer> cir) {
-        if ((LivingEntity)(Object)this instanceof PlayerEntity playerEntity && TrinketsUtil.getDJ(playerEntity) != null) {
+        if ((LivingEntity)(Object)this instanceof PlayerEntity playerEntity && AccessoryUtil.getDJ(playerEntity) != null) {
             double l = 1;
-            for (var d : TrinketsUtil.getDJList(playerEntity)) {
+            for (var d : AccessoryUtil.getDJList(playerEntity)) {
                 l = l + 10*d.jumpPower()*d.doubleJumps();
             }
             cir.setReturnValue(MathHelper.ceil((cir.getReturnValue()/damageMultiplier - l)*damageMultiplier));

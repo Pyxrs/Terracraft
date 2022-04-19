@@ -21,7 +21,6 @@ public class AttackSpeedAccessoryItem extends AccessoryItem {
 
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         var modifiers = super.getModifiers(stack, slot, entity, uuid);
-        // attack speed
         modifiers.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(uuid, "terracraft:attack_speed", speed, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         return modifiers;
     }

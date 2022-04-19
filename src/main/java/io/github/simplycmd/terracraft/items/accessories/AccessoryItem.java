@@ -3,7 +3,7 @@ package io.github.simplycmd.terracraft.items.accessories;
 import java.util.UUID;
 
 import dev.emi.trinkets.api.SlotReference;
-import io.github.simplycmd.terracraft.AccessoryUtil;
+import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
