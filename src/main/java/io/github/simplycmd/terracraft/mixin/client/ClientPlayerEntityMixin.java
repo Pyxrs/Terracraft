@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.mixin;
+package io.github.simplycmd.terracraft.mixin.client;
 
 import io.github.simplycmd.terracraft.items.accessories.AutoSwingAccessory;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessory;

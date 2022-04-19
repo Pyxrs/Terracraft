@@ -4,18 +4,18 @@
   "package": "io.github.simplycmd.terracraft.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "BipedEntityModelMixin",
     "CampfireBlockEntityMixin",
-    "ClientPlayerEntityMixin",
     "CraftingResultSlotMixin",
     "ItemStackMixin",
     "LivingEntityMixin",
-    "MinecraftClientAccessor",
     "PlayerEntityMixin",
     "RecipeManagerMixin"
   ],
   "client": [
-    "ArmorFeatureRendererMixin"
+    "client.BipedEntityModelMixin",
+    "client.ClientPlayerEntityMixin",
+    "client.MinecraftClientAccessor",
+    "client.ArmorFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

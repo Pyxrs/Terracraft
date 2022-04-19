@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.mixin;
+package io.github.simplycmd.terracraft.mixin.client;
 
 import dev.emi.trinkets.api.SlotType;
 import dev.emi.trinkets.api.TrinketComponent;
