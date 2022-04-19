@@ -5,6 +5,8 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import io.github.simplycmd.terracraft.blocks.BlockRenderer;
 import io.github.simplycmd.terracraft.data.OfferManager;
 import io.github.simplycmd.terracraft.gui.BuyScreen;
+import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.TestAccessory;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
 import io.github.simplycmd.terracraft.registry.*;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
@@ -13,6 +15,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
@@ -25,6 +28,7 @@ import net.minecraft.resource.ResourceType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class Main implements ModInitializer, ClientModInitializer {
 	public static String MOD_ID = "terracraft";
@@ -69,6 +73,9 @@ public class Main implements ModInitializer, ClientModInitializer {
 		ScreenHandlerRegistry.registerScreenHandlers();
 		PacketHandler.registerServerPackets();
 		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(OfferManager.instance());
+
+		if (FabricLoader.getInstance().isDevelopmentEnvironment())
+		Registry.register(Registry.ITEM, "terracraft:test_accessory", AccessoryItem.builder().addAccessory(TestAccessory::new).settings(new FabricItemSettings()).build());
 		//Resources.RESOURCE_PACK.dump();
 	}
 
