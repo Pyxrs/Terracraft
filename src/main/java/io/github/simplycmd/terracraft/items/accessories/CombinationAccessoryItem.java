@@ -1,6 +1,8 @@
 package io.github.simplycmd.terracraft.items.accessories;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 import com.google.common.collect.HashMultimap;
@@ -18,11 +20,16 @@ import net.minecraft.world.World;
 
 public class CombinationAccessoryItem extends AccessoryItem {
     @Getter
-    public final ArrayList<AccessoryItem> ingredients;
+    public final List<AccessoryItem> ingredients;
 
     public CombinationAccessoryItem(ArrayList<AccessoryItem> ingredients, FabricItemSettings settings) {
         super(settings);
         this.ingredients = ingredients;
+    }
+
+    public CombinationAccessoryItem(AccessoryItem[] ingredients, FabricItemSettings settings) {
+        super(settings);
+        this.ingredients = Arrays.stream(ingredients).toList();
     }
     
     @Override

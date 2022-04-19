@@ -5,8 +5,10 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import io.github.simplycmd.terracraft.blocks.BlockRenderer;
 import io.github.simplycmd.terracraft.data.OfferManager;
 import io.github.simplycmd.terracraft.gui.BuyScreen;
+import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
 import io.github.simplycmd.terracraft.registry.*;
+import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.util.PlayerEntityExtension;
 import net.fabricmc.api.ClientModInitializer;
@@ -25,6 +27,8 @@ import net.minecraft.resource.ResourceType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.Identifier;
+
+import java.util.HashMap;
 
 public class Main implements ModInitializer, ClientModInitializer {
 	public static String MOD_ID = "terracraft";
@@ -47,6 +51,7 @@ public class Main implements ModInitializer, ClientModInitializer {
 
 	@Override
 	public void onInitialize() {
+		// dev testing command
 		CommandRegistrationCallback.EVENT.register(((dispatcher, dedicated) -> {
 			LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("money")
 			    .then(CommandManager.argument("amount", LongArgumentType.longArg()).executes(
@@ -80,6 +85,19 @@ public class Main implements ModInitializer, ClientModInitializer {
 			if(MinecraftClient.getInstance().options.jumpKey.isPressed()) {
 			}
 		});
+
+		var d = new LivingEntityExtension() {
+
+			@Override
+			public HashMap<DoubleJumpAccessoryItem, Integer> terracraft$getJumpCounter() {
+				return null;
+			}
+
+			@Override
+			public void terracraft$resetJumpCounter() {
+
+			}
+		};
 
 		HandledScreens.register(ScreenHandlerRegistry.BUY_SCREEN_HANDLER, BuyScreen::new);
 	}

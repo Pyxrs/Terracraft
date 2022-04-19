@@ -20,8 +20,7 @@ public class Tuple {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Tuple)) return false;
-        Tuple tuple = (Tuple) o;
+        if (!(o instanceof Tuple tuple)) return false;
         return Arrays.equals(objects, tuple.objects);
     }
 

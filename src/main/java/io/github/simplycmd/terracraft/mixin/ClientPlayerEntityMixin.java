@@ -55,8 +55,9 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
     @Inject(method = "tickMovement", at = @At("HEAD"))
     private void tickMovement(CallbackInfo info) {
         var player = (ClientPlayerEntity)(Object)this;
-        if (player.getAttackCooldownProgress(0.5F) >= 1.0F && AccessoryUtil.isEquipped(player, AutoswingAccessoryItem.class)) {
+        if (player.getAttackCooldownProgress(0.5F) >= 1.0F && AccessoryUtil.isEquipped(player, AutoswingAccessoryItem.class) && (MinecraftClient.getInstance().options.attackKey.isPressed() || MinecraftClient.getInstance().options.attackKey.wasPressed())) {
             ((MinecraftClientAccessor)MinecraftClient.getInstance()).callDoAttack();
+            MinecraftClient.getInstance().options.attackKey.setPressed(true);
         }
         //this.sendSystemMessage(new LiteralText("" + player.getAttackCooldownProgress(0.5F)), null);
 //        var e = this.world.getOtherEntities(this, new Box(new Vec3d(7,7,7), new Vec3d(-7, -7, -7)), (livingEntity) -> {

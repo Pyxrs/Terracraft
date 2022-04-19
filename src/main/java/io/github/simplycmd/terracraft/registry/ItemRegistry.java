@@ -89,7 +89,7 @@ public class ItemRegistry {
         /*TODO*/valentine_ring = new SimpleItem(ID("valentine_ring"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         water_walking_boots = new SimpleItem(ID("water_walking_boots"), new FluidWalkingAccessoryItem(FluidTags.WATER, new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
         /*TODO*/fledgling_wings = new SimpleItem(ID("fledgling_wings"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        feral_claws = new SimpleItem(ID("feral_claws"), new AttackSpeedAccessoryItem(new FabricItemSettings().group(ItemGroup.MISC), 0.12F)).defaultItemModel();
+        feral_claws = new SimpleItem(ID("feral_claws"), new FeralClawsAccessoryItem(new FabricItemSettings().group(ItemGroup.MISC), 0.12F)).defaultItemModel();
     }
 
     private static Identifier ID(String id) {
