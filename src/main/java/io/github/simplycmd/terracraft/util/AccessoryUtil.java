@@ -1,8 +1,10 @@
 package io.github.simplycmd.terracraft.util;
 
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 
+import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.TrinketsApi;
 import io.github.simplycmd.terracraft.items.accessories.v2.AccessoryItem;
 import io.github.simplycmd.terracraft.items.accessories.v2.Accessory;
@@ -21,9 +23,20 @@ public class AccessoryUtil {
      * @return The outcome of the check.
      */
     public static boolean isItemEquipped(LivingEntity entity, AccessoryItem accessory) {
-        return ifEquipped(entity, "accessory", (item) -> 
-            Optional.of(item instanceof AccessoryItem && item == accessory)
-        ).map(bool -> (Boolean) bool).orElse(false); // Trust me, I'm just as confused as you are.
+        AtomicBoolean z = new AtomicBoolean(false);
+        TrinketsApi.getTrinketComponent(entity).ifPresent((a)-> {
+            a.getAllEquipped().forEach((slotReferenceItemStackPair -> {
+                var b = slotReferenceItemStackPair.getLeft();
+                var c = slotReferenceItemStackPair.getRight();
+                if (b.inventory().getSlotType().getName().equals("accessory") && c.getItem() instanceof AccessoryItem o) {
+                    if (o == accessory) z.set(true);
+                }
+            }));
+        });
+//        return ifEquipped(entity, "accessory", (item) ->
+//            Optional.of(item instanceof AccessoryItem && item == accessory)
+//        ).map(bool -> (Boolean) bool).orElse(false); // Trust me, I'm just as confused as you are.
+        return z.get();
     }
 
     /**
@@ -33,9 +46,19 @@ public class AccessoryUtil {
      * @return The outcome of the check.
      */
     public static boolean isPowerEquipped(LivingEntity entity, Class<? extends Accessory> power) {
-        return ifEquipped(entity, "accessory", (item) ->
-                Optional.of(item instanceof AccessoryItem && testHasPowers((AccessoryItem) item, power))
-        ).map(bool -> (Boolean) bool).orElse(false);
+        AtomicBoolean z = new AtomicBoolean(false);
+        TrinketsApi.getTrinketComponent(entity).ifPresent((a)-> {
+            a.getAllEquipped().forEach((slotReferenceItemStackPair -> {
+                var b = slotReferenceItemStackPair.getLeft();
+                var c = slotReferenceItemStackPair.getRight();
+                if (b.inventory().getSlotType().getName().equals("accessory") && c.getItem() instanceof AccessoryItem o) {
+                    for (Accessory accessory : o.getAccessories()) {
+                        if (power.isAssignableFrom(accessory.getClass())) z.set(true);
+                    }
+                }
+            }));
+        });
+        return z.get();
     }
 
     /**
@@ -47,14 +70,19 @@ public class AccessoryUtil {
      */
     public static Optional<?> ifEquipped(LivingEntity entity, String slotType, Function<Item, Optional<?>> function) {
         var component = TrinketsApi.getTrinketComponent((LivingEntity) entity);
+        Optional<?> e = Optional.empty();
+        var d = true;
         if (component.isPresent()) {
             for (var equipped : component.get().getAllEquipped()) {
                 if (equipped.getLeft().inventory().getSlotType().getName().equals(slotType)) {
-                    return function.apply(equipped.getRight().getItem());
+                    var f = function.apply(equipped.getRight().getItem());
+                    if (d && f.isPresent()) {
+                        e = f; d = false;
+                    }
                 }
             }
         }
-        return Optional.empty();
+        return e;
     }
 
     /**
