@@ -1,9 +1,6 @@
-package io.github.simplycmd.terracraft.items.accessories;
-
-import java.util.UUID;
+package io.github.simplycmd.terracraft.items.accessories.v2;
 
 import com.google.common.collect.Multimap;
-
 import dev.emi.trinkets.api.SlotReference;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.LivingEntity;
@@ -12,17 +9,19 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
 
-public class SpeedAccessoryItem extends AccessoryItem {
+import java.util.UUID;
+
+public class SpeedAccessory implements Accessory {
     private final float increasePercent;
 
-    public SpeedAccessoryItem(float increasePercent, FabricItemSettings settings) {
-        super(settings);
+    public SpeedAccessory(float increasePercent) {
         this.increasePercent = increasePercent;
     }
 
+    @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
-        var modifiers = super.getModifiers(stack, slot, entity, uuid);
-        modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(uuid, this.getTranslationKey() + "_speed", increasePercent, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        var modifiers = Accessory.super.getModifiers(stack, slot, entity, uuid);
+        modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(uuid, "terracraft_speed_accessory" + "_speed", increasePercent, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         return modifiers;
     }
 }

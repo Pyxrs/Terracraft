@@ -1,9 +1,9 @@
 package io.github.simplycmd.terracraft.packets;
 
+import io.github.simplycmd.terracraft.items.accessories.v2.DoubleJumpAccessory;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.gui.BuyScreenHandler;
-import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import io.github.simplycmd.terracraft.util.OfferList;
 import io.github.simplycmd.terracraft.util.OfferUtils;
 import io.netty.buffer.Unpooled;
@@ -55,15 +55,15 @@ public class PacketHandler {
 
     public static void receiveFromClient(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
         var d = buf.readByte();
-        if(Arrays.stream(AccessoryUtil.getDJList(player)).toList().contains(DoubleJumpAccessoryItem.getFromPower(d))) {
+        if(Arrays.stream(AccessoryUtil.getDJList(player)).toList().contains(DoubleJumpAccessory.getFromPower(d))) {
             server.execute(()->{
                 //player.jump();
-                player.getItemCooldownManager().set(DoubleJumpAccessoryItem.getFromPower(d), 5);
+                //player.getItemCooldownManager().set(DoubleJumpAccessory.getFromPower(d), 5);
                 PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
                 OfferUtils.initializeBuyOffer(player);
                 passedData.writeUuid(player.getUuid());
-                passedData.writeByte(DoubleJumpAccessoryItem.getFromPower(d).particleId());
-                passedData.writeInt(DoubleJumpAccessoryItem.getFromPower(d).particleAmount());
+                passedData.writeByte(DoubleJumpAccessory.getFromPower(d).particleId());
+                passedData.writeInt(DoubleJumpAccessory.getFromPower(d).particleAmount());
                 PlayerLookup.tracking(player).forEach(p -> {
                     if (p != player) {
                         ServerPlayNetworking.send(p, DOUBLE_DUMP_EFFECT, passedData);

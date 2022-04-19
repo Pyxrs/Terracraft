@@ -1,14 +1,13 @@
-package io.github.simplycmd.terracraft.items.accessories;
+package io.github.simplycmd.terracraft.items.accessories.v2;
 
-import net.minecraft.tag.TagKey;
 import be.florens.expandability.api.fabric.LivingFluidCollisionCallback;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.tag.TagKey;
 
-public class FluidWalkingAccessoryItem extends AccessoryItem {
-    public FluidWalkingAccessoryItem(TagKey<Fluid> fluidTag, FabricItemSettings settings) {
-        super(settings);
+public class FluidWalkingAccessory implements Accessory {
+    @SuppressWarnings("all")
+    public FluidWalkingAccessory(TagKey<Fluid> fluidTag) {
         LivingFluidCollisionCallback.EVENT.register((entity, fluidState) -> {
             return AccessoryUtil.isPowerEquipped(entity, this.getClass()) && fluidState.isIn(fluidTag) && !entity.isInSneakingPose();
         });

@@ -1,7 +1,7 @@
 package io.github.simplycmd.terracraft.mixin;
 
-import io.github.simplycmd.terracraft.items.accessories.AutoswingAccessoryItem;
-import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.v2.AutoSwingAccessory;
+import io.github.simplycmd.terracraft.items.accessories.v2.DoubleJumpAccessory;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
@@ -55,7 +55,7 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
     @Inject(method = "tickMovement", at = @At("HEAD"))
     private void tickMovement(CallbackInfo info) {
         var player = (ClientPlayerEntity)(Object)this;
-        if (player.getAttackCooldownProgress(0.5F) >= 1.0F && AccessoryUtil.isEquipped(player, AutoswingAccessoryItem.class) && (MinecraftClient.getInstance().options.attackKey.isPressed() || MinecraftClient.getInstance().options.attackKey.wasPressed())) {
+        if (player.getAttackCooldownProgress(0.5F) >= 1.0F && AccessoryUtil.isPowerEquipped(player, AutoSwingAccessory.class) && (MinecraftClient.getInstance().options.attackKey.isPressed() || MinecraftClient.getInstance().options.attackKey.wasPressed())) {
             ((MinecraftClientAccessor)MinecraftClient.getInstance()).callDoAttack();
             MinecraftClient.getInstance().options.attackKey.setPressed(true);
         }
@@ -75,8 +75,8 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
             terracraft$resetJumpCounter();
             //amountOfJumps = TrinketsUtil.getDJ(player) == null ? 0 : TrinketsUtil.getDJ(player).doubleJumps();
         } else if (getBestActiveDJ() != null && !jumpedRecently &&
-                terracraft$getJumpCounter().get(getBestActiveDJ()) > 0 &&
-                !player.getItemCooldownManager().isCoolingDown(getBestActiveDJ())){
+                terracraft$getJumpCounter().get(getBestActiveDJ()) > 0 ||
+               /* !player.getItemCooldownManager().isCoolingDown(getBestActiveDJ())*/ false){
             if (player.input.jumping && !player.getAbilities().flying) {
                 if (canJump(player)) {
                     //--amountOfJumps;
@@ -132,18 +132,18 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
 
     }
 
-    private DoubleJumpAccessoryItem  getBestActiveDJ() {
+    private DoubleJumpAccessory getBestActiveDJ() {
         @Nonnull
         var a = getDJList(this);
-        var d = new ArrayList<DoubleJumpAccessoryItem>();
-        for (DoubleJumpAccessoryItem doubleJumpAccessoryItem : a) {
+        var d = new ArrayList<DoubleJumpAccessory>();
+        for (DoubleJumpAccessory doubleJumpAccessoryItem : a) {
             if (this.terracraft$getJumpCounter().get(doubleJumpAccessoryItem) > 0) {
                 d.add(doubleJumpAccessoryItem);
             }
         }
 
-        DoubleJumpAccessoryItem l = null;
-        for (DoubleJumpAccessoryItem doubleJumpAccessoryItem : d) {
+        DoubleJumpAccessory l = null;
+        for (DoubleJumpAccessory doubleJumpAccessoryItem : d) {
             if (l == null || doubleJumpAccessoryItem.getPower() > l.getPower()) {
                 l = doubleJumpAccessoryItem;
             }

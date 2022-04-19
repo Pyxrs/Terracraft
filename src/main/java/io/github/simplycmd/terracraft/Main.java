@@ -5,7 +5,6 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import io.github.simplycmd.terracraft.blocks.BlockRenderer;
 import io.github.simplycmd.terracraft.data.OfferManager;
 import io.github.simplycmd.terracraft.gui.BuyScreen;
-import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
 import io.github.simplycmd.terracraft.registry.*;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;

@@ -1,12 +1,7 @@
-package io.github.simplycmd.terracraft.items.accessories;
-
-import java.util.Random;
-import java.util.UUID;
+package io.github.simplycmd.terracraft.items.accessories.v2;
 
 import com.google.common.collect.Multimap;
-
 import dev.emi.trinkets.api.SlotReference;
-import io.github.simplycmd.terracraft.registry.BlockRegistry;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -18,21 +13,23 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class StepAccessoryItem extends AccessoryItem {
+import java.util.UUID;
+
+public class StepAccessory implements Accessory {
     private final Block stepBlock;
 
-    public StepAccessoryItem(Block stepBlock, FabricItemSettings settings) {
-        super(settings);
+    public StepAccessory(Block stepBlock) {
         this.stepBlock = stepBlock;
     }
 
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
-        var modifiers = super.getModifiers(stack, slot, entity, uuid);
+        var modifiers = Accessory.super.getModifiers(stack, slot, entity, uuid);
         var increasePercent = 0;
-        modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(uuid, this.getTranslationKey() + "_speed", increasePercent, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+        modifiers.put(EntityAttributes.GENERIC_MOVEMENT_SPEED, new EntityAttributeModifier(uuid, "terracraft_step_accessory" + "_speed", increasePercent, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         return modifiers;
     }
 
+    @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (entity.isInSneakingPose() && !entity.isOnGround()) {
             if (world.getBlockState(entity.getBlockPos().down(1)).getBlock() != Blocks.AIR) {

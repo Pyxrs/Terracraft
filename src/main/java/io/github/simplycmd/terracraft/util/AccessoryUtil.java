@@ -4,11 +4,11 @@ import java.util.Optional;
 import java.util.function.Function;
 
 import dev.emi.trinkets.api.TrinketsApi;
-import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
-import io.github.simplycmd.terracraft.items.accessories.CombinationAccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.v2.AccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.v2.Accessory;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
-import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.v2.DoubleJumpAccessory;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -32,9 +32,9 @@ public class AccessoryUtil {
      * @param power The Class to check against.
      * @return The outcome of the check.
      */
-    public static boolean isPowerEquipped(LivingEntity entity, Class<? extends AccessoryItem> power) {
-        return ifEquipped(entity, "accessory", (item) -> 
-            Optional.of(item instanceof AccessoryItem && testHasPowers((AccessoryItem) item, power))
+    public static boolean isPowerEquipped(LivingEntity entity, Class<? extends Accessory> power) {
+        return ifEquipped(entity, "accessory", (item) ->
+                Optional.of(item instanceof AccessoryItem && testHasPowers((AccessoryItem) item, power))
         ).map(bool -> (Boolean) bool).orElse(false);
     }
 
@@ -63,7 +63,7 @@ public class AccessoryUtil {
      * @param testAgainstClass The Class to check against.
      * @return The outcome of the test.
      */
-    public static boolean testHasPowers(AccessoryItem accessoryItem, Class<? extends AccessoryItem> testAgainstClass) {
+    public static boolean testHasPowers(AccessoryItem accessoryItem, Class<? extends Accessory> testAgainstClass) {
         // Check if it's a CombinationAccessoryItem
         if (testCombinationContains(accessoryItem, testAgainstClass)) {
             return true;
@@ -75,60 +75,64 @@ public class AccessoryUtil {
         return false;
     }
 
-    private static boolean testCombinationContains(AccessoryItem combinationItem, Class<? extends AccessoryItem> testAgainstClass) {
-        if (combinationItem instanceof CombinationAccessoryItem) {
-            for (var ingredient : ((CombinationAccessoryItem) combinationItem).getIngredients()) {
-                if (ingredient.getClass() == testAgainstClass) {
-                    return true;
-                }
+    private static boolean testCombinationContains(AccessoryItem combinationItem, Class<? extends Accessory> testAgainstClass) {
+        for (var ingredient : combinationItem.getAccessories()) {
+            if (ingredient.getClass() == testAgainstClass) {
+                return true;
             }
         }
         return false;
     }
 
-    public static DoubleJumpAccessoryItem getDJ(LivingEntity entity) {
+    public static DoubleJumpAccessory getDJ(LivingEntity entity) {
         var l = -1;
         var component = TrinketsApi.getTrinketComponent((LivingEntity) entity);
         if (component.isPresent()) {
             for (var equipped : component.get().getAllEquipped()) {
                 if (equipped.getLeft().inventory().getSlotType().getName().equals("accessory")
-                        && equipped.getRight().getItem() instanceof DoubleJumpAccessoryItem o) {
-                    l = Math.max(DoubleJumpAccessoryItem.power().get(o), l);
+                        && equipped.getRight().getItem() instanceof AccessoryItem o) {
+                    for (Accessory accessory : o.getAccessories()) {
+                        if (!(accessory instanceof DoubleJumpAccessory)) continue;
+                        l = Math.max(DoubleJumpAccessory.power().get(accessory), l);
+                    }
                 }
             }
         }
-        if (!DoubleJumpAccessoryItem.power().containsValue(l)) return null;
-        return DoubleJumpAccessoryItem.getFromPower(l);
+        if (!DoubleJumpAccessory.power().containsValue(l)) return null;
+        return DoubleJumpAccessory.getFromPower(l);
     }
 
-    public static DoubleJumpAccessoryItem[] getDJList(LivingEntity entity) {
+    public static DoubleJumpAccessory[] getDJList(LivingEntity entity) {
         var l = -1;
-        var d = new ArrayList<DoubleJumpAccessoryItem>();
+        var d = new ArrayList<DoubleJumpAccessory>();
         var component = TrinketsApi.getTrinketComponent((LivingEntity) entity);
         if (component.isPresent()) {
             for (var equipped : component.get().getAllEquipped()) {
                 if (equipped.getLeft().inventory().getSlotType().getName().equals("accessory")
-                        && equipped.getRight().getItem() instanceof DoubleJumpAccessoryItem o) {
-                    d.add(o);
+                        && equipped.getRight().getItem() instanceof AccessoryItem o) {
+                    for (Accessory accessory : o.getAccessories()) {
+                        if (!(accessory instanceof DoubleJumpAccessory q)) continue;
+                        d.add(q);
+                    }
                 }
             }
         }
-        return d.toArray(new DoubleJumpAccessoryItem[0]);
+        return d.toArray(new DoubleJumpAccessory[0]);
     }
 
 
-    public static DoubleJumpAccessoryItem getBestActiveDJ(LivingEntity entity) {
+    public static DoubleJumpAccessory getBestActiveDJ(LivingEntity entity) {
         @Nonnull
         var a = getDJList(entity);
-        var d = new ArrayList<DoubleJumpAccessoryItem>();
-        for (DoubleJumpAccessoryItem doubleJumpAccessoryItem : a) {
+        var d = new ArrayList<DoubleJumpAccessory>();
+        for (DoubleJumpAccessory doubleJumpAccessoryItem : a) {
             if (((LivingEntityExtension)entity).terracraft$getJumpCounter().get(doubleJumpAccessoryItem) > 0) {
                 d.add(doubleJumpAccessoryItem);
             }
         }
 
-        DoubleJumpAccessoryItem l = null;
-        for (DoubleJumpAccessoryItem doubleJumpAccessoryItem : d) {
+        DoubleJumpAccessory l = null;
+        for (DoubleJumpAccessory doubleJumpAccessoryItem : d) {
             if (l == null || doubleJumpAccessoryItem.getPower() > l.getPower()) {
                 l = doubleJumpAccessoryItem;
             }
@@ -136,7 +140,7 @@ public class AccessoryUtil {
         return l;
     }
 
-    public static boolean isEquipped(LivingEntity entity, Class<? extends AccessoryItem> itemClazz) {
+    public static boolean isEquipped(LivingEntity entity, Class<? extends Accessory> itemClazz) {
         var component = TrinketsApi.getTrinketComponent((LivingEntity) entity);
         if (component.isPresent()) {
             for (var equipped : component.get().getAllEquipped()) {

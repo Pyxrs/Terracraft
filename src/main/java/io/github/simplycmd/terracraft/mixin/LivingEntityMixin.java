@@ -1,6 +1,7 @@
 package io.github.simplycmd.terracraft.mixin;
 
-import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.v2.AccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.v2.DoubleJumpAccessory;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import net.minecraft.block.Block;
@@ -17,7 +18,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -26,13 +26,13 @@ import java.util.HashMap;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin implements LivingEntityExtension {
     @Unique
-    private HashMap<DoubleJumpAccessoryItem, Integer> jumpItemCounter = null;
+    private HashMap<DoubleJumpAccessory, Integer> jumpItemCounter = null;
 
     @Override
-    public HashMap<DoubleJumpAccessoryItem, Integer> terracraft$getJumpCounter() {
+    public HashMap<DoubleJumpAccessory, Integer> terracraft$getJumpCounter() {
         if (jumpItemCounter == null) {
             jumpItemCounter = new HashMap<>();
-            DoubleJumpAccessoryItem.power().forEach(((doubleJumpAccessoryItem, integer) -> {
+            DoubleJumpAccessory.power().forEach(((doubleJumpAccessoryItem, integer) -> {
                 jumpItemCounter.put(doubleJumpAccessoryItem, doubleJumpAccessoryItem.doubleJumps());
             }));
         }

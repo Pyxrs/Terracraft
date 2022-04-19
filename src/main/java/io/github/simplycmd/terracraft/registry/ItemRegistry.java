@@ -4,9 +4,8 @@ import com.simplycmd.featherlib.registry.SimpleItem;
 
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.items.*;
+import io.github.simplycmd.terracraft.items.accessories.v2.*;
 import io.github.simplycmd.terracraft.items.util.*;
-import io.github.simplycmd.terracraft.items.accessories.*;
-import io.github.simplycmd.terracraft.items.accessories.AttackSpeedAccessoryItem;
 import io.github.simplycmd.terracraft.items.util.tools.*;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -65,31 +64,31 @@ public class ItemRegistry {
         cactus_axe = new SimpleItem(ID("cactus_axe"), new AxeItem(ToolMaterials.CACTUS, 6.0F, -3.2F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
         cactus_hoe = new SimpleItem(ID("cactus_hoe"), new HoeItem(ToolMaterials.CACTUS, 0, -3.0F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
 
-        aglet = new SimpleItem(ID("aglet"), new SpeedAccessoryItem(0.05F, new FabricItemSettings().group(ItemGroup.TOOLS))).defaultItemModel();
-        anklet_of_the_wind = new SimpleItem(ID("anklet_of_the_wind"), new SpeedAccessoryItem(0.1F, new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/balloon_pufferfish = new SimpleItem(ID("balloon_pufferfish"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/climbing_claws = new SimpleItem(ID("climbing_claws"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        cloud_in_a_bottle = new SimpleItem(ID("cloud_in_a_bottle"), DoubleJumpAccessoryItem.create(new FabricItemSettings().group(ItemGroup.MISC), ParticleUtil.getParticleId(ParticleTypes.CAMPFIRE_COSY_SMOKE), 50, 0.4, 1)).defaultItemModel();
-        /*TODO*/dunerider_boots = new SimpleItem(ID("dunerider_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        flipper = new SimpleItem(ID("flipper"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/flurry_boots = new SimpleItem(ID("flurry_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/flying_carpet = new SimpleItem(ID("flying_carpet"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/hermes_boots = new SimpleItem(ID("hermes_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        ice_skates = new SimpleItem(ID("ice_skates"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        inner_tube = new SimpleItem(ID("inner_tube"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/lucky_horseshoe = new SimpleItem(ID("lucky_horseshoe"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/magiluminescence = new SimpleItem(ID("magiluminescence"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/rocket_boots = new SimpleItem(ID("rocket_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/sailfish_boots = new SimpleItem(ID("sailfish_boots"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        sandstorm_in_a_bottle = new SimpleItem(ID("sandstorm_in_a_bottle"), DoubleJumpAccessoryItem.create(new FabricItemSettings().group(ItemGroup.MISC), ParticleUtil.getParticleId(ParticleTypes.CLOUD), 50, 1.6, 1)).defaultItemModel();
-        /*TODO*/shiny_red_balloon = new SimpleItem(ID("shiny_red_balloon"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/shoe_spikes = new SimpleItem(ID("shoe_spikes"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        step_stool = new SimpleItem(ID("step_stool"), new StepAccessoryItem(Blocks.AIR, new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        tsunami_in_a_bottle = new SimpleItem(ID("tsunami_in_a_bottle"), DoubleJumpAccessoryItem.create(new FabricItemSettings().group(ItemGroup.MISC), ParticleUtil.getParticleId(ParticleTypes.RAIN), 300, 0.8, 1)).defaultItemModel();
-        /*TODO*/valentine_ring = new SimpleItem(ID("valentine_ring"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        water_walking_boots = new SimpleItem(ID("water_walking_boots"), new FluidWalkingAccessoryItem(FluidTags.WATER, new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        /*TODO*/fledgling_wings = new SimpleItem(ID("fledgling_wings"), new AccessoryItem(new FabricItemSettings().group(ItemGroup.MISC))).defaultItemModel();
-        feral_claws = new SimpleItem(ID("feral_claws"), new FeralClawsAccessoryItem(new FabricItemSettings().group(ItemGroup.MISC), 0.12F)).defaultItemModel();
+        aglet = new SimpleItem(ID("aglet"), AccessoryItem.builder().addAccessory(new SpeedAccessory(0.05F)).settings(new FabricItemSettings().group(ItemGroup.TOOLS)).build()).defaultItemModel();
+        anklet_of_the_wind = new SimpleItem(ID("anklet_of_the_wind"), AccessoryItem.builder().addAccessory(new SpeedAccessory(0.1F)).settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/balloon_pufferfish = new SimpleItem(ID("balloon_pufferfish"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/climbing_claws = new SimpleItem(ID("climbing_claws"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        cloud_in_a_bottle = new SimpleItem(ID("cloud_in_a_bottle"), AccessoryItem.builder().addAccessory(DoubleJumpAccessory.create(ParticleUtil.getParticleId(ParticleTypes.CAMPFIRE_COSY_SMOKE), 50, 0.4, 1)).settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/dunerider_boots = new SimpleItem(ID("dunerider_boots"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        flipper = new SimpleItem(ID("flipper"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/flurry_boots = new SimpleItem(ID("flurry_boots"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/flying_carpet = new SimpleItem(ID("flying_carpet"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/hermes_boots = new SimpleItem(ID("hermes_boots"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        ice_skates = new SimpleItem(ID("ice_skates"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        inner_tube = new SimpleItem(ID("inner_tube"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/lucky_horseshoe = new SimpleItem(ID("lucky_horseshoe"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/magiluminescence = new SimpleItem(ID("magiluminescence"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/rocket_boots = new SimpleItem(ID("rocket_boots"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/sailfish_boots = new SimpleItem(ID("sailfish_boots"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        sandstorm_in_a_bottle = new SimpleItem(ID("sandstorm_in_a_bottle"), AccessoryItem.builder().addAccessory(DoubleJumpAccessory.create(ParticleUtil.getParticleId(ParticleTypes.CLOUD), 50, 1.6, 1)).settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/shiny_red_balloon = new SimpleItem(ID("shiny_red_balloon"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/shoe_spikes = new SimpleItem(ID("shoe_spikes"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        step_stool = new SimpleItem(ID("step_stool"), AccessoryItem.builder().addAccessory(new StepAccessory(Blocks.AIR)).settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        tsunami_in_a_bottle = new SimpleItem(ID("tsunami_in_a_bottle"), AccessoryItem.builder().addAccessory(DoubleJumpAccessory.create(ParticleUtil.getParticleId(ParticleTypes.RAIN), 300, 0.8, 1)).settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/valentine_ring = new SimpleItem(ID("valentine_ring"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        water_walking_boots = new SimpleItem(ID("water_walking_boots"), AccessoryItem.builder().addAccessory(new FluidWalkingAccessory(FluidTags.WATER)).settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        /*TODO*/fledgling_wings = new SimpleItem(ID("fledgling_wings"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        feral_claws = new SimpleItem(ID("feral_claws"), AccessoryItem.builder().addAccessory(new AttackSpeedAccessory(0.12F)).addAccessory(new AutoSwingAccessory()).settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
     }
 
     private static Identifier ID(String id) {
