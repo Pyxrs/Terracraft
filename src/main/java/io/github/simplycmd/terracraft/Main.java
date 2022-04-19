@@ -86,19 +86,6 @@ public class Main implements ModInitializer, ClientModInitializer {
 			}
 		});
 
-		var d = new LivingEntityExtension() {
-
-			@Override
-			public HashMap<DoubleJumpAccessoryItem, Integer> terracraft$getJumpCounter() {
-				return null;
-			}
-
-			@Override
-			public void terracraft$resetJumpCounter() {
-
-			}
-		};
-
 		HandledScreens.register(ScreenHandlerRegistry.BUY_SCREEN_HANDLER, BuyScreen::new);
 	}
 
