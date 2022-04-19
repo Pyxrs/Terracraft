@@ -2,6 +2,7 @@ package io.github.simplycmd.terracraft.mixin;
 
 import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessory;
+import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import net.minecraft.block.Block;
@@ -9,14 +10,12 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.HashMap;

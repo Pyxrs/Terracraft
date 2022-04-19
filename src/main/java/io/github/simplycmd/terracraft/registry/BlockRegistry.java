@@ -2,21 +2,19 @@ package io.github.simplycmd.terracraft.registry;
 
 import com.simplycmd.featherlib.registry.Resources;
 import com.simplycmd.featherlib.registry.SimpleBlock;
-import com.simplycmd.featherlib.registry.SimpleItem;
 import com.simplycmd.featherlib.registry.SimpleBlock.ItemModel;
-
+import com.simplycmd.featherlib.registry.SimpleItem;
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.blocks.*;
 import io.github.simplycmd.terracraft.blocks.items.LifeCrystalBlockItem;
 import lombok.Getter;
-import net.devtech.arrp.json.recipe.JIngredient;
-import net.devtech.arrp.json.recipe.JKeys;
-import net.devtech.arrp.json.recipe.JPattern;
-import net.devtech.arrp.json.recipe.JRecipe;
-import net.devtech.arrp.json.recipe.JResult;
+import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.HayBlock;
+import net.minecraft.block.MapColor;
+import net.minecraft.block.Material;
 import net.minecraft.item.*;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.particle.ParticleTypes;

@@ -1,13 +1,8 @@
 package io.github.simplycmd.terracraft.gui;
 
-import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
 import io.github.simplycmd.terracraft.registry.ScreenHandlerRegistry;
-import io.github.simplycmd.terracraft.util.Offer;
 import io.github.simplycmd.terracraft.util.OfferList;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.block.DispenserBlock;
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingInventory;
@@ -19,21 +14,13 @@ import net.minecraft.network.packet.s2c.play.ScreenHandlerSlotUpdateS2CPacket;
 import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.screen.*;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.screen.slot.Slot;
-import net.minecraft.screen.slot.TradeOutputSlot;
-import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.village.MerchantInventory;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionType;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
-import java.util.Random;
 
 import static io.github.simplycmd.terracraft.items.util.Value.trySpend;
 import static io.github.simplycmd.terracraft.items.util.Value.trySpend2;

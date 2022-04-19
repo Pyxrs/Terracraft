@@ -1,5 +1,6 @@
 package io.github.simplycmd.terracraft.mixin;
 
+import com.simplycmd.featherlib.util.SimpleEnchantment;
 import io.github.simplycmd.terracraft.items.util.BaseItem;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
@@ -7,10 +8,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.Iterator;
-
-import com.simplycmd.featherlib.util.SimpleEnchantment;
 
 @Mixin(ItemStack.class)
 public class ItemStackMixin {

@@ -1,11 +1,11 @@
 package io.github.simplycmd.terracraft.packets;
 
+import io.github.simplycmd.terracraft.gui.BuyScreenHandler;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessory;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
-import io.github.simplycmd.terracraft.util.ParticleUtil;
-import io.github.simplycmd.terracraft.gui.BuyScreenHandler;
 import io.github.simplycmd.terracraft.util.OfferList;
 import io.github.simplycmd.terracraft.util.OfferUtils;
+import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;

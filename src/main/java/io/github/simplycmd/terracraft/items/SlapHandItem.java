@@ -1,5 +1,6 @@
 package io.github.simplycmd.terracraft.items;
 
+import com.simplycmd.featherlib.util.SimpleEnchantment;
 import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -11,8 +12,6 @@ import net.minecraft.item.ToolMaterials;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.simplycmd.featherlib.util.SimpleEnchantment;
 
 public class SlapHandItem extends SwordItem implements BaseItem {
     public SlapHandItem() {

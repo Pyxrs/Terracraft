@@ -1,11 +1,11 @@
 package io.github.simplycmd.terracraft.items.util.tools;
 
-import java.util.function.Supplier;
-
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Lazy;
+
+import java.util.function.Supplier;
 
 public enum ToolMaterials implements ToolMaterial {
     CACTUS(0, 59, 2.0F, 0.0F, 15, () -> {

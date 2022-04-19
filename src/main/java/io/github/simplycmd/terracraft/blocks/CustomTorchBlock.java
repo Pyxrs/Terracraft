@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import net.minecraft.block.*;
+import net.minecraft.block.TorchBlock;
 import net.minecraft.particle.ParticleEffect;
 
 public class CustomTorchBlock extends TorchBlock {

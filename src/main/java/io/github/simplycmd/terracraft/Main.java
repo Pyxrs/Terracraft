@@ -7,14 +7,12 @@ import io.github.simplycmd.terracraft.data.OfferManager;
 import io.github.simplycmd.terracraft.gui.BuyScreen;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
 import io.github.simplycmd.terracraft.registry.*;
-import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.util.PlayerEntityExtension;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
-import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
@@ -27,8 +25,6 @@ import net.minecraft.resource.ResourceType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.Identifier;
-
-import java.util.HashMap;
 
 public class Main implements ModInitializer, ClientModInitializer {
 	public static String MOD_ID = "terracraft";

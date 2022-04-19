@@ -1,8 +1,5 @@
 package io.github.simplycmd.terracraft.entities.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.ModelPart;
@@ -10,6 +7,9 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Environment(EnvType.CLIENT)
 public abstract class BaseEntityModel extends EntityModel<Entity> {

@@ -1,14 +1,10 @@
 package io.github.simplycmd.terracraft.util;
 
-import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
-import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.village.TradeOffer;
-import net.minecraft.village.TradeOfferList;
 
 import java.util.ArrayList;
 

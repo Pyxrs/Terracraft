@@ -1,6 +1,5 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import io.github.simplycmd.terracraft.registry.BlockRegistry;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SweetBerryBushBlock;

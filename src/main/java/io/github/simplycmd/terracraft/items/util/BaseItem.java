@@ -1,9 +1,9 @@
 package io.github.simplycmd.terracraft.items.util;
 
+import com.simplycmd.featherlib.util.SimpleEnchantment;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import com.simplycmd.featherlib.util.SimpleEnchantment;
 
 public interface BaseItem {
     default List<SimpleEnchantment> getEnchantments() {

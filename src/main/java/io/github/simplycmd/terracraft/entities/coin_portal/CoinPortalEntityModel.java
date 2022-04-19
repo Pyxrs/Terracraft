@@ -1,11 +1,11 @@
 package io.github.simplycmd.terracraft.entities.coin_portal;
 
-import java.util.HashMap;
-
 import io.github.simplycmd.terracraft.entities.util.BaseEntityModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.model.ModelPart;
+
+import java.util.HashMap;
 
 @Environment(EnvType.CLIENT)
 public class CoinPortalEntityModel extends BaseEntityModel {

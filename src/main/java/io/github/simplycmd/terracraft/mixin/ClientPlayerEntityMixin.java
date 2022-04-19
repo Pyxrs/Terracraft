@@ -2,10 +2,10 @@ package io.github.simplycmd.terracraft.mixin;
 
 import io.github.simplycmd.terracraft.items.accessories.AutoSwingAccessory;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessory;
+import io.github.simplycmd.terracraft.packets.PacketHandler;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
-import io.github.simplycmd.terracraft.packets.PacketHandler;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.EntityType;
@@ -30,7 +30,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import javax.annotation.Nonnull;
-
 import java.util.ArrayList;
 import java.util.UUID;
 

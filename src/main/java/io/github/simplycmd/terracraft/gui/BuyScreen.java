@@ -11,31 +11,17 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.client.gui.screen.ingame.CraftingScreen;
-import net.minecraft.client.gui.screen.ingame.Generic3x3ContainerScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.gui.screen.ingame.MerchantScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.network.packet.c2s.play.SelectMerchantTradeC2SPacket;
-import net.minecraft.screen.MerchantScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.village.TradeOffer;
-import net.minecraft.village.TradeOfferList;
-
-import java.util.Iterator;
-import java.util.Random;
 
 import static io.github.simplycmd.terracraft.packets.PacketHandler.CHANGE_OFFER;
 

@@ -1,22 +1,20 @@
 package io.github.simplycmd.terracraft.registry;
 
 import com.simplycmd.featherlib.registry.SimpleItem;
-
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.items.*;
 import io.github.simplycmd.terracraft.items.accessories.*;
-import io.github.simplycmd.terracraft.items.util.*;
-import io.github.simplycmd.terracraft.items.util.tools.*;
+import io.github.simplycmd.terracraft.items.util.ArmorMaterials;
+import io.github.simplycmd.terracraft.items.util.Value;
+import io.github.simplycmd.terracraft.items.util.tools.AxeItem;
+import io.github.simplycmd.terracraft.items.util.tools.HoeItem;
+import io.github.simplycmd.terracraft.items.util.tools.PickaxeItem;
+import io.github.simplycmd.terracraft.items.util.tools.ToolMaterials;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.AliasedBlockItem;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ShovelItem;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.Identifier;

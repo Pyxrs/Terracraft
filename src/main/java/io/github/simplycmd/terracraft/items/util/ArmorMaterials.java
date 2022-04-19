@@ -1,7 +1,5 @@
 package io.github.simplycmd.terracraft.items.util;
 
-import java.util.function.Supplier;
-
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Items;
@@ -9,6 +7,8 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Lazy;
+
+import java.util.function.Supplier;
 
 public enum ArmorMaterials implements ArmorMaterial {
     CACTUS("cactus", 5, new int[]{1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F, 0.0F, () -> {

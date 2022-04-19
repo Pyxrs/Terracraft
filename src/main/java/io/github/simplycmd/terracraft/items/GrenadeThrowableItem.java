@@ -1,9 +1,9 @@
 package io.github.simplycmd.terracraft.items;
 
+import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntity;
 import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.registry.EntityRegistry;
-import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

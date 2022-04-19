@@ -1,22 +1,8 @@
 package io.github.simplycmd.terracraft.datagen;
 
-import com.simplycmd.featherlib.FeatherLib;
-import io.github.simplycmd.terracraft.Main;
-import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
-import net.minecraft.util.registry.Registry;
-
-import java.util.function.Consumer;
 
 public class ModDataGeneration implements DataGeneratorEntrypoint {
     @Override

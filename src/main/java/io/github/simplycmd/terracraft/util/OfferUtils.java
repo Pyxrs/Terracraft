@@ -6,7 +6,6 @@ import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.item.Items;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.server.network.ServerPlayerEntity;

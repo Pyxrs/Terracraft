@@ -3,7 +3,9 @@ package io.github.simplycmd.terracraft.items;
 import io.github.simplycmd.terracraft.items.util.BaseItem;
 import io.github.simplycmd.terracraft.items.util.Value;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 
 public class CoinItem extends Item implements BaseItem {
     final Value value;

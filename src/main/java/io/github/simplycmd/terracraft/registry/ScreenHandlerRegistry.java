@@ -2,7 +2,6 @@ package io.github.simplycmd.terracraft.registry;
 
 import io.github.simplycmd.terracraft.gui.BuyScreenHandler;
 import io.github.simplycmd.terracraft.util.OfferList;
-import net.minecraft.block.CraftingTableBlock;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.registry.Registry;

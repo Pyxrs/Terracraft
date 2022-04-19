@@ -2,9 +2,7 @@ package io.github.simplycmd.terracraft.mixin;
 
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import net.minecraft.client.model.ModelPart;
-import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Arm;
 import net.minecraft.util.Hand;

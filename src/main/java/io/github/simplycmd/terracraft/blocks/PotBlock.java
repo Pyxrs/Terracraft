@@ -1,11 +1,11 @@
 package io.github.simplycmd.terracraft.blocks;
 
-import io.github.simplycmd.terracraft.registry.SoundRegistry;
-import lombok.Getter;
 import io.github.simplycmd.terracraft.entities.coin_portal.CoinPortalEntity;
 import io.github.simplycmd.terracraft.registry.BlockRegistry;
 import io.github.simplycmd.terracraft.registry.EntityRegistry;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;
+import io.github.simplycmd.terracraft.registry.SoundRegistry;
+import lombok.Getter;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -18,7 +18,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
-import net.minecraft.util.math.*;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;

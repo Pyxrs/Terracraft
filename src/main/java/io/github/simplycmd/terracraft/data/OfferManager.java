@@ -8,7 +8,6 @@ import io.github.simplycmd.terracraft.util.OfferList;
 import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtHelper;
 import net.minecraft.nbt.StringNbtReader;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;

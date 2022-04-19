@@ -1,23 +1,15 @@
 package io.github.simplycmd.terracraft.recipes;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import net.minecraft.client.gui.screen.ingame.CraftingScreen;
 import net.minecraft.inventory.CraftingInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.*;
-import net.minecraft.screen.CraftingScreenHandler;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.SpecialCraftingRecipe;
+import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-
-import java.util.Iterator;
 
 import static io.github.simplycmd.terracraft.Main.MOD_ID;
 

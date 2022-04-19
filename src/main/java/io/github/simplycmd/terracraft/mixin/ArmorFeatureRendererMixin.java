@@ -1,20 +1,18 @@
 package io.github.simplycmd.terracraft.mixin;
 
+import dev.emi.trinkets.api.SlotType;
+import dev.emi.trinkets.api.TrinketComponent;
+import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-
-import java.util.Optional;
-
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import dev.emi.trinkets.api.SlotType;
-import dev.emi.trinkets.api.TrinketComponent;
-import dev.emi.trinkets.api.TrinketsApi;
+import java.util.Optional;
 
 @Mixin(ArmorFeatureRenderer.class)
 public class ArmorFeatureRendererMixin<T extends LivingEntity> {

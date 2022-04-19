@@ -1,7 +1,5 @@
 package io.github.simplycmd.terracraft.entities.spark;
 
-import java.util.Optional;
-
 import io.github.simplycmd.terracraft.entities.util.BaseEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -11,6 +9,8 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import java.util.Optional;
 
 public class SparkEntity extends BaseEntity {
     private static final float VEL_CONST = 0.017453292F;

@@ -1,6 +1,10 @@
 package io.github.simplycmd.terracraft.registry;
 
+import com.simplycmd.featherlib.registry.SimpleBlock;
+import io.github.simplycmd.terracraft.Main;
+import io.github.simplycmd.terracraft.util.Tuple;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -9,23 +13,15 @@ import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import java.util.List;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
-import net.minecraft.world.gen.feature.SimpleBlockFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+
+import java.util.List;
 import java.util.function.Predicate;
-import com.simplycmd.featherlib.registry.SimpleBlock;
-import io.github.simplycmd.terracraft.Main;
-import io.github.simplycmd.terracraft.util.Tuple;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
-import net.minecraft.world.gen.feature.PlacedFeatures;
 
 public class FeatureRegistry {
         // Daybloom
