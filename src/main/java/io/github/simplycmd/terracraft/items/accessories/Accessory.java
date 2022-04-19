@@ -4,6 +4,7 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import dev.emi.trinkets.api.SlotReference;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -20,5 +21,9 @@ public interface Accessory {
     }
 
     default void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+    }
+
+    default AccessoryItem create(FabricItemSettings settings) {
+        return AccessoryItem.builder().addAccessory(this).settings(settings).build();
     }
 }
