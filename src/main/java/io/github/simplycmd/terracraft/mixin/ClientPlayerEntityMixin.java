@@ -25,7 +25,7 @@ import javax.annotation.Nonnull;
 
 import java.util.ArrayList;
 
-import static io.github.simplycmd.terracraft.util.TrinketsUtil.getDJList;
+import static io.github.simplycmd.terracraft.util.AccessoryUtil.getDJList;
 
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin extends LivingEntity implements LivingEntityExtension {
