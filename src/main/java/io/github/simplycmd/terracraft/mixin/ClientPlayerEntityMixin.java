@@ -1,7 +1,7 @@
 package io.github.simplycmd.terracraft.mixin;
 
-import io.github.simplycmd.terracraft.items.accessories.v2.AutoSwingAccessory;
-import io.github.simplycmd.terracraft.items.accessories.v2.DoubleJumpAccessory;
+import io.github.simplycmd.terracraft.items.accessories.AutoSwingAccessory;
+import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessory;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import io.github.simplycmd.terracraft.util.ParticleUtil;

@@ -1,8 +1,7 @@
-package io.github.simplycmd.terracraft.items.accessories.v2;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;

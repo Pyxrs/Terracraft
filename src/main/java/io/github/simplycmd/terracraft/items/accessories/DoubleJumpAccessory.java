@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.accessories.v2;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import com.simplycmd.featherlib.registry.SimpleItem;
 import io.github.simplycmd.terracraft.registry.ItemRegistry;

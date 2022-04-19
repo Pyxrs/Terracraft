@@ -1,7 +1,7 @@
 package io.github.simplycmd.terracraft.util;
 
 
-import io.github.simplycmd.terracraft.items.accessories.v2.DoubleJumpAccessory;
+import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessory;
 
 import java.util.HashMap;
 

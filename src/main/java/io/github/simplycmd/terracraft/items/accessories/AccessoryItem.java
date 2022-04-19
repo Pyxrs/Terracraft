@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.accessories.v2;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import com.google.common.collect.Multimap;
 import dev.emi.trinkets.api.SlotReference;
@@ -11,7 +11,6 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.rmi.UnexpectedException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;

@@ -4,13 +4,12 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 
-import dev.emi.trinkets.api.TrinketItem;
 import dev.emi.trinkets.api.TrinketsApi;
-import io.github.simplycmd.terracraft.items.accessories.v2.AccessoryItem;
-import io.github.simplycmd.terracraft.items.accessories.v2.Accessory;
+import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
+import io.github.simplycmd.terracraft.items.accessories.Accessory;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
-import io.github.simplycmd.terracraft.items.accessories.v2.DoubleJumpAccessory;
+import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessory;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.accessories.v2;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;

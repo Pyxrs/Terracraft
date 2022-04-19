@@ -1,6 +1,6 @@
 package io.github.simplycmd.terracraft.packets;
 
-import io.github.simplycmd.terracraft.items.accessories.v2.DoubleJumpAccessory;
+import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessory;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.gui.BuyScreenHandler;

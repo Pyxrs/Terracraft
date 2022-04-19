@@ -4,7 +4,7 @@ import com.simplycmd.featherlib.registry.SimpleItem;
 
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.items.*;
-import io.github.simplycmd.terracraft.items.accessories.v2.*;
+import io.github.simplycmd.terracraft.items.accessories.*;
 import io.github.simplycmd.terracraft.items.util.*;
 import io.github.simplycmd.terracraft.items.util.tools.*;
 import io.github.simplycmd.terracraft.util.ParticleUtil;

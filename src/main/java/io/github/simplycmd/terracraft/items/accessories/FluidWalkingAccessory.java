@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.accessories.v2;
+package io.github.simplycmd.terracraft.items.accessories;
 
 import be.florens.expandability.api.fabric.LivingFluidCollisionCallback;
 import io.github.simplycmd.terracraft.util.AccessoryUtil;
