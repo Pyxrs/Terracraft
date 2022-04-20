@@ -8,6 +8,7 @@ import io.github.simplycmd.terracraft.util.LivingEntityExtension;
 import net.minecraft.block.Block;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.HashMap;
@@ -57,6 +59,13 @@ public abstract class LivingEntityMixin implements LivingEntityExtension {
             return velocity.add(0, 0.1, 0);
         }
         return velocity;
+    }
+
+    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;tick()V", shift = At.Shift.AFTER))
+    private void terracraft$tick(CallbackInfo ci) {
+        for (ItemStack accessoryItem : AccessoryUtil.getAccessoryItemStacks((LivingEntity) (Object) this)) {
+            ((AccessoryItem)accessoryItem.getItem()).itemTick(accessoryItem, ((LivingEntity)(Object)this).world, ((LivingEntity)(Object)this));
+        }
     }
 
     @Inject(method = "computeFallDamage", at = @At("RETURN"), cancellable = true)

@@ -53,6 +53,13 @@ public class AccessoryItem extends TrinketItem {
         }
     }
 
+    // added this, then realized trinkets already has one like this
+    public void itemTick(ItemStack stack, World world, LivingEntity entity) {
+        for (Accessory accessory : accessories) {
+            accessory.itemTick(stack, world, entity);
+        }
+    }
+
     public static class Builder {
         private final ArrayList<Accessory> accessories = new ArrayList<>();
         private final ArrayList<NeedsItem> accessoriesItem = new ArrayList<>();

@@ -6,6 +6,7 @@ import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
 import io.github.simplycmd.terracraft.items.accessories.DoubleJumpAccessory;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -14,6 +15,20 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 
 public class AccessoryUtil {
+
+    public static ItemStack[] getAccessoryItemStacks(LivingEntity entity) {
+        ArrayList<ItemStack> accessoryItems = new ArrayList<>();
+        TrinketsApi.getTrinketComponent(entity).ifPresent(
+                component-> {
+                    component.getAllEquipped().forEach((slotReferenceItemStackPair -> {
+                        if (slotReferenceItemStackPair.getRight().getItem() instanceof AccessoryItem accessoryItem) {
+                            accessoryItems.add(slotReferenceItemStackPair.getRight());
+                        }
+                    }));
+                }
+        );
+        return accessoryItems.toArray(new ItemStack[0]);
+    }
     /**
      * Checks if the given AccessoryItem is equipped on the given LivingEntity.
      * @param entity The LivingEntity to check.

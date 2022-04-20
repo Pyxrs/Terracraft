@@ -16,6 +16,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.Identifier;
 
@@ -67,7 +68,7 @@ public class ItemRegistry {
         /*TODO*/balloon_pufferfish = new SimpleItem(ID("balloon_pufferfish"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
         /*TODO*/climbing_claws = new SimpleItem(ID("climbing_claws"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
         cloud_in_a_bottle = new SimpleItem(ID("cloud_in_a_bottle"), AccessoryItem.builder().addAccessory(DoubleJumpAccessory.create(ParticleUtil.getParticleId(ParticleTypes.CAMPFIRE_COSY_SMOKE), 50, 0.4, 1)).settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
-        /*TODO*/dunerider_boots = new SimpleItem(ID("dunerider_boots"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
+        dunerider_boots = new SimpleItem(ID("dunerider_boots"), AccessoryItem.builder().addAccessory(new SpeedOnBlockAccessory(BlockTags.SAND, 0.4F)).addAccessory(new SpeedAccessory(0.1F)).settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
         flipper = new SimpleItem(ID("flipper"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
         /*TODO*/flurry_boots = new SimpleItem(ID("flurry_boots"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();
         /*TODO*/flying_carpet = new SimpleItem(ID("flying_carpet"), AccessoryItem.builder().settings(new FabricItemSettings().group(ItemGroup.MISC)).build()).defaultItemModel();

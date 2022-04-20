@@ -32,7 +32,9 @@ public class MirrorItem extends Item implements BaseItem {
     private ServerPlayerEntity player;
     private ClientPlayerEntity clientPlayer;
 
-    @Override
+    // TODO: send packets for the animation
+    @Override // why
+    // this code will fail on a dedicated server and in multiplayer as the server can't access ClientPlayerEntity
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         if (playerEntity instanceof ServerPlayerEntity) player = (ServerPlayerEntity) playerEntity; // Get server player
         else if (playerEntity instanceof ClientPlayerEntity) clientPlayer = (ClientPlayerEntity) playerEntity; // Get client player

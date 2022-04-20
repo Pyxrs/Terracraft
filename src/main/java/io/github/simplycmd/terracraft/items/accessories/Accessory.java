@@ -16,11 +16,19 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public interface Accessory {
+    /**
+     * This method returns the modifiers of the {@link Accessory}.<br/>
+     * This method is not meant to be called, it is just meant to be overridden
+     */
     default Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         return Multimaps.newMultimap(Maps.newLinkedHashMap(), ArrayList::new);
     }
 
     default void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+    }
+
+    default void itemTick(ItemStack stack, World world, LivingEntity entity) {
+
     }
 
     default AccessoryItem create(FabricItemSettings settings) {
