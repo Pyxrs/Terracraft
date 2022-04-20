@@ -60,7 +60,6 @@ public class PacketHandler {
                 //player.jump();
                 player.getItemCooldownManager().set(DoubleJumpAccessory.getFromPower(d).getItem(), 5);
                 PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
-                OfferUtils.initializeBuyOffer(player);
                 passedData.writeUuid(player.getUuid());
                 passedData.writeByte(DoubleJumpAccessory.getFromPower(d).particleId());
                 passedData.writeInt(DoubleJumpAccessory.getFromPower(d).particleAmount());

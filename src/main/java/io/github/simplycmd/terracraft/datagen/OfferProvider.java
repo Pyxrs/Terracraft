@@ -22,7 +22,8 @@ import java.nio.file.Path;
 import java.util.Objects;
 
 public abstract class OfferProvider implements DataProvider {
-    private final OfferList offers = new OfferList();
+    private final OfferList buyOffers = new OfferList();
+    private final OfferList sellOffers = new OfferList();
     private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().disableHtmlEscaping().create();
     public final FabricDataGenerator dataGenerator;
     public final String modid;
@@ -35,27 +36,46 @@ public abstract class OfferProvider implements DataProvider {
     public void run(DataCache cache) throws IOException {
         generateOffers();
         var object = new JsonArray();
-        for (Offer offer : offers) {
+        var object2 = new JsonArray();
+        for (Offer offer : buyOffers) {
             object.add(serializeOffer(offer));
         }
+        for (Offer offer : sellOffers) {
+            object2.add(serializeOffer(offer));
+        }
         var trueObject = new JsonObject();
+        var trueObject2 = new JsonObject();
         trueObject.addProperty("replace", false);
         trueObject.add("offers", object);
+        trueObject2.addProperty("replace", false);
+        trueObject2.add("offers", object2);
         String rawJson = JavaUnicodeEscaper.outsideOf(0, 0x7f).translate(GSON.toJson(trueObject));
-        Path path = this.dataGenerator.getOutput().resolve("data/" + this.dataGenerator.getModId() + "/terracraft/" + "offers" + ".json");
+        String rawJson2 = JavaUnicodeEscaper.outsideOf(0, 0x7f).translate(GSON.toJson(trueObject2));
+        Path path = this.dataGenerator.getOutput().resolve("data/" + this.dataGenerator.getModId() + "/terracraft/" + "buy_offers" + ".json");
+        Path path2 = this.dataGenerator.getOutput().resolve("data/" + this.dataGenerator.getModId() + "/terracraft/" + "sell_offers" + ".json");
         var debug = true;
         if (debug) {
-            System.out.println("JSON: " + rawJson);
-            System.out.println("Path: " + path);
+            System.out.println("JSON(BUY): " + rawJson);
+            System.out.println("Path(BUY): " + path);
+            System.out.println("JSON(SELL): " + rawJson2);
+            System.out.println("Path(SELL): " + path2);
         }
         String hash = SHA1.hashUnencodedChars(rawJson).toString();
+        String hash2 = SHA1.hashUnencodedChars(rawJson2).toString();
         if (!Objects.equals(cache.getOldSha1(path), hash) || !Files.exists(path)) {
             Files.createDirectories(path.getParent());
             try (BufferedWriter writer = Files.newBufferedWriter(path)) {
                 writer.write(rawJson);
             }
         }
+        if (!Objects.equals(cache.getOldSha1(path2), hash2) || !Files.exists(path2)) {
+            Files.createDirectories(path2.getParent());
+            try (BufferedWriter writer = Files.newBufferedWriter(path2)) {
+                writer.write(rawJson2);
+            }
+        }
         cache.updateSha1(path, hash);
+        cache.updateSha1(path2, hash2);
     }
 
     private JsonObject serializeOffer(Offer offer) {
@@ -70,7 +90,7 @@ public abstract class OfferProvider implements DataProvider {
         object.addProperty("id", Registry.ITEM.getId(item.getItem()).toString());
         object.addProperty("Count", item.getCount());
         if (item.getNbt() != null)
-        object.addProperty("tag", item.getNbt().toString());
+            object.addProperty("tag", item.getNbt().toString());
         return object;
     }
 
@@ -79,24 +99,44 @@ public abstract class OfferProvider implements DataProvider {
         return "Offers: " + modid;
     }
 
-    public void addOffer(Offer offer) {
-        offers.add(offer);
+    public void addBuyOffer(Offer offer) {
+        buyOffers.add(offer);
     }
 
-    public void addOffer(ItemStack stack, Value value) {
-        offers.add(new Offer(stack, value));
+    public void addBuyOffer(ItemStack stack, Value value) {
+        buyOffers.add(new Offer(stack, value));
     }
 
-    public void addOffer(ItemStack stack, long value) {
-        offers.add(new Offer(stack, new Value(value)));
+    public void addBuyOffer(ItemStack stack, long value) {
+        buyOffers.add(new Offer(stack, new Value(value)));
     }
 
-    public void addOffer(Item item, Value value) {
-        offers.add(new Offer(item.getDefaultStack(), value));
+    public void addBuyOffer(Item item, Value value) {
+        buyOffers.add(new Offer(item.getDefaultStack(), value));
     }
 
-    public void addOffer(Item item, long value) {
-        offers.add(new Offer(item.getDefaultStack(), new Value(value)));
+    public void addBuyOffer(Item item, long value) {
+        buyOffers.add(new Offer(item.getDefaultStack(), new Value(value)));
+    }
+
+    public void addSellOffer(Offer offer) {
+        sellOffers.add(offer);
+    }
+
+    public void addSellOffer(ItemStack stack, Value value) {
+        sellOffers.add(new Offer(stack, value));
+    }
+
+    public void addSellOffer(ItemStack stack, long value) {
+        sellOffers.add(new Offer(stack, new Value(value)));
+    }
+
+    public void addSellOffer(Item item, Value value) {
+        sellOffers.add(new Offer(item.getDefaultStack(), value));
+    }
+
+    public void addSellOffer(Item item, long value) {
+        sellOffers.add(new Offer(item.getDefaultStack(), new Value(value)));
     }
 
     protected abstract void generateOffers();

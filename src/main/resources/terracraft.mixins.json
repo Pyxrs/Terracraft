@@ -12,10 +12,10 @@
     "RecipeManagerMixin"
   ],
   "client": [
+    "client.ArmorFeatureRendererMixin",
     "client.BipedEntityModelMixin",
     "client.ClientPlayerEntityMixin",
-    "client.MinecraftClientAccessor",
-    "client.ArmorFeatureRendererMixin"
+    "client.MinecraftClientAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

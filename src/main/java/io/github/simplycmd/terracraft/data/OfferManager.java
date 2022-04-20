@@ -51,7 +51,7 @@ public class OfferManager implements IdentifiableResourceReloadListener {
     public CompletableFuture<Void> reload(Synchronizer synchronizer, ResourceManager manager, Profiler prepareProfiler, Profiler applyProfiler, Executor prepareExecutor, Executor applyExecutor) {
         return CompletableFuture.allOf(CompletableFuture.runAsync(() -> {
             String folder = "terracraft";
-            List<Identifier> resources = new ArrayList<>(manager.findResources(folder, (filename)-> Objects.equals(filename, "offers.json")));
+            List<Identifier> resources = new ArrayList<>(manager.findResources(folder, (filename)-> Objects.equals(filename, "buy_offers.json")));
             resources.forEach((identifier -> System.out.println("Identifier: " + identifier)));
             resources.sort((r1, r2) -> {
                 if(r1.getNamespace().equals(r2.getNamespace())) return 0;

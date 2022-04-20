@@ -1,8 +1,12 @@
 package io.github.simplycmd.terracraft.datagen;
 
+import io.github.simplycmd.terracraft.items.util.Value;
+import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.item.Items;
+
+import static io.github.simplycmd.terracraft.registry.ItemRegistry.*;
 
 public class ModDataGeneration implements DataGeneratorEntrypoint {
     @Override
@@ -10,8 +14,12 @@ public class ModDataGeneration implements DataGeneratorEntrypoint {
         fabricDataGenerator.addProvider(new OfferProvider(fabricDataGenerator) {
             @Override
             protected void generateOffers() {
-                addOffer(Items.BEDROCK, 214748364700L);
-                addOffer(Items.OBSIDIAN, 11500);
+                addSellOffer(sandstorm_in_a_bottle.getItem(), new Value(0, 3, 0, 0));
+                addSellOffer(cloud_in_a_bottle.getItem(), new Value(0, 1, 0, 0));
+                addSellOffer(tsunami_in_a_bottle.getItem(), new Value(0, 1, 0, 0));
+                addBuyOffer(Items.BEDROCK, 214748364700L);
+                addBuyOffer(Items.OBSIDIAN, 11500);
+                addBuyOffer(sandstorm_in_a_bottle.getItem(), new Value(76, 10, 29, 20));
             }
         });
 //        fabricDataGenerator.addProvider(new FabricModelProvider(fabricDataGenerator) {
