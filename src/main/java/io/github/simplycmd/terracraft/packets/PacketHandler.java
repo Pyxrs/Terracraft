@@ -58,7 +58,7 @@ public class PacketHandler {
         if(Arrays.stream(AccessoryUtil.getDJList(player)).toList().contains(DoubleJumpAccessory.getFromPower(d))) {
             server.execute(()->{
                 //player.jump();
-                //player.getItemCooldownManager().set(DoubleJumpAccessory.getFromPower(d), 5);
+                player.getItemCooldownManager().set(DoubleJumpAccessory.getFromPower(d).getItem(), 5);
                 PacketByteBuf passedData = new PacketByteBuf(Unpooled.buffer());
                 OfferUtils.initializeBuyOffer(player);
                 passedData.writeUuid(player.getUuid());

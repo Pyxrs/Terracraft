@@ -13,13 +13,15 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.UUID;
 
 public class AccessoryItem extends TrinketItem {
     private final Accessory[] accessories;
     private AccessoryItem(Accessory[] accessories, NeedsItem[] needsItems, Settings settings) {
         super(settings);
-        var d = Arrays.asList(accessories);
+        var d = new ArrayList<Accessory>();
+        d.addAll(Arrays.stream(accessories).toList());
         for (NeedsItem needsItem : needsItems) {
             d.add(needsItem.createAccessory(this));
         }

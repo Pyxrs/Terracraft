@@ -10,6 +10,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -290,7 +291,8 @@ public class BuyScreen extends HandledScreen<BuyScreenHandler> {
         int i = (this.width - this.backgroundWidth) / 2;
         int j = (this.height - this.backgroundHeight) / 2;
         //super.drawForeground(matrices, mouseX, mouseY);
-        this.textRenderer.draw(matrices, "TM: " + ((PlayerEntityExtension)MinecraftClient.getInstance().player).getTemporaryMoney(), i, j-this.textRenderer.fontHeight, 0xffffff);
+        if (FabricLoader.getInstance().isDevelopmentEnvironment())
+        this.textRenderer.draw(matrices, "TM: " + ((PlayerEntityExtension)MinecraftClient.getInstance().player).getTemporaryMoney(), 0, -10, 0xffffff);
         this.textRenderer.draw(matrices, this.playerInventoryTitle, (float)this.playerInventoryTitleX, (float)this.playerInventoryTitleY, 4210752);
 
         int l = this.textRenderer.getWidth("Offers");

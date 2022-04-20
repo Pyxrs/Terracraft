@@ -6,6 +6,16 @@ import io.github.simplycmd.terracraft.registry.ItemRegistry;
 import java.util.HashMap;
 
 public abstract class DoubleJumpAccessory implements Accessory {
+    private final AccessoryItem item;
+
+    private DoubleJumpAccessory(AccessoryItem item) {
+        this.item = item;
+    }
+
+    public AccessoryItem getItem() {
+        return item;
+    }
+
     public abstract byte particleId();
 
     public int particleAmount() {
@@ -18,8 +28,8 @@ public abstract class DoubleJumpAccessory implements Accessory {
 
     public abstract int doubleJumps();
 
-    public static DoubleJumpAccessory create(byte particleId, int particleAmount, double jumpPower, int doubleJumps) {
-        return new DoubleJumpAccessory() {
+    public static AccessoryItem.NeedsItem create(byte particleId, int particleAmount, double jumpPower, int doubleJumps) {
+        return (item) -> new DoubleJumpAccessory(item) {
             @Override
             public byte particleId() {
                 return particleId;

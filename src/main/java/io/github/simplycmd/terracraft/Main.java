@@ -9,6 +9,8 @@ import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
 import io.github.simplycmd.terracraft.items.accessories.TestAccessory;
 import io.github.simplycmd.terracraft.packets.PacketHandler;
 import io.github.simplycmd.terracraft.registry.*;
+import io.github.simplycmd.terracraft.util.Offer;
+import io.github.simplycmd.terracraft.util.OfferUtils;
 import io.github.simplycmd.terracraft.util.ParticleUtil;
 import io.github.simplycmd.terracraft.util.PlayerEntityExtension;
 import net.fabricmc.api.ClientModInitializer;
@@ -54,12 +56,23 @@ public class Main implements ModInitializer, ClientModInitializer {
 		// dev testing command
 		CommandRegistrationCallback.EVENT.register(((dispatcher, dedicated) -> {
 			LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("money").requires((serverCommandSource -> serverCommandSource.getEntity() instanceof PlayerEntity && FabricLoader.getInstance().isDevelopmentEnvironment()))
-			    .then(CommandManager.argument("amount", LongArgumentType.longArg()).executes(
-				    (context) -> {
-					        ((PlayerEntityExtension)(PlayerEntity)context.getSource().getEntity()).setTemporaryMoney(context.getArgument("amount", Long.class));
-						    return 1;
-					    }
+					.then(CommandManager.argument("amount", LongArgumentType.longArg()).executes(
+							(context) -> {
+								((PlayerEntityExtension)(PlayerEntity)context.getSource().getEntity()).setTemporaryMoney(context.getArgument("amount", Long.class));
+								return 1;
+							}
 					));
+			dispatcher.register(literalArgumentBuilder);
+		}));
+
+		CommandRegistrationCallback.EVENT.register(((dispatcher, dedicated) -> {
+			LiteralArgumentBuilder<ServerCommandSource> literalArgumentBuilder = CommandManager.literal("offerscreen").requires((serverCommandSource -> serverCommandSource.getEntity() instanceof PlayerEntity && FabricLoader.getInstance().isDevelopmentEnvironment()))
+					.executes(
+							(context) -> {
+								OfferUtils.initializeBuyOffer(context.getSource().getPlayer());
+								return 1;
+							}
+					);
 			dispatcher.register(literalArgumentBuilder);
 		}));
 		TrackedDataHandlerRegistry.register(LONG_HANDLER);

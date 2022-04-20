@@ -84,8 +84,8 @@ public abstract class ClientPlayerEntityMixin extends LivingEntity implements Li
             terracraft$resetJumpCounter();
             //amountOfJumps = TrinketsUtil.getDJ(player) == null ? 0 : TrinketsUtil.getDJ(player).doubleJumps();
         } else if (getBestActiveDJ() != null && !jumpedRecently &&
-                terracraft$getJumpCounter().get(getBestActiveDJ()) > 0 ||
-               /* !player.getItemCooldownManager().isCoolingDown(getBestActiveDJ())*/ false){
+                terracraft$getJumpCounter().get(getBestActiveDJ()) > 0 &&
+                !player.getItemCooldownManager().isCoolingDown(getBestActiveDJ().getItem())){
             if (player.input.jumping && !player.getAbilities().flying) {
                 if (canJump(player)) {
                     //--amountOfJumps;
