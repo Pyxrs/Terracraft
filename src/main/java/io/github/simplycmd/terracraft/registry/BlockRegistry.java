@@ -117,7 +117,7 @@ public class BlockRegistry {
         return new Torch(block1, block2, item1);
     }
 
-    private static class Torch {
+    public static class Torch {
         @Getter private final SimpleBlock block1;
         @Getter private final SimpleBlock block2;
         @Getter private final SimpleItem item;
