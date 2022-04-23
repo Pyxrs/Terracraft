@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+    "S"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:coal"
+    },
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "minecraft:nether_wart"
+    }
+  },
+  "result": {
+    "item": "terracraft:crimson_torch",
+    "count": 4
+  }
+}

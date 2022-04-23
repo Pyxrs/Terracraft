@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+    "S"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:coal"
+    },
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "minecraft:bone"
+    }
+  },
+  "result": {
+    "item": "terracraft:bone_torch",
+    "count": 4
+  }
+}

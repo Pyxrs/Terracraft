@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "offers": [
+    {
+      "item": {
+        "id": "terracraft:sandstorm_in_a_bottle",
+        "Count": 1
+      },
+      "price": 12288
+    },
+    {
+      "item": {
+        "id": "terracraft:cloud_in_a_bottle",
+        "Count": 1
+      },
+      "price": 4096
+    },
+    {
+      "item": {
+        "id": "terracraft:tsunami_in_a_bottle",
+        "Count": 1
+      },
+      "price": 4096
+    }
+  ]
+}

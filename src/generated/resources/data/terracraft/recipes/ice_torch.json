@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+    "S"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:coal"
+    },
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "minecraft:ice"
+    }
+  },
+  "result": {
+    "item": "terracraft:ice_torch",
+    "count": 4
+  }
+}

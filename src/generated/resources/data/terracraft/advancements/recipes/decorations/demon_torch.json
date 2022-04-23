@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "terracraft:demon_torch"
+    ]
+  },
+  "criteria": {
+    "has_demon_torch": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "terracraft:demon_torch"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "terracraft:demon_torch"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_demon_torch",
+      "has_the_recipe"
+    ]
+  ]
+}

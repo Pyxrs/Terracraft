@@ -31,4 +31,4 @@ bin/
 # fabric
 
 run/
-src/generated/
+#src/generated/ don't ignore data generated files

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+    "S"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:coal"
+    },
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "minecraft:ghast_tear"
+    }
+  },
+  "result": {
+    "item": "terracraft:demon_torch",
+    "count": 4
+  }
+}

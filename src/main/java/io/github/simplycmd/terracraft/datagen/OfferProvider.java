@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.DataCache;
 import net.minecraft.data.DataProvider;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
 import org.apache.commons.lang3.text.translate.JavaUnicodeEscaper;
@@ -111,12 +112,12 @@ public abstract class OfferProvider implements DataProvider {
         buyOffers.add(new Offer(stack, new Value(value)));
     }
 
-    public void addBuyOffer(Item item, Value value) {
-        buyOffers.add(new Offer(item.getDefaultStack(), value));
+    public void addBuyOffer(ItemConvertible item, Value value) {
+        buyOffers.add(new Offer(item.asItem().getDefaultStack(), value));
     }
 
-    public void addBuyOffer(Item item, long value) {
-        buyOffers.add(new Offer(item.getDefaultStack(), new Value(value)));
+    public void addBuyOffer(ItemConvertible item, long value) {
+        buyOffers.add(new Offer(item.asItem().getDefaultStack(), new Value(value)));
     }
 
     public void addSellOffer(Offer offer) {
@@ -131,12 +132,12 @@ public abstract class OfferProvider implements DataProvider {
         sellOffers.add(new Offer(stack, new Value(value)));
     }
 
-    public void addSellOffer(Item item, Value value) {
-        sellOffers.add(new Offer(item.getDefaultStack(), value));
+    public void addSellOffer(ItemConvertible item, Value value) {
+        sellOffers.add(new Offer(item.asItem().getDefaultStack(), value));
     }
 
-    public void addSellOffer(Item item, long value) {
-        sellOffers.add(new Offer(item.getDefaultStack(), new Value(value)));
+    public void addSellOffer(ItemConvertible item, long value) {
+        sellOffers.add(new Offer(item.asItem().getDefaultStack(), new Value(value)));
     }
 
     protected abstract void generateOffers();

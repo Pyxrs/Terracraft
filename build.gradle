@@ -104,7 +104,7 @@ loom {
 			name "Data Generation"
 			vmArg "-Dfabric-api.datagen"
 			vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
-			vmArg "-Dfabric-api.datagen.strict-validation"
+			//vmArg "-Dfabric-api.datagen.strict-validation" can't be strict right now
 			vmArg "-Dfabric-api.datagen.modid=terracraft"
 			ideConfigGenerated = true
 			runDir "build/datagen"
@@ -114,7 +114,7 @@ loom {
 			name "Data Generation"
 			vmArg "-Dfabric-api.datagen"
 			vmArg "-Dfabric-api.datagen.output-dir=${file("src/generated/resources")}"
-			vmArg "-Dfabric-api.datagen.strict-validation"
+			//vmArg "-Dfabric-api.datagen.strict-validation" can't be strict right now
 			vmArg "-Dfabric-api.datagen.modid=terracraft"
 			ideConfigGenerated = true
 			runDir "build/datagen"

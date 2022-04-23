@@ -78,7 +78,9 @@ public class Main implements ModInitializer, ClientModInitializer {
 		TrackedDataHandlerRegistry.register(LONG_HANDLER);
 		ParticleUtil.particleTypes();
 		BlockRegistry.register();
+		BlockRegistry.reflectRegistration();
 		ItemRegistry.register();
+		ItemRegistry.reflectRegistration();
 		SoundRegistry.register();
 		FeatureRegistry.register();
 		TrinketsRegistry.register();
@@ -86,7 +88,6 @@ public class Main implements ModInitializer, ClientModInitializer {
 		ScreenHandlerRegistry.registerScreenHandlers();
 		PacketHandler.registerServerPackets();
 		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(OfferManager.instance());
-
 		if (FabricLoader.getInstance().isDevelopmentEnvironment())
 		Registry.register(Registry.ITEM, "terracraft:test_accessory", AccessoryItem.builder().addAccessory(TestAccessory::new).settings(new FabricItemSettings()).build());
 		//Resources.RESOURCE_PACK.dump();

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "terracraft:bone_torch"
+    ]
+  },
+  "criteria": {
+    "has_bone_torch": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "terracraft:bone_torch"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "terracraft:bone_torch"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bone_torch",
+      "has_the_recipe"
+    ]
+  ]
+}

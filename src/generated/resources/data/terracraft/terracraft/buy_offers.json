@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "offers": [
+    {
+      "item": {
+        "id": "minecraft:bedrock",
+        "Count": 1
+      },
+      "price": 214748364700
+    },
+    {
+      "item": {
+        "id": "minecraft:obsidian",
+        "Count": 1
+      },
+      "price": 11500
+    },
+    {
+      "item": {
+        "id": "terracraft:sandstorm_in_a_bottle",
+        "Count": 1
+      },
+      "price": 19965780
+    }
+  ]
+}

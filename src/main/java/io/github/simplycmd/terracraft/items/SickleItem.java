@@ -25,7 +25,7 @@ public class SickleItem extends SwordItem implements BaseItem {
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
         if (miner instanceof ServerPlayerEntity && !((ServerPlayerEntity) miner).isCreative() && state.getBlock() instanceof FernBlock) {
-            ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), BlockRegistry.grass_bale.getItem().get().getDefaultStack());
+            ItemEntity entity = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), BlockRegistry.grass_bale.asItem().getDefaultStack());
             entity.updatePosition(pos.getX(), pos.getY(), pos.getZ());
             world.spawnEntity(entity);
         }

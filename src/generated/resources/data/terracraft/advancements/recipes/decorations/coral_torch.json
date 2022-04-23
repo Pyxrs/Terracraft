@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "terracraft:coral_torch"
+    ]
+  },
+  "criteria": {
+    "has_coral_torch": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "terracraft:coral_torch"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "terracraft:coral_torch"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_coral_torch",
+      "has_the_recipe"
+    ]
+  ]
+}

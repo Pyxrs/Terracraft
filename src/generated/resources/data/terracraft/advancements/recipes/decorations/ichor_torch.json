@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "terracraft:ichor_torch"
+    ]
+  },
+  "criteria": {
+    "has_ichor_torch": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "terracraft:ichor_torch"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "terracraft:ichor_torch"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ichor_torch",
+      "has_the_recipe"
+    ]
+  ]
+}
