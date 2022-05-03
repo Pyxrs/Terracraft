@@ -5,6 +5,7 @@ import com.simplycmd.featherlib.registry.SimpleItem;
 import io.github.simplycmd.terracraft.Main;
 import io.github.simplycmd.terracraft.blocks.*;
 import io.github.simplycmd.terracraft.blocks.items.LifeCrystalBlockItem;
+import io.github.simplycmd.terracraft.items.ExtendedSimpleItem;
 import lombok.Getter;
 import net.devtech.arrp.json.recipe.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -117,7 +118,7 @@ public class BlockRegistry {
         try {
             ArrayList<SimpleBlock> d = new ArrayList<>();
             for (Field field : BlockRegistry.class.getFields()) {
-                if (Modifier.isStatic(field.getModifiers()) && field.get(null) instanceof SimpleBlock block) {
+                if (Modifier.isStatic(field.getModifiers()) && field.get(null) instanceof SimpleBlock block && !(block.getBlock() instanceof PotBlock)) {
                     d.add(block);
                 }
             }
@@ -135,6 +136,7 @@ public class BlockRegistry {
     // for data generation
     public static record TorchData(Torch torch, Item resource){};
 
+    protected static final ArrayList<SimpleItem> torches = new ArrayList<>();
     private static Torch torch(String prefix, ParticleType<?> particle, Item resource) {
         final String torch = prefix + "_torch";
         final String wallTorch = prefix + "_wall_torch";
@@ -143,9 +145,10 @@ public class BlockRegistry {
         final SimpleBlock block2 = new SimpleBlock(ID(wallTorch), new CustomWallTorchBlock(FabricBlockSettings.of(Material.DECORATION).noCollision().breakInstantly().luminance((state) -> 10).sounds(BlockSoundGroup.WOOD), ParticleTypes.SOUL_FIRE_FLAME));
         Registry.register(Registry.BLOCK, block1.getId(), block1.getBlock());
         Registry.register(Registry.BLOCK, block2.getId(), block2.getBlock());
-        final SimpleItem item1 = new SimpleItem(ID(torch), new WallStandingBlockItem(block1.getBlock(), block2.getBlock(), new FabricItemSettings().group(ItemGroup.DECORATIONS)), (item, generator) -> {
+        final ExtendedSimpleItem item1 = new ExtendedSimpleItem(ID(torch), new WallStandingBlockItem(block1.getBlock(), block2.getBlock(), new FabricItemSettings().group(ItemGroup.DECORATIONS)), (item, generator) -> {
             generator.register(item, Models.TEMPLATE_TORCH);
         });
+        torches.add(item1);
         Registry.register(Registry.ITEM, item1.getId(), item1.asItem());
         var d = new Torch(block1, block2, item1);
         data.add(new TorchData(d, resource));

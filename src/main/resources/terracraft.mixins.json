@@ -9,7 +9,8 @@
     "ItemStackMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
-    "RecipeManagerMixin"
+    "RecipeManagerMixin",
+    "SimpleItemAccessor"
   ],
   "client": [
     "client.ArmorFeatureRendererMixin",

@@ -23,6 +23,7 @@ import static io.github.simplycmd.terracraft.registry.ItemRegistry.*;
 public class ModDataGeneration extends SimpleRegistry implements DataGeneratorEntrypoint {
     public ModDataGeneration() {
         super(BlockRegistry.getAllBlocks(), ItemRegistry.getAllItems());
+        //System.out.println(getAllItems().length);
     }
 
     @Override
