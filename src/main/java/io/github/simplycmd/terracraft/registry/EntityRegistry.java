@@ -11,7 +11,7 @@ import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntity;
 import io.github.simplycmd.terracraft.entities.grenade.GrenadeEntityRenderer;
 import io.github.simplycmd.terracraft.entities.spark.SparkEntity;
 import io.github.simplycmd.terracraft.entities.spark.SparkEntityRenderer;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -46,10 +46,10 @@ public class EntityRegistry {
             FabricEntityTypeBuilder.<SoulFireArrowEntity>create(SpawnGroup.MISC, SoulFireArrowEntity::new).dimensions(EntityDimensions.fixed(0.5F, 0.5F)).build()
     );
     public static void register() {
-        EntityRendererRegistry.register(GRENADE, GrenadeEntityRenderer::new);
-        EntityRendererRegistry.register(SPARK, SparkEntityRenderer::new);
-        EntityRendererRegistry.register(COIN_PORTAL, CoinPortalEntityRenderer::new);
-        EntityRendererRegistry.register(FLAMING_ARROW, FlamingArrowEntityRenderer::new);
-        EntityRendererRegistry.register(FLAMING_SOUL_ARROW, SoulFireArrowEntityRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(GRENADE, GrenadeEntityRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(SPARK, SparkEntityRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(COIN_PORTAL, CoinPortalEntityRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(FLAMING_ARROW, FlamingArrowEntityRenderer::new);
+        EntityRendererRegistry.INSTANCE.register(FLAMING_SOUL_ARROW, SoulFireArrowEntityRenderer::new);
     }
 }

@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public abstract class BaseEntityRenderer extends EntityRenderer<Entity> {
-    private final Identifier TEXTURE;
+    private static Identifier TEXTURE;
     private final EntityModel<Entity> model;
 
     public BaseEntityRenderer(String path, EntityModel<Entity> model, EntityRendererFactory.Context ctx) {

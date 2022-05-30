@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.accessories;
+package io.github.simplycmd.terracraft.items.util.accessories;
 
 import java.util.UUID;
 

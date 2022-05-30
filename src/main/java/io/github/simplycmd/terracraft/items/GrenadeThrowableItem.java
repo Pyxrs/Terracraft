@@ -19,7 +19,6 @@ public class GrenadeThrowableItem extends Item implements BaseItem {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         GrenadeEntity grenade = new GrenadeEntity(EntityRegistry.GRENADE, world);
-        grenade.setFuse((short) 100);
         grenade.updatePosition(playerEntity.getX(), playerEntity.getY() + 2, playerEntity.getZ());
         grenade.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F);
         world.spawnEntity(grenade);

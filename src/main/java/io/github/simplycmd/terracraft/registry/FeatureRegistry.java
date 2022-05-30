@@ -23,7 +23,7 @@ import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import java.util.function.Predicate;
 import com.simplycmd.featherlib.registry.SimpleBlock;
 import io.github.simplycmd.terracraft.Main;
-import io.github.simplycmd.terracraft.util.Tuple;
+import io.github.simplycmd.terracraft.Tuple;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 
@@ -36,7 +36,6 @@ public class FeatureRegistry {
         public static ConfiguredFeature<RandomPatchFeatureConfig, ?> blueBerryBushCF;
         public static RegistryKey<PlacedFeature> blueBerryBushPF;
 
-        @SuppressWarnings("unchecked")
         public static void register() {
                 final Tuple daybloom = registerSimplePlant(BlockRegistry.daybloom, 22, 64, 3, 2, BiomeSelectors.includeByKey(BiomeKeys.FOREST, BiomeKeys.BIRCH_FOREST));
                 daybloomCF = (ConfiguredFeature<RandomPatchFeatureConfig, ?>)daybloom.get(0);

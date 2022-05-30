@@ -26,8 +26,7 @@
   "environment": "*",
   "entrypoints": {
     "main": ["io.github.simplycmd.terracraft.Main"],
-    "client": ["io.github.simplycmd.terracraft.Main"],
-    "fabric-datagen": ["io.github.simplycmd.terracraft.datagen.ModDataGeneration"]
+    "client": ["io.github.simplycmd.terracraft.Main"]
   },
   "mixins": [
     "terracraft.mixins.json"
@@ -41,6 +40,5 @@
   },
   "suggests": {
     "another-mod": "*"
-  },
-  "accessWidener": "terracraft.accesswidener"
+  }
 }

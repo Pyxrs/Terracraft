@@ -2,7 +2,7 @@ package io.github.simplycmd.terracraft.registry;
 
 import dev.emi.trinkets.api.TrinketsApi;
 import io.github.simplycmd.terracraft.Main;
-import io.github.simplycmd.terracraft.items.accessories.AccessoryItem;
+import io.github.simplycmd.terracraft.items.util.accessories.AccessoryItem;
 import net.fabricmc.fabric.api.util.TriState;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;

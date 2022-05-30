@@ -28,17 +28,23 @@ public class ArmorFeatureRendererMixin<T extends LivingEntity> {
             Optional<ItemStack> feet = Optional.empty();
             for (var equipped : component.get().getAllEquipped()) {
                 SlotType slotType = equipped.getLeft().inventory().getSlotType();
-                if (slotType.getGroup().equals("head")) head = Optional.of(equipped.getRight());
-                if (slotType.getGroup().equals("chest")) chest = Optional.of(equipped.getRight());
-                if (slotType.getGroup().equals("legs")) legs = Optional.of(equipped.getRight());
-                if (slotType.getGroup().equals("feet")) feet = Optional.of(equipped.getRight());
+                if (slotType.getGroup().equals("head")) { head = Optional.of(equipped.getRight()); }
+                if (slotType.getGroup().equals("chest")) { chest = Optional.of(equipped.getRight()); }
+                if (slotType.getGroup().equals("legs")) { legs = Optional.of(equipped.getRight()); }
+                if (slotType.getGroup().equals("feet")) { feet = Optional.of(equipped.getRight()); }
             }
-            Optional<ItemStack> stack = Optional.empty();
-            if (slot == EquipmentSlot.HEAD && head.isPresent()) stack = Optional.of(head.get());
-            if (slot == EquipmentSlot.CHEST && chest.isPresent()) stack = Optional.of(chest.get());
-            if (slot == EquipmentSlot.LEGS && legs.isPresent()) stack = Optional.of(legs.get());
-            if (slot == EquipmentSlot.FEET && feet.isPresent()) stack = Optional.of(feet.get());
-            if (stack.isPresent()) return stack.get();
+            if (slot == EquipmentSlot.HEAD && head.isPresent()) {
+                return head.get();
+            }
+            if (slot == EquipmentSlot.CHEST && chest.isPresent()) {
+                return chest.get();
+            }
+            if (slot == EquipmentSlot.LEGS && legs.isPresent()) {
+                return legs.get();
+            }
+            if (slot == EquipmentSlot.FEET && feet.isPresent()) {
+                return feet.get();
+            }
         }
         return entity.getEquippedStack(slot);
     }

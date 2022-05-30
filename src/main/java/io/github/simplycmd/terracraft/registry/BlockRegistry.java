@@ -93,7 +93,6 @@ public class BlockRegistry {
     private static JIngredient tr(Item item) {
         return JIngredient.ingredient().item(item);
     }
-    @SuppressWarnings("unused")
     private static JIngredient tr(String tag) {
         return JIngredient.ingredient().tag(tag);
     }
@@ -119,7 +118,7 @@ public class BlockRegistry {
         return new Torch(block1, block2, item1);
     }
 
-    private static class Torch {
+    public static class Torch {
         @Getter private final SimpleBlock block1;
         @Getter private final SimpleBlock block2;
         @Getter private final SimpleItem item;

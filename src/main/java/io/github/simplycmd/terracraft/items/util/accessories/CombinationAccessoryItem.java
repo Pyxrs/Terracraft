@@ -1,4 +1,4 @@
-package io.github.simplycmd.terracraft.items.accessories;
+package io.github.simplycmd.terracraft.items.util.accessories;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -27,12 +27,16 @@ public class CombinationAccessoryItem extends AccessoryItem {
     
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        for (AccessoryItem ingredient : ingredients) ingredient.inventoryTick(stack, world, entity, slot, selected);
+        for (AccessoryItem ingredient : ingredients) {
+            ingredient.inventoryTick(stack, world, entity, slot, selected);
+        }
     }
 
     public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         HashMultimap<EntityAttribute, EntityAttributeModifier> map = HashMultimap.create();
-        for (AccessoryItem ingredient : ingredients) map.putAll(ingredient.getModifiers(stack, slot, entity, uuid));
+        for (AccessoryItem ingredient : ingredients) {
+            map.putAll(ingredient.getModifiers(stack, slot, entity, uuid));
+        }
         return map;
     }
 }

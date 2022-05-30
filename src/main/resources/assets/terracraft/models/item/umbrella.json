@@ -1,5 +1,5 @@
 {
-	"credit": "Made by RiverOaken#4963 and Jab125#9591",
+	"credit": "Made by RiverOaken#4963",
 	"texture_size": [64, 32],
 	"textures": {
 		"0": "terracraft:item/umbrella_held",
@@ -145,11 +145,6 @@
 			}
 		}
 	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [-90, 0, 0]
-		}
-	},
 	"groups": [
 		{
 			"name": "umbrella",
